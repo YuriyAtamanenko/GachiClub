@@ -9,5 +9,5 @@ export default defineConfig({
       components: '/src/components',
     },
   },
-  base: '/Power_Pulse/',
+  base: '/PowerPulse/',
 });
