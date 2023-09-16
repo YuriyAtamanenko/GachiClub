@@ -1,11 +1,11 @@
-import { DailyText, Plate } from './DailyPlate.style';
+import { DailyText, Ico, Plate } from './DailyPlate.style';
 import PropTypes from 'prop-types';
 
 const DailyPlate = ({ img, title, data, alt }) => {
   return (
     <Plate>
       <div style={{ display: 'flex' }}>
-        <img src={img} alt={alt} />
+        <Ico src={img} alt={alt} />
         <DailyText>{title}</DailyText>
       </div>
 

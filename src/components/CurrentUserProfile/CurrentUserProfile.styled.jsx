@@ -42,4 +42,5 @@ export const UserPlate = styled.p`
   color: rgba(239, 237, 232, 0.5);
   font-size: 14px;
   line-height: 18px;
+  margin-bottom: 32px;
 `;

@@ -1,23 +1,29 @@
 import styled from 'styled-components';
 
 export const Plate = styled.div`
-  width: calc(50% - 7px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   max-width: 214px;
   height: 96px;
-  padding: 14px 18px;
+  padding: 13px;
   background-color: var(--bright-accent-color);
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.2);
+
+  &:last-child {
+    flex-grow: 1;
+  }
 `;
 
+export const Ico = styled.img`
+  margin-right: 8px;
+`;
 export const DailyText = styled.p`
   color: rgba(239, 237, 232, 0.8);
-  font-feature-settings:
-    'clig' off,
-    'liga' off;
-  font-family: Roboto;
   font-size: 12px;
-  font-style: normal;
   font-weight: 400;
-  line-height: 18px;
+  line-height: 20px;
 `;
+
+export const Warning = styled.p``;
