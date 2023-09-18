@@ -26,8 +26,8 @@ function App() {
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/exercises" element={<ExercisesPage />} />
         <Route path="/profile" element={<ProfilePage />} />
-        <Route path="*" element={<ErrorPage />} />
       </Route>
+      <Route path="*" element={<ErrorPage />} />
     </Routes>
   );
 }
