@@ -1,5 +1,7 @@
 import { Field, Form, Formik } from 'formik';
 import {
+  CalendarContainer,
+  CalendarIco,
   CalendarStyled,
   ContainerField,
   LabelStyled,
@@ -8,6 +10,7 @@ import {
 } from './UserForm.style';
 import { useState } from 'react';
 import 'react-calendar/dist/Calendar.css';
+import SvgSprite from '../../images/sprite.svg';
 
 const initialValue = {
   userName: 'UserName',
@@ -22,11 +25,16 @@ const initialValue = {
 
 const UserForm = () => {
   const [date, setDate] = useState(new Date());
-
-  console.log('date', date.getMonth() + 1);
+  const [openCalendar, setOpenCalendar] = useState(false);
 
   const handleSubmit = e => {
     console.log('e', e);
+    setOpenCalendar(false);
+  };
+
+  const toglerCalendar = e => {
+    console.log('e.target', e.target);
+    setOpenCalendar(!openCalendar);
   };
 
   const formatDate = date => {
@@ -44,7 +52,7 @@ const UserForm = () => {
         </label>
 
         <label>
-          <PrimalField type="text" name="email" />
+          <PrimalField disabled={true} type="text" name="email" />
         </label>
         <ContainerField>
           <LabelStyled>
@@ -62,9 +70,13 @@ const UserForm = () => {
             <PrimalField type="text" name="desiredWeight" />
           </LabelStyled>
 
-          <LabelStyled>
+          <LabelStyled onClick={toglerCalendar}>
             <TitleForm id="calendar">Calendar</TitleForm>
+            <CalendarIco>
+              <use xlinkHref={`${SvgSprite}#icon-calendar`} />
+            </CalendarIco>
             <PrimalField
+              disabled={true}
               value={`${date.getDate()}.${
                 date.getMonth() + 1
               }.${date.getFullYear()}`}
@@ -72,13 +84,16 @@ const UserForm = () => {
               name="calendar"
             />
           </LabelStyled>
-          <CalendarStyled
-            id="calendar"
-            locale="en-US"
-            onChange={setDate}
-            value={date}
-            formatShortWeekday={(_, date) => formatDate(date)}
-          />
+          <CalendarContainer data-isopen={`${openCalendar ? 'open' : 'close'}`}>
+            <CalendarStyled
+              id="calendar"
+              locale="en-US"
+              onChange={setDate}
+              onClickDay={toglerCalendar}
+              value={date}
+              formatShortWeekday={(_, date) => formatDate(date)}
+            />
+          </CalendarContainer>
         </ContainerField>
 
         <div>

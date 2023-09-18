@@ -6,13 +6,18 @@ export const PrimalField = styled(Field)`
   width: 100%;
   padding: 14px;
   background-color: transparent;
+  font-size: 14px;
   border-radius: 12px;
   border: 1px solid var(--secondary-text-color);
-  color: rgba(239, 237, 232, 0.6);
+  color: var(--primary-text-color);
   margin-bottom: 8px;
 
-  &:focus {
-    color: var(--primary-text-color);
+  &[name='email'] {
+    color: rgba(239, 237, 232, 0.6);
+  }
+  &[name='calendar'] {
+    z-index: -1;
+    position: relative;
   }
 `;
 
@@ -42,6 +47,7 @@ export const ContainerField = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  position: relative;
 `;
 
 export const CalendarStyled = styled(Calendar)`
@@ -52,6 +58,7 @@ export const CalendarStyled = styled(Calendar)`
     padding: 13px;
     z-index: 1;
   }
+
   .react-calendar__navigation {
     height: auto;
     padding-bottom: 14px;
@@ -157,4 +164,23 @@ export const CalendarStyled = styled(Calendar)`
   .react-calendar__tile--active:enabled:focus {
     background: transparent;
   }
+`;
+
+export const CalendarContainer = styled.div`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translate(0, 100%);
+  height: ${props => (props['data-isopen'] === 'close' ? '0px' : '260px')};
+  overflow: hidden;
+  transition: height 1s ease;
+`;
+
+export const CalendarIco = styled.svg`
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translate(0, -15%);
 `;
