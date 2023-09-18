@@ -1,15 +1,13 @@
 import { Field, Form, Formik } from 'formik';
 import {
+  CalendarStyled,
   ContainerField,
   LabelStyled,
   PrimalField,
-  ReactDatePickerStyled,
   TitleForm,
 } from './UserForm.style';
 import { useState } from 'react';
-import ReactDatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-// import chevronDown from '../../assets/profile_img/chevron_down.svg';
+import 'react-calendar/dist/Calendar.css';
 
 const initialValue = {
   userName: 'UserName',
@@ -23,10 +21,17 @@ const initialValue = {
 };
 
 const UserForm = () => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [date, setDate] = useState(new Date());
+
+  console.log('date', date.getMonth() + 1);
 
   const handleSubmit = e => {
     console.log('e', e);
+  };
+
+  const formatDate = date => {
+    const days = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
+    return days[date.getDay()];
   };
 
   return (
@@ -59,18 +64,21 @@ const UserForm = () => {
 
           <LabelStyled>
             <TitleForm id="calendar">Calendar</TitleForm>
-            <PrimalField type="text" name="calendar" />
-          </LabelStyled>
-          <ReactDatePickerStyled>
-            <label htmlFor="date">Виберіть дату:</label>
-            <ReactDatePicker
-              id="date"
-              selected={selectedDate}
-              onChange={date => setSelectedDate(date)}
-              dateFormat="dd/MM/yyyy"
-              placeholderText="Оберіть дату"
+            <PrimalField
+              value={`${date.getDate()}.${
+                date.getMonth() + 1
+              }.${date.getFullYear()}`}
+              type="text"
+              name="calendar"
             />
-          </ReactDatePickerStyled>
+          </LabelStyled>
+          <CalendarStyled
+            id="calendar"
+            locale="en-US"
+            onChange={setDate}
+            value={date}
+            formatShortWeekday={(_, date) => formatDate(date)}
+          />
         </ContainerField>
 
         <div>
