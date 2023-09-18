@@ -1,25 +1,30 @@
 import { Field, Form, Formik } from 'formik';
 import {
-  ChevronDown,
   ContainerField,
   LabelStyled,
   PrimalField,
+  ReactDatePickerStyled,
   TitleForm,
 } from './UserForm.style';
-import chevronDown from '../../assets/profile_img/chevron_down.svg';
+import { useState } from 'react';
+import ReactDatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+// import chevronDown from '../../assets/profile_img/chevron_down.svg';
 
 const initialValue = {
   userName: 'UserName',
   email: 'example@mail',
   height: '111',
-  currentWeight: '90',
-  desiredWeight: '60',
+  currentWeight: 90,
+  desiredWeight: 60,
   blood: '1',
   gender: 'Male',
   activity: 'Sedentary',
 };
 
 const UserForm = () => {
+  const [selectedDate, setSelectedDate] = useState(new Date());
+
   const handleSubmit = e => {
     console.log('e', e);
   };
@@ -38,62 +43,34 @@ const UserForm = () => {
         </label>
         <ContainerField>
           <LabelStyled>
-            <ChevronDown>
-              <img src={chevronDown} alt={'chevronDown'} />
-            </ChevronDown>
             <TitleForm>Height</TitleForm>
-            <PrimalField
-              min="100"
-              max="250"
-              step="1"
-              type="number"
-              name="height"
-            />
+            <PrimalField type="text" name="height" />
           </LabelStyled>
 
           <LabelStyled>
-            <ChevronDown>
-              <img src={chevronDown} alt={'chevronDown'} />
-            </ChevronDown>
-
             <TitleForm>Current Weight</TitleForm>
-            <PrimalField
-              min="30"
-              max="120"
-              step="1"
-              type="number"
-              name="currentWeight"
-            />
+            <PrimalField type="text" name="currentWeight" />
           </LabelStyled>
 
           <LabelStyled>
-            <ChevronDown>
-              <img src={chevronDown} alt={'chevronDown'} />
-            </ChevronDown>
             <TitleForm>Desired Weight</TitleForm>
-            <PrimalField
-              min="45"
-              max="100"
-              step="1"
-              type="number"
-              name="desiredWeight"
-            />
+            <PrimalField type="text" name="desiredWeight" />
           </LabelStyled>
 
           <LabelStyled>
-            <ChevronDown>
-              <img src={chevronDown} alt={'chevronDown'} />
-            </ChevronDown>
-            <TitleForm>calendar</TitleForm>
-
-            <PrimalField
-              min="100"
-              max="250"
-              step="1"
-              type="text"
-              name="calendar"
-            />
+            <TitleForm id="calendar">Calendar</TitleForm>
+            <PrimalField type="text" name="calendar" />
           </LabelStyled>
+          <ReactDatePickerStyled>
+            <label htmlFor="date">Виберіть дату:</label>
+            <ReactDatePicker
+              id="date"
+              selected={selectedDate}
+              onChange={date => setSelectedDate(date)}
+              dateFormat="dd/MM/yyyy"
+              placeholderText="Оберіть дату"
+            />
+          </ReactDatePickerStyled>
         </ContainerField>
 
         <div>
