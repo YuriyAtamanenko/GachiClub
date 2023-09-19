@@ -1,6 +1,13 @@
+import { useState } from 'react';
+import sprite from '../../images/sprite.svg';
+
 import {
   Container,
   SubContainer,
+  BlockCalendar,
+  CustomDatePicker,
+  BtnLeft,
+  BtnRight,
   Title,
   SubContainerPE,
   SubContainerStats,
@@ -8,7 +15,8 @@ import {
   ExercisesContainer,
   BlockTxtBtn,
   ProductsExercisesText,
-  ProductsExercisesBtn,
+  ProductsBtn,
+  ExercisesBtn,
   ListStats,
   ItemStats,
   ItemContent,
@@ -19,22 +27,75 @@ import {
 } from './DiaryPage.styled';
 
 const DiaryPage = () => {
+  const [startDate, setStartDate] = useState(new Date());
+
+  const handleLeftButtonClick = () => {
+    const newDate = new Date(startDate);
+    newDate.setDate(startDate.getDate() - 1);
+    setStartDate(newDate);
+  };
+
+  const handleRightButtonClick = () => {
+    const newDate = new Date(startDate);
+    newDate.setDate(startDate.getDate() + 1);
+    setStartDate(newDate);
+  };
+
   return (
     <Container>
+      <BlockCalendar>
+        <CustomDatePicker
+          selected={startDate}
+          onChange={date => setStartDate(date)}
+          dateFormat="dd/MM/yyyy"
+        />
+        <svg
+          style={{
+            width: '24',
+            height: '24',
+            stroke: '#EF8964',
+            marginRight: '40',
+          }}
+        >
+          <use xlinkHref={`${sprite}#icon-calendar`} />
+        </svg>
+
+        <BtnLeft onClick={handleLeftButtonClick}>
+          <svg style={{ width: '20', height: '20' }}>
+            <use xlinkHref={`${sprite}#icon-left`} />
+          </svg>
+        </BtnLeft>
+        <BtnRight onClick={handleRightButtonClick}>
+          <svg style={{ width: '20', height: '20' }}>
+            <use xlinkHref={`${sprite}#icon-right`} />
+          </svg>
+        </BtnRight>
+      </BlockCalendar>
+
       <Title>Diary</Title>
       <SubContainer>
         <SubContainerPE>
           <ProductsContainer>
             <BlockTxtBtn>
               <ProductsExercisesText>Products</ProductsExercisesText>
-              <ProductsExercisesBtn>Add product</ProductsExercisesBtn>
+              <ProductsBtn>
+                Add product
+                <svg style={{ width: '16', height: '16' }}>
+                  <use xlinkHref={`${sprite}#icon-next`} />
+                </svg>
+              </ProductsBtn>
             </BlockTxtBtn>
           </ProductsContainer>
 
           <ExercisesContainer>
             <BlockTxtBtn>
               <ProductsExercisesText>Exercises</ProductsExercisesText>
-              <ProductsExercisesBtn>Add exercise</ProductsExercisesBtn>
+              <ExercisesBtn>
+                Add exercise
+                <svg style={{ width: '16', height: '16' }}>
+                  <use xlinkHref={`${sprite}#icon-next`} />
+                </svg>
+              </ExercisesBtn>
             </BlockTxtBtn>
           </ExercisesContainer>
         </SubContainerPE>
@@ -43,43 +104,85 @@ const DiaryPage = () => {
           <ListStats>
             <ItemStats>
               <ItemContent>
-                <TextContent>Daily calorie intake</TextContent>
+                <TextContent>
+                  <svg style={{ width: '20', height: '20', marginRight: '8' }}>
+                    <use xlinkHref={`${sprite}#icon-food`} />
+                  </svg>
+                  Daily calorie intake
+                </TextContent>
                 <TotalContent>2200</TotalContent>
               </ItemContent>
             </ItemStats>
             <ItemStats>
               <ItemContent>
-                <TextContent>Daily norm of sports</TextContent>
+                <TextContent>
+                  <svg style={{ width: '20', height: '20', marginRight: '8' }}>
+                    <use xlinkHref={`${sprite}#icon-dumbbell`} />
+                  </svg>
+                  Daily norm of sports
+                </TextContent>
                 <TotalContent>110 min</TotalContent>
               </ItemContent>
             </ItemStats>
             <ItemStats>
               <ItemContent>
-                <TextContent>Сalories consumed</TextContent>
+                <TextContent>
+                  <svg style={{ width: '20', height: '20', marginRight: '8' }}>
+                    <use xlinkHref={`${sprite}#icon-apple`} />
+                  </svg>
+                  Сalories consumed
+                </TextContent>
                 <TotalContent>0</TotalContent>
               </ItemContent>
             </ItemStats>
             <ItemStats>
               <ItemContent>
-                <TextContent>Сalories burned</TextContent>
+                <TextContent>
+                  <svg style={{ width: '20', height: '20', marginRight: '8' }}>
+                    <use xlinkHref={`${sprite}#icon-calories`} />
+                  </svg>
+                  Сalories burned
+                </TextContent>
                 <TotalContent>0</TotalContent>
               </ItemContent>
             </ItemStats>
             <ItemStats>
               <ItemContent>
-                <TextContent>The rest of the calories</TextContent>
+                <TextContent>
+                  <svg style={{ width: '20', height: '20', marginRight: '8' }}>
+                    <use xlinkHref={`${sprite}#icon-bubble`} />
+                  </svg>
+                  The rest of the calories
+                </TextContent>
                 <TotalContent>2200</TotalContent>
               </ItemContent>
             </ItemStats>
             <ItemStats>
               <ItemContent>
-                <TextContent>The rest of sports</TextContent>
+                <TextContent>
+                  <svg style={{ width: '20', height: '20', marginRight: '8' }}>
+                    <use xlinkHref={`${sprite}#icon-running`} />
+                  </svg>
+                  The rest of sports
+                </TextContent>
                 <TotalContent>110 min</TotalContent>
               </ItemContent>
             </ItemStats>
           </ListStats>
 
           <BlockWarning>
+            <svg
+              style={{
+                width: '24',
+                height: '24',
+                marginRight: '8',
+                borderRadius: '50%',
+                stroke: 'white',
+                backgroundColor: '#EFA082',
+              }}
+            >
+              <use xlinkHref={`${sprite}#tabler_exclamation-mark`} />
+            </svg>
             <TextWarning>
               Record all your meals in a calorie diary every day. This will help
               me be aware of my nutrition and make me responsible for my
