@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 100%;
   padding-left: 20px;
   padding-right: 20px;
   margin: 0 auto;
@@ -18,5 +17,7 @@ export const Container = styled.div`
 
   @media screen and (min-width: 1440px) {
     width: 1440px;
+    padding-left: 96px;
+    padding-right: 96px;
   }
 `;
