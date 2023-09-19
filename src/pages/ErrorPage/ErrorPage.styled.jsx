@@ -1,14 +1,28 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
+import desktop1x from './../../images/default-desktop-1x.jpg';
+import desktop2x from './../../images/default-desktop-2x.jpg';
+import tablet1x from './../../images/default-tablet-1x.jpg';
+import tablet2x from './../../images/default-tablet-2x.jpg';
+import mobile1x from './../../images/default-mobile-1x.jpg';
+import mobile2x from './../../images/default-mobile-2x.jpg';
 
 export const Background = styled.div`
   width: 100%;
   margin: 0 auto;
   height: 100vh;
-  background-image: url(/src/images/default-mobile-1x.jpg);
+  background-image: url(${mobile1x});
 
   background-repeat: no-repeat;
   background-position: bottom 0 right -30px;
+
+  @media (min-device-pixel-ratio: 2),
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: url(${mobile2x});
+    background-size: contain;
+  }
 
   @media screen and (min-width: 375px) {
     width: 375px;
@@ -16,14 +30,28 @@ export const Background = styled.div`
 
   @media screen and (min-width: 768px) {
     width: 768px;
-    background-image: url(/src/images/default-tablet-1x.jpg);
+    background-image: url(${tablet1x});
     background-size: contain;
     background-position: bottom 0 right 0px;
+
+    @media (min-device-pixel-ratio: 2),
+      (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(${tablet2x});
+    }
   }
 
   @media screen and (min-width: 1440px) {
     width: 1440px;
-    background-image: url(/src/images/default-desktop-1x.jpg);
+    background-image: url(${desktop1x});
+
+    @media (min-device-pixel-ratio: 2),
+      (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(${desktop2x});
+    }
   }
 `;
 
