@@ -2,6 +2,7 @@ import { Field, Form, Formik } from 'formik';
 import {
   ActivityContainer,
   BloodContainer,
+  ButtonSubmit,
   CalendarContainer,
   CalendarIco,
   CalendarStyled,
@@ -24,11 +25,10 @@ const initialValues = {
   blood: '1',
   gender: 'Male',
   activity: 'Sedentary',
-  calendar: null,
+  selectedDate: new Date(),
 };
 
 const UserForm = () => {
-  const [date, setDate] = useState(new Date());
   const [openCalendar, setOpenCalendar] = useState(false);
 
   const handleSubmit = e => {
@@ -47,130 +47,138 @@ const UserForm = () => {
 
   return (
     <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-      <Form>
-        <TitleForm>Basic info</TitleForm>
+      {({ values, setFieldValue, dirty }) => (
+        <Form>
+          <TitleForm>Basic info</TitleForm>
 
-        <label>
-          <PrimalField type="text" name="userName" />
-        </label>
+          <label>
+            <PrimalField type="text" name="userName" />
+          </label>
 
-        <label>
-          <PrimalField disabled={true} type="text" name="email" />
-        </label>
-        <ContainerField>
-          <LabelStyled>
-            <TitleForm>Height</TitleForm>
-            <PrimalField type="text" name="height" />
-          </LabelStyled>
+          <label>
+            <PrimalField disabled={true} type="text" name="email" />
+          </label>
+          <ContainerField>
+            <LabelStyled>
+              <TitleForm>Height</TitleForm>
+              <PrimalField type="text" name="height" />
+            </LabelStyled>
 
-          <LabelStyled>
-            <TitleForm>Current Weight</TitleForm>
-            <PrimalField type="text" name="currentWeight" />
-          </LabelStyled>
+            <LabelStyled>
+              <TitleForm>Current Weight</TitleForm>
+              <PrimalField type="text" name="currentWeight" />
+            </LabelStyled>
 
-          <LabelStyled>
-            <TitleForm>Desired Weight</TitleForm>
-            <PrimalField type="text" name="desiredWeight" />
-          </LabelStyled>
+            <LabelStyled>
+              <TitleForm>Desired Weight</TitleForm>
+              <PrimalField type="text" name="desiredWeight" />
+            </LabelStyled>
+            <LabelStyled onClick={toglerCalendar}>
+              <TitleForm id="calendarTitle">Calendar</TitleForm>
+              <CalendarIco>
+                <use xlinkHref={`${SvgSprite}#icon-calendar`} />
+              </CalendarIco>
+              <PrimalField
+                disabled={true}
+                onChange={date => setFieldValue('selectedDate', date)}
+                value={`${values.selectedDate.getDate()}.${
+                  values.selectedDate.getMonth() + 1
+                }.${values.selectedDate.getFullYear()}`}
+                type="text"
+                name="calendarField"
+              />
+            </LabelStyled>
+            <CalendarContainer
+              data-isopen={`${openCalendar ? 'open' : 'close'}`}
+            >
+              <Field name="selectedDate">
+                {() => (
+                  <CalendarStyled
+                    locale="en-US"
+                    onChange={date => setFieldValue('selectedDate', date)}
+                    value={values.selectedDate}
+                    formatShortWeekday={(_, date) => formatDate(date)}
+                    onClickDay={toglerCalendar}
+                  />
+                )}
+              </Field>
+            </CalendarContainer>
+          </ContainerField>
+          <TitleForm>Blood</TitleForm>
+          <BloodContainer>
+            <RadioLabelStyled>
+              <Field type="radio" name="blood" value="1" /> <p>1</p>{' '}
+              <span></span>
+            </RadioLabelStyled>
+            <RadioLabelStyled>
+              <Field type="radio" name="blood" value="2" />
+              <p>2</p>
+              <span></span>
+            </RadioLabelStyled>
+            <RadioLabelStyled>
+              <Field type="radio" name="blood" value="3" />
+              <p>3</p>
+              <span></span>
+            </RadioLabelStyled>
 
-          <LabelStyled onClick={toglerCalendar}>
-            <TitleForm id="calendarTitle">Calendar</TitleForm>
-            <CalendarIco>
-              <use xlinkHref={`${SvgSprite}#icon-calendar`} />
-            </CalendarIco>
-            <PrimalField
-              disabled={true}
-              selected={date}
-              value={`${date.getDate()}.${
-                date.getMonth() + 1
-              }.${date.getFullYear()}`}
-              type="text"
-              name="calendarField"
-            />
-          </LabelStyled>
+            <RadioLabelStyled>
+              <Field type="radio" name="blood" value="4" />
+              <p>4</p>
+              <span></span>
+            </RadioLabelStyled>
 
-          <CalendarContainer data-isopen={`${openCalendar ? 'open' : 'close'}`}>
-            <CalendarStyled
-              id="calendar"
-              locale="en-US"
-              onChange={setDate}
-              onClickDay={toglerCalendar}
-              value={date}
-              formatShortWeekday={(_, date) => formatDate(date)}
-            />
-          </CalendarContainer>
-        </ContainerField>
-        <TitleForm>Blood</TitleForm>
-        <BloodContainer>
-          <RadioLabelStyled>
-            <Field type="radio" name="blood" value="1" /> <p>1</p> <span></span>
-          </RadioLabelStyled>
-          <RadioLabelStyled>
-            <Field type="radio" name="blood" value="2" />
-            <p>2</p>
-            <span></span>
-          </RadioLabelStyled>
-          <RadioLabelStyled>
-            <Field type="radio" name="blood" value="3" />
-            <p>3</p>
-            <span></span>
-          </RadioLabelStyled>
+            <RadioLabelStyled>
+              <Field type="radio" name="gender" value="Male" />
+              <p>Male</p>
 
-          <RadioLabelStyled>
-            <Field type="radio" name="blood" value="4" />
-            <p>4</p>
-            <span></span>
-          </RadioLabelStyled>
+              <span></span>
+            </RadioLabelStyled>
 
-          <RadioLabelStyled>
-            <Field type="radio" name="gender" value="Male" />
-            <p>Male</p>
+            <RadioLabelStyled>
+              <Field type="radio" name="gender" value="Female" />
+              <p>Female</p>
+              <span></span>
+            </RadioLabelStyled>
+          </BloodContainer>
 
-            <span></span>
-          </RadioLabelStyled>
+          <ActivityContainer>
+            <RadioLabelStyled>
+              <p>Sedentary lifestyle (little or no physical activity)</p>
+              <Field type="radio" name="activity" value="Sedentary"></Field>
+              <span></span>
+            </RadioLabelStyled>
+            <RadioLabelStyled>
+              <p>Light activity (light exercises/sports 1-3 days per week)</p>
+              <Field type="radio" name="activity" value="Light"></Field>
+              <span></span>
+            </RadioLabelStyled>
+            <RadioLabelStyled>
+              <p>
+                Moderately active (moderate exercises/sports 3-5 days per week)
+              </p>
+              <Field type="radio" name="activity" value="Moderately"></Field>
+              <span></span>
+            </RadioLabelStyled>
+            <RadioLabelStyled>
+              <p>Very active (intense exercises/sports 6-7 days per week)</p>
+              <Field type="radio" name="activity" value="Very"></Field>
+              <span></span>
+            </RadioLabelStyled>
 
-          <RadioLabelStyled>
-            <Field type="radio" name="gender" value="Female" />
-            <p>Female</p>
-            <span></span>
-          </RadioLabelStyled>
-        </BloodContainer>
-
-        <ActivityContainer>
-          <RadioLabelStyled>
-            <p>Sedentary lifestyle (little or no physical activity)</p>
-            <Field type="radio" name="activity" value="Sedentary"></Field>
-            <span></span>
-          </RadioLabelStyled>
-          <RadioLabelStyled>
-            <p>Light activity (light exercises/sports 1-3 days per week)</p>
-            <Field type="radio" name="activity" value="Light"></Field>
-            <span></span>
-          </RadioLabelStyled>
-          <RadioLabelStyled>
-            <p>
-              Moderately active (moderate exercises/sports 3-5 days per week)
-            </p>
-            <Field type="radio" name="activity" value="Moderately"></Field>
-            <span></span>
-          </RadioLabelStyled>
-          <RadioLabelStyled>
-            <p>Very active (intense exercises/sports 6-7 days per week)</p>
-            <Field type="radio" name="activity" value="Very"></Field>
-            <span></span>
-          </RadioLabelStyled>
-
-          <RadioLabelStyled>
-            <p>
-              Extremely active (very strenuous exercises/sports and physical
-              work)
-            </p>
-            <Field type="radio" name="activity" value="Extremely"></Field>
-            <span></span>
-          </RadioLabelStyled>
-        </ActivityContainer>
-        <button type="submit">Save</button>
-      </Form>
+            <RadioLabelStyled>
+              <p>
+                Extremely active (very strenuous exercises/sports and physical
+                work)
+              </p>
+              <Field type="radio" name="activity" value="Extremely"></Field>
+              <span></span>
+            </RadioLabelStyled>
+          </ActivityContainer>
+          <ButtonSubmit disabled={!dirty} type="submit">
+            Save
+          </ButtonSubmit>
+        </Form>
+      )}
     </Formik>
   );
 };

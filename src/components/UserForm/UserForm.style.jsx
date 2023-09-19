@@ -254,7 +254,31 @@ export const RadioLabelStyled = styled.label`
 `;
 
 export const ActivityContainer = styled.div`
+  margin-bottom: 40px;
   label {
     margin-bottom: 9px;
   }
+`;
+
+export const ButtonSubmit = styled.button`
+  padding: 14px 40px 14px 40px;
+  border-radius: 12px;
+  background: var(--orange, #e6533c);
+  display: flex;
+  padding: 12px 40px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  color: white;
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px; /* 112.5% */
+  color:red $:disabled {
+    color: rgba(239, 237, 232, 0.6);
+  }
+
+  margin-bottom: 66px;
 `;
