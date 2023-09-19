@@ -15,7 +15,7 @@ export const PrimalField = styled(Field)`
   &[name='email'] {
     color: rgba(239, 237, 232, 0.6);
   }
-  &[name='calendar'] {
+  &[name='calendarField'] {
     z-index: -1;
     position: relative;
   }
@@ -48,6 +48,7 @@ export const ContainerField = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   position: relative;
+  margin-bottom: 12px;
 `;
 
 export const CalendarStyled = styled(Calendar)`
@@ -167,13 +168,14 @@ export const CalendarStyled = styled(Calendar)`
 `;
 
 export const CalendarContainer = styled.div`
+  z-index: 10;
   position: absolute;
   bottom: 0;
   right: 0;
   transform: translate(0, 100%);
   height: ${props => (props['data-isopen'] === 'close' ? '0px' : '260px')};
   overflow: hidden;
-  transition: height 1s ease;
+  transition: height 0.5s ease;
 `;
 
 export const CalendarIco = styled.svg`
@@ -183,4 +185,76 @@ export const CalendarIco = styled.svg`
   right: 14px;
   top: 50%;
   transform: translate(0, -15%);
+`;
+
+export const BloodContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 42px;
+
+  :has(> [value='4']) {
+    margin-right: 10px; /* Змініть значення margin-right на те, яке вам потрібно */
+  }
+`;
+
+export const RadioLabelStyled = styled.label`
+  display: block;
+  position: relative;
+  padding-left: 26px;
+  cursor: pointer;
+  font-size: 17px;
+  user-select: none;
+
+  span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    border: 2px solid #636366;
+    border-radius: 50%;
+  }
+
+  input {
+    position: absolute;
+    opacity: 0;
+    сursor: pointer;
+  }
+
+  input:checked ~ span {
+    border-color: #ef8964;
+  }
+
+  input:checked ~ span:before {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: #ef8964;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  p {
+    color: #efede8;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; /* 128.571% */
+  }
+
+  &:has([name='activity']) span {
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+`;
+
+export const ActivityContainer = styled.div`
+  label {
+    margin-bottom: 9px;
+  }
 `;
