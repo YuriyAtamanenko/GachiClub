@@ -7,7 +7,7 @@ export const UserBar = ({ userAvatar }) => {
     'https://i.pinimg.com/564x/72/91/c4/7291c40ad206f03e56fb62cfd8536d84.jpg';
   return (
     <Container>
-      <Link to="/params">
+      <Link to="/profile">
         <Svg>
           <use href={sprite + `#icon-settings`}></use>
         </Svg>
