@@ -1,4 +1,4 @@
-import{n as i,L as t,j as e,I as n}from"./index-9f8cde47.js";import{d as o}from"./default-desktop-1x-87763489.js";const a="/GachiClub/assets/default-desktop-2x-3a51d1c4.jpg",d="/GachiClub/assets/default-tablet-1x-d37027fc.jpg",r="/GachiClub/assets/default-tablet-2x-54594741.jpg",p="/GachiClub/assets/default-mobile-1x-8f07bae4.jpg",s="/GachiClub/assets/default-mobile-2x-dd403410.jpg",x=i.div`
+import{n as i,L as t,j as e,I as n}from"./index-562e9d84.js";import{d as o}from"./default-desktop-1x-87763489.js";const a="/GachiClub/assets/default-desktop-2x-3a51d1c4.jpg",d="/GachiClub/assets/default-tablet-1x-d37027fc.jpg",r="/GachiClub/assets/default-tablet-2x-54594741.jpg",p="/GachiClub/assets/default-mobile-1x-8f07bae4.jpg",s="/GachiClub/assets/default-mobile-2x-dd403410.jpg",x=i.div`
   width: 100%;
   margin: 0 auto;
   height: 100vh;
