@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
+
 import { useEffect, lazy } from 'react';
 import Layout from 'components/Layout';
 import { refreshUser } from '../Redux/Authorization/operations';
@@ -10,6 +11,8 @@ import { RestrictedRoute } from './RestrictedRoute';
 
 // import { PrivateRoute } from './PrivateRoute'; // для захисту роутів
 // import { RestrictedRoute } from './RestrictedRoute';
+
+
 
 const WelcomePage = lazy(() => import('../pages/WelcomePage/WelcomePage'));
 const SignUpPage = lazy(() => import('../pages/SignUpPage/SignUpPage'));
@@ -46,7 +49,7 @@ function App() {
           path="/signup"
           element={
             <RestrictedRoute
-              redirectTo="/profile" // Перенаправить на страницу профиля после регистрации
+              redirectTo="/params" // Перенаправить на страницу профиля после регистрации
               component={SignUpPage}
             />
           }
@@ -97,7 +100,11 @@ function App() {
         {/* <Route path="/exercises" element={<ExercisesPage />} /> */}
         {/* <Route path="/profile" element={<ProfilePage />} /> */}
         <Route path="*" element={<ErrorPage />} />
+
+       
+
       </Route>
+      <Route path="*" element={<ErrorPage />} />
     </Routes>
   ) : null;
 }
