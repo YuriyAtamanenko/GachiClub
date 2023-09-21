@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import PropTypes from 'prop-types';
 // import * as Yup from 'yup';
-import { updateUser } from '../../Redux/Authorization/operations';
+// import { updateUser } from '../../Redux/Authorization/operations';
 
 import {
   ProgressBarStep1,
@@ -170,13 +170,13 @@ const StepThree = props => {
     props.next(values, true);
   };
 
-  dispach(
-    updateUser({
-      email: props.data.email, // Используйте email, чтобы идентифицировать пользователя
-      name: props.data.name, // Передайте другие необходимые поля
-      password: props.data.password,
-    }),
-  );
+  // dispach(
+  //   updateUser({
+  //     email: props.data.email, // Используйте email, чтобы идентифицировать пользователя
+  //     name: props.data.name, // Передайте другие необходимые поля
+  //     password: props.data.password,
+  //   }),
+  // );
   return (
     <div>
       <div>
@@ -327,21 +327,17 @@ export default UserDataPage;
   </div>
 </div>; */
 
-
-
-  /* <div> */
+/* <div> */
 
 //   <div>{steps[currentStep]}</div>
 
-
-  /* Отображайте компонент прогресс-бара для текущей страницы */
+/* Отображайте компонент прогресс-бара для текущей страницы */
 
 //   {currentStep === 0 && <ProgressBarStep1 currentStep={currentStep} />}
 //   {currentStep === 1 && <ProgressBarStep2 currentStep={currentStep} />}
 //   {currentStep === 2 && <ProgressBarStep3 currentStep={currentStep} />}
 
-
-  /* Отображайте компонент текущей страницы */
+/* Отображайте компонент текущей страницы */
 
 //   {currentStep === 0 && <StepOne next={handleNextStep} data={data} />}
 //   {currentStep === 1 && ( */}
