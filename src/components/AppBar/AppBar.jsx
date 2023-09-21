@@ -1,5 +1,6 @@
 // import { useAuth } from 'hooks';
 // import { useState } from 'react';
+import { useAuth } from '../../hooks/useAuth';
 import Logo from '../Header/Logo/Logo';
 import MobileMenu from '../Header/MobileMenu/MobileMenu';
 import Navigation from '../Header/Navigation/Navigation';
@@ -8,7 +9,7 @@ import { Header } from './AppBar.styled';
 // import { useDispatch } from 'react-redux';
 
 const AppBar = () => {
-  // const { isLoggedIn } = useAuth();
+  const { isLoggedIn } = useAuth();
 
   // const { email } = useSelector(state => state.auth.user); // витягуємо email зі стейта
   // const dispatch = useDispatch();
@@ -16,13 +17,15 @@ const AppBar = () => {
   // const handleLogout = () => {
   //   dispatch(logOut());
   // };
-
   return (
-    <Header>
+    <Header isLoggedIn={isLoggedIn}>
       <Logo />
-      <Navigation />
-      {/* {isLoggedIn && <Navigation />} */}
-      <MobileMenu />
+      {isLoggedIn && (
+        <>
+          <Navigation />
+          <MobileMenu />
+        </>
+      )} 
     </Header>
 
     /* <div>
