@@ -1,9 +1,23 @@
+import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import { lazy } from 'react';
-import Layout from 'components/Layout/Layout';
+
+import { useEffect, lazy } from 'react';
+import Layout from 'components/Layout';
+import { refreshUser } from '../Redux/Authorization/operations';
+// import { refreshUser } from 'Redux/Authorization/operations';
+
+import { PrivateRoute } from './PrivateRoute'; // для захисту роутів
+import { RestrictedRoute } from './RestrictedRoute';
+
+// import { PrivateRoute } from './PrivateRoute'; // для захисту роутів
+// import { RestrictedRoute } from './RestrictedRoute';
+
+
 
 const WelcomePage = lazy(() => import('../pages/WelcomePage/WelcomePage'));
 const SignUpPage = lazy(() => import('../pages/SignUpPage/SignUpPage'));
+const UserDataPage = lazy(() => import('../pages/UserDataPage/UserDataPage'));
+
 const SignInPage = lazy(() => import('../pages/SignInPage/SignInPage'));
 const ParamsPage = lazy(() => import('../pages/ParamsPage/ParamsPage'));
 const DiaryPage = lazy(() => import('../pages/DiaryPage/DiaryPage'));
@@ -15,20 +29,83 @@ const ProfilePage = lazy(() => import('../pages/ProfilePage/ProfilePage'));
 const ErrorPage = lazy(() => import('../pages/ErrorPage/ErrorPage'));
 
 function App() {
-  return (
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(refreshUser()); // для обновления токена
+  }, [dispatch]);
+
+  const { isRefreshing } = useSelector(state => state.auth);
+
+  return !isRefreshing ? (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<WelcomePage />} />
-        <Route path="/signup" element={<SignUpPage />} />
-        <Route path="/signin" element={<SignInPage />} />
-        <Route path="/params" element={<ParamsPage />} />
-        <Route path="/diary" element={<DiaryPage />} />
-        <Route path="/products" element={<ProductsPage />} />
-        <Route path="/exercises" element={<ExercisesPage />} />
-        <Route path="/profile" element={<ProfilePage />} />
+
+        {/* <Route path="/signup" element={<SignUpPage />} /> */}
+        {/* <Route path="/signin" element={<SignInPage />} /> */}
+
+        <Route
+          path="/signup"
+          element={
+            <RestrictedRoute
+              redirectTo="/params" // Перенаправить на страницу профиля после регистрации
+              component={SignUpPage}
+            />
+          }
+        />
+
+        <Route path="/userdata" element={<UserDataPage />} />
+
+        <Route
+          path="/signin"
+          element={
+            <RestrictedRoute redirectTo="/params" component={SignInPage} />
+          }
+        />
+
+        <Route
+          path="/params"
+          element={<PrivateRoute component={ParamsPage} redirectTo="/signin" />}
+        />
+
+        <Route
+          path="/diary"
+          element={<PrivateRoute component={DiaryPage} redirectTo="/signin" />}
+        />
+
+        <Route
+          path="/products"
+          element={
+            <PrivateRoute component={ProductsPage} redirectTo="/signin" />
+          }
+        />
+
+        <Route
+          path="/exercises"
+          element={
+            <PrivateRoute component={ExercisesPage} redirectTo="/signin" />
+          }
+        />
+
+        <Route
+          path="/profile"
+          element={
+            <PrivateRoute component={ProfilePage} redirectTo="/signin" />
+          }
+        />
+
+        {/* <Route path="/diary" element={<DiaryPage />} /> */}
+        {/* <Route path="/products" element={<ProductsPage />} /> */}
+        {/* <Route path="/exercises" element={<ExercisesPage />} /> */}
+        {/* <Route path="/profile" element={<ProfilePage />} /> */}
+        <Route path="*" element={<ErrorPage />} />
+
+       
+
       </Route>
       <Route path="*" element={<ErrorPage />} />
     </Routes>
-  );
+  ) : null;
 }
 export default App;

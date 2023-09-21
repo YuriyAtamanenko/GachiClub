@@ -1,3 +1,4 @@
+
 import { Container, Title } from './ProfilePage.styled';
 import UserForm from '../../components/UserForm';
 import UserCard from '../../components/UserCard/UserCard';
@@ -9,7 +10,10 @@ const ProfilePage = () => {
       <UserCard />
       <UserForm />
     </Container>
+
   );
 };
+
+
 
 export default ProfilePage;
