@@ -1,4 +1,4 @@
-import{n as i,L as t,j as e,I as n}from"./index-4fe85a4a.js";const o="/GachiClub/assets/default-desktop-1x-5a2ed8f8.jpg",a="/GachiClub/assets/default-desktop-2x-3a51d1c4.jpg",d="/GachiClub/assets/default-tablet-1x-d37027fc.jpg",r="/GachiClub/assets/default-tablet-2x-54594741.jpg",p="/GachiClub/assets/default-mobile-1x-8f07bae4.jpg",s="/GachiClub/assets/default-mobile-2x-dd403410.jpg",x=i.div`
+import{n as i,L as t,j as e,I as n}from"./index-ee03c63a.js";import{d as o}from"./default-desktop-1x-87763489.js";const a="/GachiClub/assets/default-desktop-2x-3a51d1c4.jpg",d="/GachiClub/assets/default-tablet-1x-d37027fc.jpg",r="/GachiClub/assets/default-tablet-2x-54594741.jpg",p="/GachiClub/assets/default-mobile-1x-8f07bae4.jpg",s="/GachiClub/assets/default-mobile-2x-dd403410.jpg",x=i.div`
   width: 100%;
   margin: 0 auto;
   height: 100vh;
@@ -148,4 +148,4 @@ import{n as i,L as t,j as e,I as n}from"./index-4fe85a4a.js";const o="/GachiClub
     width: 204px;
     height: 56px;
   }
-`,w=()=>e.jsx(x,{children:e.jsxs(c,{children:[e.jsx(l,{to:"/",children:e.jsx(h,{children:e.jsx("use",{href:n+"#full-logo"})})}),e.jsxs(m,{children:[e.jsx(g,{children:"404"}),e.jsx(u,{children:"Sorry, you have reached a page that we could not find. It seems that you are lost among the numbers and letters of our virtual space. Perhaps this page went on vacation or decided to disappear into another dimension. We apologize for this inconvenience."}),e.jsx(b,{to:"/",children:"Go Home"})]})]})});export{w as default};
+`,k=()=>e.jsx(x,{children:e.jsxs(c,{children:[e.jsx(l,{to:"/",children:e.jsx(h,{children:e.jsx("use",{href:n+"#full-logo"})})}),e.jsxs(m,{children:[e.jsx(g,{children:"404"}),e.jsx(u,{children:"Sorry, you have reached a page that we could not find. It seems that you are lost among the numbers and letters of our virtual space. Perhaps this page went on vacation or decided to disappear into another dimension. We apologize for this inconvenience."}),e.jsx(b,{to:"/",children:"Go Home"})]})]})});export{k as default};
