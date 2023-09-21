@@ -44,8 +44,12 @@ const SignInPage = () => {
     password: '',
   };
 
+  const style = {
+    paddingTop: '200px',
+  };
+
   return (
-    <div>
+    <div style={style}>
       <h2>Sign In</h2>
 
       <p>Welcome! Please enter your credentials to login to the platform:</p>

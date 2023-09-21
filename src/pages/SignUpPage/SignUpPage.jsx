@@ -73,8 +73,12 @@ const SignUpPage = () => {
     password: '',
   };
 
+  const style = {
+    paddingTop: '200px',
+  };
+
   return (
-    <div>
+    <div style={style}>
       <h2>Sign Up</h2>
 
       <p>
