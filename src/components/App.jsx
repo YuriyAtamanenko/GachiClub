@@ -13,10 +13,12 @@ import { RestrictedRoute } from './RestrictedRoute';
 
 const WelcomePage = lazy(() => import('../pages/WelcomePage/WelcomePage'));
 const SignUpPage = lazy(() => import('../pages/SignUpPage/SignUpPage'));
-const UserDataPage = lazy(() => import('../pages/UserDataPage/UserDataPage'));
+// const UserDataPage = lazy(() => import('../pages/UserDataPage/UserDataPage'));
 
 const SignInPage = lazy(() => import('../pages/SignInPage/SignInPage'));
+
 const ParamsPage = lazy(() => import('../pages/ParamsPage/ParamsPage'));
+// const ParamsPage = lazy(() => import('../pages/ParamsPage/ParamsPage'));
 const DiaryPage = lazy(() => import('../pages/DiaryPage/DiaryPage'));
 const ProductsPage = lazy(() => import('../pages/ProductsPage/ProductsPage'));
 const ExercisesPage = lazy(() =>
@@ -52,7 +54,7 @@ function App() {
           }
         />
 
-        <Route path="/userdata" element={<UserDataPage />} />
+        {/* <Route path="/userdata" element={<UserDataPage />} /> */}
 
         <Route
           path="/signin"

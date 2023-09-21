@@ -10,6 +10,7 @@ const AppBar = () => {
   // };
 
   return (
+<<<<<<< Updated upstream
     <div>
       <div>AppBar</div>
       <div>
@@ -18,6 +19,14 @@ const AppBar = () => {
         </button>
       </div>
     </div>
+=======
+    <Header>
+      <Logo />
+      <Navigation />
+      {/* {isLoggedIn && <Navigation />} */}
+      <MobileMenu />
+    </Header>
+>>>>>>> Stashed changes
   );
 };
 

@@ -1,6 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 // import { register, loginization, logOut, refreshUser } from './operations';
-import { register, loginization, logOut, refreshUser } from './operations';
+import {
+  register,
+  loginization,
+  logOut,
+  refreshUser,
+  updateUser,
+} from './operations';
 // import { toast } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
 
@@ -72,6 +78,14 @@ const authSlise = createSlice({
         state.isRefreshing = false;
       })
       .addCase(refreshUser.rejected, state => {
+        state.isRefreshing = false;
+      })
+      .addCase(updateUser.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.isLoaggedIn = true;
+        state.isRefreshing = false;
+      })
+      .addCase(updateUser.rejected, state => {
         state.isRefreshing = false;
       }),
 });

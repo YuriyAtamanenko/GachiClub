@@ -86,3 +86,18 @@ export const refreshUser = createAsyncThunk(
     }
   },
 );
+<<<<<<< Updated upstream
+=======
+
+export const updateUser = createAsyncThunk(
+  'auth/updateUser',
+  async (userData, thunkAPI) => {
+    try {
+      const response = await axios.patch('/users/update', userData); //
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  },
+);
+>>>>>>> Stashed changes
