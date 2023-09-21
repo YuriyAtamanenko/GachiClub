@@ -2,10 +2,7 @@ import { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import PropTypes from 'prop-types';
 // import * as Yup from 'yup';
-<<<<<<< Updated upstream
 import { updateUser } from '../../Redux/Authorization/operations';
-=======
->>>>>>> Stashed changes
 
 import {
   ProgressBarStep1,
@@ -13,14 +10,10 @@ import {
   ProgressBarStep3,
 } from './ProgressBar';
 
-<<<<<<< Updated upstream
 const progressBarStyles = {
   display: 'flex',
   marginTop: '20px',
 };
-=======
-import css from '../UserDataPage/UserDataPage.jsx';
->>>>>>> Stashed changes
 
 const StepOne = props => {
   const handleSubmit = values => {
@@ -176,7 +169,6 @@ const StepThree = props => {
   const handleSubmit = values => {
     props.next(values, true);
   };
-<<<<<<< Updated upstream
 
   dispach(
     updateUser({
@@ -185,8 +177,6 @@ const StepThree = props => {
       password: props.data.password,
     }),
   );
-=======
->>>>>>> Stashed changes
   return (
     <div>
       <div>
@@ -283,11 +273,7 @@ const UserDataPage = () => {
     <div>
       <div>{steps[currentStep]}</div>
 
-<<<<<<< Updated upstream
       <div style={progressBarStyles}>
-=======
-      <div className={css.wrap}>
->>>>>>> Stashed changes
         {/* Отображение всех трех прогресс-баров */}
         <ProgressBarStep1 currentStep={currentStep} />
         <ProgressBarStep2 currentStep={currentStep} />
@@ -316,7 +302,7 @@ StepThree.propTypes = {
 
 export default UserDataPage;
 
-{
+/* 
   /* <div>
   <div>{steps[currentStep]}</div>
 
@@ -340,25 +326,25 @@ export default UserDataPage;
     ></div>
   </div>
 </div>; */
-}
 
-{
+
+
   /* <div> */
-}
+
 //   <div>{steps[currentStep]}</div>
 
-{
+
   /* Отображайте компонент прогресс-бара для текущей страницы */
-}
+
 //   {currentStep === 0 && <ProgressBarStep1 currentStep={currentStep} />}
 //   {currentStep === 1 && <ProgressBarStep2 currentStep={currentStep} />}
 //   {currentStep === 2 && <ProgressBarStep3 currentStep={currentStep} />}
 
-{
+
   /* Отображайте компонент текущей страницы */
-}
+
 //   {currentStep === 0 && <StepOne next={handleNextStep} data={data} />}
-//   {currentStep === 1 && (
+//   {currentStep === 1 && ( */}
 // <StepTwo next={handleNextStep} prev={handlePrevStep} data={data} />
 //   )}
 //   {currentStep === 2 && (

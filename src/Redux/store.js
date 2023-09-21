@@ -1,3 +1,9 @@
+// import { configureStore } from '@reduxjs/toolkit';
+// import { exercisesReducer } from './reducer';
+// export const store = configureStore({
+//   reducer: exercisesReducer,
+// });
+
 import { configureStore } from '@reduxjs/toolkit';
 import { authReduser } from './Authorization/authSlise';
 // import { contactsReduser } from './Contacts/contactsSlise';
