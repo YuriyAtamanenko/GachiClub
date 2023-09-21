@@ -86,7 +86,6 @@ export const refreshUser = createAsyncThunk(
     }
   },
 );
-<<<<<<< Updated upstream
 
 export const updateUser = createAsyncThunk(
   'auth/updateUser',
@@ -99,5 +98,3 @@ export const updateUser = createAsyncThunk(
     }
   },
 );
-=======
->>>>>>> Stashed changes
