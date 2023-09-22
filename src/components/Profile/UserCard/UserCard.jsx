@@ -23,6 +23,19 @@ const callInDay = '2200';
 const dailySportTime = '110';
 
 const UserCard = ({ userAvatar }) => {
+  const customButtonStyle = {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: '0',
+    padding: '0',
+    gap: '8px',
+    color: '#efede8',
+    backgroundColor: 'transparent',
+    border: 'none',
+    marginLeft: 'auto !important',
+  };
+
   const avatar =
     userAvatar ||
     'https://i.pinimg.com/564x/72/91/c4/7291c40ad206f03e56fb62cfd8536d84.jpg';
@@ -65,7 +78,7 @@ const UserCard = ({ userAvatar }) => {
           to diet is relative and tailored to your unique body and goals.
         </WarningText>
       </WarningContainer>
-      <LogOutBtn></LogOutBtn>
+      <LogOutBtn customStyles={customButtonStyle}></LogOutBtn>
     </div>
   );
 };
