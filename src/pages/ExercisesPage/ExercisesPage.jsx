@@ -4,7 +4,11 @@ import TitlePage from './TitlePage';
 import ExercisesSubcategoriesList from './ExercisesSubcategoriesList';
 import ExercisesCategories from './ExercisesCategories';
 import ExercisesList from './ExercisesList';
-import { changeCategory, changeTitle, toggleChoice } from '../../redux/reducer';
+import {
+  changeCategory,
+  changeTitle,
+  toggleChoice,
+} from '../../redux/Exercises/reducer';
 import { useEffect } from 'react';
 import { Container, Button } from './ExercisesPage.styled';
 const ExercisesPage = () => {
