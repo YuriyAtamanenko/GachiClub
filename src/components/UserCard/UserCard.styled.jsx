@@ -10,8 +10,11 @@ export const CurrentUser = styled.div`
   border: 1px solid var(--bright-accent-color);
   background-color: rgba(48, 48, 48, 0.3);
   margin-bottom: 31px;
+  contain: content;
 `;
-
+export const UserAvatar = styled.div`
+  position: relative;
+`;
 export const SceletUser = styled.img`
   position: absolute;
   top: 50%;
@@ -21,12 +24,13 @@ export const SceletUser = styled.img`
 
 export const CheckMark = styled.button`
   position: absolute;
-  bottom: 0%;
   left: 50%;
-  transform: translate(-50%, 50%);
+  top: 77px;
   padding: 0;
   border: none;
+  transform: translate(-50%, 0);
   background-color: transparent;
+  z-index:1;
 }
 `;
 
@@ -65,8 +69,12 @@ export const Plate = styled.div`
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.2);
 
-  &:last-child {
-    flex-grow: 1;
+  @media screen and (min-width: 768px) {
+    width: 100%;
+    max-width: 211px;
+  }
+
+  @media screen and (min-width: 1440px) {
   }
 `;
 
@@ -80,30 +88,30 @@ export const DailyText = styled.p`
   line-height: 20px;
 `;
 
-export const Warning = styled.p``;
-
-export const BtnLogOut = styled.button`
-  width: 72px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-left: auto;
-  padding: 0;
-  border: none;
-  background-color: transparent;
-  color: var(--primary-text-color);
-  margin-bottom: 19px;
-  margin-top: 41px;
-`;
-
-
 export const WarningContainer = styled.div`
   display: flex;
   align-items: flex-start;
+
+  img {
+    margin-top: -5px;
+    margin-right: 8px;
+  }
+
+  @media screen and (min-width: 768px) {
+    max-width: 439px;
+    margin-left: auto;
+    margin-right: auto;
+    p {
+      font-family: Roboto;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px;
+    }
+  }
 `;
 
 export const WarningText = styled.p`
-  margin-left: 8px;
   color: var(--secondary-text-color);
   font-size: 14px;
   line-height: 18px;

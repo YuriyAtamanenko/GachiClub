@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {
   CheckMark,
   CurrentUser,
@@ -7,30 +8,36 @@ import {
   Plate,
   Ico,
   DailyText,
-  BtnLogOut,
   WarningContainer,
   WarningText,
+  UserAvatar,
 } from './UserCard.styled';
-import logout from '../../assets/profile_img/logOut.svg';
 import exclamationMark from '../../assets/profile_img/tabler_exclamation-mark.svg';
-import sceletUser from '../../assets/profile_img/no_photo_user.svg';
 import checkMark from '../../assets/profile_img/check_mark.svg';
 import spoonFork from '../../assets/profile_img/spoon_fork.svg';
 import dumbbell from '../../assets/profile_img/dumbbell.svg';
 import { Plates } from './UserCard.styled';
+import LogOutBtn from '../Header/LogOutBtn/LogOutBtn';
 
 const callInDay = '2200';
 const dailySportTime = '110';
 
-const UserCard = () => {
+const UserCard = ({ userAvatar }) => {
+  const avatar =
+    userAvatar ||
+    'https://i.pinimg.com/564x/72/91/c4/7291c40ad206f03e56fb62cfd8536d84.jpg';
+
   return (
-    <>
-      <CurrentUser>
-        <SceletUser src={sceletUser} alt="scelet user" />
+    <div>
+      <UserAvatar>
+        <CurrentUser>
+          <SceletUser width="100%" src={avatar} alt="scelet user" />
+        </CurrentUser>
         <CheckMark>
           <img src={checkMark} alt="check mark" />
         </CheckMark>
-      </CurrentUser>
+      </UserAvatar>
+
       <CurrentUserName>FirstName SecondName </CurrentUserName>
       <UserPlate>User</UserPlate>
 
@@ -58,12 +65,13 @@ const UserCard = () => {
           to diet is relative and tailored to your unique body and goals.
         </WarningText>
       </WarningContainer>
-      <BtnLogOut>
-        <span>Logout</span>
-        <img src={logout} alt={'logout'}></img>
-      </BtnLogOut>
-    </>
+      <LogOutBtn></LogOutBtn>
+    </div>
   );
 };
 
 export default UserCard;
+
+UserCard.propTypes = {
+  userAvatar: PropTypes.string,
+};
