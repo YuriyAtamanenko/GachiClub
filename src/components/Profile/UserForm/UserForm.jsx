@@ -15,7 +15,7 @@ import {
 } from './UserForm.style';
 import { useState } from 'react';
 import 'react-calendar/dist/Calendar.css';
-import SvgSprite from '../../images/sprite.svg';
+import SvgSprite from '../../../images/sprite.svg';
 
 const initialValues = {
   userName: 'UserName',

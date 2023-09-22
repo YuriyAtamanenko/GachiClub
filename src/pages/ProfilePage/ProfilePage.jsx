@@ -1,6 +1,6 @@
 import { Container, Title, UserContainer } from './ProfilePage.styled';
-import UserForm from '../../components/UserForm';
-import UserCard from '../../components/UserCard/UserCard';
+import UserForm from '../../components/Profile/UserForm';
+import UserCard from '../../components/Profile/UserCard';
 
 const ProfilePage = () => {
   return (

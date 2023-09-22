@@ -12,12 +12,12 @@ import {
   WarningText,
   UserAvatar,
 } from './UserCard.styled';
-import exclamationMark from '../../assets/profile_img/tabler_exclamation-mark.svg';
-import checkMark from '../../assets/profile_img/check_mark.svg';
-import spoonFork from '../../assets/profile_img/spoon_fork.svg';
-import dumbbell from '../../assets/profile_img/dumbbell.svg';
+import exclamationMark from '../../../assets/profile_img/tabler_exclamation-mark.svg';
+import checkMark from '../../../assets/profile_img/check_mark.svg';
+import spoonFork from '../../../assets/profile_img/spoon_fork.svg';
+import dumbbell from '../../../assets/profile_img/dumbbell.svg';
 import { Plates } from './UserCard.styled';
-import LogOutBtn from '../Header/LogOutBtn/LogOutBtn';
+import LogOutBtn from '../../Header/LogOutBtn/LogOutBtn';
 
 const callInDay = '2200';
 const dailySportTime = '110';
