@@ -1,5 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { getCategory, getTitle, getToggle } from '../../redux/selectors';
+import {
+  getCategory,
+  getTitle,
+  getToggle,
+} from '../../redux/Exercises/selectors';
 import TitlePage from './TitlePage';
 import ExercisesSubcategoriesList from './ExercisesSubcategoriesList';
 import ExercisesCategories from './ExercisesCategories';
