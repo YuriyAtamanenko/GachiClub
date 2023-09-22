@@ -6,7 +6,7 @@ const ProfilePage = () => {
   return (
     <Container>
       <Title>Profile Settings</Title>
-      <UserCard />
+      <UserCard userAvatar={undefined} />
       <UserForm />
     </Container>
   );

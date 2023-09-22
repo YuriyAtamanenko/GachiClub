@@ -19,11 +19,25 @@ export const PrimalField = styled(Field)`
     z-index: -1;
     position: relative;
   }
+
+  @media screen and (min-width: 768px) {
+    &[name='email'] {
+      width: calc(50% - 7px);
+    }
+    &[name='userName'] {
+      width: calc(50% - 7px);
+      margin-right: 14px;
+    }
+  }
 `;
 
 export const LabelStyled = styled.label`
   width: calc(50% - 7px);
   position: relative;
+
+  @media screen and (min-width: 768px) {
+    width: calc(100% / 4 - 10.5px);
+  }
 `;
 
 export const TitleForm = styled.p`
@@ -195,6 +209,18 @@ export const BloodContainer = styled.div`
   :has(> [value='4']) {
     margin-right: 10px; /* Змініть значення margin-right на те, яке вам потрібно */
   }
+
+  @media screen and (min-width: 768px) {
+    justify-content: flex-start;
+    margin-bottom: 32px;
+
+    label:not(:first-child) {
+      margin-left: 8px;
+    }
+    label:nth-child(4) {
+      margin-right: 32px;
+    }
+  }
 `;
 
 export const RadioLabelStyled = styled.label`
@@ -256,7 +282,11 @@ export const RadioLabelStyled = styled.label`
 export const ActivityContainer = styled.div`
   margin-bottom: 40px;
   label {
-    margin-bottom: 9px;
+    margin-bottom: 8px;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 38px;
   }
 `;
 
@@ -275,10 +305,17 @@ export const ButtonSubmit = styled.button`
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 18px; /* 112.5% */
-  color:red $:disabled {
+  line-height: 18px;
+  margin-bottom: 66px;
+
+  &:disabled {
     color: rgba(239, 237, 232, 0.6);
   }
+  &:hover {
+    background-color: var(--light-accent-color);
+  }
 
-  margin-bottom: 66px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 54px;
+  }
 `;
