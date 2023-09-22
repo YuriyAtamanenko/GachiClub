@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 
 import { useEffect, lazy } from 'react';
 import Layout from './../components/Layout/Layout';
-import { refreshUser } from '../Redux/Authorization/operations';
+import { refreshUser } from '../redux/Authorization/operations';
 // import { refreshUser } from 'Redux/Authorization/operations';
 
 import { PrivateRoute } from './PrivateRoute'; // для захисту роутів
