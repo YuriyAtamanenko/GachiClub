@@ -98,16 +98,3 @@ export const updateUser = createAsyncThunk(
     }
   },
 );
-
-export const userParams = createAsyncThunk(
-  'user/params',
-  async (user, thunkAPI) => {
-    try {
-      const response = await axios.post('/user/params', user);
-      setAuthHeader(response.data.token);
-      return response.data;
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
-    }
-  },
-);

@@ -4,8 +4,10 @@ import sprite from '../../images/sprite.svg';
 import {
   Container,
   SubContainer,
+  BlockTitleCall,
   BlockCalendar,
   CustomDatePicker,
+  BlockBtnDate,
   BtnLeft,
   BtnRight,
   Title,
@@ -24,6 +26,8 @@ import {
   TotalContent,
   BlockWarning,
   TextWarning,
+  SvgIconCalendar,
+  SvgIconLeft,
 } from './DiaryPage.styled';
 
 const DiaryPage = () => {
@@ -43,36 +47,32 @@ const DiaryPage = () => {
 
   return (
     <Container>
-      <BlockCalendar>
-        <CustomDatePicker
-          selected={startDate}
-          onChange={date => setStartDate(date)}
-          dateFormat="dd/MM/yyyy"
-        />
-        <svg
-          style={{
-            width: '24',
-            height: '24',
-            stroke: '#EF8964',
-            marginRight: '40',
-          }}
-        >
-          <use xlinkHref={`${sprite}#icon-calendar`} />
-        </svg>
+      <BlockTitleCall>
+        <BlockCalendar>
+          <CustomDatePicker
+            selected={startDate}
+            onChange={date => setStartDate(date)}
+            dateFormat="dd/MM/yyyy"
+          />
+          <SvgIconCalendar>
+            <use xlinkHref={`${sprite}#icon-calendar`} />
+          </SvgIconCalendar>
+          <BlockBtnDate>
+            <BtnLeft onClick={handleLeftButtonClick}>
+              <SvgIconLeft>
+                <use xlinkHref={`${sprite}#icon-left`} />
+              </SvgIconLeft>
+            </BtnLeft>
+            <BtnRight onClick={handleRightButtonClick}>
+              <svg style={{ width: '20', height: '20' }}>
+                <use xlinkHref={`${sprite}#icon-right`} />
+              </svg>
+            </BtnRight>
+          </BlockBtnDate>
+        </BlockCalendar>
+        <Title>Diary</Title>
+      </BlockTitleCall>
 
-        <BtnLeft onClick={handleLeftButtonClick}>
-          <svg style={{ width: '20', height: '20' }}>
-            <use xlinkHref={`${sprite}#icon-left`} />
-          </svg>
-        </BtnLeft>
-        <BtnRight onClick={handleRightButtonClick}>
-          <svg style={{ width: '20', height: '20' }}>
-            <use xlinkHref={`${sprite}#icon-right`} />
-          </svg>
-        </BtnRight>
-      </BlockCalendar>
-
-      <Title>Diary</Title>
       <SubContainer>
         <SubContainerPE>
           <ProductsContainer>
@@ -88,7 +88,7 @@ const DiaryPage = () => {
           </ProductsContainer>
 
           <ExercisesContainer>
-            <BlockTxtBtn>
+            <BlockTxtBtn className="block-ex">
               <ProductsExercisesText>Exercises</ProductsExercisesText>
               <ExercisesBtn>
                 Add exercise
@@ -149,7 +149,7 @@ const DiaryPage = () => {
             <ItemStats>
               <ItemContent>
                 <TextContent>
-                  <svg style={{ width: '20', height: '20', marginRight: '8' }}>
+                  <svg style={{ width: '20', height: '20', marginRight: '6' }}>
                     <use xlinkHref={`${sprite}#icon-bubble`} />
                   </svg>
                   The rest of the calories
@@ -158,8 +158,8 @@ const DiaryPage = () => {
               </ItemContent>
             </ItemStats>
             <ItemStats>
-              <ItemContent>
-                <TextContent>
+              <ItemContent className="last-item">
+                <TextContent className="last-text">
                   <svg style={{ width: '20', height: '20', marginRight: '8' }}>
                     <use xlinkHref={`${sprite}#icon-running`} />
                   </svg>

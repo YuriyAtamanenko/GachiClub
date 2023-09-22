@@ -1,12 +1,16 @@
 import { Outlet } from 'react-router-dom';
 import AppBar from '../AppBar/AppBar';
 import { Suspense } from 'react';
-import { Container } from './Layout.styled';
+import { Container, Header } from './Layout.styled';
+import { useAuth } from '../../hooks/useAuth';
 
 const Layout = () => {
+  const { isLoggedIn } = useAuth();
   return (
     <Container>
-      <AppBar />
+      <Header isLoggedIn={isLoggedIn}>
+        <AppBar />
+      </Header>
       <Suspense fallback={null}>
         <Outlet />
       </Suspense>
