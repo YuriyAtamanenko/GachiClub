@@ -1,5 +1,5 @@
 // import { useDispatch } from 'react-redux';
-import { logOut } from '../../../Redux/Authorization/operations';
+import { logOut } from '../../../redux/Authorization/operations';
 import { useDispatch } from 'react-redux';
 import sprite from '../../../images/sprite.svg';
 import { Button, Svg } from './LogOutBtn.styled';

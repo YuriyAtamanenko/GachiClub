@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import sprite from '../../../images/sprite.svg';
 import { LogoIcon, Svg } from './Logo.styled';
 
