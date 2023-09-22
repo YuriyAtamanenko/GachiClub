@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { object, string } from 'yup';
-import { register } from '../../Redux/Authorization/operations';
+import { register } from '../../redux/Authorization/operations';
 // import { register } from 'Redux/Authorization/operations';
 
 const SignUpPage = () => {
