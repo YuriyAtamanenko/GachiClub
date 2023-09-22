@@ -1,4 +1,4 @@
-import { Field, Form, Formik } from 'formik';
+import { Field, Formik } from 'formik';
 import {
   ActivityContainer,
   BloodContainer,
@@ -10,13 +10,12 @@ import {
   LabelStyled,
   PrimalField,
   RadioLabelStyled,
+  StyledFormik,
   TitleForm,
 } from './UserForm.style';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import 'react-calendar/dist/Calendar.css';
 import SvgSprite from '../../images/sprite.svg';
-import { useDispatch, useSelector } from 'react-redux';
-import { userParams } from '../../Redux/Authorization/operations';
 
 const initialValues = {
   userName: 'UserName',
@@ -31,16 +30,7 @@ const initialValues = {
 };
 
 const UserForm = () => {
-  const dispatch = useDispatch();
-
-  const data = useSelector(state => state);
-  console.log('data', data);
-
   const [openCalendar, setOpenCalendar] = useState(false);
-
-  useEffect(() => {
-    dispatch(userParams());
-  });
 
   const handleSubmit = e => {
     console.log('e', e);
@@ -59,7 +49,7 @@ const UserForm = () => {
   return (
     <Formik initialValues={initialValues} onSubmit={handleSubmit}>
       {({ values, setFieldValue, dirty }) => (
-        <Form>
+        <StyledFormik>
           <TitleForm>Basic info</TitleForm>
 
           <label>
@@ -188,7 +178,7 @@ const UserForm = () => {
           <ButtonSubmit disabled={!dirty} type="submit">
             Save
           </ButtonSubmit>
-        </Form>
+        </StyledFormik>
       )}
     </Formik>
   );

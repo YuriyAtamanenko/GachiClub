@@ -13,3 +13,11 @@ export const Title = styled.h1`
   line-height: 28px; /* 116.667% */
   margin-bottom: 40px;
 `;
+
+export const UserContainer = styled.div`
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+`;

@@ -1,6 +1,14 @@
-import { Field } from 'formik';
+import { Field, Form } from 'formik';
 import Calendar from 'react-calendar';
 import styled from 'styled-components';
+
+export const StyledFormik = styled(Form)`
+  @media screen and (min-width: 1440px) {
+    padding-right: 64px;
+    border-right: 1px solid rgba(239, 237, 232, 0.2);
+    width: 760px;
+  }
+`;
 
 export const PrimalField = styled(Field)`
   width: 100%;
@@ -28,6 +36,10 @@ export const PrimalField = styled(Field)`
       width: calc(50% - 7px);
       margin-right: 14px;
     }
+
+    @media screen and (min-width: 1440px) {
+      margin-bottom: 14px;
+    }
   }
 `;
 
@@ -37,6 +49,8 @@ export const LabelStyled = styled.label`
 
   @media screen and (min-width: 768px) {
     width: calc(100% / 4 - 10.5px);
+  }
+   
   }
 `;
 
@@ -54,6 +68,9 @@ export const TitleForm = styled.p`
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 8px;
   }
 `;
 
@@ -288,6 +305,9 @@ export const ActivityContainer = styled.div`
   @media screen and (min-width: 768px) {
     margin-bottom: 38px;
   }
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 48px;
+  }
 `;
 
 export const ButtonSubmit = styled.button`
@@ -317,5 +337,9 @@ export const ButtonSubmit = styled.button`
 
   @media screen and (min-width: 768px) {
     margin-bottom: 54px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 44px;
+    
   }
 `;

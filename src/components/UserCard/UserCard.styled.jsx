@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Button } from '../Header/LogOutBtn/LogOutBtn.styled';
 
 export const CurrentUser = styled.div`
   position: relative;
@@ -88,8 +87,6 @@ export const DailyText = styled.p`
   font-weight: 400;
   line-height: 20px;
 `;
-
-export const BtnLogOut = styled(Button)``;
 
 export const WarningContainer = styled.div`
   display: flex;

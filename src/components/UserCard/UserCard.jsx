@@ -28,7 +28,7 @@ const UserCard = ({ userAvatar }) => {
     'https://i.pinimg.com/564x/72/91/c4/7291c40ad206f03e56fb62cfd8536d84.jpg';
 
   return (
-    <>
+    <div>
       <UserAvatar>
         <CurrentUser>
           <SceletUser width="100%" src={avatar} alt="scelet user" />
@@ -66,7 +66,7 @@ const UserCard = ({ userAvatar }) => {
         </WarningText>
       </WarningContainer>
       <LogOutBtn></LogOutBtn>
-    </>
+    </div>
   );
 };
 
