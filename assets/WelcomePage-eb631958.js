@@ -1,4 +1,4 @@
-import{n,N as i,j as e}from"./index-5f0fb522.js";import{d}from"./default-desktop-1x-87763489.js";const t=n.div`
+import{n,N as i,j as e}from"./index-5be8b0bc.js";import{d}from"./default-desktop-1x-87763489.js";const t=n.div`
   display: flex;
   height: 100vh;
 `,o=n.div`
