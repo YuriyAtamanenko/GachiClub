@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import sprite from '../../images/sprite.svg';
 
 import {
@@ -14,11 +14,27 @@ import {
   SubContainerPE,
   SubContainerStats,
   ProductsContainer,
+  ContainerProductInput,
+  BlockProductInput,
+  LabelProduct,
+  InputProduct,
   ExercisesContainer,
+  ContainerExecrcisesInput,
+  BlockExecrcisesInput,
+  LabelExecrcises,
+  InputExecrcises,
   BlockTxtBtn,
+  BlockProdLabel768,
+  TitleProdLabel768,
+  BlockExeLabel768,
+  TitleExeLabel768,
   ProductsExercisesText,
   ProductsBtn,
   ExercisesBtn,
+  BlockNotFoundProd,
+  BlockNotFoundExe,
+  ButtonDelProd,
+  ButtonDelExe,
   ListStats,
   ItemStats,
   ItemContent,
@@ -28,10 +44,15 @@ import {
   TextWarning,
   SvgIconCalendar,
   SvgIconLeft,
+  SvgIconDel,
 } from './DiaryPage.styled';
 
 const DiaryPage = () => {
   const [startDate, setStartDate] = useState(new Date());
+  const [productBlocks, setProductBlocks] = useState([]);
+  const [execrcisesBlocks, setExecrcisesBlocks] = useState([]);
+  const [isBlockProdVisible, setBlockProdVisibility] = useState(false);
+  const [isBlockExeVisible, setBlockExeVisibility] = useState(false);
 
   const handleLeftButtonClick = () => {
     const newDate = new Date(startDate);
@@ -43,6 +64,52 @@ const DiaryPage = () => {
     const newDate = new Date(startDate);
     newDate.setDate(startDate.getDate() + 1);
     setStartDate(newDate);
+  };
+
+  const removeProductBlock = blockIndex => {
+    const updatedBlocks = [...productBlocks];
+    updatedBlocks.splice(blockIndex, 1);
+    setProductBlocks(updatedBlocks);
+
+    if (updatedBlocks.length === 0) {
+      setBlockProdVisibility(false);
+    }
+  };
+
+  const removeExecrcisesBlocks = blockIndex => {
+    const updatedBlocks = [...execrcisesBlocks];
+    updatedBlocks.splice(blockIndex, 1);
+    setExecrcisesBlocks(updatedBlocks);
+
+    if (updatedBlocks.length === 0) {
+      setBlockExeVisibility(false);
+    }
+  };
+
+  const addProductBlock = () => {
+    const newBlock = {
+      id: Date.now(),
+      inputs: ['Title', 'Category', 'Calories', 'Weight', 'Recommend'],
+    };
+
+    setProductBlocks([...productBlocks, newBlock]);
+    setBlockProdVisibility(true);
+  };
+
+  const addExecrcisesBlock = () => {
+    const newBlock = {
+      id: Date.now(),
+      inputs: [
+        'Body Part',
+        'Equipment',
+        'Name',
+        'Target',
+        'Burned Calories',
+        'Time',
+      ],
+    };
+    setExecrcisesBlocks([...execrcisesBlocks, newBlock]);
+    setBlockExeVisibility(true);
   };
 
   return (
@@ -78,25 +145,114 @@ const DiaryPage = () => {
           <ProductsContainer>
             <BlockTxtBtn>
               <ProductsExercisesText>Products</ProductsExercisesText>
-              <ProductsBtn>
+              <ProductsBtn onClick={addProductBlock}>
                 Add product
                 <svg style={{ width: '16', height: '16' }}>
                   <use xlinkHref={`${sprite}#icon-next`} />
                 </svg>
               </ProductsBtn>
             </BlockTxtBtn>
+            {isBlockProdVisible && (
+              <BlockProdLabel768>
+                {['Title', 'Category', 'Calories', 'Weight', 'Recommend'].map(
+                  (label, index) => (
+                    <TitleProdLabel768
+                      key={index}
+                      className={`title-prod-${index}`}
+                    >
+                      {label}
+                    </TitleProdLabel768>
+                  ),
+                )}
+              </BlockProdLabel768>
+            )}
+            {productBlocks.length === 0 ? (
+              <BlockNotFoundProd>Not found products</BlockNotFoundProd>
+            ) : (
+              productBlocks.map((block, blockIndex) => (
+                <ContainerProductInput key={block.id}>
+                  <BlockProductInput>
+                    {block.inputs.map((label, inputIndex) => (
+                      <div key={inputIndex}>
+                        <LabelProduct className={`label-prod-${inputIndex}`}>
+                          {label}
+                        </LabelProduct>
+                        <InputProduct
+                          className={`input-prod-${inputIndex}`}
+                          type="text"
+                        />
+                      </div>
+                    ))}
+                    <ButtonDelProd
+                      onClick={() => removeProductBlock(blockIndex)}
+                    >
+                      <SvgIconDel>
+                        <use xlinkHref={`${sprite}#icon-trash`} />
+                      </SvgIconDel>
+                    </ButtonDelProd>
+                  </BlockProductInput>
+                </ContainerProductInput>
+              ))
+            )}
           </ProductsContainer>
 
           <ExercisesContainer>
             <BlockTxtBtn className="block-ex">
               <ProductsExercisesText>Exercises</ProductsExercisesText>
-              <ExercisesBtn>
+              <ExercisesBtn onClick={addExecrcisesBlock}>
                 Add exercise
                 <svg style={{ width: '16', height: '16' }}>
                   <use xlinkHref={`${sprite}#icon-next`} />
                 </svg>
               </ExercisesBtn>
             </BlockTxtBtn>
+            {isBlockExeVisible && (
+              <BlockExeLabel768>
+                {[
+                  'Body Part',
+                  'Equipment',
+                  'Name',
+                  'Target',
+                  'Burned Calories',
+                  'Time',
+                ].map((label, index) => (
+                  <TitleExeLabel768
+                    key={index}
+                    className={`title-exe-${index}`}
+                  >
+                    {label}
+                  </TitleExeLabel768>
+                ))}
+              </BlockExeLabel768>
+            )}
+            {execrcisesBlocks.length === 0 ? (
+              <BlockNotFoundExe>Not found exercises</BlockNotFoundExe>
+            ) : (
+              execrcisesBlocks.map((block, blockIndex) => (
+                <ContainerExecrcisesInput key={block.id}>
+                  <BlockExecrcisesInput>
+                    {block.inputs.map((label, inputIndex) => (
+                      <div key={inputIndex}>
+                        <LabelExecrcises className={`label-exe-${inputIndex}`}>
+                          {label}
+                        </LabelExecrcises>
+                        <InputExecrcises
+                          className={`input-exe-${inputIndex}`}
+                          type="text"
+                        />
+                      </div>
+                    ))}
+                    <ButtonDelExe
+                      onClick={() => removeExecrcisesBlocks(blockIndex)}
+                    >
+                      <SvgIconDel>
+                        <use xlinkHref={`${sprite}#icon-trash`} />
+                      </SvgIconDel>
+                    </ButtonDelExe>
+                  </BlockExecrcisesInput>
+                </ContainerExecrcisesInput>
+              ))
+            )}
           </ExercisesContainer>
         </SubContainerPE>
 
