@@ -39,7 +39,7 @@ export const InputForm = styled.input`
       border: 1px solid #e6533c;
     }
     &::placeholder {
-      color: #efede8;
+      color: rgba(239, 237, 232, 1);
       font-size: 14px;
       line-height: 18px;
     }
@@ -179,4 +179,16 @@ export const SelectPointer = styled.svg`
   width: 18px;
   height: 18px;
   fill: #ffff;
+`;
+export const FilterTitle = styled.div`
+  display: none;
+  @media screen and (min-width: 1440px) {
+    display: block;
+    position: absolute;
+    top: 60px;
+    right: 140px;
+    font-size: 14px;
+    line-height: 18px;
+    color: rgba(239, 237, 232, 0.5);
+  }
 `;

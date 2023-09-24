@@ -10,12 +10,14 @@ import {
   Option,
   SelectPointer,
   SelectAll,
+  FilterTitle,
 } from './ProductsFilter.styled';
 import sprite from '../../../images/sprite.svg';
 
 const ProductsFilter = () => {
   return (
     <ContainerForm>
+      <FilterTitle>Filters</FilterTitle>
       <li>
         <Form>
           <InputForm

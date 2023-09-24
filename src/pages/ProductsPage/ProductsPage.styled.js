@@ -22,7 +22,7 @@ export const Container = styled.div`
     background-position: 100% 0;
     padding-top: 68px;
     position: relative;
-    background-size: 428px 716px;
+    min-height: 681px;
     margin-right: -9vw;
 
     @media (min-device-pixel-ratio: 2),
