@@ -12,6 +12,12 @@ export const Title = styled.h1`
   font-weight: 700;
   line-height: 28px; /* 116.667% */
   margin-bottom: 40px;
+  @media screen and (min-width: 768px) {
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 44px;
+  }
 `;
 
 export const UserContainer = styled.div`
