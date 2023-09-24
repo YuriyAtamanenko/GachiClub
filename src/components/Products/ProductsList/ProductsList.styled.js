@@ -23,23 +23,6 @@ export const ListContainer = styled.ul`
   }
 `;
 
-export const Item = styled.ul`
-  border: 1px solid white;
-  width: 100%;
-  height: 141px;
-  padding: 10px;
-
-  @media screen and (min-width: 375px) {
-    width: 335px;
-    height: 141px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    width: 405px;
-    height: 141px;
-  }
-`;
-
 export const DefaultTextWrapper = styled.div`
   padding-top: 24px;
 
