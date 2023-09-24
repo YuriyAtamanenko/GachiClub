@@ -22,7 +22,10 @@ import LogOutBtn from '../../Header/LogOutBtn/LogOutBtn';
 const callInDay = '2200';
 const dailySportTime = '110';
 
-const UserCard = ({ userAvatar }) => {
+const UserCard = ({ userData }) => {
+  console.log('userData', userData);
+  const { avatarUrl, name } = userData;
+
   const customButtonStyle = {
     display: 'flex',
     justifyContent: 'center',
@@ -34,10 +37,11 @@ const UserCard = ({ userAvatar }) => {
     backgroundColor: 'transparent',
     border: 'none',
     marginLeft: 'auto !important',
+    marginBottom: '36px',
   };
 
   const avatar =
-    userAvatar ||
+    avatarUrl ||
     'https://i.pinimg.com/564x/72/91/c4/7291c40ad206f03e56fb62cfd8536d84.jpg';
 
   return (
@@ -51,7 +55,7 @@ const UserCard = ({ userAvatar }) => {
         </CheckMark>
       </UserAvatar>
 
-      <CurrentUserName>FirstName SecondName </CurrentUserName>
+      <CurrentUserName>{name}</CurrentUserName>
       <UserPlate>User</UserPlate>
 
       <Plates>
@@ -68,7 +72,7 @@ const UserCard = ({ userAvatar }) => {
             <Ico src={dumbbell} alt={'dumbbell'} />
             <DailyText>Daily norm of sports</DailyText>
           </div>
-          <p>{dailySportTime}</p>
+          <p>{dailySportTime} min</p>
         </Plate>
       </Plates>
       <WarningContainer>
@@ -86,5 +90,5 @@ const UserCard = ({ userAvatar }) => {
 export default UserCard;
 
 UserCard.propTypes = {
-  userAvatar: PropTypes.string,
+  userData: PropTypes.object.isRequired,
 };

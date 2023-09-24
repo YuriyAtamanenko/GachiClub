@@ -19,6 +19,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
+import { profileReducer } from './Profile/profileSlice';
 
 const persistConfig = {
   key: 'auth',
@@ -29,6 +30,7 @@ const persistConfig = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(persistConfig, authReduser),
+    profile: profileReducer,
     // filter: filterReducer,
     // contacts: contactsReduser,
   },

@@ -145,24 +145,24 @@ const UserForm = () => {
           <ActivityContainer>
             <RadioLabelStyled>
               <p>Sedentary lifestyle (little or no physical activity)</p>
-              <Field type="radio" name="activity" value="Sedentary"></Field>
+              <Field type="radio" name="activity" value="1"></Field>
               <span></span>
             </RadioLabelStyled>
             <RadioLabelStyled>
               <p>Light activity (light exercises/sports 1-3 days per week)</p>
-              <Field type="radio" name="activity" value="Light"></Field>
+              <Field type="radio" name="activity" value="2"></Field>
               <span></span>
             </RadioLabelStyled>
             <RadioLabelStyled>
               <p>
                 Moderately active (moderate exercises/sports 3-5 days per week)
               </p>
-              <Field type="radio" name="activity" value="Moderately"></Field>
+              <Field type="radio" name="activity" value="3"></Field>
               <span></span>
             </RadioLabelStyled>
             <RadioLabelStyled>
               <p>Very active (intense exercises/sports 6-7 days per week)</p>
-              <Field type="radio" name="activity" value="Very"></Field>
+              <Field type="radio" name="activity" value="4"></Field>
               <span></span>
             </RadioLabelStyled>
 
