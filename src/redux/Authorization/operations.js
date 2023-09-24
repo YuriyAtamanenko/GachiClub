@@ -123,7 +123,7 @@ export const updateUser = createAsyncThunk(
     console.log('userData в updateUser', userData);
     try {
       console.log('try updateUser');
-      const response = await axios.patch('/users/update', userData); // маршрут для обновления данных пользователя
+      const response = await axios.post('/users/params', userData); // маршрут для обновления данных пользователя
       console.log('userData в try updateUser', userData);
       console.log('response.data');
       return response.data;
