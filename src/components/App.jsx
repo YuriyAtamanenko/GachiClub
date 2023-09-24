@@ -14,8 +14,6 @@ import { RestrictedRoute } from './RestrictedRoute';
 
 const WelcomePage = lazy(() => import('../pages/WelcomePage/WelcomePage'));
 const SignUpPage = lazy(() => import('../pages/SignUpPage/SignUpPage'));
-const UserDataPage = lazy(() => import('../pages/UserDataPage/UserDataPage'));
-
 const SignInPage = lazy(() => import('../pages/SignInPage/SignInPage'));
 const ParamsPage = lazy(() => import('../pages/ParamsPage/ParamsPage'));
 const DiaryPage = lazy(() => import('../pages/DiaryPage/DiaryPage'));
@@ -40,9 +38,6 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<WelcomePage />} />
 
-        {/* <Route path="/signup" element={<SignUpPage />} /> */}
-        {/* <Route path="/signin" element={<SignInPage />} /> */}
-
         <Route
           path="/signup"
           element={
@@ -53,8 +48,6 @@ function App() {
           }
         />
 
-        <Route path="/userdata" element={<UserDataPage />} />
-
         <Route
           path="/signin"
           element={
@@ -64,7 +57,7 @@ function App() {
 
         <Route
           path="/params"
-          element={<PrivateRoute component={ParamsPage} redirectTo="/signin" />}
+          element={<PrivateRoute component={ParamsPage} redirectTo="/diary" />}
         />
 
         <Route
