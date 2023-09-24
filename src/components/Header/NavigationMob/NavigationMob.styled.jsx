@@ -7,19 +7,16 @@ export const Nav = styled.nav`
   justify-content: space-between;
   height: 100vh;
   width: 100%;
-  padding: 245px 57px 21px;
-  ${
-    '' /* display: none;
-  @media screen and (min-width: 1440px) {
-    display: flex;
-  } */
+  padding: 245px 57px 57px;
+  @media screen and (min-width: 768px) {
+    padding: 280px 60px 60px;
   }
 `;
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  margin:0 auto;
+  margin: 0 auto;
   gap: 16px;
   width: 122px;
 `;
@@ -42,7 +39,6 @@ export const Link = styled(NavLink)`
 
 export const Button = styled.button`
   display: flex;
-  ${'' /* justify-content: flex-start; */}
   align-items: center;
   width: 100%;
   margin: 0;
