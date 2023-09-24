@@ -1,29 +1,22 @@
-import {
-  Container,
-  Title,
-  BlackSection,
-  ImageSection,
-  SignUp,
-  SignIn,
-  WelcomeBtn,
-} from './WelcomePage.styled';
-// import sprite from '../../../images/sprite.svg';
+import Title from './Title/Title';
+import { LinkList, SignIn, SignUp, Wrapper, WrapperDesktop } from './WelcomePage.styled';
 
 const WelcomePage = () => {
   return (
-    <Container>
-      <BlackSection>
-        <Title>
-          Transforming your body shape with Power Pulse
-        </Title>
-        <WelcomeBtn>
-          <SignUp to="/signup">Sign Up</SignUp>
-          <SignIn to="/signin">Sign In</SignIn>
-        </WelcomeBtn>
-      </BlackSection>
-
-      <ImageSection />
-    </Container>
+    <>
+      <WrapperDesktop></WrapperDesktop>
+      <Wrapper>
+        <Title />
+        <LinkList>
+          <li>
+            <SignUp to="/signup">Sign Up</SignUp>
+          </li>
+          <li>
+            <SignIn to="/signin">Sign In</SignIn>
+          </li>
+        </LinkList>
+      </Wrapper>
+    </>
   );
 };
 

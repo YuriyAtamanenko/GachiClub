@@ -4,12 +4,19 @@ import { NavLink } from 'react-router-dom';
 export const Container = styled.div`
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
   margin-left: 32px;
   margin-right: 16px;
-  @media screen and (max-width: 767px) {
-    ${'' /* margin-right: 48px; */}
-    gap: 14px;
+  @media screen and (min-width: 375px) {
+    margin-left: 70px;
+    gap: 16px;
+  }
+  @media screen and (min-width: 768px) {
+    margin-left: 370px;
+    gap: 16px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-left: 32px;
   }
 `;
 
@@ -35,8 +42,7 @@ export const Img = styled.img`
   }
 `;
 
-export const Link = styled(NavLink)`
-`;
+export const Link = styled(NavLink)``;
 
 export const Svg = styled.svg`
   width: 24px;

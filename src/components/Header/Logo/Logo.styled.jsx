@@ -13,4 +13,3 @@ export const Svg = styled.svg`
     height: 17px;
   }
 `;
-
