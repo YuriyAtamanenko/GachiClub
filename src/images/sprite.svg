@@ -55,7 +55,7 @@
 <path fill="none" stroke="#efede8" style="stroke: var(--color2, #efede8)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.5556" d="M8 12l8 8 8-8"></path>
 </symbol>
 <symbol id="icon-close" viewBox="0 0 32 32">
-<path fill="none" stroke="#efede8" style="stroke: var(--color2, #efede8)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.4615" d="M24 8l-16 16M8 8l16 16"></path>
+<path fill="none" stroke="#E6533C" style="stroke: var(--color2, #E6533C)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.4615" d="M24 8l-16 16M8 8l16 16"></path>
 </symbol>
 <symbol id="icon-checkbox-success" viewBox="0 0 32 32">
 <path fill="#3cbf61" style="fill: var(--color4, #3cbf61)" d="M16 29.334c-7.364 0-13.333-5.969-13.333-13.333s5.969-13.333 13.333-13.333v0c7.364 0 13.333 5.969 13.333 13.333s-5.969 13.333-13.333 13.333v0zM14.46 21.98l9.426-9.428-1.886-1.886-7.54 7.544-3.776-3.772-1.884 1.884 5.656 5.658z"></path>

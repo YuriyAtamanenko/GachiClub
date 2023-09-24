@@ -24,10 +24,12 @@ export const Title = styled.h2`
     line-height: 116.667%;
 
     color: var(--primary-text-color);
+    margin-bottom: 40px;
   }
 
   @media screen and (min-width: 768px) {
     font-size: 32px;
     line-height: 137.5%;
+    margin-bottom: 32px;
   }
 `;
