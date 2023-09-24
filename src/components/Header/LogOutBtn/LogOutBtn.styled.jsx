@@ -4,9 +4,7 @@ export const Button = styled.button`
   display: none;
   @media screen and (min-width: 1440px) {
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin: 0;
     padding: 0;
     gap: 8px;
     color: #efede8;

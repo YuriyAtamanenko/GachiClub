@@ -1,6 +1,6 @@
 import ExercisesListItem from './ExercisesListItem';
 import { useSelector } from 'react-redux';
-import { getIndex } from '../../redux/selectors';
+import { getIndex } from '../../redux/Exercises/selectors';
 import exercises from './exercises.json';
 import { List } from './styledComponents/ExercisesList.styled';
 import BasicModalWindow from './BasicModalWindow';

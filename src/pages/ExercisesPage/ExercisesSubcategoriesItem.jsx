@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { changeTitle, toggleChoice } from '../../redux/reducer';
+import { changeTitle, toggleChoice } from '../../redux/Exercises/reducer';
 import {
   Card,
   CardContent,

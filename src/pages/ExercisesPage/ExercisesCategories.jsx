@@ -1,6 +1,6 @@
 import { Category } from './styledComponents/ExercisesCategories.styled';
 import { useDispatch } from 'react-redux';
-import { changeCategory } from '../../redux/reducer';
+import { changeCategory } from '../../redux/Exercises/reducer';
 const pages = ['Body parts', 'Muscles', 'Equipment'];
 const ExercisesCategories = () => {
   const dispatch = useDispatch();
