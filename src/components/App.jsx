@@ -40,9 +40,6 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<WelcomePage />} />
 
-        {/* <Route path="/signup" element={<SignUpPage />} /> */}
-        {/* <Route path="/signin" element={<SignInPage />} /> */}
-
         <Route
           path="/signup"
           element={
