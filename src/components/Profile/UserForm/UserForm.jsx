@@ -16,12 +16,11 @@ import {
 } from './UserForm.style';
 import { useState } from 'react';
 import 'react-calendar/dist/Calendar.css';
-import SvgSprite from '../../../images/sprite.svg';
+import sprite from '../../../images/sprite.svg';
 
-const UserForm = ({ userParams: { name, email, bodyData } }) => {
-  console.log('first', bodyData.birthday);
+const UserForm = ({ userParams }) => {
   const [openCalendar, setOpenCalendar] = useState(false);
-
+  const { name, email, bodyData, avatarUrl } = userParams;
   const {
     height,
     birthday,
@@ -42,6 +41,7 @@ const UserForm = ({ userParams: { name, email, bodyData } }) => {
     sex,
     levelActivity,
     birthday: new Date(birthday),
+    avatarUrl,
   };
 
   const handleSubmit = e => {
@@ -89,7 +89,7 @@ const UserForm = ({ userParams: { name, email, bodyData } }) => {
             <LabelStyled onClick={toglerCalendar}>
               <TitleForm id="calendarTitle">Calendar</TitleForm>
               <CalendarIco>
-                <use xlinkHref={`${SvgSprite}#icon-calendar`} />
+                <use href={sprite + `#icon-calendar`}></use>
               </CalendarIco>
               <PrimalField
                 disabled={true}

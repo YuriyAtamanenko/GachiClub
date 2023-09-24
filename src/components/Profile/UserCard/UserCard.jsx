@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import {
   CheckMark,
   CurrentUser,
-  SceletUser,
   CurrentUserName,
   UserPlate,
   Plate,
@@ -11,19 +10,29 @@ import {
   WarningContainer,
   WarningText,
   UserAvatar,
+  NoSelectUserPhoto,
+  ImgUser,
 } from './UserCard.styled';
 import exclamationMark from '../../../assets/profile_img/tabler_exclamation-mark.svg';
-import checkMark from '../../../assets/profile_img/check_mark.svg';
 import spoonFork from '../../../assets/profile_img/spoon_fork.svg';
 import dumbbell from '../../../assets/profile_img/dumbbell.svg';
 import { Plates } from './UserCard.styled';
 import LogOutBtn from '../../Header/LogOutBtn/LogOutBtn';
+import SvgSprite from '../../../images/sprite.svg';
+import { useState } from 'react';
 
 const callInDay = '2200';
 const dailySportTime = '110';
 
 const UserCard = ({ userData }) => {
-  const { avatarUrl, name } = userData;
+  const { name, avatarUrl } = userData;
+  const [selectedAvatar, setSelectedAvatar] = useState(avatarUrl);
+
+  const handleAvatarChange = e => {
+    const file = e.target.files[0];
+    setSelectedAvatar(file);
+    setSelectedAvatar(file);
+  };
 
   const customButtonStyle = {
     display: 'flex',
@@ -39,18 +48,40 @@ const UserCard = ({ userData }) => {
     marginBottom: '36px',
   };
 
-  const avatar =
-    avatarUrl ||
-    'https://i.pinimg.com/564x/72/91/c4/7291c40ad206f03e56fb62cfd8536d84.jpg';
-
   return (
     <div>
       <UserAvatar>
         <CurrentUser>
-          <SceletUser width="100%" src={avatar} alt="scelet user" />
+          {selectedAvatar === null ? (
+            <NoSelectUserPhoto>
+              <use xlinkHref={`${SvgSprite}#icon-addPhoto`} />
+            </NoSelectUserPhoto>
+          ) : (
+            <ImgUser
+              width="100%"
+              src={
+                selectedAvatar === avatarUrl
+                  ? avatarUrl
+                  : URL.createObjectURL(selectedAvatar)
+              }
+              alt="scelet user"
+            />
+          )}
         </CurrentUser>
+
         <CheckMark>
-          <img src={checkMark} alt="check mark" />
+          
+          <input
+            placeholder=""
+            type="file"
+            accept="image/*"
+            onChange={handleAvatarChange}
+          />
+
+          <svg>
+            <use xlinkHref={`${SvgSprite}#icon-addPhoto`} />
+          </svg>
+          {/* <img src={checkMark} alt="check mark" /> */}
         </CheckMark>
       </UserAvatar>
 

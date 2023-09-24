@@ -50,8 +50,6 @@ export const LabelStyled = styled.label`
   @media screen and (min-width: 768px) {
     width: calc(100% / 4 - 10.5px);
   }
-   
-  }
 `;
 
 export const TitleForm = styled.p`
@@ -230,6 +228,7 @@ export const CalendarIco = styled.svg`
   right: 14px;
   top: 50%;
   transform: translate(0, -15%);
+  stroke: rgba(239, 237, 232, 1);
 `;
 
 export const BloodContainer = styled.div`

@@ -20,7 +20,7 @@ export const CurrentUser = styled.div`
 export const UserAvatar = styled.div`
   position: relative;
 `;
-export const SceletUser = styled.img`
+export const ImgUser = styled.img`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -28,6 +28,8 @@ export const SceletUser = styled.img`
 `;
 
 export const CheckMark = styled.button`
+  width: 32px;
+  height: 32px;
   position: absolute;
   left: 50%;
   top: 77px;
@@ -35,12 +37,28 @@ export const CheckMark = styled.button`
   border: none;
   transform: translate(-50%, 0);
   background-color: transparent;
-  z-index:1;
+  z-index: 1;
+  overflow: hidden;
 
-    @media screen and (min-width: 1440px) {
-        top: 138px;
+  & input {
+    position: absolute;
+    right: -50px;
+    color: transparent;
+    cursor: pointer;
+  }
+
+  & svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  @media screen and (min-width: 768px) {
+    top: 138px;
+    & svg {
+      width: 32px;
+      height: 32px;
     }
-}
+  }
 `;
 
 export const CurrentUserName = styled.p`
@@ -136,4 +154,13 @@ export const WarningText = styled.p`
   color: var(--secondary-text-color);
   font-size: 14px;
   line-height: 18px;
+`;
+
+export const NoSelectUserPhoto = styled.svg`
+  width: 120px;
+  height: 120px;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
 `;
