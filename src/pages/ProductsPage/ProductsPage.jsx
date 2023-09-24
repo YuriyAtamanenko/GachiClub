@@ -1,15 +1,15 @@
-import { Container, Title } from './ProductsPage.styled';
+import { Container, Title, ContainerForm } from './ProductsPage.styled';
 import ProductsFilter from '../../components/Products/ProductsFilter/ProductsFilter';
 import ProdactsList from '../../components/Products/ProductsList/ProductsList';
 
 const ProductsPage = () => {
   return (
     <Container>
-      <>
+      <ContainerForm>
         <Title>Products</Title>
         <ProductsFilter />
-        <ProdactsList />
-      </>
+      </ContainerForm>
+      <ProdactsList />
     </Container>
   );
 };
