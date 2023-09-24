@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 export const Container = styled.div`
   position: relative;
@@ -29,7 +29,7 @@ export const Header = styled.div`
   left: 0;
   position: ${props => (props.isLoggedIn ? 'relative' : 'absolute')};
   border-bottom: ${props => (props.isLoggedIn ? '1px solid rgba(239, 237, 232, 0.2)' : 'none')};
-  padding: ${props => (props.isLoggedIn ? '24px 0' : '24px 20px')};
+  padding: ${props => (props.isLoggedIn ? '12px 0' : '24px 20px')};
   @media screen and (min-width: 768px) {
     padding: ${props => (props.isLoggedIn ? '19px 0' : '32px 32px')};
   }

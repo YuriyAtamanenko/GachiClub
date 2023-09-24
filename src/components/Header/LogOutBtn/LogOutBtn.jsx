@@ -1,15 +1,31 @@
-// import { useDispatch } from 'react-redux';
-// import { logOut } from 'redux/auth/operations';
+import { logOut } from '../../../redux/Authorization/operations';
+import { useDispatch } from 'react-redux';
 import sprite from '../../../images/sprite.svg';
 import { Button, Svg } from './LogOutBtn.styled';
+// import { useEffect } from 'react';
 
-const LogOutBtn = () => {
-  // const dispatch = useDispatch();
-  // const { isLoggedIn } = useAuth();
+const LogOutBtn = ({ customStyles }) => {
+  const dispatch = useDispatch();
+
+    // const handleLogOut = async () => {
+    //   try {
+    //     await dispatch(logOut()); // 
+    //     alert('Ви вийшли з системи');
+    //   } catch (error) {
+    //     alert(`Помилка: ${error.message}`);
+    //   }
+    // };
+
+    // useEffect(() => {
+    //   localStorage.clear();
+    // }, []);
+
   return (
     <Button
       type="button"
-      // onClick={() => dispatch(logOut())}
+      // onClick={handleLogOut}
+      onClick={() => dispatch(logOut())}
+      style={customStyles}
     >
       Logout
       <Svg>

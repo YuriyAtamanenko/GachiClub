@@ -1,4 +1,4 @@
-import { Field, Form, Formik } from 'formik';
+import { Field, Formik } from 'formik';
 import {
   ActivityContainer,
   BloodContainer,
@@ -10,6 +10,7 @@ import {
   LabelStyled,
   PrimalField,
   RadioLabelStyled,
+  StyledFormik,
   TitleForm,
 } from './UserForm.style';
 import { useState } from 'react';
@@ -48,7 +49,7 @@ const UserForm = () => {
   return (
     <Formik initialValues={initialValues} onSubmit={handleSubmit}>
       {({ values, setFieldValue, dirty }) => (
-        <Form>
+        <StyledFormik>
           <TitleForm>Basic info</TitleForm>
 
           <label>
@@ -177,7 +178,7 @@ const UserForm = () => {
           <ButtonSubmit disabled={!dirty} type="submit">
             Save
           </ButtonSubmit>
-        </Form>
+        </StyledFormik>
       )}
     </Formik>
   );

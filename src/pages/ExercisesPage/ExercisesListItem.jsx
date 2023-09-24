@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { setIndex } from '../../redux/reducer';
+import { setIndex } from '../../redux/Exercises/reducer';
 import {
   ListItem,
   Workout,

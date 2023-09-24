@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { object, string } from 'yup';
-import { loginization } from '../../Redux/Authorization/operations';
+import { loginization } from '../../redux/Authorization/operations';
 // import { register } from 'Redux/Authorization/operations';
 
 const SignInPage = () => {
@@ -36,8 +36,12 @@ const SignInPage = () => {
     password: '',
   };
 
+  const style = {
+    paddingTop: '200px',
+  };
+
   return (
-    <div>
+    <div style={style}>
       <h2>Sign In</h2>
 
       <p>Welcome! Please enter your credentials to login to the platform:</p>
