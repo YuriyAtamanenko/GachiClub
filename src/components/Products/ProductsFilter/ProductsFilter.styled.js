@@ -9,11 +9,9 @@ export const ContainerForm = styled.ul`
     gap: 16px;
   }
 
-  @media screen and (min-width: 768px) {
-  }
-
   @media screen and (min-width: 1440px) {
     margin-bottom: 28px;
+    margin-right: 130px;
     display: flex;
     flex-direction: row;
     align-items: center;
