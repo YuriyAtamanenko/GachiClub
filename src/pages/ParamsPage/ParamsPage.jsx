@@ -1,15 +1,13 @@
-// const ParamsPage = () => {
-//   return <div>ParamsPage</div>;
-// };
 
-// export default ParamsPage;
+
 
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
 import PropTypes from 'prop-types';
 // import * as Yup from 'yup';
 // import { updateUser } from '../../Redux/Authorization/operations';
-
+import { updateUser } from '../../redux/Authorization/operations';
 import {
   ProgressBarStep1,
   ProgressBarStep2,
@@ -23,7 +21,9 @@ const progressBarStyles = {
 
 const StepOne = props => {
   const handleSubmit = values => {
-    props.next(values);
+    const newData = { ...props.data, ...values };
+    console.log('StepOne данные:', newData);
+    props.next(newData);
   };
   return (
     <div>
@@ -58,6 +58,7 @@ const StepTwo = props => {
   const handleSubmit = values => {
     // Создайте новый объект, объединяя значения из props.data и values
     const newData = { ...props.data, ...values };
+    console.log('StepTwo данные:', newData);
 
     // Вызовите функцию next, передав newData
     props.next(newData);
@@ -80,31 +81,31 @@ const StepTwo = props => {
               <p>Blood</p>
 
               <label>
-                <Field type="radio" name="bloodType" value="1" />1
+                <Field type="radio" name="blood" value="1" />1
               </label>
 
               <label>
-                <Field type="radio" name="bloodType" value="2" />2
+                <Field type="radio" name="blood" value="2" />2
               </label>
 
               <label>
-                <Field type="radio" name="bloodType" value="3" />3
+                <Field type="radio" name="blood" value="3" />3
               </label>
 
               <label>
-                <Field type="radio" name="bloodType" value="4" />4
+                <Field type="radio" name="blood" value="4" />4
               </label>
             </div>
 
             <div>
               <p>Sex</p>
               <label>
-                <Field type="radio" name="sex" value="Male" />
+                <Field type="radio" name="sex" value="male" />
                 Male
               </label>
 
               <label>
-                <Field type="radio" name="sex" value="Female" />
+                <Field type="radio" name="sex" value="female" />
                 Female
               </label>
             </div>
@@ -113,48 +114,27 @@ const StepTwo = props => {
               <p>Level Activity</p>
 
               <label>
-                <Field
-                  type="radio"
-                  name="activity"
-                  value="Sedentary lifestyle (little or no physical activity)"
-                />
+                <Field type="radio" name="levelActivity" value="1" />
                 Sedentary lifestyle (little or no physical activity)
               </label>
 
               <label>
-                <Field
-                  type="radio"
-                  name="activity"
-                  value="Light activity (light exercises/sports 1-3 days per week)"
-                />
+                <Field type="radio" name="levelActivity" value="2" />
                 Light activity (light exercises/sports 1-3 days per week)
               </label>
 
               <label>
-                <Field
-                  type="radio"
-                  name="activity"
-                  value="Moderately active (moderate exercises/sports 3-5 days per week)"
-                />
+                <Field type="radio" name="levelActivity" value="3" />
                 Moderately active (moderate exercises/sports 3-5 days per week)
               </label>
 
               <label>
-                <Field
-                  type="radio"
-                  name="activity"
-                  value="Very active (intense exercises/sports 6-7 days per week)"
-                />
+                <Field type="radio" name="levelActivity" value="4" />
                 Very active (intense exercises/sports 6-7 days per week)
               </label>
 
               <label>
-                <Field
-                  type="radio"
-                  name="activity"
-                  value="Extremely active (very strenuous exercises/sports and physical
-                work)"
-                />
+                <Field type="radio" name="levelActivity" value="5" />
                 Extremely active (very strenuous exercises/sports and physical
                 work)
               </label>
@@ -172,17 +152,35 @@ const StepTwo = props => {
 };
 
 const StepThree = props => {
-  const handleSubmit = values => {
-    props.next(values, true);
+  const dispatch = useDispatch();
+
+  const handleSubmit = async values => {
+    console.log('StepThree данные:', props.data);
+    try {
+      // Отправьте данные пользователя на сервер при сабмите формы
+      await dispatch(
+        updateUser({
+          email: props.data.email,
+          name: props.data.name,
+          password: props.data.password,
+          height: props.data.height,
+          currentWeight: props.data.currentWeight,
+          desiredWeight: props.data.desiredWeight,
+          birthday: '2005-06-17T07:27:41.902Z',
+          blood: props.data.blood,
+          sex: props.data.sex,
+          levelActivity: props.data.levelActivity,
+        }),
+      );
+
+      // Вызовите функцию next, чтобы перейти к следующему шагу
+      props.next(values, true);
+      // dispatch(setUserData(values));
+    } catch (e) {
+      console.error('Error updating user:', e);
+    }
   };
 
-  // dispach(
-  //   updateUser({
-  //     email: props.data.email, // Используйте email, чтобы идентифицировать пользователя
-  //     name: props.data.name, // Передайте другие необходимые поля
-  //     password: props.data.password,
-  //   }),
-  // );
   return (
     <div>
       <div>
@@ -197,7 +195,11 @@ const StepThree = props => {
       <Formik initialValues={props.data} onSubmit={handleSubmit}>
         {({ values }) => (
           <div>
-            <button type="submit">Go</button>
+            {/* <button type="submit">Go</button> */}
+            <button type="button" onClick={() => handleSubmit(values)}>
+              {/* <button type="button" onClick={() => props.next(values, true)}></button> */}
+              Go
+            </button>
             <button type="button" onClick={() => props.prev(values)}>
               Back
             </button>
@@ -209,14 +211,20 @@ const StepThree = props => {
 };
 
 const ParamsPage = () => {
+  // const user = useSelector(state => state.auth.user);
+  const token = useSelector(state => state.auth.token);
+
+  // console.log('Текущий user', user);
+  console.log('Текущий token', token);
+
   const [data, setData] = useState({
     height: '',
     currentWeight: '',
     desiredWeight: '',
     birthday: '',
-    bloodType: '1',
-    sex: 'Male',
-    activity: 'Sedentary lifestyle (little or no physical activity)',
+    blood: '',
+    sex: '',
+    levelActivity: '',
   });
 
   const [currentStep, setCurrentStep] = useState(0);
@@ -224,7 +232,7 @@ const ParamsPage = () => {
   //   const totalSteps = 3;
 
   const makeRequest = formData => {
-    console.log(formData);
+    console.log('данные которые улетают на сервер:', formData);
   };
 
   //   const handleSubmit = values => {
@@ -240,20 +248,38 @@ const ParamsPage = () => {
   //   };
 
   const handleNextStep = (newData, final = false) => {
-    setData(prev => ({ ...prev, ...newData }));
+    // Обновите данные в data при переходе к следующему шагу
+    const updatedData = { ...data, ...newData };
+    setData(updatedData);
 
     if (final) {
-      makeRequest(newData);
+      makeRequest(updatedData);
       return;
     }
+
+    // const handleNextStep = (newData, final = false) => {
+    //   setData(prev => ({ ...prev, ...newData }));
+
+    //   if (final) {
+    //     makeRequest(newData);
+    //     return;
+    //   }
 
     setCurrentStep(prev => prev + 1);
   };
 
   const handlePrevStep = newData => {
-    setData(prev => ({ ...prev, ...newData }));
+    // Обновите данные в data при переходе к предыдущему шагу
+    const updatedData = { ...data, ...newData };
+    setData(updatedData);
+
     setCurrentStep(prev => prev - 1);
   };
+
+  // const handlePrevStep = newData => {
+  //   setData(prev => ({ ...prev, ...newData }));
+  //   setCurrentStep(prev => prev - 1);
+  // };
 
   const steps = [
     <StepOne key="step1" next={handleNextStep} data={data} />,
