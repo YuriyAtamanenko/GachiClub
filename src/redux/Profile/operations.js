@@ -11,7 +11,20 @@ export const currenntUserProfile = createAsyncThunk(
     setAuthHeader(token);
     try {
       const response = await axios.get('/users/current');
+      setAuthHeader(response.data.token);
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  },
+);
 
+export const updateUserProfile = createAsyncThunk(
+  'users/profile',
+  async (token, thunkAPI) => {
+    setAuthHeader(token);
+    try {
+      const response = await axios.get('/users/current');
       setAuthHeader(response.data.token);
       return response.data;
     } catch (e) {

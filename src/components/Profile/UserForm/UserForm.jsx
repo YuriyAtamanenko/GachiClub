@@ -1,4 +1,5 @@
 import { Field, Formik } from 'formik';
+import PropTypes from 'prop-types';
 import {
   ActivityContainer,
   BloodContainer,
@@ -17,20 +18,31 @@ import { useState } from 'react';
 import 'react-calendar/dist/Calendar.css';
 import SvgSprite from '../../../images/sprite.svg';
 
-const initialValues = {
-  userName: 'UserName',
-  email: 'example@mail',
-  height: '111',
-  currentWeight: 90,
-  desiredWeight: 60,
-  blood: '1',
-  gender: 'Male',
-  activity: 'Sedentary',
-  selectedDate: new Date(),
-};
-
-const UserForm = () => {
+const UserForm = ({ userParams: { name, email, bodyData } }) => {
+  console.log('first', bodyData.birthday);
   const [openCalendar, setOpenCalendar] = useState(false);
+
+  const {
+    height,
+    birthday,
+    blood,
+    currentWeight,
+    desiredWeight,
+    levelActivity,
+    sex,
+  } = bodyData;
+
+  const initialValues = {
+    name,
+    email,
+    height,
+    currentWeight,
+    desiredWeight,
+    blood,
+    sex,
+    levelActivity,
+    birthday: new Date(birthday),
+  };
 
   const handleSubmit = e => {
     console.log('e', e);
@@ -53,7 +65,7 @@ const UserForm = () => {
           <TitleForm>Basic info</TitleForm>
 
           <label>
-            <PrimalField type="text" name="userName" />
+            <PrimalField type="text" name="name" />
           </label>
 
           <label>
@@ -81,23 +93,23 @@ const UserForm = () => {
               </CalendarIco>
               <PrimalField
                 disabled={true}
-                onChange={date => setFieldValue('selectedDate', date)}
-                value={`${values.selectedDate.getDate()}.${
-                  values.selectedDate.getMonth() + 1
-                }.${values.selectedDate.getFullYear()}`}
+                onChange={date => setFieldValue('birthday', date)}
+                value={`${values.birthday.getDate()}.${
+                  values.birthday.getMonth() + 1
+                }.${values.birthday.getFullYear()}`}
                 type="text"
-                name="calendarField"
+                name="birthday"
               />
             </LabelStyled>
             <CalendarContainer
               data-isopen={`${openCalendar ? 'open' : 'close'}`}
             >
-              <Field name="selectedDate">
+              <Field name="birthday">
                 {() => (
                   <CalendarStyled
                     locale="en-US"
-                    onChange={date => setFieldValue('selectedDate', date)}
-                    value={values.selectedDate}
+                    onChange={date => setFieldValue('birthday', date)}
+                    value={values.birthday}
                     formatShortWeekday={(_, date) => formatDate(date)}
                     onClickDay={toglerCalendar}
                   />
@@ -108,7 +120,7 @@ const UserForm = () => {
           <TitleForm>Blood</TitleForm>
           <BloodContainer>
             <RadioLabelStyled>
-              <Field type="radio" name="blood" value="1" /> <p>1</p>{' '}
+              <Field type="radio" name="blood" value="1" /> <p>1</p>
               <span></span>
             </RadioLabelStyled>
             <RadioLabelStyled>
@@ -129,14 +141,14 @@ const UserForm = () => {
             </RadioLabelStyled>
 
             <RadioLabelStyled>
-              <Field type="radio" name="gender" value="Male" />
+              <Field type="radio" name="sex" value="Male" />
               <p>Male</p>
 
               <span></span>
             </RadioLabelStyled>
 
             <RadioLabelStyled>
-              <Field type="radio" name="gender" value="Female" />
+              <Field type="radio" name="sex" value="Female" />
               <p>Female</p>
               <span></span>
             </RadioLabelStyled>
@@ -145,24 +157,24 @@ const UserForm = () => {
           <ActivityContainer>
             <RadioLabelStyled>
               <p>Sedentary lifestyle (little or no physical activity)</p>
-              <Field type="radio" name="activity" value="1"></Field>
+              <Field type="radio" name="levelActivity" value="1"></Field>
               <span></span>
             </RadioLabelStyled>
             <RadioLabelStyled>
               <p>Light activity (light exercises/sports 1-3 days per week)</p>
-              <Field type="radio" name="activity" value="2"></Field>
+              <Field type="radio" name="levelActivity" value="2"></Field>
               <span></span>
             </RadioLabelStyled>
             <RadioLabelStyled>
               <p>
                 Moderately active (moderate exercises/sports 3-5 days per week)
               </p>
-              <Field type="radio" name="activity" value="3"></Field>
+              <Field type="radio" name="levelActivity" value="3"></Field>
               <span></span>
             </RadioLabelStyled>
             <RadioLabelStyled>
               <p>Very active (intense exercises/sports 6-7 days per week)</p>
-              <Field type="radio" name="activity" value="4"></Field>
+              <Field type="radio" name="levelActivity" value="4"></Field>
               <span></span>
             </RadioLabelStyled>
 
@@ -171,7 +183,11 @@ const UserForm = () => {
                 Extremely active (very strenuous exercises/sports and physical
                 work)
               </p>
-              <Field type="radio" name="activity" value="Extremely"></Field>
+              <Field
+                type="radio"
+                name="levelActivity"
+                value="Extremely"
+              ></Field>
               <span></span>
             </RadioLabelStyled>
           </ActivityContainer>
@@ -182,6 +198,10 @@ const UserForm = () => {
       )}
     </Formik>
   );
+};
+
+UserForm.propTypes = {
+  userParams: PropTypes.object.isRequired,
 };
 
 export default UserForm;

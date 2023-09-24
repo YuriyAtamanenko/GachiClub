@@ -6,7 +6,6 @@ const handlePending = state => {
   state.isLoading = true;
 };
 const getCurrentUser = (state, action) => {
-  console.log('ACTION', action);
   state.isLoading = false;
   state.data = action.payload;
 

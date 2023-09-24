@@ -23,7 +23,6 @@ const callInDay = '2200';
 const dailySportTime = '110';
 
 const UserCard = ({ userData }) => {
-  console.log('userData', userData);
   const { avatarUrl, name } = userData;
 
   const customButtonStyle = {

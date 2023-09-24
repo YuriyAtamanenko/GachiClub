@@ -9,10 +9,7 @@ import { currenntUserProfile } from '../../redux/Profile/operations';
 const ProfilePage = () => {
   const token = useSelector(selectToken);
   const dispatch = useDispatch();
-  const {
-    isLoading,
-    data: { name, avatarUrl },
-  } = useSelector(selectCurrentUser);
+  const { isLoading, data } = useSelector(selectCurrentUser);
 
   useEffect(() => {
     dispatch(currenntUserProfile(token));
@@ -25,8 +22,8 @@ const ProfilePage = () => {
     <Container>
       <Title>Profile Settings</Title>
       <UserContainer>
-        <UserCard userData={{ name, avatarUrl }} />
-        <UserForm />
+        <UserCard userData={data} />
+        <UserForm userParams={data} />
       </UserContainer>
     </Container>
   );

@@ -23,7 +23,7 @@ export const PrimalField = styled(Field)`
   &[name='email'] {
     color: rgba(239, 237, 232, 0.6);
   }
-  &[name='calendarField'] {
+  &[name='birthday'] {
     z-index: -1;
     position: relative;
   }
@@ -83,6 +83,20 @@ export const ContainerField = styled.div`
 `;
 
 export const CalendarStyled = styled(Calendar)`
+  .react-calendar__navigation button:enabled:hover,
+  .react-calendar__navigation button:enabled:focus,
+  .react-calendar__navigation button:disabled {
+    background-color: transparent;
+  }
+
+  .react-calendar__tile--hasActive {
+    background: black;
+    border-radius: 50%;
+  }
+
+  .react-calendar__century-view__decades__decade {
+    flex: auto !important;
+  }
   &.react-calendar {
     width: 215px;
     border-radius: 8px;
@@ -340,6 +354,5 @@ export const ButtonSubmit = styled.button`
   }
   @media screen and (min-width: 1440px) {
     margin-bottom: 44px;
-    
   }
 `;
