@@ -185,8 +185,8 @@ export const FilterTitle = styled.div`
   @media screen and (min-width: 1440px) {
     display: block;
     position: absolute;
-    top: 60px;
-    right: 140px;
+    top: 46px;
+    right: 120px;
     font-size: 14px;
     line-height: 18px;
     color: rgba(239, 237, 232, 0.5);

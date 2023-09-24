@@ -22,8 +22,7 @@ export const Container = styled.div`
     background-position: 100% 0;
     padding-top: 68px;
     position: relative;
-    min-height: 681px;
-    margin-right: -9vw;
+    margin-right: -7vw;
 
     @media (min-device-pixel-ratio: 2),
       (-webkit-min-device-pixel-ratio: 2),
@@ -59,7 +58,6 @@ export const ContainerForm = styled.div`
   @media screen and (min-width: 1440px) {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding-top: 20px;
+    margin-right: -32px;
   }
 `;
