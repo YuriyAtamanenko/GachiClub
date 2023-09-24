@@ -92,11 +92,6 @@ function App() {
             <PrivateRoute component={ProfilePage} redirectTo="/signin" />
           }
         />
-
-        {/* <Route path="/diary" element={<DiaryPage />} /> */}
-        {/* <Route path="/products" element={<ProductsPage />} /> */}
-        {/* <Route path="/exercises" element={<ExercisesPage />} /> */}
-        {/* <Route path="/profile" element={<ProfilePage />} /> */}
         <Route path="*" element={<ErrorPage />} />
       </Route>
       <Route path="*" element={<ErrorPage />} />
