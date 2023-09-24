@@ -64,7 +64,9 @@ function App() {
 
         <Route
           path="/params"
-          element={<PrivateRoute component={ParamsPage} redirectTo="/signin" />}
+          element={
+            <RestrictedRoute component={ParamsPage} redirectTo="/diary" />
+          }
         />
 
         <Route
