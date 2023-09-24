@@ -107,6 +107,8 @@
 <path fill="none" stroke="#efede8" style="stroke: var(--color1, #efede8)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.4" d="M12 4h-1.6c-2.24 0-3.36 0-4.216 0.436-0.753 0.383-1.365 0.995-1.748 1.748-0.436 0.856-0.436 1.976-0.436 4.216v11.2c0 2.24 0 3.36 0.436 4.216 0.383 0.753 0.995 1.364 1.748 1.748 0.856 0.436 1.976 0.436 4.216 0.436h1.6"></path>
 <path fill="none" stroke="#efede8" style="stroke: var(--color1, #efede8)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.4" d="M21.333 22.667l6.667-6.667M28 16l-6.667-6.667M28 16h-16"></path>
 </symbol>
+<symbol id="icon-line" viewBox="0 0 87 32">
+<path fill="none" stroke="#ef8964" style="stroke: var(--color1, #ef8964)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="0.9275" d="M61.051 0.464c-20.416 0.3-65 3.913-60.233 22.304 4.284 12.985 65.327 10.195 80.388 0.425s-5.623-19.937-34.455-16.338"></path>
 <symbol id="icon-trash" viewBox="0 0 32 32">
 <path fill="none" stroke="#ef8964" style="stroke: var(--color1, #ef8964)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.4" d="M12 4h8M13.333 14v6.667M18.667 14v6.667M4 8h24M25.333 8l-0.934 14.026c-0.141 2.104-0.211 3.157-0.666 3.955-0.405 0.703-0.997 1.258-1.708 1.609l-0.023 0.010c-0.826 0.4-1.88 0.4-3.989 0.4h-4.026c-2.109 0-3.163 0-3.989-0.4-0.734-0.361-1.326-0.917-1.721-1.6l-0.010-0.019c-0.454-0.8-0.525-1.851-0.666-3.955l-0.934-14.026"></path>
 </symbol>

@@ -1,0 +1,1 @@
+const s="/GachiClub/assets/default-desktop-1x-5a2ed8f8.jpg",a="/GachiClub/assets/default-desktop-2x-3a51d1c4.jpg",t="/GachiClub/assets/default-tablet-1x-d37027fc.jpg",e="/GachiClub/assets/default-tablet-2x-54594741.jpg",l="/GachiClub/assets/default-mobile-1x-8f07bae4.jpg",b="/GachiClub/assets/default-mobile-2x-dd403410.jpg";export{b as a,e as b,a as c,s as d,l as m,t};

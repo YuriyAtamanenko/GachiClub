@@ -1,8 +1,8 @@
-import{n as i,L as t,j as e,I as n}from"./index-697526a5.js";import{d as o}from"./default-desktop-1x-87763489.js";const a="/GachiClub/assets/default-desktop-2x-3a51d1c4.jpg",d="/GachiClub/assets/default-tablet-1x-d37027fc.jpg",r="/GachiClub/assets/default-tablet-2x-54594741.jpg",p="/GachiClub/assets/default-mobile-1x-8f07bae4.jpg",s="/GachiClub/assets/default-mobile-2x-dd403410.jpg",x=i.div`
+import{n as e,L as t,j as i,I as n}from"./index-7858f4d4.js";import{m as o,a,t as r,b as d,d as p,c as s}from"./default-mobile-2x-adbcb5a4.js";const x=e.div`
   width: 100%;
   margin: 0 auto;
   height: 100vh;
-  background-image: url(${p});
+  background-image: url(${o});
 
   background-repeat: no-repeat;
   background-position: bottom 0 right -30px;
@@ -11,7 +11,7 @@ import{n as i,L as t,j as e,I as n}from"./index-697526a5.js";import{d as o}from"
     (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-    background-image: url(${s});
+    background-image: url(${a});
     background-size: contain;
   }
 
@@ -21,7 +21,7 @@ import{n as i,L as t,j as e,I as n}from"./index-697526a5.js";import{d as o}from"
 
   @media screen and (min-width: 768px) {
     width: 768px;
-    background-image: url(${d});
+    background-image: url(${r});
     background-size: contain;
     background-position: bottom 0 right 0px;
 
@@ -29,22 +29,22 @@ import{n as i,L as t,j as e,I as n}from"./index-697526a5.js";import{d as o}from"
       (-webkit-min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
-      background-image: url(${r});
+      background-image: url(${d});
     }
   }
 
   @media screen and (min-width: 1440px) {
     width: 1440px;
-    background-image: url(${o});
+    background-image: url(${p});
 
     @media (min-device-pixel-ratio: 2),
       (-webkit-min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
-      background-image: url(${a});
+      background-image: url(${s});
     }
   }
-`,c=i.div`
+`,c=e.div`
   position: relative;
   width: calc(0.64 * 100%);
   height: 100%;
@@ -68,7 +68,7 @@ import{n as i,L as t,j as e,I as n}from"./index-697526a5.js";import{d as o}from"
     width: 670px;
     padding: 32px 96px;
   }
-`,l=i(t)`
+`,h=e(t)`
   position: absolute;
   top: 24px;
   left: 20px;
@@ -81,7 +81,7 @@ import{n as i,L as t,j as e,I as n}from"./index-697526a5.js";import{d as o}from"
     top: 32px;
     left: 96px;
   }
-`,h=i.svg`
+`,l=e.svg`
   width: 126px;
   height: 13px;
 
@@ -89,10 +89,10 @@ import{n as i,L as t,j as e,I as n}from"./index-697526a5.js";import{d as o}from"
     width: 152px;
     height: 17px;
   }
-`,m=i.div`
+`,m=e.div`
   margin-top: auto;
   margin-bottom: auto;
-`,g=i.h1`
+`,g=e.h1`
   font-size: 66px;
   font-style: normal;
   font-weight: 500;
@@ -104,7 +104,7 @@ import{n as i,L as t,j as e,I as n}from"./index-697526a5.js";import{d as o}from"
     line-height: 150px;
     letter-spacing: 1.6px;
   }
-`,u=i.p`
+`,u=e.p`
   margin-top: 14px;
   margin-bottom: 28px;
 
@@ -120,7 +120,7 @@ import{n as i,L as t,j as e,I as n}from"./index-697526a5.js";import{d as o}from"
     font-size: 16px;
     line-height: 24px;
   }
-`,b=i(t)`
+`,w=e(t)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -148,4 +148,4 @@ import{n as i,L as t,j as e,I as n}from"./index-697526a5.js";import{d as o}from"
     width: 204px;
     height: 56px;
   }
-`,k=()=>e.jsx(x,{children:e.jsxs(c,{children:[e.jsx(l,{to:"/",children:e.jsx(h,{children:e.jsx("use",{href:n+"#full-logo"})})}),e.jsxs(m,{children:[e.jsx(g,{children:"404"}),e.jsx(u,{children:"Sorry, you have reached a page that we could not find. It seems that you are lost among the numbers and letters of our virtual space. Perhaps this page went on vacation or decided to disappear into another dimension. We apologize for this inconvenience."}),e.jsx(b,{to:"/",children:"Go Home"})]})]})});export{k as default};
+`,k=()=>i.jsx(x,{children:i.jsxs(c,{children:[i.jsx(h,{to:"/",children:i.jsx(l,{children:i.jsx("use",{href:n+"#full-logo"})})}),i.jsxs(m,{children:[i.jsx(g,{children:"404"}),i.jsx(u,{children:"Sorry, you have reached a page that we could not find. It seems that you are lost among the numbers and letters of our virtual space. Perhaps this page went on vacation or decided to disappear into another dimension. We apologize for this inconvenience."}),i.jsx(w,{to:"/",children:"Go Home"})]})]})});export{k as default};
