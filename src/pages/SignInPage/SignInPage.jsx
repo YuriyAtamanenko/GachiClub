@@ -13,14 +13,6 @@ const SignInPage = () => {
     // const { name, email, password } = e.target.elements;
     console.log(values);
 
-    // const jsonData = JSON.stringify({
-    //   name: values.name,
-    //   email: values.email,
-    //   password: values.password,
-    // });
-
-    // dispatch(register(jsonData));
-
     dispatch(
       loginization({
         email: values.email,
@@ -93,9 +85,5 @@ const SignInPage = () => {
     </div>
   );
 };
-
-// const SignInPage = () => {
-//   return <div>SignInPage</div>;
-// };
 
 export default SignInPage;
