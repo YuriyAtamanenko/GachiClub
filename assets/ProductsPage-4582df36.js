@@ -1,4 +1,4 @@
-import{j as e,I as r,n as i,P as n}from"./index-473c76e9.js";import{s as t}from"./styled-components.browser.esm-d41dcd60.js";const m="/GachiClub/assets/products-desktop-1x-e8c375a5.jpg",f="/GachiClub/assets/products-desktop-2x-85e8f868.jpg",u=t.div`
+import{j as e,I as r,n,P as o,a as m,u as g,b as u,i as f}from"./index-9a8c8c4e.js";import{s as t}from"./styled-components.browser.esm-fd0efb20.js";const w="/GachiClub/assets/products-desktop-1x-e8c375a5.jpg",b="/GachiClub/assets/products-desktop-2x-85e8f868.jpg",j=t.div`
   @media screen and (min-width: 375px) {
     padding-top: 40px;
     padding-bottom: 80px;
@@ -13,7 +13,7 @@ import{j as e,I as r,n as i,P as n}from"./index-473c76e9.js";import{s as t}from"
     padding-bottom: 68px;
 
     background-image: linear-gradient(89deg, #040404 0%, rgba(4, 4, 4, 0) 100%),
-      url(${m});
+      url(${w});
     background-repeat: no-repeat;
     background-position: 100% 0;
     padding-top: 68px;
@@ -24,10 +24,10 @@ import{j as e,I as r,n as i,P as n}from"./index-473c76e9.js";import{s as t}from"
       (-webkit-min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
-      background-image: url(${f});
+      background-image: url(${b});
     }
   }
-`,w=t.h2`
+`,y=t.h2`
   @media screen and (min-width: 375px) {
     font-family: Roboto;
     font-size: 24px;
@@ -48,13 +48,13 @@ import{j as e,I as r,n as i,P as n}from"./index-473c76e9.js";import{s as t}from"
     margin-top: 0;
     align-items: center;
   }
-`,b=t.div`
+`,v=t.div`
   @media screen and (min-width: 1440px) {
     display: flex;
     justify-content: space-between;
     margin-right: -32px;
   }
-`,y=t.ul`
+`,k=t.ul`
   @media screen and (min-width: 375px) {
     margin-bottom: 40px;
     display: flex;
@@ -72,7 +72,7 @@ import{j as e,I as r,n as i,P as n}from"./index-473c76e9.js";import{s as t}from"
     gap: 16px;
     justify-content: flex-end;
   }
-`,j=t.input`
+`,z=t.input`
   @media screen and (min-width: 375px) {
     box-sizing: border-box;
     width: 335px;
@@ -110,9 +110,9 @@ import{j as e,I as r,n as i,P as n}from"./index-473c76e9.js";import{s as t}from"
     font-size: 16px;
     line-height: 24px;
   }
-`,v=t.label`
+`,R=t.label`
   position: relative;
-`,k=t.button`
+`,C=t.button`
   border: none;
   display: flex;
   padding: 0;
@@ -122,10 +122,10 @@ import{j as e,I as r,n as i,P as n}from"./index-473c76e9.js";import{s as t}from"
 
   top: calc(50% - 16px / 2);
   right: 14px;
-`,B=t.svg`
+`,A=t.svg`
   width: 18px;
   height: 18px;
-`,z=t.button`
+`,P=t.button`
   top: calc(50% - 16px / 2);
   right: 40px;
   border: none;
@@ -133,11 +133,11 @@ import{j as e,I as r,n as i,P as n}from"./index-473c76e9.js";import{s as t}from"
   padding: 0;
   background: transparent;
   position: absolute;
-`,A=t.svg`
+`,S=t.svg`
   fill: #e6533c;
   width: 18px;
   height: 18px;
-`,$=t.select`
+`,T=t.select`
   @media screen and (min-width: 375px) {
     position: relative;
     /* appearance: none; */
@@ -164,7 +164,7 @@ import{j as e,I as r,n as i,P as n}from"./index-473c76e9.js";import{s as t}from"
     height: 52px;
     width: 192px;
   }
-`,N=t.select`
+`,B=t.select`
   @media screen and (min-width: 375px) {
     position: relative;
     /* appearance: none; */
@@ -211,11 +211,11 @@ import{j as e,I as r,n as i,P as n}from"./index-473c76e9.js";import{s as t}from"
     font-size: 16px;
     line-height: 24px;
   }
-`,R=t.svg`
+`,$=t.svg`
   width: 18px;
   height: 18px;
   fill: #ffff;
-`,C=t.div`
+`,F=t.div`
   display: none;
   @media screen and (min-width: 1440px) {
     display: block;
@@ -226,7 +226,7 @@ import{j as e,I as r,n as i,P as n}from"./index-473c76e9.js";import{s as t}from"
     line-height: 18px;
     color: rgba(239, 237, 232, 0.5);
   }
-`,_=()=>e.jsxs(y,{children:[e.jsx(C,{children:"Filters"}),e.jsx("li",{children:e.jsxs(v,{children:[e.jsx(j,{name:"productSearch",type:"text",placeholder:"Search"}),e.jsx(z,{type:"button",children:e.jsx(A,{children:e.jsx("use",{xlinkHref:`${r}#icon-close`})})}),e.jsx(k,{type:"button",children:e.jsx(B,{children:e.jsx("use",{xlinkHref:`${r}#icon-search`})})})]})}),e.jsx("li",{children:e.jsxs($,{children:[e.jsx(d,{value:"default",children:"Categories"}),e.jsx(R,{children:e.jsx("use",{xlinkHref:`${r}#icon-chevron-down`})})]})}),e.jsx("li",{children:e.jsxs(N,{children:[e.jsx(d,{value:"default",children:"All"}),e.jsx(d,{value:"Recommended",children:"Recommended"}),e.jsx(d,{value:"Not recommended",children:"Not recommended"})]})})]}),P=i.ul`
+`,D=()=>e.jsxs(k,{children:[e.jsx(F,{children:"Filters"}),e.jsx("li",{children:e.jsxs(R,{children:[e.jsx(z,{name:"productSearch",type:"text",placeholder:"Search"}),e.jsx(P,{type:"button",children:e.jsx(S,{children:e.jsx("use",{xlinkHref:`${r}#icon-close`})})}),e.jsx(C,{type:"button",children:e.jsx(A,{children:e.jsx("use",{xlinkHref:`${r}#icon-search`})})})]})}),e.jsx("li",{children:e.jsxs(T,{children:[e.jsx(d,{value:"default",children:"Categories"}),e.jsx($,{children:e.jsx("use",{xlinkHref:`${r}#icon-chevron-down`})})]})}),e.jsx("li",{children:e.jsxs(B,{children:[e.jsx(d,{value:"default",children:"All"}),e.jsx(d,{value:"Recommended",children:"Recommended"}),e.jsx(d,{value:"Not recommended",children:"Not recommended"})]})})]}),N=n.ul`
   display: flex;
 
   flex-wrap: wrap;
@@ -247,7 +247,7 @@ import{j as e,I as r,n as i,P as n}from"./index-473c76e9.js";import{s as t}from"
   @media screen and (min-width: 1440px) {
     width: 850px;
   }
-`,S=i.div`
+`,E=n.div`
   padding-top: 24px;
 
   @media screen and (min-width: 768px) {
@@ -257,7 +257,7 @@ import{j as e,I as r,n as i,P as n}from"./index-473c76e9.js";import{s as t}from"
   @media screen and (min-width: 1440px) {
     padding-top: 104px;
   }
-`,p=i.p`
+`,c=n.p`
   color: var(--secondary-text-color);
   font-family: Roboto;
   font-size: 14px;
@@ -274,9 +274,9 @@ import{j as e,I as r,n as i,P as n}from"./index-473c76e9.js";import{s as t}from"
 
   @media screen and (min-width: 1440px) {
   }
-`,c=i.span`
+`,l=n.span`
   color: var(--bright-accent-color);
-`,T=i.li`
+`,I=n.li`
   display: flex;
   flex-direction: column;
   border: 1px solid rgba(239, 237, 232, 0.2);
@@ -295,7 +295,7 @@ import{j as e,I as r,n as i,P as n}from"./index-473c76e9.js";import{s as t}from"
     width: 405px;
     height: 141px;
   }
-`,D=i.div`
+`,L=n.div`
   display: flex;
 
   align-items: flex-start;
@@ -304,7 +304,7 @@ import{j as e,I as r,n as i,P as n}from"./index-473c76e9.js";import{s as t}from"
   }
   @media screen and (min-width: 1440px) {
   }
-`,F=i.h2`
+`,q=n.h2`
   border-radius: 4px;
   background: rgba(239, 237, 232, 0.05);
 
@@ -316,7 +316,7 @@ import{j as e,I as r,n as i,P as n}from"./index-473c76e9.js";import{s as t}from"
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-`,L=i.div`
+`,H=n.div`
   width: 14px;
   height: 14px;
   border-radius: 10px;
@@ -329,7 +329,7 @@ import{j as e,I as r,n as i,P as n}from"./index-473c76e9.js";import{s as t}from"
   }
   @media screen and (min-width: 1440px) {
   }
-`,q=i.p`
+`,O=n.p`
   color: var(--primary-text-color);
   margin-right: 16px;
   font-family: Roboto;
@@ -343,7 +343,7 @@ import{j as e,I as r,n as i,P as n}from"./index-473c76e9.js";import{s as t}from"
   }
   @media screen and (min-width: 1440px) {
   }
-`,I=i.button`
+`,G=n.button`
   display: flex;
   align-items: center;
   gap: 8px;
@@ -377,13 +377,13 @@ import{j as e,I as r,n as i,P as n}from"./index-473c76e9.js";import{s as t}from"
   }
   @media screen and (min-width: 1440px) {
   }
-`,E=i.svg`
+`,W=n.svg`
   stroke: inherit;
   &:hover,
   &:focus {
     stroke: inherit;
   }
-`,H=i.div`
+`,V=n.div`
   display: flex;
   align-items: center;
   margin-top: auto;
@@ -392,7 +392,7 @@ import{j as e,I as r,n as i,P as n}from"./index-473c76e9.js";import{s as t}from"
   }
   @media screen and (min-width: 1440px) {
   }
-`,O=i.h2`
+`,Y=n.h2`
   margin-left: 16px;
 
   color: var(--primary-text-color);
@@ -410,14 +410,14 @@ import{j as e,I as r,n as i,P as n}from"./index-473c76e9.js";import{s as t}from"
   }
   @media screen and (min-width: 1440px) {
   }
-`,G=i.div`
+`,_=n.div`
   display: flex;
   gap: 16px;
   @media screen and (min-width: 375px) {
   }
   @media screen and (min-width: 1440px) {
   }
-`,a=i.p`
+`,a=n.p`
   color: rgba(239, 237, 232, 0.4);
   font-family: Roboto;
   font-size: 12px;
@@ -431,6 +431,6 @@ import{j as e,I as r,n as i,P as n}from"./index-473c76e9.js";import{s as t}from"
   }
   @media screen and (min-width: 1440px) {
   }
-`,s=i.span`
+`,s=n.span`
   color: var(--primary-text-color);
-`,l="2",x=({info:o})=>{const g=o.groupBloodNotAllowed[l];return console.log(g),e.jsxs(T,{children:[e.jsxs(D,{children:[e.jsx(F,{children:"DIET"}),e.jsx(L,{style:{backgroundColor:`${o.groupBloodNotAllowed[l]?"#E9101D":"#419B09"}`}}),e.jsx(q,{children:o.groupBloodNotAllowed[l]?"Not recommended":"Recommended"}),e.jsxs(I,{type:"button",children:["Add",e.jsx(E,{width:16,height:16,children:e.jsx("use",{href:r+"#icon-arrow-right"})})]})]}),e.jsxs(H,{children:[e.jsx("svg",{width:24,height:24,fill:"orange",children:e.jsx("use",{href:r+"#icon-runningOnCircle"})}),e.jsx(O,{children:o.title.length>25?`${o.title.slice(0,25)}...`:o.title})]}),e.jsxs(G,{children:[e.jsxs(a,{children:["Calories: ",e.jsx(s,{children:o.calories})]}),e.jsxs(a,{children:["Category:"," ",e.jsx(s,{children:o.category.length>10?`${o.category.slice(0,10)}...`:o.category})]}),e.jsxs(a,{children:["Weight: ",e.jsx(s,{children:o.weight})]})]})]})};x.propTypes={info:n.shape({title:n.string.isRequired,category:n.string.isRequired,weight:n.number.isRequired,calories:n.number.isRequired,groupBloodNotAllowed:n.shape({})}).isRequired};const h=[{_id:{$oid:"5d51694902b2373622ff5773"},weight:100,calories:340,category:"dairy",title:"Danbo cheese",groupBloodNotAllowed:{1:!0,2:!0,3:!1,4:!1}},{_id:{$oid:"5d51694902b2373622ff5b7f"},weight:100,calories:112,category:"fish",title:"marlin",groupBloodNotAllowed:{1:!1,2:!1,3:!1,4:!1}},{_id:{$oid:"5d51694902b2373622ff5e13"},weight:100,calories:17,category:"vegetables and herbs",title:"Salads Belaya Dacha Delicate root",groupBloodNotAllowed:{1:!1,2:!1,3:!1,4:!1}},{_id:{$oid:"5d51694902b2373622ff5b6f"},weight:100,calories:160,category:"fish",title:"Cold smoked bream",groupBloodNotAllowed:{1:!1,2:!1,3:!1,4:!1}},{_id:{$oid:"5d51694902b2373622ff5b8d"},weight:100,calories:281,category:"fish",title:"Pollock in batter",groupBloodNotAllowed:{1:!1,2:!1,3:!1,4:!1}},{_id:{$oid:"5d51694902b2373622ff590d"},weight:100,calories:232,category:"meat",title:"Lamb ham",groupBloodNotAllowed:{1:!1,2:!0,3:!1,4:!0}},{_id:{$oid:"5d51694902b2373622ff5f16"},weight:100,calories:38,category:"soft drinks",title:"Pepsi",groupBloodNotAllowed:{1:!1,2:!1,3:!1,4:!1}},{_id:{$oid:"5d51694802b2373622ff56c1"},weight:100,calories:432,category:"flour",title:"Cedar flour",groupBloodNotAllowed:{1:!0,2:!1,3:!1,4:!1}},{_id:{$oid:"5d51694902b2373622ff5d34"},weight:100,calories:298,category:"vegetables and herbs",title:"dried potatoes",groupBloodNotAllowed:{1:!1,2:!1,3:!1,4:!1}},{_id:{$oid:"5d51694902b2373622ff5911"},weight:100,calories:209,category:"meat",title:"Mutton",groupBloodNotAllowed:{1:!1,2:!0,3:!1,4:!0}},{_id:{$oid:"5d51694902b2373622ff5a68"},weight:100,calories:55,category:"berries",title:"chokeberry",groupBloodNotAllowed:{1:!1,2:!1,3:!1,4:!1}}],W=()=>e.jsx(P,{children:h.length>0?h.map(o=>e.jsx(x,{info:o},o._id.$oid)):e.jsxs(S,{children:[e.jsxs(p,{children:[e.jsx(c,{children:"Sorry, no results were found "}),"for the product filters you selected. You may want to consider other search options to find the product you want. Our range is wide and you have the opportunity to find more options that suit your needs."]}),e.jsx(p,{children:e.jsx(c,{children:"Try changing the search parameters."})})]})}),Y=()=>e.jsxs(u,{children:[e.jsxs(b,{children:[e.jsx(w,{children:"Products"}),e.jsx(_,{})]}),e.jsx(W,{})]});export{Y as default};
+`,x="2",h=({info:i})=>e.jsxs(I,{children:[e.jsxs(L,{children:[e.jsx(q,{children:"DIET"}),e.jsx(H,{style:{backgroundColor:`${i.groupBloodNotAllowed[x]?"#E9101D":"#419B09"}`}}),e.jsx(O,{children:i.groupBloodNotAllowed[x]?"Not recommended":"Recommended"}),e.jsxs(G,{type:"button",children:["Add",e.jsx(W,{width:16,height:16,children:e.jsx("use",{href:r+"#icon-arrow-right"})})]})]}),e.jsxs(V,{children:[e.jsx("svg",{width:24,height:24,fill:"orange",children:e.jsx("use",{href:r+"#icon-runningOnCircle"})}),e.jsx(Y,{children:i.title.length>20?`${i.title.slice(0,20)}...`:i.title})]}),e.jsxs(_,{children:[e.jsxs(a,{children:["Calories: ",e.jsx(s,{children:i.calories})]}),e.jsxs(a,{children:["Category:"," ",e.jsx(s,{children:i.category.length>10?`${i.category.slice(0,10)}...`:i.category})]}),e.jsxs(a,{children:["Weight: ",e.jsx(s,{children:i.weight})]})]})]});h.propTypes={info:o.shape({title:o.string.isRequired,category:o.string.isRequired,weight:o.number.isRequired,calories:o.number,groupBloodNotAllowed:o.shape({})}).isRequired};const J=i=>i.products.products,K=()=>{const i=m(J);return console.log(i),e.jsx(N,{children:i.length>0?i.slice(0,10).map(p=>e.jsx(h,{info:p},p._id)):e.jsxs(E,{children:[e.jsxs(c,{children:[e.jsx(l,{children:"Sorry, no results were found "}),"for the product filters you selected. You may want to consider other search options to find the product you want. Our range is wide and you have the opportunity to find more options that suit your needs."]}),e.jsx(c,{children:e.jsx(l,{children:"Try changing the search parameters."})})]})})},U=()=>{const i=g();return u.useEffect(()=>{i(f())},[i]),e.jsxs(j,{children:[e.jsxs(v,{children:[e.jsx(y,{children:"Products"}),e.jsx(D,{})]}),e.jsx(K,{})]})};export{U as default};
