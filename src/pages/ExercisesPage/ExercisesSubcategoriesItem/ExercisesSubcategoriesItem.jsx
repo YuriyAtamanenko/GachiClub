@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
-import { changeTitle, toggleChoice } from '../../redux/Exercises/reducer';
+import PropTypes from 'prop-types';
+import { changeTitle, toggleChoice } from '../../../redux/Exercises/reducer';
 import {
   Card,
   CardContent,
@@ -7,7 +8,7 @@ import {
   CategoryBlock,
   Subscription,
   Category,
-} from './styledComponents/ExercisesSubcategoriesItem.styled';
+} from './ExercisesSubcategoriesItem.styled';
 const ExercisesSubcategoriesItem = ({ imgURL, name, filter }) => {
   const dispatch = useDispatch();
   return (
@@ -28,3 +29,8 @@ const ExercisesSubcategoriesItem = ({ imgURL, name, filter }) => {
   );
 };
 export default ExercisesSubcategoriesItem;
+ExercisesSubcategoriesItem.propTypes = {
+  imgURL: PropTypes.string,
+  name: PropTypes.string,
+  filter: PropTypes.string,
+};

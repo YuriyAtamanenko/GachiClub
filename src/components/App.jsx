@@ -19,7 +19,7 @@ const ParamsPage = lazy(() => import('../pages/ParamsPage/ParamsPage'));
 const DiaryPage = lazy(() => import('../pages/DiaryPage/DiaryPage'));
 const ProductsPage = lazy(() => import('../pages/ProductsPage/ProductsPage'));
 const ExercisesPage = lazy(() =>
-  import('../pages/ExercisesPage/ExercisesPage'),
+  import('../pages/ExercisesPage/ExercisesPage/ExercisesPage'),
 );
 const ProfilePage = lazy(() => import('../pages/ProfilePage/ProfilePage'));
 const ErrorPage = lazy(() => import('../pages/ErrorPage/ErrorPage'));

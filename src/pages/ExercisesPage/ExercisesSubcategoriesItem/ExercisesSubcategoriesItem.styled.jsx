@@ -7,6 +7,10 @@ export const Card = styled.li`
     max-width: 234px;
     flex-basis: calc((100% - 16px) / 5);
   }
+  &:hover,
+  &:focus {
+    transform: scale(1.05);
+  }
 `;
 export const CardContent = styled.div`
   position: relative;
@@ -24,6 +28,10 @@ export const CardContent = styled.div`
   }
   @media screen and (min-width: 1440px) {
     width: 237px;
+  }
+  &:hover,
+  &:focus {
+    border: 2px solid red;
   }
 `;
 export const CardPicture = styled.img`

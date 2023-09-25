@@ -76,8 +76,8 @@ export const Span = styled.span`
   margin-left: 3px;
 `;
 export const IconWraper = styled.span`
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   margin-right: 16px;
   background-color: #efa082;
   border-radius: 50%;

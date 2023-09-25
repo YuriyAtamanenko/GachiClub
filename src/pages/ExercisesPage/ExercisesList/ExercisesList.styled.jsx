@@ -34,24 +34,41 @@ export const List = styled.ul`
     max-height: 726px;
   }
   @media screen and (min-width: 1440px) {
-    max-height: calc(100vh - 425px);
+    max-height: calc(100vh - 325px);
     width: 850px;
     max-width: 100%;
   }
 `;
-export const ImageWraper = styled.div`
+export const BackgroundImage = styled.div`
   display: none;
-  position: absolute;
-  width: 400px;
-  height: 726px;
-  right: 96px;
-  z-index: -1;
-  top: 85px;
   @media screen and (min-width: 1440px) {
     display: block;
+    z-index: -20;
+    border: none;
+    outline: none;
+    position: absolute;
+    top: 82px;
+    right: 96px;
+    width: 450px;
+    height: 725px;
+    background-image: linear-gradient(
+        80deg,
+        #040404 -2.45%,
+        rgba(4, 4, 4, 0) 68.17%
+      ),
+      url('src/images/exercises-desktop-1x.jpg');
+    background-repeat: no-repeat;
+    background-position: 100% 0;
+    @media (min-device-pixel-ratio: 2) {
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+        background-image: linear-gradient(
+            80deg,
+            #040404 -2.45%,
+            rgba(4, 4, 4, 0) 68.17%
+          ),
+          url('src/images/exercises-desktop-2x.jpg');
+      }
+    }
   }
-`;
-export const BackgroundImage = styled.img`
-  width: 100%;
-  height: 100%;
 `;
