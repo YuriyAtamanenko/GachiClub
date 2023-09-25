@@ -1,3 +1,4 @@
+import { useState } from 'react';
 // import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import {
@@ -14,12 +15,20 @@ import {
   Additionally,
   Value,
 } from './ProductsItem.styled';
+
 import Icons from './../../../images/sprite.svg';
+import AddProductForm from '../../AddProductModal/AddProductModal';
+
 // import { selectGroupBlood } from '../../../redux/Authorization/selector';
 
 const groupBlood = '2';
 
 const ProductsItem = ({ info }) => {
+  const [isModalOpan, setModalOpan] = useState(false);
+
+  const toggleModal = () => {
+    setModalOpan(isModalOpan => !isModalOpan);
+  };
   // const groupBlood = useSelector(selectGroupBlood);
 
   // console.log(groupBlood)
@@ -42,7 +51,7 @@ const ProductsItem = ({ info }) => {
             : 'Recommended'}
         </Recommended>
 
-        <AddButton type="button">
+        <AddButton type="button" onClick={toggleModal}>
           Add
           <Arrow width={16} height={16}>
             <use href={Icons + '#icon-arrow-right'}></use>
@@ -76,6 +85,7 @@ const ProductsItem = ({ info }) => {
           Weight: <Value>{info.weight}</Value>
         </Additionally>
       </ThirdLine>
+      {isModalOpan && <AddProductForm closeModal={toggleModal} data={info} />}
     </Card>
   );
 };

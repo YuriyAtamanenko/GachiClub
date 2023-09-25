@@ -20,7 +20,8 @@ export const getCategories = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const res = await axios.get('/products/category');
-      return res.data[0].categories;
+
+      return res.data.allCategories;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
