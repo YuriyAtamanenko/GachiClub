@@ -1,4 +1,4 @@
-import{j as e,I as r,n as i,P as n}from"./index-852e8fbb.js";import{s as t}from"./styled-components.browser.esm-173e045a.js";const m="/GachiClub/assets/products-desktop-1x-e8c375a5.jpg",f="/GachiClub/assets/products-desktop-2x-85e8f868.jpg",u=t.div`
+import{j as e,I as r,n as i,P as n}from"./index-473c76e9.js";import{s as t}from"./styled-components.browser.esm-d41dcd60.js";const m="/GachiClub/assets/products-desktop-1x-e8c375a5.jpg",f="/GachiClub/assets/products-desktop-2x-85e8f868.jpg",u=t.div`
   @media screen and (min-width: 375px) {
     padding-top: 40px;
     padding-bottom: 80px;
