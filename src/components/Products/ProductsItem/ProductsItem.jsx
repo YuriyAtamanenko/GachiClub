@@ -1,3 +1,5 @@
+import { useState } from 'react';
+// import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import {
   Card,
@@ -13,14 +15,23 @@ import {
   Additionally,
   Value,
 } from './ProductsItem.styled';
+
 import Icons from './../../../images/sprite.svg';
+import AddProductForm from '../../AddProductModal/AddProductModal';
+
+// import { selectGroupBlood } from '../../../redux/Authorization/selector';
 
 const groupBlood = '2';
 
 const ProductsItem = ({ info }) => {
-  const isRec = info.groupBloodNotAllowed[groupBlood];
+  const [isModalOpan, setModalOpan] = useState(false);
 
-  console.log(isRec);
+  const toggleModal = () => {
+    setModalOpan(isModalOpan => !isModalOpan);
+  };
+  // const groupBlood = useSelector(selectGroupBlood);
+
+  // console.log(groupBlood)
 
   return (
     <Card>
@@ -40,7 +51,7 @@ const ProductsItem = ({ info }) => {
             : 'Recommended'}
         </Recommended>
 
-        <AddButton type="button">
+        <AddButton type="button" onClick={toggleModal}>
           Add
           <Arrow width={16} height={16}>
             <use href={Icons + '#icon-arrow-right'}></use>
@@ -53,8 +64,8 @@ const ProductsItem = ({ info }) => {
           <use href={Icons + '#icon-runningOnCircle'}></use>
         </svg>
         <Title>
-          {info.title.length > 25
-            ? `${info.title.slice(0, 25)}...`
+          {info.title.length > 20
+            ? `${info.title.slice(0, 20)}...`
             : info.title}
         </Title>
       </SecondLine>
@@ -74,6 +85,7 @@ const ProductsItem = ({ info }) => {
           Weight: <Value>{info.weight}</Value>
         </Additionally>
       </ThirdLine>
+      {isModalOpan && <AddProductForm closeModal={toggleModal} data={info} />}
     </Card>
   );
 };
@@ -85,7 +97,7 @@ ProductsItem.propTypes = {
     title: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
     weight: PropTypes.number.isRequired,
-    calories: PropTypes.number.isRequired,
+    calories: PropTypes.number,
     groupBloodNotAllowed: PropTypes.shape({}),
   }).isRequired,
 };

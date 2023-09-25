@@ -36,6 +36,7 @@ export const loginization = createAsyncThunk(
       // console.log('Текущий user1 в loginization', response);
       // console.log('Текущий user в loginization', response.data);
       // console.log('Текущий status в loginization', response.status);
+     
 
       return response.data;
     } catch (e) {
@@ -104,7 +105,9 @@ export const updateUser = createAsyncThunk(
     // console.log('userData в updateUser', userData);
     try {
       // console.log('try updateUser');
+
       const response = await axios.post('/users/params', userData);
+
       // console.log('userData в try updateUser', userData);
       // console.log('response.data');
       return response.data;

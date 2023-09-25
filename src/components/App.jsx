@@ -17,7 +17,7 @@ const ParamsPage = lazy(() => import('../pages/ParamsPage/ParamsPage'));
 const DiaryPage = lazy(() => import('../pages/DiaryPage/DiaryPage'));
 const ProductsPage = lazy(() => import('../pages/ProductsPage/ProductsPage'));
 const ExercisesPage = lazy(() =>
-  import('../pages/ExercisesPage/ExercisesPage'),
+  import('../pages/ExercisesPage/ExercisesPage/ExercisesPage'),
 );
 const ProfilePage = lazy(() => import('../pages/ProfilePage/ProfilePage'));
 const ErrorPage = lazy(() => import('../pages/ErrorPage/ErrorPage'));
@@ -32,6 +32,7 @@ function App() {
   const { isRefreshing } = useSelector(state => state.auth);
 
   return !isRefreshing ? (
+
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -84,7 +85,8 @@ function App() {
           />
           <Route path="*" element={<ErrorPage />} />
         </Route>
-        <Route path="*" element={<ErrorPage />} />
+
+       <Route path="*" element={<ErrorPage />} />
       </Routes>
       <ToastContainer />
     </>

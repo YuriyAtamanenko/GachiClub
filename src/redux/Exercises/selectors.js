@@ -1,4 +1,11 @@
-export const getTitle = state => state.title;
-export const getCategory = state => state.category;
-export const getToggle = state => state.isToggled;
-export const getIndex = state => state.exerciseIndex;
+export const getTitle = state => state.exercises.title;
+export const getCategory = state => state.exercises.category;
+export const getToggle = state => state.exercises.isToggled;
+export const getIndex = state => state.exercises.exerciseIndex;
+export const getIsSuccess = state => state.exercises.isSuccess;
+export const selectModal = state => state.exercises.modalIsOpen;
+export const getExercises = state => state.exercises;
+export const getAllExercises = state => state.exercises.allExercises;
+export const selectBodyParts = state => state.exercises.bodyparts;
+export const selectMuscules = state => state.exercises.muscules;
+export const selectEquipments = state => state.exercises.equipments;

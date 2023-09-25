@@ -34,7 +34,7 @@ const ParamsPage = () => {
   const [currentStep, setCurrentStep] = useState(0);
 
   const makeRequest = formData => {
-    console.log('данные которые улетают на сервер:', formData);
+    // console.log('данные которые улетают на сервер:', formData);
   };
 
   const handleNextStep = (newData, final = false) => {
