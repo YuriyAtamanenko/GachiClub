@@ -274,7 +274,7 @@ export const RadioLabelStyled = styled.label`
   input {
     position: absolute;
     opacity: 0;
-    сursor: pointer;
+    cursor: pointer;
   }
 
   input:checked ~ span {
@@ -307,6 +307,18 @@ export const RadioLabelStyled = styled.label`
     top: 50%;
     transform: translate(0, -50%);
   }
+
+  @media screen and (min-width: 768px) {
+    span {
+      height: 20px;
+      width: 20px;
+    }
+
+    input:checked ~ span:before {
+      width: 12px;
+      height: 12px;
+    }
+  }
 `;
 
 export const ActivityContainer = styled.div`
@@ -324,6 +336,8 @@ export const ActivityContainer = styled.div`
 `;
 
 export const ButtonSubmit = styled.button`
+  width: 114px;
+  height: 42px;
   padding: 14px 40px 14px 40px;
   border-radius: 12px;
   background: var(--orange, #e6533c);
@@ -350,6 +364,12 @@ export const ButtonSubmit = styled.button`
 
   @media screen and (min-width: 768px) {
     margin-bottom: 54px;
+    width: 144px;
+    height: 56px;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 120% */
   }
   @media screen and (min-width: 1440px) {
     margin-bottom: 44px;

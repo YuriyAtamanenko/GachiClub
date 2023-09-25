@@ -17,10 +17,14 @@ import {
 import { useState } from 'react';
 import 'react-calendar/dist/Calendar.css';
 import sprite from '../../../images/sprite.svg';
+import { useSelector } from 'react-redux';
+import { selectCurrentUser } from '../../../redux/Profile/selectors';
 
 const UserForm = ({ handleSubmit, data, selectedAvatar }) => {
   //створюємо стан відкриття та закриття календаря
   const [openCalendar, setOpenCalendar] = useState(false);
+
+  const { isLoadingUpdate } = useSelector(selectCurrentUser);
 
   //делегуємо для зручності
   const { name, email, bodyData } = data;
@@ -53,7 +57,6 @@ const UserForm = ({ handleSubmit, data, selectedAvatar }) => {
   const changeAvatar =
     initialValues.avatarUrl !== null &&
     typeof initialValues.avatarUrl !== 'string';
-  console.log('first', changeAvatar);
 
   const toglerCalendar = () => {
     setOpenCalendar(!openCalendar);
@@ -70,8 +73,7 @@ const UserForm = ({ handleSubmit, data, selectedAvatar }) => {
       {({ values, setFieldValue, dirty }) => {
         const changeForm = changeAvatar || dirty;
         console.log('changeForm', changeForm);
-        console.log('changeAvatar', changeAvatar)
-        console.log('dirty', dirty);
+        console.log('changeAvatar', changeAvatar);
 
         return (
           <StyledFormik>
@@ -211,7 +213,7 @@ const UserForm = ({ handleSubmit, data, selectedAvatar }) => {
               id="submitButton"
               type="submit"
             >
-              Save
+              {isLoadingUpdate ? 'Loading' : 'Save'}
             </ButtonSubmit>
           </StyledFormik>
         );

@@ -18,7 +18,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import { profileReducer } from './Profile/profileSlice';
+import { profileReducer } from './Profile/currentUserSlice';
 
 const persistConfig = {
   key: 'auth',

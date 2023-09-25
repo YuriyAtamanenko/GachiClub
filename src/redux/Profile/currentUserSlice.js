@@ -1,10 +1,23 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { currenntUserProfile } from './operations';
+import { currenntUserProfile, updateUserProfile } from './operations';
 import { initialState } from './initialState';
 
 const handlePending = state => {
   state.isLoading = true;
 };
+const handlePendingUpdate = state => {
+  state.isLoadingUpdate = true;
+};
+
+const complateUpdate = state => {
+  state.isLoadingUpdate = false;
+};
+
+const handleRejectedUpdate = (state, action) => {
+  state.isLoadingUpdate = false;
+  state.errorUpdate = action.payload;
+};
+
 const getCurrentUser = (state, action) => {
   state.isLoading = false;
   state.data = action.payload;
@@ -21,14 +34,17 @@ const handleRejected = (state, action) => {
   state.error = action.payload;
 };
 
-const profileSlice = createSlice({
+const currentUserSlice = createSlice({
   name: 'profile',
   initialState,
   extraReducers: builder =>
     builder
       .addCase(currenntUserProfile.pending, handlePending)
       .addCase(currenntUserProfile.fulfilled, getCurrentUser)
-      .addCase(currenntUserProfile.rejected, handleRejected),
+      .addCase(currenntUserProfile.rejected, handleRejected)
+      .addCase(updateUserProfile.pending, handlePendingUpdate)
+      .addCase(updateUserProfile.fulfilled, complateUpdate)
+      .addCase(updateUserProfile.rejected, handleRejectedUpdate),
 });
 
-export const profileReducer = profileSlice.reducer;
+export const profileReducer = currentUserSlice.reducer;

@@ -16,5 +16,7 @@ export const initialState = {
   },
   isLoading: false,
   error: null,
-  buttonLoading: false,
+
+  isLoadingUpdate: false,
+  errorUpdate: null,
 };
