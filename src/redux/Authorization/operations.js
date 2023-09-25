@@ -34,9 +34,7 @@ export const loginization = createAsyncThunk(
       if (response.data.token) {
         await thunkAPI.dispatch(refreshUser());
       }
-      console.log('Текущий user1 в loginization', response);
-      console.log('Текущий user в loginization', response.data);
-      console.log('Текущий status в loginization', response.status);
+
       // await thunkAPI.dispatch(refreshUser());
       return response.data;
     } catch (e) {

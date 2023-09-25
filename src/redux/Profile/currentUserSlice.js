@@ -9,8 +9,9 @@ const handlePendingUpdate = state => {
   state.isLoadingUpdate = true;
 };
 
-const complateUpdate = state => {
+const complateUpdate = (state, action) => {
   state.isLoadingUpdate = false;
+  state.memo = action.payload;
 };
 
 const handleRejectedUpdate = (state, action) => {

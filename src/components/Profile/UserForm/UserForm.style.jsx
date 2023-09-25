@@ -32,7 +32,7 @@ export const PrimalField = styled(Field)`
     &[name='email'] {
       width: calc(50% - 7px);
     }
-    &[name='userName'] {
+    &[name='name'] {
       width: calc(50% - 7px);
       margin-right: 14px;
     }

@@ -53,7 +53,7 @@ const UserCard = ({ userData, changeAvatar, selectedAvatar }) => {
           ) : (
             <ImgUser
               src={
-                selectedAvatar === avatarUrl || selectedAvatar === null
+                typeof selectedAvatar !== 'object'
                   ? avatarUrl
                   : URL.createObjectURL(selectedAvatar)
               }

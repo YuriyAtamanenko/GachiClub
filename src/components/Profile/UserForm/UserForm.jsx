@@ -72,8 +72,6 @@ const UserForm = ({ handleSubmit, data, selectedAvatar }) => {
     <Formik initialValues={initialValues} onSubmit={handleSubmit}>
       {({ values, setFieldValue, dirty }) => {
         const changeForm = changeAvatar || dirty;
-        console.log('changeForm', changeForm);
-        console.log('changeAvatar', changeAvatar);
 
         return (
           <StyledFormik>

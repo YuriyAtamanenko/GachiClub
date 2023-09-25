@@ -9,23 +9,34 @@ import {
   updateUserProfile,
 } from '../../redux/Profile/operations';
 
+import _ from 'lodash';
+import { selectUser } from '../../redux/Authorization/selector';
+
 const ProfilePage = () => {
   //отримуємо токен щоб зробити запит та мати данні для userCard та userFotm
   const token = useSelector(selectToken);
 
+  const user = useSelector(selectUser);
+  const { memo } = useSelector(selectCurrentUser);
+
+  const dataUser = memo === null ? user : memo;
+
   const dispatch = useDispatch();
 
-  //витягуємо данні з redux по селектору
-  const { isLoading, data } = useSelector(selectCurrentUser);
-
   //записуємо в стан поточний аватар користувача. він має окремий стан так як відокремлений від головної форми
-  const [selectedAvatar, setSelectedAvatar] = useState(data.avatarUrl);
+  const [selectedAvatar, setSelectedAvatar] = useState(dataUser.avatarUrl);
 
   //робимо запит на сервер та записуємо поточну аватарку
   useEffect(() => {
-    dispatch(currenntUserProfile(token));
-    setSelectedAvatar(data.avatarUrl);
-  }, [data.avatarUrl, dispatch, token]);
+    const isEqual = _.isEqual(memo, user);
+
+    console.log('EQAL', isEqual);
+
+    if (memo !== null || isEqual) {
+      dispatch(currenntUserProfile(token));
+    }
+    setSelectedAvatar(dataUser.avatarUrl);
+  }, [dataUser.avatarUrl, dispatch, token, memo, user]);
 
   const formatingBirthday = birthday =>
     `${birthday.getFullYear()}-${String(birthday.getMonth() + 1).padStart(
@@ -59,21 +70,17 @@ const ProfilePage = () => {
     dispatch(updateUserProfile(formData));
   };
 
-  if (isLoading) {
-    return <h1>Loading Profile</h1>;
-  }
-
   return (
     <Container>
       <Title>Profile Settings</Title>
       <UserContainer>
         <UserCard
-          userData={data}
+          userData={dataUser}
           selectedAvatar={selectedAvatar}
           changeAvatar={setSelectedAvatar}
         />
         <UserForm
-          data={data}
+          data={dataUser}
           handleSubmit={handleSubmit}
           selectedAvatar={selectedAvatar}
         />

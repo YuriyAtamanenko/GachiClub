@@ -11,9 +11,6 @@ import {
 // import { toast } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
 
-
-
-
 // це для того щоб виводити помилки в тостах
 const handlePending = state => {
   state.isLoading = true;
@@ -67,10 +64,7 @@ const authSlise = createSlice({
       .addCase(loginization.pending, handlePending)
       .addCase(loginization.fulfilled, (state, action) => {
         state.token = action.payload.token;
-        state.user = {
-          ...state.user,
-          ...action.payload.user,
-        };
+        state.user = action.payload;
         state.isLoaggedIn = true;
         state.bodyData = action.payload.bodyData;
 
