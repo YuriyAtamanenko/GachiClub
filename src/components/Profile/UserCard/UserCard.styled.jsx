@@ -11,11 +11,16 @@ export const CurrentUser = styled.div`
   background-color: rgba(48, 48, 48, 0.3);
   margin-bottom: 31px;
   contain: content;
+
+  @media screen and (min-width: 768px) {
+    width: 150px;
+    height: 150px;
+  }
 `;
 export const UserAvatar = styled.div`
   position: relative;
 `;
-export const SceletUser = styled.img`
+export const ImgUser = styled.img`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -23,6 +28,8 @@ export const SceletUser = styled.img`
 `;
 
 export const CheckMark = styled.button`
+  width: 32px;
+  height: 32px;
   position: absolute;
   left: 50%;
   top: 77px;
@@ -30,8 +37,28 @@ export const CheckMark = styled.button`
   border: none;
   transform: translate(-50%, 0);
   background-color: transparent;
-  z-index:1;
-}
+  z-index: 1;
+  overflow: hidden;
+
+  & input {
+    position: absolute;
+    right: -50px;
+    color: transparent;
+    cursor: pointer;
+  }
+
+  & svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  @media screen and (min-width: 768px) {
+    top: 138px;
+    & svg {
+      width: 32px;
+      height: 32px;
+    }
+  }
 `;
 
 export const CurrentUserName = styled.p`
@@ -39,6 +66,14 @@ export const CurrentUserName = styled.p`
   font-size: 18px;
   line-height: 20px;
   margin-bottom: 4px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px; /* 116.667% */
+    margin-bottom: 8px;
+  }
 `;
 
 export const UserPlate = styled.p`
@@ -91,6 +126,7 @@ export const DailyText = styled.p`
 export const WarningContainer = styled.div`
   display: flex;
   align-items: flex-start;
+  margin-bottom: 41px;
 
   img {
     margin-top: -5px;
@@ -109,10 +145,22 @@ export const WarningContainer = styled.div`
       line-height: 24px;
     }
   }
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 32px;
+  }
 `;
 
 export const WarningText = styled.p`
   color: var(--secondary-text-color);
   font-size: 14px;
   line-height: 18px;
+`;
+
+export const NoSelectUserPhoto = styled.svg`
+  width: 120px;
+  height: 120px;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
 `;
