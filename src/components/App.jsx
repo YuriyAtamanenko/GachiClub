@@ -4,13 +4,11 @@ import { Route, Routes } from 'react-router-dom';
 import { useEffect, lazy } from 'react';
 import Layout from './../components/Layout/Layout';
 import { refreshUser } from '../redux/Authorization/operations';
-// import { refreshUser } from 'Redux/Authorization/operations';
 
 import { PrivateRoute } from './PrivateRoute'; // для захисту роутів
 import { RestrictedRoute } from './RestrictedRoute';
 
-// import { PrivateRoute } from './PrivateRoute'; // для захисту роутів
-// import { RestrictedRoute } from './RestrictedRoute';
+import { ToastContainer } from 'react-toastify';
 
 const WelcomePage = lazy(() => import('../pages/WelcomePage/WelcomePage'));
 const SignUpPage = lazy(() => import('../pages/SignUpPage/SignUpPage'));
@@ -28,70 +26,68 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(refreshUser()); // для обновления токена
+    dispatch(refreshUser());
   }, [dispatch]);
 
   const { isRefreshing } = useSelector(state => state.auth);
 
   return !isRefreshing ? (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<WelcomePage />} />
+    <>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<WelcomePage />} />
 
-        {/* <Route path="/signup" element={<SignUpPage />} /> */}
-        {/* <Route path="/signin" element={<SignInPage />} /> */}
+          <Route
+            path="/signup"
+            element={
+              <RestrictedRoute redirectTo="/params" component={SignUpPage} />
+            }
+          />
 
-        <Route
-          path="/signup"
-          element={
-            <RestrictedRoute
-              redirectTo="/params" // Перенаправить на страницу профиля после регистрации
-              component={SignUpPage}
-            />
-          }
-        />
+          <Route
+            path="/signin"
+            element={
+              <RestrictedRoute redirectTo="/params" component={SignInPage} />
+            }
+          />
 
-        <Route
-          path="/signin"
-          element={
-            <RestrictedRoute redirectTo="/params" component={SignInPage} />
-          }
-        />
+          <Route
+            path="/params"
+            element={
+              <PrivateRoute component={ParamsPage} redirectTo="/diary" />
+            }
+          />
 
-        <Route
-          path="/params"
-          element={<PrivateRoute component={ParamsPage} redirectTo="/diary" />}
-        />
-
-        <Route
-          path="/diary"
-          element={<PrivateRoute component={DiaryPage} redirectTo="/signin" />}
-        />
-
-        <Route
-          path="/products"
-          element={
-            <PrivateRoute component={ProductsPage} redirectTo="/signin" />
-          }
-        />
-
-        <Route
-          path="/exercises"
-          element={
-            <PrivateRoute component={ExercisesPage} redirectTo="/signin" />
-          }
-        />
-
-        <Route
-          path="/profile"
-          element={
-            <PrivateRoute component={ProfilePage} redirectTo="/signin" />
-          }
-        />
+          <Route
+            path="/diary"
+            element={
+              <PrivateRoute component={DiaryPage} redirectTo="/signin" />
+            }
+          />
+          <Route
+            path="/products"
+            element={
+              <PrivateRoute component={ProductsPage} redirectTo="/signin" />
+            }
+          />
+          <Route
+            path="/exercises"
+            element={
+              <PrivateRoute component={ExercisesPage} redirectTo="/signin" />
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <PrivateRoute component={ProfilePage} redirectTo="/signin" />
+            }
+          />
+          <Route path="*" element={<ErrorPage />} />
+        </Route>
         <Route path="*" element={<ErrorPage />} />
-      </Route>
-      <Route path="*" element={<ErrorPage />} />
-    </Routes>
+      </Routes>
+      <ToastContainer />
+    </>
   ) : null;
 }
 export default App;
