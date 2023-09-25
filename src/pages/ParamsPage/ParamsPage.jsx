@@ -19,7 +19,7 @@ const progressBarStyles = {
 const StepOne = props => {
   const handleSubmit = values => {
     const newData = { ...props.data, ...values };
-    console.log('StepOne данные:', newData);
+    // console.log('StepOne данные:', newData);
     props.next(newData);
   };
   return (
@@ -55,7 +55,7 @@ const StepTwo = props => {
   const handleSubmit = values => {
     // Создайте новый объект, объединяя значения из props.data и values
     const newData = { ...props.data, ...values };
-    console.log('StepTwo данные:', newData);
+    // console.log('StepTwo данные:', newData);
 
     // Вызовите функцию next, передав newData
     props.next(newData);
@@ -152,7 +152,7 @@ const StepThree = props => {
   const dispatch = useDispatch();
 
   const handleSubmit = async values => {
-    console.log('StepThree данные:', props.data);
+    // console.log('StepThree данные:', props.data);
     try {
       // Отправьте данные пользователя на сервер при сабмите формы
       await dispatch(
@@ -174,7 +174,7 @@ const StepThree = props => {
       props.next(values, true);
       // dispatch(setUserData(values));
     } catch (e) {
-      console.error('Error updating user:', e);
+      // console.error('Error updating user:', e);
     }
   };
 
@@ -212,7 +212,7 @@ const ParamsPage = () => {
   const token = useSelector(state => state.auth.token);
 
   // console.log('Текущий user', user);
-  console.log('Текущий token', token);
+  // console.log('Текущий token', token);
 
   const [data, setData] = useState({
     height: '',
@@ -229,7 +229,7 @@ const ParamsPage = () => {
   //   const totalSteps = 3;
 
   const makeRequest = formData => {
-    console.log('данные которые улетают на сервер:', formData);
+    // console.log('данные которые улетают на сервер:', formData);
   };
 
   //   const handleSubmit = values => {
@@ -296,7 +296,7 @@ const ParamsPage = () => {
     />,
   ];
 
-  console.log('data', data);
+  // console.log('data', data);
 
   return (
     <div>
