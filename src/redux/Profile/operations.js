@@ -19,9 +19,13 @@ export const currenntUserProfile = createAsyncThunk(
 
 export const updateUserProfile = createAsyncThunk(
   'users/update',
-  async (data, thunkAPI) => {
+  async (userData, thunkAPI) => {
     try {
-      const response = await axios.patch('/users/cupdate');
+      const response = await axios.patch('/users/update', userData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

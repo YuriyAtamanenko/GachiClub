@@ -1,5 +1,5 @@
 import { Field, Formik } from 'formik';
-import PropTypes from 'prop-types';
+import PropTypes, { any } from 'prop-types';
 import {
   ActivityContainer,
   BloodContainer,
@@ -18,9 +18,14 @@ import { useState } from 'react';
 import 'react-calendar/dist/Calendar.css';
 import sprite from '../../../images/sprite.svg';
 
-const UserForm = ({ userParams }) => {
+const UserForm = ({ handleSubmit, data, selectedAvatar }) => {
+  //створюємо стан відкриття та закриття календаря
   const [openCalendar, setOpenCalendar] = useState(false);
-  const { name, email, bodyData, avatarUrl } = userParams;
+
+  //делегуємо для зручності
+  const { name, email, bodyData } = data;
+
+  //ще делегуємо для зручності
   const {
     height,
     birthday,
@@ -31,28 +36,30 @@ const UserForm = ({ userParams }) => {
     sex,
   } = bodyData;
 
+  //початковий стан полів
   const initialValues = {
     name,
-    email,
     height,
     currentWeight,
     desiredWeight,
-    blood,
+    blood: String(blood),
     sex,
-    levelActivity,
+    levelActivity: String(levelActivity),
     birthday: new Date(birthday),
-    avatarUrl,
+    avatarUrl: selectedAvatar,
   };
 
-  const handleSubmit = e => {
-    console.log('e', e);
-    setOpenCalendar(false);
-  };
+  //записуємо данні чи змінився наш аватар (так як він поза нашою формою і форма його не контролює)
+  const changeAvatar =
+    initialValues.avatarUrl !== null &&
+    typeof initialValues.avatarUrl !== 'string';
+  console.log('first', changeAvatar);
 
   const toglerCalendar = () => {
     setOpenCalendar(!openCalendar);
   };
 
+  //ф-ція для короткого запису днів тижня
   const formatDate = date => {
     const days = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
     return days[date.getDay()];
@@ -60,148 +67,163 @@ const UserForm = ({ userParams }) => {
 
   return (
     <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-      {({ values, setFieldValue, dirty }) => (
-        <StyledFormik>
-          <TitleForm>Basic info</TitleForm>
+      {({ values, setFieldValue, dirty }) => {
+        const changeForm = changeAvatar || dirty;
+        console.log('changeForm', changeForm);
+        console.log('changeAvatar', changeAvatar)
+        console.log('dirty', dirty);
 
-          <label>
-            <PrimalField type="text" name="name" />
-          </label>
+        return (
+          <StyledFormik>
+            <TitleForm>Basic info</TitleForm>
 
-          <label>
-            <PrimalField disabled={true} type="text" name="email" />
-          </label>
-          <ContainerField>
-            <LabelStyled>
-              <TitleForm>Height</TitleForm>
-              <PrimalField type="text" name="height" />
-            </LabelStyled>
+            <label>
+              <PrimalField type="text" name="name" />
+            </label>
 
-            <LabelStyled>
-              <TitleForm>Current Weight</TitleForm>
-              <PrimalField type="text" name="currentWeight" />
-            </LabelStyled>
-
-            <LabelStyled>
-              <TitleForm>Desired Weight</TitleForm>
-              <PrimalField type="text" name="desiredWeight" />
-            </LabelStyled>
-            <LabelStyled onClick={toglerCalendar}>
-              <TitleForm id="calendarTitle">Calendar</TitleForm>
-              <CalendarIco>
-                <use href={sprite + `#icon-calendar`}></use>
-              </CalendarIco>
+            <label>
               <PrimalField
                 disabled={true}
-                onChange={date => setFieldValue('birthday', date)}
-                value={`${values.birthday.getDate()}.${
-                  values.birthday.getMonth() + 1
-                }.${values.birthday.getFullYear()}`}
+                value={email}
                 type="text"
-                name="birthday"
+                name="email"
               />
-            </LabelStyled>
-            <CalendarContainer
-              data-isopen={`${openCalendar ? 'open' : 'close'}`}
+            </label>
+            <ContainerField>
+              <LabelStyled>
+                <TitleForm>Height</TitleForm>
+                <PrimalField type="text" name="height" />
+              </LabelStyled>
+
+              <LabelStyled>
+                <TitleForm>Current Weight</TitleForm>
+                <PrimalField type="text" name="currentWeight" />
+              </LabelStyled>
+
+              <LabelStyled>
+                <TitleForm>Desired Weight</TitleForm>
+                <PrimalField type="text" name="desiredWeight" />
+              </LabelStyled>
+              <LabelStyled onClick={toglerCalendar}>
+                <TitleForm id="calendarTitle">Calendar</TitleForm>
+                <CalendarIco>
+                  <use href={sprite + `#icon-calendar`}></use>
+                </CalendarIco>
+                <PrimalField
+                  disabled={true}
+                  onChange={date => setFieldValue('birthday', date)}
+                  value={`${values.birthday.getDate()}.${
+                    values.birthday.getMonth() + 1
+                  }.${values.birthday.getFullYear()}`}
+                  type="text"
+                  name="birthday"
+                />
+              </LabelStyled>
+              <CalendarContainer
+                data-isopen={`${openCalendar ? 'open' : 'close'}`}
+              >
+                <Field name="birthday">
+                  {() => (
+                    <CalendarStyled
+                      locale="en-US"
+                      onChange={date => setFieldValue('birthday', date)}
+                      value={values.birthday}
+                      formatShortWeekday={(_, date) => formatDate(date)}
+                      onClickDay={toglerCalendar}
+                    />
+                  )}
+                </Field>
+              </CalendarContainer>
+            </ContainerField>
+
+            <TitleForm>Blood</TitleForm>
+            <BloodContainer>
+              <RadioLabelStyled>
+                <Field type="radio" name="blood" value="1" /> <p>1</p>
+                <span></span>
+              </RadioLabelStyled>
+              <RadioLabelStyled>
+                <Field type="radio" name="blood" value="2" />
+                <p>2</p>
+                <span></span>
+              </RadioLabelStyled>
+              <RadioLabelStyled>
+                <Field type="radio" name="blood" value="3" />
+                <p>3</p>
+                <span></span>
+              </RadioLabelStyled>
+              <RadioLabelStyled>
+                <Field type="radio" name="blood" value="4" />
+                <p>4</p>
+                <span></span>
+              </RadioLabelStyled>
+
+              <RadioLabelStyled>
+                <Field type="radio" name="sex" value="male" />
+                <p>Male</p>
+
+                <span></span>
+              </RadioLabelStyled>
+
+              <RadioLabelStyled>
+                <Field type="radio" name="sex" value="female" />
+                <p>Female</p>
+                <span></span>
+              </RadioLabelStyled>
+            </BloodContainer>
+
+            <ActivityContainer>
+              <RadioLabelStyled>
+                <p>Sedentary lifestyle (little or no physical activity)</p>
+                <Field type="radio" name="levelActivity" value="1"></Field>
+                <span></span>
+              </RadioLabelStyled>
+              <RadioLabelStyled>
+                <p>Light activity (light exercises/sports 1-3 days per week)</p>
+                <Field type="radio" name="levelActivity" value="2"></Field>
+                <span></span>
+              </RadioLabelStyled>
+              <RadioLabelStyled>
+                <p>
+                  Moderately active (moderate exercises/sports 3-5 days per
+                  week)
+                </p>
+                <Field type="radio" name="levelActivity" value="3"></Field>
+                <span></span>
+              </RadioLabelStyled>
+              <RadioLabelStyled>
+                <p>Very active (intense exercises/sports 6-7 days per week)</p>
+                <Field type="radio" name="levelActivity" value="4"></Field>
+                <span></span>
+              </RadioLabelStyled>
+
+              <RadioLabelStyled>
+                <p>
+                  Extremely active (very strenuous exercises/sports and physical
+                  work)
+                </p>
+                <Field type="radio" name="levelActivity" value="5"></Field>
+                <span></span>
+              </RadioLabelStyled>
+            </ActivityContainer>
+            <ButtonSubmit
+              disabled={!changeForm}
+              id="submitButton"
+              type="submit"
             >
-              <Field name="birthday">
-                {() => (
-                  <CalendarStyled
-                    locale="en-US"
-                    onChange={date => setFieldValue('birthday', date)}
-                    value={values.birthday}
-                    formatShortWeekday={(_, date) => formatDate(date)}
-                    onClickDay={toglerCalendar}
-                  />
-                )}
-              </Field>
-            </CalendarContainer>
-          </ContainerField>
-          <TitleForm>Blood</TitleForm>
-          <BloodContainer>
-            <RadioLabelStyled>
-              <Field type="radio" name="blood" value="1" /> <p>1</p>
-              <span></span>
-            </RadioLabelStyled>
-            <RadioLabelStyled>
-              <Field type="radio" name="blood" value="2" />
-              <p>2</p>
-              <span></span>
-            </RadioLabelStyled>
-            <RadioLabelStyled>
-              <Field type="radio" name="blood" value="3" />
-              <p>3</p>
-              <span></span>
-            </RadioLabelStyled>
-
-            <RadioLabelStyled>
-              <Field type="radio" name="blood" value="4" />
-              <p>4</p>
-              <span></span>
-            </RadioLabelStyled>
-
-            <RadioLabelStyled>
-              <Field type="radio" name="sex" value="Male" />
-              <p>Male</p>
-
-              <span></span>
-            </RadioLabelStyled>
-
-            <RadioLabelStyled>
-              <Field type="radio" name="sex" value="Female" />
-              <p>Female</p>
-              <span></span>
-            </RadioLabelStyled>
-          </BloodContainer>
-
-          <ActivityContainer>
-            <RadioLabelStyled>
-              <p>Sedentary lifestyle (little or no physical activity)</p>
-              <Field type="radio" name="levelActivity" value="1"></Field>
-              <span></span>
-            </RadioLabelStyled>
-            <RadioLabelStyled>
-              <p>Light activity (light exercises/sports 1-3 days per week)</p>
-              <Field type="radio" name="levelActivity" value="2"></Field>
-              <span></span>
-            </RadioLabelStyled>
-            <RadioLabelStyled>
-              <p>
-                Moderately active (moderate exercises/sports 3-5 days per week)
-              </p>
-              <Field type="radio" name="levelActivity" value="3"></Field>
-              <span></span>
-            </RadioLabelStyled>
-            <RadioLabelStyled>
-              <p>Very active (intense exercises/sports 6-7 days per week)</p>
-              <Field type="radio" name="levelActivity" value="4"></Field>
-              <span></span>
-            </RadioLabelStyled>
-
-            <RadioLabelStyled>
-              <p>
-                Extremely active (very strenuous exercises/sports and physical
-                work)
-              </p>
-              <Field
-                type="radio"
-                name="levelActivity"
-                value="Extremely"
-              ></Field>
-              <span></span>
-            </RadioLabelStyled>
-          </ActivityContainer>
-          <ButtonSubmit disabled={!dirty} type="submit">
-            Save
-          </ButtonSubmit>
-        </StyledFormik>
-      )}
+              Save
+            </ButtonSubmit>
+          </StyledFormik>
+        );
+      }}
     </Formik>
   );
 };
 
 UserForm.propTypes = {
-  userParams: PropTypes.object.isRequired,
+  selectedAvatar: any,
+  data: PropTypes.object.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
 };
 
 export default UserForm;
