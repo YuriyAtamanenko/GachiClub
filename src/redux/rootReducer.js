@@ -1,5 +1,5 @@
 // import { configureStore } from '@reduxjs/toolkit';
-// import { exercisesReducer } from './reducer';
+import { exercisesReducer } from "../redux/Exercises/reducer";
 // export const store = configureStore({
 //   reducer: exercisesReducer,
 // });
@@ -36,6 +36,7 @@ export const middleware = getDefaultMiddleware =>
 
 export const reducer = combineReducers({
   auth: persistReducer(persistConfig, authReduser),
+  exercises: exercisesReducer,
   profile: profileReducer,
   products: productsReducer,
   // filter: filterReducer,

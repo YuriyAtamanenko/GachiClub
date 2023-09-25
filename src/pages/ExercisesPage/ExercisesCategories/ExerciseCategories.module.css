@@ -1,12 +1,11 @@
-import styled from 'styled-components';
-export const Container = styled.div`
+.container {
   display: flex;
   @media screen and (min-width: 768px) {
     display: inline-flex;
     margin-left: auto;
   }
-`;
-export const Category = styled.button`
+}
+.category {
   color: rgba(239, 237, 232, 0.4);
   position: relative;
   cursor: pointer;
@@ -20,17 +19,9 @@ export const Category = styled.button`
     font-size: 16px;
     line-height: 'calc(24px / 16px)';
   }
-`;
-export const ActiveCategory = styled.button`
-  color: #efede8;
-  position: relative;
-  cursor: pointer;
-  font-family: 'Roboto';
-  padding-bottom: 3px;
-  background-color: transparent;
-  border: none;
-  font-size: 14px;
-  line-height: 'calc(18px / 14px)';
+}
+.activecategory {
+  composes: category;
   color: #efede8;
   &::after {
     content: '';
@@ -46,15 +37,15 @@ export const ActiveCategory = styled.button`
     font-size: 16px;
     line-height: 'calc(24px / 16px)';
   }
-`;
-export const CategoryGroup = styled.ul`
+}
+.categorygroup {
   display: flex;
   @media screen and (min-width: 768px) {
     display: inline-flex;
     vertical-align: middle;
   }
-`;
-export const CategoryItem = styled.li`
+}
+.categoryitem {
   &:not(:last-child) {
     margin-right: 28px;
   }
@@ -63,4 +54,4 @@ export const CategoryItem = styled.li`
       margin-right: 32px;
     }
   }
-`;
+}
