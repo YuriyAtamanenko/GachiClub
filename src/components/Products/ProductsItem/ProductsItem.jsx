@@ -1,3 +1,4 @@
+// import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import {
   Card,
@@ -14,13 +15,14 @@ import {
   Value,
 } from './ProductsItem.styled';
 import Icons from './../../../images/sprite.svg';
+// import { selectGroupBlood } from '../../../redux/Authorization/selector';
 
 const groupBlood = '2';
 
 const ProductsItem = ({ info }) => {
-  const isRec = info.groupBloodNotAllowed[groupBlood];
+  // const groupBlood = useSelector(selectGroupBlood);
 
-  console.log(isRec);
+  // console.log(groupBlood)
 
   return (
     <Card>
@@ -53,8 +55,8 @@ const ProductsItem = ({ info }) => {
           <use href={Icons + '#icon-runningOnCircle'}></use>
         </svg>
         <Title>
-          {info.title.length > 25
-            ? `${info.title.slice(0, 25)}...`
+          {info.title.length > 20
+            ? `${info.title.slice(0, 20)}...`
             : info.title}
         </Title>
       </SecondLine>
@@ -85,7 +87,7 @@ ProductsItem.propTypes = {
     title: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
     weight: PropTypes.number.isRequired,
-    calories: PropTypes.number.isRequired,
+    calories: PropTypes.number,
     groupBloodNotAllowed: PropTypes.shape({}),
   }).isRequired,
 };
