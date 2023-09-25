@@ -14,3 +14,27 @@ export const getAllProducts = createAsyncThunk(
     }
   },
 );
+
+export const getCategories = createAsyncThunk(
+  'products/getCategories',
+  async (_, thunkAPI) => {
+    try {
+      const res = await axios.get('/products/category');
+      return res.data[0].categories;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);
+
+export const getProductsList = createAsyncThunk(
+  `filter/getProducts`,
+  async (searchParams, thunkAPI) => {
+    try {
+      const res = await axios.get(`/products?${searchParams}`);
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);

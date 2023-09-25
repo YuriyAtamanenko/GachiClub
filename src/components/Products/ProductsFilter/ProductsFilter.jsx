@@ -1,7 +1,11 @@
-import { useState } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Select from 'react-select';
 import { useMediaQuery } from 'react-responsive';
+import { selectCategoriesProducts } from '../../../redux/Products/selectors';
+import { getCategories } from '../../../redux/Products/operations';
+import { filterReducer } from '../../../redux/Products/productsSlice';
+import { firstLeter } from '../../../helpers/firstLeter';
 
 import {
   ContainerForm,
@@ -21,13 +25,18 @@ const optionsRec = [
   { value: 'notRecommended', label: 'Not recommended' },
 ];
 
-const options = [
-  { value: 'categories', label: 'Categories' },
-  { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' },
-];
-
 const ProductsFilter = () => {
+  const dispatch = useDispatch();
+
+  const categoriesList = useSelector(selectCategoriesProducts)?.map(el => ({
+    value: el,
+    label: firstLeter(el),
+  }));
+
+  useEffect(() => {
+    dispatch(getCategories());
+  }, [dispatch]);
+
   const isMobile = useMediaQuery({ minWidth: 375 });
   const isTablet = useMediaQuery({ minWidth: 769 });
   const isDesktop = useMediaQuery({ minWidth: 1440 });
@@ -95,12 +104,57 @@ const ProductsFilter = () => {
       overflowY: 'scroll',
     }),
   };
-  const [hiddenBtnClose] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [hiddenBtnClose, setHiddenBtnClose] = useState(false);
+  const [search, setSearch] = useState('');
+  const [category, setCategory] = useState('');
+  const [recommended, setRecommended] = useState(optionsRec[0]);
 
-  // const [search, setSearch] = useState('');
-  // const [category, setCategory] = useState('');
-  // const [recommended, setRecommended] = useState(optionsRec[0]);
+  const onChangeSearch = e => {
+    const text = e.target.value;
+    setHiddenBtnClose(text.length > 0);
+    setSearch(text);
+    dispatch(
+      filterReducer({
+        search: text,
+        category: category.value,
+        recommended: recommended.value,
+      }),
+    );
+  };
+
+  const onCategoriesChange = e => {
+    setCategory(e);
+    dispatch(
+      filterReducer({
+        category: e.value,
+        search,
+        recommended: recommended.value,
+      }),
+    );
+  };
+
+  const onRecommendedChange = e => {
+    setRecommended(e);
+    dispatch(
+      filterReducer({
+        recommended: e.value,
+        search,
+        category: category.value,
+      }),
+    );
+  };
+
+  const delTextInput = () => {
+    setSearch('');
+    dispatch(
+      filterReducer({
+        search: '',
+        category: category.value,
+        recommended: recommended.value,
+      }),
+    );
+    setHiddenBtnClose(false);
+  };
 
   return (
     <ContainerForm>
@@ -108,14 +162,14 @@ const ProductsFilter = () => {
       <li>
         <Form>
           <InputForm
-            //   value={search}
-            //   onChange={onChangeSearch}
+            value={search}
+            onChange={onChangeSearch}
             name="productSearch"
             type="text"
             placeholder="Search"
           />
           <SearchBtn
-            // onClick={delTextInput}
+            onClick={delTextInput}
             style={{ display: hiddenBtnClose ? 'block' : 'none' }}
             type="button"
           >
@@ -133,10 +187,8 @@ const ProductsFilter = () => {
       <li>
         <div>
           <Select
-            defaultValue={selectedOption}
-            onChange={setSelectedOption}
-            options={options}
-            closeMenuOnSelect={false}
+            value={category}
+            onChange={onCategoriesChange}
             theme={theme => ({
               ...theme,
 
@@ -152,16 +204,16 @@ const ProductsFilter = () => {
               },
             })}
             styles={customStyles}
+            options={categoriesList || []}
           />
         </div>
       </li>
       <li>
         <div>
           <Select
-            defaultValue={selectedOption}
-            onChange={setSelectedOption}
+            value={recommended}
+            onChange={onRecommendedChange}
             options={optionsRec}
-            closeMenuOnSelect={false}
             theme={theme => ({
               ...theme,
 
