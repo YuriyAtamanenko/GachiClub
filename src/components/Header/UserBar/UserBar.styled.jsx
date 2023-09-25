@@ -25,6 +25,7 @@ export const Avatar = styled(NavLink)`
   height: 37px;
   border: 1px solid #e6533c;
   border-radius: 50%;
+  position: relative;
   @media screen and (min-width: 768px) {
     width: 46px;
     height: 46px;
@@ -51,5 +52,18 @@ export const Svg = styled.svg`
   @media screen and (min-width: 768px) {
     width: 28px;
     height: 28px;
+  }
+`;
+export const NoSelectUserPhoto = styled.svg`
+  width: 21px;
+  height: 21px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  @media screen and (min-width: 768px) {
+    width: 24px;
+    height: 24px;
   }
 `;
