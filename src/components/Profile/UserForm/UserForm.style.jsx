@@ -1,8 +1,11 @@
-import { Field, Form } from 'formik';
+import { ErrorMessage, Field, Form } from 'formik';
 import Calendar from 'react-calendar';
 import styled from 'styled-components';
 
 export const StyledFormik = styled(Form)`
+  label {
+    position: relative;
+  }
   @media screen and (min-width: 1440px) {
     padding-right: 64px;
     border-right: 1px solid rgba(239, 237, 232, 0.2);
@@ -373,5 +376,18 @@ export const ButtonSubmit = styled.button`
   }
   @media screen and (min-width: 1440px) {
     margin-bottom: 44px;
+  }
+`;
+
+export const ErrorMessageStyle = styled(ErrorMessage)`
+  position: absolute;
+  color: red;
+
+  &[id='name'] {
+    top: 58%;
+    font-size: 14px;
+    transform: translate(0, -50%);
+    line-height: 0;
+    left: 35px;
   }
 `;

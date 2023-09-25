@@ -26,6 +26,7 @@ export const Avatar = styled(NavLink)`
   border: 1px solid #e6533c;
   border-radius: 50%;
   position: relative;
+  overflow: hidden;
   @media screen and (min-width: 768px) {
     width: 46px;
     height: 46px;

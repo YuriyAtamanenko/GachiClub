@@ -8,6 +8,7 @@ import {
   CalendarIco,
   CalendarStyled,
   ContainerField,
+  ErrorMessageStyle,
   LabelStyled,
   PrimalField,
   RadioLabelStyled,
@@ -19,8 +20,24 @@ import 'react-calendar/dist/Calendar.css';
 import sprite from '../../../images/sprite.svg';
 import { useSelector } from 'react-redux';
 import { selectCurrentUser } from '../../../redux/Profile/selectors';
+import * as Yup from 'yup';
 
 const UserForm = ({ handleSubmit, data, selectedAvatar }) => {
+  const validationSchema = Yup.object().shape({
+    name: Yup.string()
+      .required('Введіть імя користувача')
+      .min(2, "Ім'я повинно містити принаймні 2 символи"),
+    height: Yup.number().required('Введіть висоту користувача'),
+    currentWeight: Yup.number().required('Введіть поточну вагу користувача'),
+    desiredWeight: Yup.number().required('Введіть бажану вагу користувача'),
+    birthday: Yup.date().required('Введіть дату народження користувача'),
+    blood: Yup.number().required('Виберіть групу крові користувача'),
+    sex: Yup.string().required('Виберіть стать користувача'),
+    levelActivity: Yup.number().required(
+      'Виберіть рівень активності користувача',
+    ),
+  });
+
   //створюємо стан відкриття та закриття календаря
   const [openCalendar, setOpenCalendar] = useState(false);
 
@@ -69,7 +86,11 @@ const UserForm = ({ handleSubmit, data, selectedAvatar }) => {
   };
 
   return (
-    <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+    <Formik
+      initialValues={initialValues}
+      onSubmit={handleSubmit}
+      validationSchema={validationSchema}
+    >
       {({ values, setFieldValue, dirty }) => {
         const changeForm = changeAvatar || dirty;
 
@@ -79,6 +100,12 @@ const UserForm = ({ handleSubmit, data, selectedAvatar }) => {
 
             <label>
               <PrimalField type="text" name="name" />
+              <ErrorMessageStyle
+                id="name"
+                name="name"
+                component="div"
+                className="error"
+              />
             </label>
 
             <label>
@@ -93,16 +120,34 @@ const UserForm = ({ handleSubmit, data, selectedAvatar }) => {
               <LabelStyled>
                 <TitleForm>Height</TitleForm>
                 <PrimalField type="text" name="height" />
+                <ErrorMessageStyle
+                  id="heigth"
+                  name="heigth"
+                  component="div"
+                  className="error"
+                />
               </LabelStyled>
 
               <LabelStyled>
                 <TitleForm>Current Weight</TitleForm>
                 <PrimalField type="text" name="currentWeight" />
+                <ErrorMessageStyle
+                  id="currentWeight"
+                  name="currentWeight"
+                  component="div"
+                  className="error"
+                />
               </LabelStyled>
 
               <LabelStyled>
                 <TitleForm>Desired Weight</TitleForm>
                 <PrimalField type="text" name="desiredWeight" />
+                <ErrorMessageStyle
+                  id="desiredWeight"
+                  name="desiredWeight"
+                  component="div"
+                  className="error"
+                />
               </LabelStyled>
               <LabelStyled onClick={toglerCalendar}>
                 <TitleForm id="calendarTitle">Calendar</TitleForm>
