@@ -34,14 +34,3 @@ export const getCategories = createAsyncThunk(
   },
 );
 
-// export const getProductsList = createAsyncThunk(
-//   `filter/getProducts`,
-//   async (searchParams, thunkAPI) => {
-//     try {
-//       const res = await axios.get(`/products?${searchParams}`);
-//       return res.data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   },
-// );

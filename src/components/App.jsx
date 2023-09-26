@@ -87,7 +87,6 @@ function App() {
               <PrivateRoute component={ProfilePage} redirectTo="/signin" />
             }
           />
-          <Route path="*" element={<ErrorPage />} />
         </Route>
 
         <Route path="*" element={<ErrorPage />} />
