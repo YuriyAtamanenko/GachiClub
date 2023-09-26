@@ -24,9 +24,7 @@ body {
   background-color: var(--primary-bgc-color);
   color: var(--primary-text-color);
   font-family: 'Roboto', sans-serif;
-  overflow: auto;
 }
-
 h1,
 h2,
 h3,
@@ -57,7 +55,6 @@ img {
   display: block;
   height: auto;
 }
-
 button {
   cursor: pointer;
 }
