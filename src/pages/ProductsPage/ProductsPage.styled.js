@@ -34,6 +34,8 @@ export const Container = styled.div`
 `;
 export const Title = styled.h2`
   @media screen and (min-width: 375px) {
+    margin-bottom: 40px;
+
     font-family: Roboto;
     font-size: 24px;
     font-style: normal;
@@ -41,17 +43,19 @@ export const Title = styled.h2`
     line-height: 116.667%;
 
     color: var(--primary-text-color);
-    margin-bottom: 40px;
   }
 
   @media screen and (min-width: 768px) {
+    margin-bottom: 32px;
+    margin-top: 32px;
+
     font-size: 32px;
     line-height: 137.5%;
-    margin-bottom: 32px;
   }
   @media screen and (min-width: 1440px) {
     margin-top: 20px;
     margin-bottom: 40px;
+
     align-items: center;
   }
 `;
