@@ -50,11 +50,8 @@ const authSlise = createSlice({
         state.token = action.payload.token;
         state.user = action.payload;
         state.isLoaggedIn = true;
-        state.bodyData = action.payload.user.bodyData;
-
-        state.name = action.payload.user.name;
-        state.password = action.payload.user.password;
-        
+        state.bodyData = {};
+ 
       })
       .addCase(register.rejected, handleRejected)
 
@@ -67,12 +64,13 @@ const authSlise = createSlice({
         };
 
         state.token = action.payload.token;
-        
+
         state.isLoaggedIn = true;
         state.bodyData = action.payload.bodyData;
 
-        state.name = action.payload.name;
-        state.password = action.payload.password;
+        // state.name = action.payload.name;
+        // state.password = action.payload.password;
+    
 
       })
       .addCase(loginization.rejected, handleRejected)
@@ -82,7 +80,7 @@ const authSlise = createSlice({
         state.user = { email: null, password: null };
         state.token = null;
         state.isLoaggedIn = false;
-       
+
       })
       .addCase(logOut.rejected, handleRejected)
 
@@ -101,22 +99,17 @@ const authSlise = createSlice({
         state.isRefreshing = true;
       })
       .addCase(updateUser.fulfilled, (state, action) => {
-        
+
         state.user = {
           ...state.user,
           ...action.payload,
         };
-        state.height = action.payload;
-        state.currentWeight = action.payload;
-        state.desiredWeight = action.payload;
-        state.birthday = action.payload;
-        state.blood = action.payload;
-        state.sex = action.payload;
-        state.levelActivity = action.payload;
+
+        state.bodyData = action.payload.bodyData || {};
         state.isLoaggedIn = true;
         state.isRefreshing = false;
+        // }
 
-        
       })
       .addCase(updateUser.rejected, state => {
         state.isRefreshing = false;
