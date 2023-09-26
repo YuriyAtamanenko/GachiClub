@@ -174,7 +174,7 @@ const ProductsFilter = () => {
             type="button"
           >
             <CloseBtn>
-              <use xlinkHref={`${sprite}#icon-close`}></use>
+              <use xlinkHref={`${sprite}#icon-x`}></use>
             </CloseBtn>
           </SearchBtn>
           <Button type="button">
