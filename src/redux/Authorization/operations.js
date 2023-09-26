@@ -36,9 +36,14 @@ export const loginization = createAsyncThunk(
       if (response.data.token) {
         await thunkAPI.dispatch(refreshUser());
       }
+
       console.log('Текущий user1 в loginization', response);
       // console.log('Текущий user в loginization', response.data);
       // console.log('Текущий status в loginization', response.status);
+
+  
+     
+
 
       return response.data;
     } catch (e) {
@@ -113,6 +118,7 @@ export const updateUser = createAsyncThunk(
       console.log('userData в updateUser', userData);
       console.log('response в updateUser', response);
       console.log('response.data в updateUser', response.data);
+
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

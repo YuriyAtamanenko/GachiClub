@@ -51,11 +51,13 @@ const authSlise = createSlice({
         state.user = action.payload.user;
         state.isLoaggedIn = true;
         state.bodyData = {};
+ 
       })
       .addCase(register.rejected, handleRejected)
 
       .addCase(loginization.pending, handlePending)
       .addCase(loginization.fulfilled, (state, action) => {
+
         state.user = {
           ...state.user,
           ...action.payload.user,
@@ -68,6 +70,8 @@ const authSlise = createSlice({
 
         // state.name = action.payload.name;
         // state.password = action.payload.password;
+    
+
       })
       .addCase(loginization.rejected, handleRejected)
 
@@ -76,6 +80,7 @@ const authSlise = createSlice({
         state.user = { email: null, password: null };
         state.token = null;
         state.isLoaggedIn = false;
+
       })
       .addCase(logOut.rejected, handleRejected)
 
@@ -94,6 +99,7 @@ const authSlise = createSlice({
         state.isRefreshing = true;
       })
       .addCase(updateUser.fulfilled, (state, action) => {
+
         state.user = {
           ...state.user,
           ...action.payload.user,
@@ -103,6 +109,7 @@ const authSlise = createSlice({
         state.isLoaggedIn = true;
         state.isRefreshing = false;
         // }
+
       })
       .addCase(updateUser.rejected, state => {
         state.isRefreshing = false;
