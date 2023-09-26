@@ -45,12 +45,15 @@ export const Title = styled.h2`
   }
 
   @media screen and (min-width: 768px) {
+    margin-bottom: 32px;
+    margin-top: 32px;
+
     font-size: 32px;
     line-height: 137.5%;
-    margin-bottom: 32px;
   }
   @media screen and (min-width: 1440px) {
-    margin-top: 0;
+    margin-top: 20px;
+
     align-items: center;
   }
 `;
