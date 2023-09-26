@@ -17,6 +17,9 @@ export const register = createAsyncThunk(
     try {
       const response = await axios.post('/users/register', user);
       setAuthHeader(response.data.token);
+      console.log('Текущий user1 в register', response);
+      console.log('Текущий user в register', response.data);
+      // console.log('Текущий status в register', response.status);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -33,10 +36,14 @@ export const loginization = createAsyncThunk(
       if (response.data.token) {
         await thunkAPI.dispatch(refreshUser());
       }
-      // console.log('Текущий user1 в loginization', response);
+
+      console.log('Текущий user1 в loginization', response);
       // console.log('Текущий user в loginization', response.data);
       // console.log('Текущий status в loginization', response.status);
+
+  
      
+
 
       return response.data;
     } catch (e) {
@@ -108,8 +115,10 @@ export const updateUser = createAsyncThunk(
 
       const response = await axios.post('/users/params', userData);
 
-      // console.log('userData в try updateUser', userData);
-      // console.log('response.data');
+      console.log('userData в updateUser', userData);
+      console.log('response в updateUser', response);
+      console.log('response.data в updateUser', response.data);
+
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

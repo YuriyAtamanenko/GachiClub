@@ -29,7 +29,7 @@ const SignUpPage = () => {
         toast.error('Email already exists. Please use a different email');
       } else {
         action.resetForm();
-        if (bodyData === null) {
+        if (bodyData === null || Object.keys(bodyData).length === 0) {
           navigate('/params');
         } else {
           navigate('/diary');
