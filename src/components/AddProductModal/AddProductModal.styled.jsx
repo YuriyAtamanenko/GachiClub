@@ -4,6 +4,7 @@ export const Container = styled.div`
   background-color: #10100f;
   border-radius: 12px;
   padding: 48px 24px;
+  z-index: 10;
   @media screen and (min-width: 768px) {
     padding: 48px 32px;
   }
