@@ -32,11 +32,15 @@ function App() {
   const { isRefreshing } = useSelector(state => state.auth);
 
   return !isRefreshing ? (
-
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<WelcomePage />} />
+          <Route
+            index
+            element={
+              <RestrictedRoute redirectTo="/params" component={WelcomePage} />
+            }
+          />
 
           <Route
             path="/signup"
@@ -86,7 +90,7 @@ function App() {
           <Route path="*" element={<ErrorPage />} />
         </Route>
 
-       <Route path="*" element={<ErrorPage />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
       <ToastContainer />
     </>
