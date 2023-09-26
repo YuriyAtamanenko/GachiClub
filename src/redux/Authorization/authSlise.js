@@ -7,12 +7,10 @@ import {
   logOut,
   refreshUser,
   updateUser,
+  checkUser,
 } from './operations';
 // import { toast } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
-
-
-
 
 // це для того щоб виводити помилки в тостах
 const handlePending = state => {
@@ -38,15 +36,7 @@ const initialState = {
   isRefreshing: false,
   error: null,
   isLoading: false,
-
-  // height: null,
-  // currentWeight: null,
-  // desiredWeight: null,
-  // birthday: null,
-  // blood: null,
-  // sex: null,
-  // levelActivity: null,
-  bodyData: null,
+  bodyData: {},
 };
 
 const authSlise = createSlice({
@@ -60,30 +50,24 @@ const authSlise = createSlice({
         state.token = action.payload.token;
         state.user = action.payload.user;
         state.isLoaggedIn = true;
-        // state.isLoading = false;
+        state.bodyData = {};
       })
       .addCase(register.rejected, handleRejected)
 
       .addCase(loginization.pending, handlePending)
       .addCase(loginization.fulfilled, (state, action) => {
-        state.token = action.payload.token;
         state.user = {
           ...state.user,
           ...action.payload.user,
         };
+
+        state.token = action.payload.token;
+
         state.isLoaggedIn = true;
         state.bodyData = action.payload.bodyData;
 
-        refreshUser();
-
-        // const dispatch = useDispatch();
-
-        // try {
-        //   await dispatch(refreshUser());
-        // } catch (e) {
-        //   // Handle any errors
-        // }
-        // state.isLoading = false;
+        // state.name = action.payload.name;
+        // state.password = action.payload.password;
       })
       .addCase(loginization.rejected, handleRejected)
 
@@ -92,9 +76,6 @@ const authSlise = createSlice({
         state.user = { email: null, password: null };
         state.token = null;
         state.isLoaggedIn = false;
-        // state.isRefreshing = false;
-        // state.error = null;
-        // state.isLoading = false;
       })
       .addCase(logOut.rejected, handleRejected)
 
@@ -113,19 +94,21 @@ const authSlise = createSlice({
         state.isRefreshing = true;
       })
       .addCase(updateUser.fulfilled, (state, action) => {
-        state.user = action.payload;
-        state.height = action.payload;
-        state.currentWeight = action.payload;
-        state.desiredWeight = action.payload;
-        state.birthday = action.payload;
-        state.blood = action.payload;
-        state.sex = action.payload;
-        state.levelActivity = action.payload;
+        state.user = {
+          ...state.user,
+          ...action.payload.user,
+        };
+
+        state.bodyData = action.payload.bodyData || {};
         state.isLoaggedIn = true;
         state.isRefreshing = false;
+        // }
       })
       .addCase(updateUser.rejected, state => {
         state.isRefreshing = false;
+      })
+      .addCase(checkUser.fulfilled, (state, action) => {
+        state.user = action.payload;
       }),
 });
 
