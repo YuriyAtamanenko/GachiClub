@@ -1,3 +1,4 @@
+import Statistics from '../../components/Statistics/Statistics';
 import Title from './Title/Title';
 import { LinkList, SignIn, SignUp, Wrapper, WrapperDesktop } from './WelcomePage.styled';
 
@@ -16,6 +17,7 @@ const WelcomePage = () => {
           </li>
         </LinkList>
       </Wrapper>
+      <Statistics />
     </>
   );
 };

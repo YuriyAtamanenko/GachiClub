@@ -9,7 +9,6 @@ export const ProgressBarStep1 = ({ currentStep }) => {
       <div
         className={`${css.progressBarPart} ${isCompleted ? css.completed : ''}`}
       ></div>
-      {/* Добавьте другие части прогресс-бара для первой страницы */}
     </div>
   );
 };
@@ -19,7 +18,6 @@ export const ProgressBarStep2 = ({ currentStep }) => {
 
   return (
     <div className={css.progressBarTwo}>
-      {/* Добавьте части прогресс-бара для второй страницы */}
       <div
         className={`${css.progressBarPart} ${isCompleted ? css.completed : ''}`}
       ></div>
@@ -32,7 +30,6 @@ export const ProgressBarStep3 = ({ currentStep }) => {
 
   return (
     <div className={css.progressBarThree}>
-      {/* Добавьте части прогресс-бара для третьей страницы */}
       <div
         className={`${css.progressBarPart} ${isCompleted ? css.completed : ''}`}
       ></div>
