@@ -23,6 +23,8 @@ import { selectCurrentUser } from '../../../redux/Profile/selectors';
 import * as Yup from 'yup';
 
 const UserForm = ({ handleSubmit, data, selectedAvatar }) => {
+  console.log('DATADATADATADATADATA', data);
+
   const validationSchema = Yup.object().shape({
     name: Yup.string()
       .required('Введіть імя користувача')

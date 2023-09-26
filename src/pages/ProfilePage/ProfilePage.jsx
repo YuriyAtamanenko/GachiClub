@@ -8,8 +8,6 @@ import {
   currenntUserProfile,
   updateUserProfile,
 } from '../../redux/Profile/operations';
-
-import _ from 'lodash';
 import { selectUser } from '../../redux/Authorization/selector';
 
 const ProfilePage = () => {
@@ -18,6 +16,9 @@ const ProfilePage = () => {
 
   const user = useSelector(selectUser);
   const { memo } = useSelector(selectCurrentUser);
+
+  console.log('useruseruseruser', user);
+  console.log('memomemomemomemo', memo);
 
   const dataUser = memo === null ? user : memo;
 
@@ -28,11 +29,7 @@ const ProfilePage = () => {
 
   //робимо запит на сервер та записуємо поточну аватарку
   useEffect(() => {
-    const isEqual = _.isEqual(memo, user);
-
-    console.log('EQAL', isEqual);
-
-    if (memo !== null || isEqual) {
+    if (memo === null) {
       dispatch(currenntUserProfile(token));
     }
     setSelectedAvatar(dataUser.avatarUrl);

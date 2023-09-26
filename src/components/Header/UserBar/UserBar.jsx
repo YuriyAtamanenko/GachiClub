@@ -15,14 +15,8 @@ import { selectCurrentUser } from '../../../redux/Profile/selectors';
 export const UserBar = () => {
   const user = useSelector(selectUser);
   const { memo } = useSelector(selectCurrentUser);
-  console.log('user', user);
-  console.log('memo', memo);
 
   const defaultAvatarSrc = memo === null ? user.avatarUrl : memo.avatarUrl;
-  console.log(
-    'defaultAvatarSrcdefaultAvatarSrcdefaultAvatarSrc',
-    defaultAvatarSrc,
-  );
 
   return (
     <Container>
@@ -32,7 +26,7 @@ export const UserBar = () => {
         </Svg>
       </Link>
       <Avatar to="/profile">
-        {defaultAvatarSrc === null ? (
+        {defaultAvatarSrc === null || defaultAvatarSrc === undefined ? (
           <NoSelectUserPhoto>
             <use xlinkHref={`${sprite}#icon-user`} />
           </NoSelectUserPhoto>

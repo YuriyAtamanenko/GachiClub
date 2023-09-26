@@ -94,15 +94,9 @@ const authSlise = createSlice({
       .addCase(updateUser.fulfilled, (state, action) => {
         state.user = {
           ...state.user,
-          ...action.payload.user,
+          ...action.payload,
         };
-        state.height = action.payload;
-        state.currentWeight = action.payload;
-        state.desiredWeight = action.payload;
-        state.birthday = action.payload;
-        state.blood = action.payload;
-        state.sex = action.payload;
-        state.levelActivity = action.payload;
+
         state.isLoaggedIn = true;
         state.isRefreshing = false;
       })
