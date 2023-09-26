@@ -1,5 +1,5 @@
 // import { configureStore } from '@reduxjs/toolkit';
-import { exercisesReducer } from "../redux/Exercises/reducer";
+import { exercisesReducer } from '../redux/Exercises/reducer';
 // export const store = configureStore({
 //   reducer: exercisesReducer,
 // });
@@ -18,7 +18,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import { profileReducer } from './Profile/profileSlice';
+import { profileReducer } from './Profile/currentUserSlice';
 import { productsReducer } from './Products/productsSlice';
 
 const persistConfig = {

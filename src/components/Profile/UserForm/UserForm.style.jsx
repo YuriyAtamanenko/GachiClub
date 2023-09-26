@@ -1,8 +1,11 @@
-import { Field, Form } from 'formik';
+import { ErrorMessage, Field, Form } from 'formik';
 import Calendar from 'react-calendar';
 import styled from 'styled-components';
 
 export const StyledFormik = styled(Form)`
+  label {
+    position: relative;
+  }
   @media screen and (min-width: 1440px) {
     padding-right: 64px;
     border-right: 1px solid rgba(239, 237, 232, 0.2);
@@ -32,7 +35,7 @@ export const PrimalField = styled(Field)`
     &[name='email'] {
       width: calc(50% - 7px);
     }
-    &[name='userName'] {
+    &[name='name'] {
       width: calc(50% - 7px);
       margin-right: 14px;
     }
@@ -274,7 +277,7 @@ export const RadioLabelStyled = styled.label`
   input {
     position: absolute;
     opacity: 0;
-    сursor: pointer;
+    cursor: pointer;
   }
 
   input:checked ~ span {
@@ -307,6 +310,18 @@ export const RadioLabelStyled = styled.label`
     top: 50%;
     transform: translate(0, -50%);
   }
+
+  @media screen and (min-width: 768px) {
+    span {
+      height: 20px;
+      width: 20px;
+    }
+
+    input:checked ~ span:before {
+      width: 12px;
+      height: 12px;
+    }
+  }
 `;
 
 export const ActivityContainer = styled.div`
@@ -324,6 +339,8 @@ export const ActivityContainer = styled.div`
 `;
 
 export const ButtonSubmit = styled.button`
+  width: 114px;
+  height: 42px;
   padding: 14px 40px 14px 40px;
   border-radius: 12px;
   background: var(--orange, #e6533c);
@@ -350,8 +367,27 @@ export const ButtonSubmit = styled.button`
 
   @media screen and (min-width: 768px) {
     margin-bottom: 54px;
+    width: 144px;
+    height: 56px;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 120% */
   }
   @media screen and (min-width: 1440px) {
     margin-bottom: 44px;
+  }
+`;
+
+export const ErrorMessageStyle = styled(ErrorMessage)`
+  position: absolute;
+  color: red;
+
+  &[id='name'] {
+    top: 58%;
+    font-size: 14px;
+    transform: translate(0, -50%);
+    line-height: 0;
+    left: 35px;
   }
 `;
