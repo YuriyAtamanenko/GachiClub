@@ -6,4 +6,4 @@ export const selectIsRefreshing = state => state.auth.isRefreshing;
 
 // export const selectError = state => state.auth.error;
 
-export const selectGroupBlood = state => state.auth.bodyData.blood;
+export const selectGroupBlood = state => state.auth.bodyData;
