@@ -21,6 +21,7 @@ export const UserAvatar = styled.div`
   position: relative;
 `;
 export const ImgUser = styled.img`
+  width: inherit;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -28,8 +29,8 @@ export const ImgUser = styled.img`
 `;
 
 export const CheckMark = styled.button`
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   position: absolute;
   left: 50%;
   top: 77px;
@@ -45,6 +46,7 @@ export const CheckMark = styled.button`
     right: -50px;
     color: transparent;
     cursor: pointer;
+    height: 24px;
   }
 
   & svg {
@@ -53,10 +55,15 @@ export const CheckMark = styled.button`
   }
 
   @media screen and (min-width: 768px) {
-    top: 138px;
+    top: 133px;
+    width: 32px;
+    height: 32px;
     & svg {
       width: 32px;
       height: 32px;
+    }
+    & input {
+      height: 34px;
     }
   }
 `;
@@ -157,10 +164,15 @@ export const WarningText = styled.p`
 `;
 
 export const NoSelectUserPhoto = styled.svg`
-  width: 120px;
-  height: 120px;
+  width: 61px;
+  height: 62px;
   top: 50%;
   left: 50%;
   position: absolute;
   transform: translate(-50%, -50%);
+
+  @media screen and (min-width: 768px) {
+    width: 120px;
+    height: 120px;
+  }
 `;
