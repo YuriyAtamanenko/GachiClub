@@ -1,6 +1,7 @@
 export const initialState = {
-  data: {
-    bodyData: {
+  memo: null,
+  defaultParams: {
+    data: {
       height: 150,
       currentWeight: 35,
       desiredWeight: 35,
@@ -14,7 +15,10 @@ export const initialState = {
     dailyRateCalories: 2200,
     dailySportMin: 110,
   },
+  data: {},
   isLoading: false,
   error: null,
-  buttonLoading: false,
+
+  isLoadingUpdate: false,
+  errorUpdate: null,
 };
