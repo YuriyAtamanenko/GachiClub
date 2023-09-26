@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const ProductsContainer = styled.div`
   @media screen and (min-width: 375px) {
@@ -75,7 +76,9 @@ export const ProductsExercisesText = styled.p`
 
   color: rgba(239, 237, 232, 0.5);
 `;
-export const ProductsBtn = styled.button`
+export const ProductsBtn = styled(Link).attrs({
+  className: 'add-product-link',
+})`
   @media screen and (min-width: 375px) {
     display: flex;
     width: 101px;
@@ -102,6 +105,7 @@ export const ProductsBtn = styled.button`
     line-height: 150%;
   }
 `;
+
 export const BlockProdLabel768 = styled.div`
   @media screen and (min-width: 375px) {
     display: none;
@@ -236,19 +240,11 @@ export const LabelProduct = styled.label`
     }
   }
 `;
-export const InputProduct = styled.input`
+export const InputProduct = styled.div`
   @media screen and (min-width: 375px) {
     display: flex;
     height: 38px;
     padding: 10px 14px;
-
-    font-family: Roboto;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 128.571%;
-
-    color: var(--primary-text-color);
 
     background-color: transparent;
     border-radius: 12px;
@@ -338,6 +334,15 @@ export const InputProduct = styled.input`
       width: 110px;
     }
   }
+`;
+export const InputText = styled.p`
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 128.571%;
+
+  color: var(--primary-text-color);
 `;
 export const ButtonDelProd = styled.button`
   @media screen and (min-width: 375px) {

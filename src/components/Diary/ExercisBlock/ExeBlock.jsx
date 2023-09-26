@@ -30,28 +30,12 @@ const ExeBlock = () => {
     }
   };
 
-  const addExecrcisesBlock = () => {
-    const newBlock = {
-      id: Date.now(),
-      inputs: [
-        'Body Part',
-        'Equipment',
-        'Name',
-        'Target',
-        'Burned Calories',
-        'Time',
-      ],
-    };
-    setExecrcisesBlocks([...execrcisesBlocks, newBlock]);
-    setBlockExeVisibility(true);
-  };
-
   return (
     <>
       <ExercisesContainer>
         <BlockTxtBtn className="block-ex">
           <ProductsExercisesText>Exercises</ProductsExercisesText>
-          <ExercisesBtn onClick={addExecrcisesBlock}>
+          <ExercisesBtn to="/exercises" className="add-exercises-link">
             Add exercise
             <svg style={{ width: '16', height: '16' }}>
               <use xlinkHref={`${sprite}#icon-next`} />
@@ -85,10 +69,9 @@ const ExeBlock = () => {
                     <LabelExecrcises className={`label-exe-${inputIndex}`}>
                       {label}
                     </LabelExecrcises>
-                    <InputExecrcises
-                      className={`input-exe-${inputIndex}`}
-                      type="text"
-                    />
+                    <InputExecrcises className={`input-exe-${inputIndex}`}>
+                      <InputText></InputText>
+                    </InputExecrcises>
                   </div>
                 ))}
                 <ButtonDelExe
