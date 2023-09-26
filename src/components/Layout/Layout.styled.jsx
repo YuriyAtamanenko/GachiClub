@@ -37,3 +37,9 @@ export const Header = styled.div`
     padding: ${props => (props.isLoggedIn ? '19px 0' : '32px 96px')};
   }
 `;
+
+export const LoaderStyled = styled.div`
+  display: flex;
+  justify-content: center;
+  padding-top: 200px;
+`;
