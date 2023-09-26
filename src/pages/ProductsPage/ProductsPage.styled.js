@@ -50,7 +50,8 @@ export const Title = styled.h2`
     margin-bottom: 32px;
   }
   @media screen and (min-width: 1440px) {
-    margin-top: 0;
+    margin-top: 20px;
+    margin-bottom: 40px;
     align-items: center;
   }
 `;
