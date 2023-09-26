@@ -1,68 +1,57 @@
-// import React from 'react';
-import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { object, string } from 'yup';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { register } from '../../redux/Authorization/operations';
-// import { register } from 'Redux/Authorization/operations';
 
 const SignUpPage = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const bodyData = useSelector(state => state.auth.bodyData);
 
   const handleSubmit = async (values, action) => {
-    // e.preventDefault();
-    // const { name, email, password } = e.target.elements;
     console.log(values);
 
-    // const jsonData = JSON.stringify({
-    //   name: values.name,
-    //   email: values.email,
-    //   password: values.password,
-    // });
-
-    // dispatch(register(jsonData));
     try {
-      await dispatch(
+      const response = await dispatch(
         register({
           name: values.name,
           email: values.email,
           password: values.password,
         }),
       );
-      action.resetForm();
+
+      if (response.error) {
+        toast.error('Email already exists. Please use a different email');
+      } else {
+        action.resetForm();
+        if (bodyData === null) {
+          navigate('/params');
+        } else {
+          navigate('/diary');
+        }
+      }
     } catch (error) {
       console.error('Server error:', error);
-
-      if (
-        error.response &&
-        error.response.data &&
-        error.response.data.message
-      ) {
-        alert(`Server Error: ${error.response.data.message}`);
-      } else {
-        alert('Server Error: Something went wrong');
-      }
+      toast.error('Server Error: Something went wrong');
     }
   };
 
   const signUpSchema = object({
     name: string().required(),
     email: string()
-      // .email()
       .matches(/^\w+@[a-zA-Z_]+?.[a-zA-Z]{2,3}$/, 'Invalid E-mail format')
       .required('Please input your E-mail!'),
     password: string()
-      // .min(6)
-      // .max(16)
       .matches(
         /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{7,}/,
         'Password must contain at least 6 letters and 1 number',
       )
 
-      // .matches(
-      //   /^(?=.*[a-zA-Z]{6})(?=.*\d)[a-zA-Z\d]{7}$/,
-      //   'Password must contain at least 6 letters and 1 number',
-      // )
       .required('Please input your password'),
   });
 
@@ -98,14 +87,11 @@ const SignUpPage = () => {
               {errors.name && touched.name && (
                 <div className="error-message">Please input your name!</div>
               )}
-              {/* <ErrorMessage name="name" component="div" /> */}
             </div>
 
             <div>
               <Field type="email" name="email" placeholder="Email" />
-              {/* {errors.email && touched.email && (
-                <div className="error-message">Please input your E-mail!</div>
-              )} */}
+
               <ErrorMessage
                 name="email"
                 component="div"
@@ -115,9 +101,7 @@ const SignUpPage = () => {
 
             <div>
               <Field type="password" name="password" placeholder="Password" />
-              {/* {errors.password && touched.password && (
-                <div className="error-message">Please input your password!</div>
-              )} */}
+
               <ErrorMessage
                 name="password"
                 component="div"

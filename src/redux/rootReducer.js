@@ -1,5 +1,5 @@
 // import { configureStore } from '@reduxjs/toolkit';
-// import { exercisesReducer } from './reducer';
+import { exercisesReducer } from "../redux/Exercises/reducer";
 // export const store = configureStore({
 //   reducer: exercisesReducer,
 // });
@@ -18,7 +18,8 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import { profileReducer } from './Profile/currentUserSlice';
+import { profileReducer } from './Profile/profileSlice';
+import { productsReducer } from './Products/productsSlice';
 
 const persistConfig = {
   key: 'auth',
@@ -35,7 +36,9 @@ export const middleware = getDefaultMiddleware =>
 
 export const reducer = combineReducers({
   auth: persistReducer(persistConfig, authReduser),
+  exercises: exercisesReducer,
   profile: profileReducer,
+  products: productsReducer,
   // filter: filterReducer,
   // contacts: contactsReduser,
 });

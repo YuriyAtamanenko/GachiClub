@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import sprite from '../../../images/sprite.svg';
 import NavigationMob from '../NavigationMob/NavigationMob';
 import { Active, Container, Menu, MenuBtn, Svg } from './MobileMenu.styled';
@@ -6,18 +6,21 @@ import { Active, Container, Menu, MenuBtn, Svg } from './MobileMenu.styled';
 const MobileMenu = () => {
   const [nav, setNav] = useState(false);
 
-  const toggleNav = () => {
-    setNav(!nav);
-     if (!nav) {
-       document.body.style.overflow = 'hidden';
-     } else {
-       document.body.style.overflow = 'auto';
-     }
-  };
-
   const closeNav = () => {
     setNav(false);
   };
+
+  useEffect(() => {
+    if (nav) {
+      document.body.style.overflow = 'hidden'; // Блокування скролінгу
+    } else {
+      document.body.style.overflow = 'auto'; // Дозвіл на скролінг
+    }
+    // Функція очистки, яка відновить стан скролінгу після закриття меню
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [nav]); // Відстежуємо зміни в `nav`
 
   return (
     <>
@@ -27,10 +30,10 @@ const MobileMenu = () => {
         </Menu>
         <Active nav={nav} />
       </Container>
-      <MenuBtn onClick={toggleNav}>
+      <MenuBtn onClick={() => setNav(!nav)}>
         {nav ? (
           <Svg>
-            <use href={sprite + `#icon-close`}></use>
+            <use href={sprite + `#icon-x`}></use>
           </Svg>
         ) : (
           <Svg>
