@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const ExercisesContainer = styled.div`
   @media screen and (min-width: 375px) {
@@ -73,7 +74,9 @@ export const ProductsExercisesText = styled.p`
 
   color: rgba(239, 237, 232, 0.5);
 `;
-export const ExercisesBtn = styled.button`
+export const ExercisesBtn = styled(Link).attrs({
+  className: 'add-exercises-link',
+})`
   @media screen and (min-width: 375px) {
     display: flex;
     width: 105px;
@@ -138,7 +141,7 @@ export const TitleExeLabel768 = styled.p`
     &.title-exe-4 {
       width: 78px;
       white-space: nowrap;
-      /* overflow: hidden; */
+      overflow: hidden;
       text-overflow: ellipsis;
       left: 479px;
     }
@@ -231,7 +234,7 @@ export const LabelExecrcises = styled.label`
     &.label-exe-4 {
       width: 80px;
       white-space: nowrap;
-      /* overflow: hidden; */
+      overflow: hidden;
       text-overflow: ellipsis;
     }
   }
@@ -247,19 +250,11 @@ export const LabelExecrcises = styled.label`
     }
   }
 `;
-export const InputExecrcises = styled.input`
+export const InputExecrcises = styled.div`
   @media screen and (min-width: 375px) {
     display: flex;
     padding: 10px 14px;
     height: 38px;
-
-    font-family: Roboto;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 128.571%;
-
-    color: var(--primary-text-color);
 
     background-color: transparent;
     border-radius: 12px;
@@ -364,6 +359,16 @@ export const InputExecrcises = styled.input`
     }
   }
 `;
+export const InputText = styled.p`
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 128.571%;
+
+  color: var(--primary-text-color);
+`;
+
 export const ButtonDelExe = styled.button`
   @media screen and (min-width: 375px) {
     position: absolute;

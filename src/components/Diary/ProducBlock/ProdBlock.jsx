@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import sprite from '../../../images/sprite.svg';
-
 import {
   ProductsContainer,
   BlockTxtBtn,
@@ -15,6 +14,7 @@ import {
   InputProduct,
   ButtonDelProd,
   SvgIconDel,
+  InputText,
 } from './ProdBlock.styled';
 
 const ProdBlock = () => {
@@ -31,22 +31,12 @@ const ProdBlock = () => {
     }
   };
 
-  const addProductBlock = () => {
-    const newBlock = {
-      id: Date.now(),
-      inputs: ['Title', 'Category', 'Calories', 'Weight', 'Recommend'],
-    };
-
-    setProductBlocks([...productBlocks, newBlock]);
-    setBlockProdVisibility(true);
-  };
-
   return (
     <>
       <ProductsContainer>
         <BlockTxtBtn>
           <ProductsExercisesText>Products</ProductsExercisesText>
-          <ProductsBtn onClick={addProductBlock}>
+          <ProductsBtn to="/products" className="add-product-link">
             Add product
             <svg style={{ width: '16', height: '16' }}>
               <use xlinkHref={`${sprite}#icon-next`} />
@@ -78,10 +68,9 @@ const ProdBlock = () => {
                     <LabelProduct className={`label-prod-${inputIndex}`}>
                       {label}
                     </LabelProduct>
-                    <InputProduct
-                      className={`input-prod-${inputIndex}`}
-                      type="text"
-                    />
+                    <InputProduct className={`input-prod-${inputIndex}`}>
+                      <InputText></InputText>
+                    </InputProduct>
                   </div>
                 ))}
                 <ButtonDelProd onClick={() => removeProductBlock(blockIndex)}>
