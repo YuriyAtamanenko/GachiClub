@@ -58,3 +58,17 @@ img {
 button {
   cursor: pointer;
 }
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(239, 237, 232, 0.1);
+  border-radius: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ef8964;
+  border-radius: 12px;
+}

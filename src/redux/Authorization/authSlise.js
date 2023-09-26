@@ -36,7 +36,7 @@ const initialState = {
   isRefreshing: false,
   error: null,
   isLoading: false,
-  bodyData: null,
+  bodyData: {},
 };
 
 const authSlise = createSlice({
@@ -54,18 +54,26 @@ const authSlise = createSlice({
 
         state.name = action.payload.user.name;
         state.password = action.payload.user.password;
+        
       })
       .addCase(register.rejected, handleRejected)
 
       .addCase(loginization.pending, handlePending)
       .addCase(loginization.fulfilled, (state, action) => {
+
+        state.user = {
+          ...state.user,
+          ...action.payload.user,
+        };
+
         state.token = action.payload.token;
-        state.user = action.payload;
+        
         state.isLoaggedIn = true;
         state.bodyData = action.payload.bodyData;
 
         state.name = action.payload.name;
         state.password = action.payload.password;
+
       })
       .addCase(loginization.rejected, handleRejected)
 
@@ -74,6 +82,7 @@ const authSlise = createSlice({
         state.user = { email: null, password: null };
         state.token = null;
         state.isLoaggedIn = false;
+       
       })
       .addCase(logOut.rejected, handleRejected)
 
@@ -92,13 +101,22 @@ const authSlise = createSlice({
         state.isRefreshing = true;
       })
       .addCase(updateUser.fulfilled, (state, action) => {
+        
         state.user = {
           ...state.user,
           ...action.payload,
         };
-
+        state.height = action.payload;
+        state.currentWeight = action.payload;
+        state.desiredWeight = action.payload;
+        state.birthday = action.payload;
+        state.blood = action.payload;
+        state.sex = action.payload;
+        state.levelActivity = action.payload;
         state.isLoaggedIn = true;
         state.isRefreshing = false;
+
+        
       })
       .addCase(updateUser.rejected, state => {
         state.isRefreshing = false;
