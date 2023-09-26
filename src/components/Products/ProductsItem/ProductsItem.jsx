@@ -1,5 +1,5 @@
 import { useState } from 'react';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import {
   Card,
@@ -18,20 +18,15 @@ import {
 
 import Icons from './../../../images/sprite.svg';
 import AddProductForm from '../../AddProductModal/AddProductModal';
-
-// import { selectGroupBlood } from '../../../redux/Authorization/selector';
-
-const groupBlood = '2';
+import { selectGroupBlood } from '../../../redux/Authorization/selector';
 
 const ProductsItem = ({ info }) => {
   const [isModalOpan, setModalOpan] = useState(false);
+  const groupBlood = useSelector(selectGroupBlood);
 
   const toggleModal = () => {
     setModalOpan(isModalOpan => !isModalOpan);
   };
-  // const groupBlood1 = useSelector(selectGroupBlood);
-
-  // console.log('bodyData', groupBlood1);
 
   return (
     <Card>
