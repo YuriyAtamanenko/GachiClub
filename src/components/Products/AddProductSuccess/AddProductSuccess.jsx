@@ -2,7 +2,6 @@ import sprite from '../../../../src/images/sprite.svg';
 
 import avocado from '../../../../src/images/avocado-2x.png';
 
-
 import {
   SuccessModalWindow,
   SuccessModalWindowWrapper,
@@ -14,6 +13,7 @@ import {
   SuccessModalWindowButton,
   ArrowButton,
 } from './AddProductSuccess.styles';
+import { Link } from 'react-router-dom';
 
 const AddProductSuccess = () => {
   return (
@@ -41,6 +41,5 @@ const AddProductSuccess = () => {
     </SuccessModalWindow>
   );
 };
-
 
 export default AddProductSuccess;

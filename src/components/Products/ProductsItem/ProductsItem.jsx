@@ -18,6 +18,7 @@ import {
 
 import Icons from './../../../images/sprite.svg';
 import AddProductForm from '../../AddProductModal/AddProductModal';
+import AddProductSuccess from '../AddProductSuccess/AddProductSuccess';
 
 // import { selectGroupBlood } from '../../../redux/Authorization/selector';
 
@@ -25,9 +26,15 @@ const groupBlood = '2';
 
 const ProductsItem = ({ info }) => {
   const [isModalOpan, setModalOpan] = useState(false);
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
 
   const toggleModal = () => {
     setModalOpan(isModalOpan => !isModalOpan);
+    setIsSuccessModalOpen(true);
+  };
+
+  const closeSuccessModal = () => {
+    setIsSuccessModalOpen(false);
   };
   // const groupBlood = useSelector(selectGroupBlood);
 
@@ -86,6 +93,9 @@ const ProductsItem = ({ info }) => {
         </Additionally>
       </ThirdLine>
       {isModalOpan && <AddProductForm closeModal={toggleModal} data={info} />}
+      {isSuccessModalOpen && (
+        <AddProductSuccess closeModal={closeSuccessModal} data={info} />
+      )}
     </Card>
   );
 };

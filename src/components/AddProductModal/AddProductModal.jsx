@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-
+import { useDispatch } from 'react-redux';
 import {
   Container,
   InputContainer,
@@ -12,29 +12,28 @@ import {
   Calories,
   TitleCalories,
 } from './AddProductModal.styled';
+import { addProductThunk } from '../../redux/Diary/operations';
 
-const formatDate = date => {
-  const dateObject = date;
-  let day = dateObject.getDate();
-  let month = dateObject.getMonth() + 1;
-  const year = dateObject.getFullYear();
-
-  if (day < 10) {
-    day = '0' + day;
-  }
-  if (month < 10) {
-    month = '0' + month;
-  }
-
-  const formatted_date = day + '-' + month + '-' + year;
-  return formatted_date;
-};
-
-function AddProductForm({ data, closeModal, addProduct }) {
+function AddProductForm({ data, closeModal }) {
+  const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(0);
+  const caloriesAmount = Math.round((quantity * data.calories) / 100);
 
-  const amount = Math.round((quantity * data.calories) / 100);
-  const date = formatDate(new Date());
+  const handleAddToDiary = () => {
+    if (!caloriesAmount) {
+      console.log('Must be greater than 0');
+      return;
+    }
+    const product = {
+      name: data.title,
+      amount: quantity,
+      calories: caloriesAmount,
+    };
+    console.log(product);
+    dispatch(addProductThunk({ product }));
+    closeModal();
+    return caloriesAmount;
+  };
 
   return (
     <Container>
@@ -55,21 +54,11 @@ function AddProductForm({ data, closeModal, addProduct }) {
         </InputContainer>
 
         <Calories>
-          <TitleCalories>Calories:</TitleCalories> {amount}
+          <TitleCalories>Calories:</TitleCalories> {caloriesAmount}
         </Calories>
 
         <BtnContainer>
-          <AddBtn
-            type="button"
-            onClick={() =>
-              addProduct({
-                id: data.id,
-                date,
-                amount: quantity,
-                calories: amount,
-              })
-            }
-          >
+          <AddBtn type="button" onClick={handleAddToDiary}>
             Add to diary
           </AddBtn>
           <CloseBtn type="button" onClick={closeModal}>
