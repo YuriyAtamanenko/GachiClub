@@ -83,5 +83,5 @@ export const SuccessModalWindowButton = styled.button`
 export const ArrowButton = styled.svg`
   width: 16px;
   height: 16px;
-  stroke: #efede8;
+  stroke: var(--white-color);
 `;

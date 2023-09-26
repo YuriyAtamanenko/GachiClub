@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
 import PropTypes from 'prop-types';
 // import * as Yup from 'yup';
 // import { updateUser } from '../../Redux/Authorization/operations';
-import { updateUser } from '../../redux/Authorization/operations';
+
 import {
   ProgressBarStep1,
   ProgressBarStep2,
@@ -18,9 +17,7 @@ const progressBarStyles = {
 
 const StepOne = props => {
   const handleSubmit = values => {
-    const newData = { ...props.data, ...values };
-    console.log('StepOne данные:', newData);
-    props.next(newData);
+    props.next(values);
   };
   return (
     <div>
@@ -55,7 +52,6 @@ const StepTwo = props => {
   const handleSubmit = values => {
     // Создайте новый объект, объединяя значения из props.data и values
     const newData = { ...props.data, ...values };
-    console.log('StepTwo данные:', newData);
 
     // Вызовите функцию next, передав newData
     props.next(newData);
@@ -78,31 +74,31 @@ const StepTwo = props => {
               <p>Blood</p>
 
               <label>
-                <Field type="radio" name="blood" value="1" />1
+                <Field type="radio" name="bloodType" value="1" />1
               </label>
 
               <label>
-                <Field type="radio" name="blood" value="2" />2
+                <Field type="radio" name="bloodType" value="2" />2
               </label>
 
               <label>
-                <Field type="radio" name="blood" value="3" />3
+                <Field type="radio" name="bloodType" value="3" />3
               </label>
 
               <label>
-                <Field type="radio" name="blood" value="4" />4
+                <Field type="radio" name="bloodType" value="4" />4
               </label>
             </div>
 
             <div>
               <p>Sex</p>
               <label>
-                <Field type="radio" name="sex" value="male" />
+                <Field type="radio" name="sex" value="Male" />
                 Male
               </label>
 
               <label>
-                <Field type="radio" name="sex" value="female" />
+                <Field type="radio" name="sex" value="Female" />
                 Female
               </label>
             </div>
@@ -111,27 +107,48 @@ const StepTwo = props => {
               <p>Level Activity</p>
 
               <label>
-                <Field type="radio" name="levelActivity" value="1" />
+                <Field
+                  type="radio"
+                  name="activity"
+                  value="Sedentary lifestyle (little or no physical activity)"
+                />
                 Sedentary lifestyle (little or no physical activity)
               </label>
 
               <label>
-                <Field type="radio" name="levelActivity" value="2" />
+                <Field
+                  type="radio"
+                  name="activity"
+                  value="Light activity (light exercises/sports 1-3 days per week)"
+                />
                 Light activity (light exercises/sports 1-3 days per week)
               </label>
 
               <label>
-                <Field type="radio" name="levelActivity" value="3" />
+                <Field
+                  type="radio"
+                  name="activity"
+                  value="Moderately active (moderate exercises/sports 3-5 days per week)"
+                />
                 Moderately active (moderate exercises/sports 3-5 days per week)
               </label>
 
               <label>
-                <Field type="radio" name="levelActivity" value="4" />
+                <Field
+                  type="radio"
+                  name="activity"
+                  value="Very active (intense exercises/sports 6-7 days per week)"
+                />
                 Very active (intense exercises/sports 6-7 days per week)
               </label>
 
               <label>
-                <Field type="radio" name="levelActivity" value="5" />
+                <Field
+                  type="radio"
+                  name="activity"
+                  value="Extremely active (very strenuous exercises/sports and physical
+                work)"
+                />
                 Extremely active (very strenuous exercises/sports and physical
                 work)
               </label>
@@ -149,35 +166,17 @@ const StepTwo = props => {
 };
 
 const StepThree = props => {
-  const dispatch = useDispatch();
-
-  const handleSubmit = async values => {
-    console.log('StepThree данные:', props.data);
-    try {
-      // Отправьте данные пользователя на сервер при сабмите формы
-      await dispatch(
-        updateUser({
-          email: props.data.email,
-          name: props.data.name,
-          password: props.data.password,
-          height: props.data.height,
-          currentWeight: props.data.currentWeight,
-          desiredWeight: props.data.desiredWeight,
-          birthday: '2005-06-17T07:27:41.902Z',
-          blood: props.data.blood,
-          sex: props.data.sex,
-          levelActivity: props.data.levelActivity,
-        }),
-      );
-
-      // Вызовите функцию next, чтобы перейти к следующему шагу
-      props.next(values, true);
-      // dispatch(setUserData(values));
-    } catch (e) {
-      console.error('Error updating user:', e);
-    }
+  const handleSubmit = values => {
+    props.next(values, true);
   };
 
+  // dispach(
+  //   updateUser({
+  //     email: props.data.email, // Используйте email, чтобы идентифицировать пользователя
+  //     name: props.data.name, // Передайте другие необходимые поля
+  //     password: props.data.password,
+  //   }),
+  // );
   return (
     <div>
       <div>
@@ -192,11 +191,7 @@ const StepThree = props => {
       <Formik initialValues={props.data} onSubmit={handleSubmit}>
         {({ values }) => (
           <div>
-            {/* <button type="submit">Go</button> */}
-            <button type="button" onClick={() => handleSubmit(values)}>
-              {/* <button type="button" onClick={() => props.next(values, true)}></button> */}
-              Go
-            </button>
+            <button type="submit">Go</button>
             <button type="button" onClick={() => props.prev(values)}>
               Back
             </button>
@@ -207,21 +202,15 @@ const StepThree = props => {
   );
 };
 
-const ParamsPage = () => {
-  // const user = useSelector(state => state.auth.user);
-  const token = useSelector(state => state.auth.token);
-
-  // console.log('Текущий user', user);
-  console.log('Текущий token', token);
-
+const UserDataPage = () => {
   const [data, setData] = useState({
     height: '',
     currentWeight: '',
     desiredWeight: '',
     birthday: '',
-    blood: '',
-    sex: '',
-    levelActivity: '',
+    bloodType: '1',
+    sex: 'Male',
+    activity: 'Sedentary lifestyle (little or no physical activity)',
   });
 
   const [currentStep, setCurrentStep] = useState(0);
@@ -229,7 +218,7 @@ const ParamsPage = () => {
   //   const totalSteps = 3;
 
   const makeRequest = formData => {
-    console.log('данные которые улетают на сервер:', formData);
+    console.log(formData);
   };
 
   //   const handleSubmit = values => {
@@ -245,38 +234,20 @@ const ParamsPage = () => {
   //   };
 
   const handleNextStep = (newData, final = false) => {
-    // Обновите данные в data при переходе к следующему шагу
-    const updatedData = { ...data, ...newData };
-    setData(updatedData);
+    setData(prev => ({ ...prev, ...newData }));
 
     if (final) {
-      makeRequest(updatedData);
+      makeRequest(newData);
       return;
     }
-
-    // const handleNextStep = (newData, final = false) => {
-    //   setData(prev => ({ ...prev, ...newData }));
-
-    //   if (final) {
-    //     makeRequest(newData);
-    //     return;
-    //   }
 
     setCurrentStep(prev => prev + 1);
   };
 
   const handlePrevStep = newData => {
-    // Обновите данные в data при переходе к предыдущему шагу
-    const updatedData = { ...data, ...newData };
-    setData(updatedData);
-
+    setData(prev => ({ ...prev, ...newData }));
     setCurrentStep(prev => prev - 1);
   };
-
-  // const handlePrevStep = newData => {
-  //   setData(prev => ({ ...prev, ...newData }));
-  //   setCurrentStep(prev => prev - 1);
-  // };
 
   const steps = [
     <StepOne key="step1" next={handleNextStep} data={data} />,
@@ -329,4 +300,50 @@ StepThree.propTypes = {
   prev: PropTypes.func.isRequired,
 };
 
-export default ParamsPage;
+export default UserDataPage;
+
+/* 
+  /* <div>
+  <div>{steps[currentStep]}</div>
+
+  <div className={css.progressBar}>
+    <div
+      className={`${css.progressBarPart} ${
+        currentStep >= 0 ? css.completed : ''
+      }`}
+    ></div>
+
+    <div
+      className={`${css.progressBarPart} ${
+        currentStep >= 1 ? css.completed : ''
+      }`}
+    ></div>
+
+    <div
+      className={`${css.progressBarPart} ${
+        currentStep >= 2 ? css.completed : ''
+      }`}
+    ></div>
+  </div>
+</div>; */
+
+/* <div> */
+
+//   <div>{steps[currentStep]}</div>
+
+/* Отображайте компонент прогресс-бара для текущей страницы */
+
+//   {currentStep === 0 && <ProgressBarStep1 currentStep={currentStep} />}
+//   {currentStep === 1 && <ProgressBarStep2 currentStep={currentStep} />}
+//   {currentStep === 2 && <ProgressBarStep3 currentStep={currentStep} />}
+
+/* Отображайте компонент текущей страницы */
+
+//   {currentStep === 0 && <StepOne next={handleNextStep} data={data} />}
+//   {currentStep === 1 && ( */}
+// <StepTwo next={handleNextStep} prev={handlePrevStep} data={data} />
+//   )}
+//   {currentStep === 2 && (
+// <StepThree next={handleNextStep} prev={handlePrevStep} data={data} />
+//   )}
+// </div>

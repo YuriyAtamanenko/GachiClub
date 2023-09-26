@@ -7,7 +7,6 @@ import {
   logOut,
   refreshUser,
   updateUser,
-  checkUser,
 } from './operations';
 // import { toast } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
@@ -36,6 +35,14 @@ const initialState = {
   isRefreshing: false,
   error: null,
   isLoading: false,
+
+  // height: null,
+  // currentWeight: null,
+  // desiredWeight: null,
+  // birthday: null,
+  // blood: null,
+  // sex: null,
+  // levelActivity: null,
   bodyData: null,
 };
 
@@ -50,24 +57,27 @@ const authSlise = createSlice({
         state.token = action.payload.token;
         state.user = action.payload.user;
         state.isLoaggedIn = true;
-        state.bodyData = action.payload.user.bodyData;
-
-        state.name = action.payload.user.name;
-        state.password = action.payload.user.password;
-        
+        // state.isLoading = false;
       })
       .addCase(register.rejected, handleRejected)
 
       .addCase(loginization.pending, handlePending)
       .addCase(loginization.fulfilled, (state, action) => {
         state.token = action.payload.token;
-        
+        state.user = action.payload;
         state.isLoaggedIn = true;
         state.bodyData = action.payload.bodyData;
 
-        state.name = action.payload.name;
-        state.password = action.payload.password;
+        refreshUser();
 
+        // const dispatch = useDispatch();
+
+        // try {
+        //   await dispatch(refreshUser());
+        // } catch (e) {
+        //   // Handle any errors
+        // }
+        // state.isLoading = false;
       })
       .addCase(loginization.rejected, handleRejected)
 
@@ -76,7 +86,9 @@ const authSlise = createSlice({
         state.user = { email: null, password: null };
         state.token = null;
         state.isLoaggedIn = false;
-       
+        // state.isRefreshing = false;
+        // state.error = null;
+        // state.isLoading = false;
       })
       .addCase(logOut.rejected, handleRejected)
 
@@ -95,11 +107,7 @@ const authSlise = createSlice({
         state.isRefreshing = true;
       })
       .addCase(updateUser.fulfilled, (state, action) => {
-        
-        state.user = {
-          ...state.user,
-          ...action.payload.user,
-        };
+        state.user = action.payload;
         state.height = action.payload;
         state.currentWeight = action.payload;
         state.desiredWeight = action.payload;
@@ -109,14 +117,9 @@ const authSlise = createSlice({
         state.levelActivity = action.payload;
         state.isLoaggedIn = true;
         state.isRefreshing = false;
-
-        
       })
       .addCase(updateUser.rejected, state => {
         state.isRefreshing = false;
-      })
-      .addCase(checkUser.fulfilled, (state, action) => {
-        state.user = action.payload;
       }),
 });
 

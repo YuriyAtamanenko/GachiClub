@@ -19,19 +19,13 @@ import dumbbell from '../../../assets/profile_img/dumbbell.svg';
 import { Plates } from './UserCard.styled';
 import LogOutBtn from '../../Header/LogOutBtn/LogOutBtn';
 import SvgSprite from '../../../images/sprite.svg';
-import { useState } from 'react';
 
-const callInDay = '2200';
-const dailySportTime = '110';
-
-const UserCard = ({ userData }) => {
-  const { name, avatarUrl } = userData;
-  const [selectedAvatar, setSelectedAvatar] = useState(avatarUrl);
+const UserCard = ({ userData, changeAvatar, selectedAvatar }) => {
+  const { name, dailyRateCalories, dailySportMin, avatarUrl } = userData;
 
   const handleAvatarChange = e => {
     const file = e.target.files[0];
-    setSelectedAvatar(file);
-    setSelectedAvatar(file);
+    changeAvatar(file);
   };
 
   const customButtonStyle = {
@@ -54,13 +48,12 @@ const UserCard = ({ userData }) => {
         <CurrentUser>
           {selectedAvatar === null ? (
             <NoSelectUserPhoto>
-              <use xlinkHref={`${SvgSprite}#icon-addPhoto`} />
+              <use xlinkHref={`${SvgSprite}#icon-user`} />
             </NoSelectUserPhoto>
           ) : (
             <ImgUser
-              width="100%"
               src={
-                selectedAvatar === avatarUrl
+                typeof selectedAvatar !== 'object'
                   ? avatarUrl
                   : URL.createObjectURL(selectedAvatar)
               }
@@ -70,18 +63,16 @@ const UserCard = ({ userData }) => {
         </CurrentUser>
 
         <CheckMark>
-          
           <input
-            placeholder=""
             type="file"
+            id="sendAvatar"
             accept="image/*"
             onChange={handleAvatarChange}
           />
 
-          <svg>
+          <svg viewBox="0 0 32 32">
             <use xlinkHref={`${SvgSprite}#icon-addPhoto`} />
           </svg>
-          {/* <img src={checkMark} alt="check mark" /> */}
         </CheckMark>
       </UserAvatar>
 
@@ -94,7 +85,7 @@ const UserCard = ({ userData }) => {
             <Ico src={spoonFork} alt={'spoon and fork'} />
             <DailyText>Daily calorie intake</DailyText>
           </div>
-          <p>{callInDay}</p>
+          <p>{dailyRateCalories || 2200}</p>
         </Plate>
 
         <Plate>
@@ -102,7 +93,7 @@ const UserCard = ({ userData }) => {
             <Ico src={dumbbell} alt={'dumbbell'} />
             <DailyText>Daily norm of sports</DailyText>
           </div>
-          <p>{dailySportTime} min</p>
+          <p>{dailySportMin || 110} min</p>
         </Plate>
       </Plates>
       <WarningContainer>
@@ -121,4 +112,6 @@ export default UserCard;
 
 UserCard.propTypes = {
   userData: PropTypes.object.isRequired,
+  changeAvatar: PropTypes.func,
+  selectedAvatar: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
 };

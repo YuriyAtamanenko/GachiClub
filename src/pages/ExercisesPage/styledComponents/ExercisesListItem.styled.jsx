@@ -4,13 +4,7 @@ export const ListItem = styled.li`
   border-radius: 12px;
   background-color: rgba(239, 237, 232, 0.05);
   position: relative;
-  padding: 16px;
-  @media screen and (min-width: 768px) {
-    flex-basis: calc((100% - 16px) / 2);
-  }
-  @media screen and (min-width: 1440px) {
-    max-width: 405px;
-  }
+  padding: 18px 16px 16px 16px;
 `;
 export const Workout = styled.strong`
   border-radius: 4px;
@@ -22,12 +16,6 @@ export const Workout = styled.strong`
   font-weight: 700;
   display: inline-flex;
   margin-bottom: 33px;
-  @media screen and (min-width: 768px) {
-    margin-bottom: 25px;
-  }
-  @media screen and (min-width: 1440px) {
-    margin-bottom: 27px;
-  }
 `;
 export const TitleBlock = styled.div`
   display: flex;
@@ -38,10 +26,6 @@ export const Title = styled.p`
   font-family: 'Roboto';
   font-size: 20px;
   line-height: 'calc(24px / 20px)';
-  @media screen and (min-width: 768px) {
-    font-size: 24px;
-    line-height: calc(32px / 24px);
-  }
 `;
 export const Statistics = styled.div`
   display: flex;
@@ -66,22 +50,8 @@ export const Button = styled.button`
   font-family: 'Roboto';
   font-size: 14px;
   line-height: 'calc(18px / 14px)';
-  @media screen and (min-width: 768px) {
-    font-size: 16px;
-    line-height: 'calc(24px / 16px)';
-  }
 `;
 export const Span = styled.span`
   color: #efede8;
   margin-left: 3px;
-`;
-export const IconWraper = styled.span`
-  width: 24px;
-  height: 24px;
-  margin-right: 16px;
-  background-color: #efa082;
-  border-radius: 50%;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
 `;

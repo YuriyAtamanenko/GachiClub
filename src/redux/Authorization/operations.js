@@ -16,6 +16,7 @@ export const register = createAsyncThunk(
   async (user, thunkAPI) => {
     try {
       const response = await axios.post('/users/register', user);
+      // const response = await axios.post('/users/signup', user);
       setAuthHeader(response.data.token);
       return response.data;
     } catch (e) {
@@ -33,11 +34,8 @@ export const loginization = createAsyncThunk(
       if (response.data.token) {
         await thunkAPI.dispatch(refreshUser());
       }
-      // console.log('Текущий user1 в loginization', response);
-      // console.log('Текущий user в loginization', response.data);
-      // console.log('Текущий status в loginization', response.status);
-     
 
+      // await thunkAPI.dispatch(refreshUser());
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -49,32 +47,51 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
     await axios.post('/users/logout');
     cleanAuthHeader();
+    localStorage.clear;
   } catch (e) {
     return thunkAPI.rejectWithValue(e.message);
   }
 });
 
-export const checkUser = createAsyncThunk(
-  'auth/checkUser',
+// export const refreshUser = createAsyncThunk(
+//   'auth/refreshUser',
+//   async (_, thunkAPI) => {
+//     const { token } = thunkAPI.getState().auth;
+//     console.log('refreshUser');
+//     token && setAuthHeader(token);
+//     console.log('refreshUser-1');
 
-  async ({ email, password }, thunkAPI) => {
-    try {
-      const response = await axios.get('/users/current', {
-        params: { email, password },
-      });
+//     try {
+//       const response = await axios.get('/users/current');
+//       return response.data;
+//     } catch (e) {
+//       return thunkAPI.rejectWithValue(e.message);
+//     }
+//   },
+// );
 
-      if (response.status === 200) {
-        return response.data;
-      } else if (response.status === 401) {
-        return null;
-      } else {
-        throw new Error('Server error');
-      }
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  },
-);
+// export const refreshUser = createAsyncThunk(
+//   'auth/refreshUser',
+//   async (_, thunkAPI) => {
+//     // Reading the token from the state via getState()
+//     const state = thunkAPI.getState();
+//     const persistedToken = state.auth.token;
+
+//     if (persistedToken === null) {
+//       // If there is no token, exit without performing any request
+//       return thunkAPI.rejectWithValue('Unable to fetch user');
+//     }
+//     console.log('refreshUser');
+//     try {
+//       // If there is a token, add it to the HTTP header and perform the request
+//       setAuthHeader(persistedToken);
+//       const res = await axios.get('/users/current');
+//       return res.data;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   },
+// );
 
 export const refreshUser = createAsyncThunk(
   'auth/refreshUser',
@@ -89,8 +106,8 @@ export const refreshUser = createAsyncThunk(
 
       setAuthHeader(persistedToken);
       const res = await axios.get('/users/current');
-      // console.log('Запрос о текущем пользователе в operations', res);
-      // console.log('Текущий user в operations', res.data);
+      console.log('Запрос о текущем пользователе в operations', res);
+      console.log('Текущий user в operations', res.data);
       return res.data; // Возвращаем данные о пользователе
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -101,15 +118,13 @@ export const refreshUser = createAsyncThunk(
 export const updateUser = createAsyncThunk(
   'auth/updateUser',
   async (userData, thunkAPI) => {
-    // console.log('updateUser в updateUser');
-    // console.log('userData в updateUser', userData);
+    console.log('updateUser в updateUser');
+    console.log('userData в updateUser', userData);
     try {
-      // console.log('try updateUser');
-
-      const response = await axios.post('/users/params', userData);
-
-      // console.log('userData в try updateUser', userData);
-      // console.log('response.data');
+      console.log('try updateUser');
+      const response = await axios.post('/users/params', userData); // маршрут для обновления данных пользователя
+      console.log('userData в try updateUser', userData);
+      console.log('response.data');
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
