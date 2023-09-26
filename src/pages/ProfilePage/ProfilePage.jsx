@@ -19,8 +19,6 @@ const ProfilePage = () => {
 
   const dataUser = memo === null ? userData : memo;
 
-  console.log('userData', dataUser);
-
   const dispatch = useDispatch();
 
   //записуємо в стан поточний аватар користувача. він має окремий стан так як відокремлений від головної форми
