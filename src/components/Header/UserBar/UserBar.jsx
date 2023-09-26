@@ -1,27 +1,10 @@
-import { useSelector } from 'react-redux';
-
 import sprite from '../../../images/sprite.svg';
-import {
-  Avatar,
-  Container,
-  Img,
-  NoSelectUserPhoto,
-  Svg,
-} from './UserBar.styled';
+import { Avatar, Container, Img, Svg } from './UserBar.styled';
 import { Link } from 'react-router-dom';
-import { selectUser } from '../../../redux/Authorization/selector';
-import { selectCurrentUser } from '../../../redux/Profile/selectors';
 
-export const UserBar = () => {
-  const user = useSelector(selectUser);
-  const { memo } = useSelector(selectCurrentUser);
-
-  const defaultAvatarSrc = memo === null ? user.avatarUrl : memo.avatarUrl;
-  console.log(
-    'defaultAvatarSrcdefaultAvatarSrcdefaultAvatarSrc',
-    defaultAvatarSrc,
-  );
-
+export const UserBar = ({ userAvatar }) => {
+  const defaultAvatarSrc =
+    'https://i.pinimg.com/564x/72/91/c4/7291c40ad206f03e56fb62cfd8536d84.jpg';
   return (
     <Container>
       <Link to="/profile">
@@ -30,13 +13,7 @@ export const UserBar = () => {
         </Svg>
       </Link>
       <Avatar to="/profile">
-        {defaultAvatarSrc === null ? (
-          <NoSelectUserPhoto>
-            <use xlinkHref={`${sprite}#icon-user`} />
-          </NoSelectUserPhoto>
-        ) : (
-          <Img src={defaultAvatarSrc} />
-        )}
+        <Img src={userAvatar || defaultAvatarSrc} />
       </Avatar>
     </Container>
   );
