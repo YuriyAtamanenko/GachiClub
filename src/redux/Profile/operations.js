@@ -1,9 +1,23 @@
+
+
+
+
+
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 const token = JSON.parse(localStorage.getItem('persist:auth')) || null;
 axios.defaults.baseURL = 'https://fitness-for-all-back-end.onrender.com';
-axios.defaults.headers.common.Authorization = `Bearer ${token.token}`;
+
+
+if (token !== null) {
+  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+}
+
+// axios.defaults.headers.common.Authorization = `Bearer ${token.token}`;
+=
+
+
 
 export const currenntUserProfile = createAsyncThunk(
   'users/profile',
@@ -28,3 +42,4 @@ export const updateUserProfile = createAsyncThunk(
     }
   },
 );
+
