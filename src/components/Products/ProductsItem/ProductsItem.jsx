@@ -29,9 +29,9 @@ const ProductsItem = ({ info }) => {
   const toggleModal = () => {
     setModalOpan(isModalOpan => !isModalOpan);
   };
-  // const groupBlood = useSelector(selectGroupBlood);
+  // const groupBlood1 = useSelector(selectGroupBlood);
 
-  // console.log(groupBlood)
+  // console.log('bodyData', groupBlood1);
 
   return (
     <Card>

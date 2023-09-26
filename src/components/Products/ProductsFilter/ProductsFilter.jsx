@@ -20,9 +20,9 @@ import {
 import sprite from '../../../images/sprite.svg';
 
 const optionsRec = [
-  { value: 'all', label: 'All' },
-  { value: 'recommended', label: 'Recommended ' },
-  { value: 'notRecommended', label: 'Not recommended' },
+  { value: null, label: 'All' },
+  { value: 'false', label: 'Recommended ' },
+  { value: 'true', label: 'Not recommended' },
 ];
 
 const ProductsFilter = () => {
