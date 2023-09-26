@@ -11,6 +11,7 @@ import {
   BtnContainer,
   Calories,
   TitleCalories,
+
 } from './AddProductModal.styled';
 
 const formatDate = date => {
@@ -38,6 +39,7 @@ function AddProductForm({ data, closeModal, addProduct }) {
 
   return (
     <Container>
+
       <form>
         <InputContainer>
           <label>
