@@ -2,13 +2,18 @@ import styled from 'styled-components';
 export const Overlay = styled.div`
   width: 100vw;
   height: 100vh;
-  background-color: rgba(4, 4, 4, 0.4);
+`;
+export const Modal = styled.div`
+  width: 335px;
   position: fixed;
-  top: 0;
-  overflow-y: scroll;
-  left: 0;
   z-index: 10;
   display: flex;
   justify-content: center;
-  align-items: center;
+  padding: 48px 16px;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  border-radius: 12px;
+  border: 1px solid rgba(239, 237, 232, 0.2);
+  background-color: #10100f;
 `;

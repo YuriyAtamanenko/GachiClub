@@ -1,52 +1,25 @@
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { object, string } from 'yup';
-import { loginization, checkUser } from '../../redux/Authorization/operations';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { loginization } from '../../redux/Authorization/operations';
+// import { register } from 'Redux/Authorization/operations';
 
 const SignInPage = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
-  const handleSubmit = async (values, action) => {
+  const handleSubmit = (values, action) => {
+    // e.preventDefault();
+    // const { name, email, password } = e.target.elements;
     console.log(values);
 
-    try {
-      const user = await checkUser(values.email, values.password);
-
-      if (user !== null) {
-        const loginResult = await dispatch(
-          loginization({
-            email: values.email,
-            password: values.password,
-          }),
-        );
-
-        if (loginResult.error) {
-          toast.error('Invalid email or password');
-        } else {
-          action.resetForm();
-
-          if (
-            loginResult.payload.bodyData !== null &&
-            Object.keys(loginResult.payload.bodyData).length !== 0
-          ) {
-            navigate('/diary');
-          } else {
-            navigate('/params');
-          }
-        }
-      } else {
-        toast.error('Invalid data');
-      }
-    } catch (error) {
-      if (error.message === 'Server error') {
-        toast.error('Server error');
-      }
-    }
+    dispatch(
+      loginization({
+        email: values.email,
+        password: values.password,
+      }),
+    );
+    action.resetForm();
   };
 
   const signUpSchema = object({
@@ -56,6 +29,7 @@ const SignInPage = () => {
     password: string().min(6).max(16).required(),
   });
 
+  //початкове значення инпутів
   const initialValues = {
     name: '',
     email: '',
@@ -69,7 +43,6 @@ const SignInPage = () => {
   return (
     <div style={style}>
       <h2>Sign In</h2>
-      <ToastContainer />
 
       <p>Welcome! Please enter your credentials to login to the platform:</p>
 
@@ -81,7 +54,9 @@ const SignInPage = () => {
         <Form autoComplete="on">
           <div>
             <Field type="email" name="email" placeholder="Email" />
-
+            {/* {errors.email && touched.email && (
+                <div className="error-message">Please input your E-mail!</div>
+              )} */}
             <ErrorMessage
               name="email"
               component="div"
@@ -91,9 +66,11 @@ const SignInPage = () => {
 
           <div>
             <Field type="password" name="password" placeholder="Password" />
-
+            {/* {errors.password && touched.password && (
+                <div className="error-message">Please input your password!</div>
+              )} */}
             <ErrorMessage
-              name="password"
+              name="email"
               component="div"
               className="error-message"
             />

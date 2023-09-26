@@ -1,6 +1,7 @@
 export const initialState = {
+  memo: null,
   data: {
-    bodyData: {
+    data: {
       height: 150,
       currentWeight: 35,
       desiredWeight: 35,
@@ -16,5 +17,7 @@ export const initialState = {
   },
   isLoading: false,
   error: null,
-  buttonLoading: false,
+
+  isLoadingUpdate: false,
+  errorUpdate: null,
 };
