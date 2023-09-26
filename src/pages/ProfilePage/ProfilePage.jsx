@@ -17,9 +17,6 @@ const ProfilePage = () => {
   const user = useSelector(selectUser);
   const { memo } = useSelector(selectCurrentUser);
 
-  console.log('useruseruseruser', user);
-  console.log('memomemomemomemo', memo);
-
   const dataUser = memo === null ? user : memo;
 
   const dispatch = useDispatch();
