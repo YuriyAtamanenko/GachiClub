@@ -3,23 +3,23 @@
 ![Illustration PowerPulse App](./assets/Sign%20In-min.png)</br>
 
 <div align="center">
-PowerPulse - це застосунок для активних людей, які слідкують за своїм здоров'ям. Він дозволяє підібрати вправи та правильне харчування для кожної людини індивідуально. Всі характеристики зберігаються в індивідуальному щоденнику за датою зберігання.
+PowerPulse - this is an application for active people who monitor their health. It allows you to choose exercises and proper nutrition for each person individually. All characteristics are stored in an individual diary according to the date of storage.
 
-## Використання
+## Using
 
-📅 Плануйте меню та фізичні навантаження.</br> ✅ Обирайте продукти за
-рекомендаціями по групі крові та калорійності.</br> 📊 Обирайте вправи за
-частинами тіла, обладнаннями та групою м'язів.
+📅 Plan your menu and exercise.</br> ✅ Choose products according to the
+recommendations of blood type and calorie content.</br> 📊 Choose exercises for
+body parts, equipment and muscle groups.
 
-## Посилання на застосунок
+## Link to the app
 
-Для використання застосунку, перейдіть, будь ласка, за посиланням
+To use the application, please follow the link
 [PowerPulse App](https://yuriyatamanenko.github.io/GachiClub/signin).
 
-<div align="center"><b>Щиро дякуємо за вибір нашого застосунку!</b>
+<div align="center"><b>Thank you very much for choosing our application!</b>
 </br></br><div>
 
-<div align="center"><b>Наша команда:</b></br>
+<div align="center"><b>Our team:</b></br>
 
 [![github - YuriyAtamanenko](https://img.shields.io/badge/github-YuriyAtamanenko-2ea44f?logo=github)](https://github.com/YuriyAtamanenko)
 [![github - AndriiPershko](https://img.shields.io/badge/github-AndriiPershko-2ea44f?logo=github)](https://github.com/Andrii-Pershko)
@@ -33,7 +33,7 @@ PowerPulse - це застосунок для активних людей, як�
 </div>
 
 <div align="center">
-<b>Технології та інструменти що були використані при розробці:</b></br>
+<b>Technologies and tools used in development:</b></br>
 
 ![Swagger](https://img.shields.io/badge/-Swagger-%23Clojure?style=for-the-badge&logo=swagger&logoColor=white)
 ![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
@@ -57,6 +57,6 @@ PowerPulse - це застосунок для активних людей, як�
 </div>
 
 <div align="center">
-<b>Backend документація:</b></br>
+<b>Backend documentation:</b></br>
 
 [Fitness-for-all-back-end App](https://github.com/alexkorpol/fitness-for-all-back-end).
