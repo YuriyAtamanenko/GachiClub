@@ -5,41 +5,26 @@ import {
   CurrentUserName,
   UserPlate,
   Plate,
-  Ico,
   DailyText,
   WarningContainer,
   WarningText,
   UserAvatar,
   NoSelectUserPhoto,
   ImgUser,
+  PlateSvg,
 } from './UserCard.styled';
 import exclamationMark from '../../../assets/profile_img/tabler_exclamation-mark.svg';
-import spoonFork from '../../../assets/profile_img/spoon_fork.svg';
-import dumbbell from '../../../assets/profile_img/dumbbell.svg';
 import { Plates } from './UserCard.styled';
 import LogOutBtn from '../../Header/LogOutBtn/LogOutBtn';
 import SvgSprite from '../../../images/sprite.svg';
+import { customButtonStyle } from './customLogoutStyle';
 
-const UserCard = ({ userData, changeAvatar, selectedAvatar }) => {
-  const { name, dailyRateCalories, dailySportMin, avatarUrl } = userData;
+const UserCard = ({ dataUser, changeAvatar, selectedAvatar }) => {
+  const { name, dailyRateCalories, dailySportMin, avatarUrl } = dataUser;
 
   const handleAvatarChange = e => {
-    const file = e.target.files[0];
-    changeAvatar(file);
-  };
-
-  const customButtonStyle = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    margin: '0',
-    padding: '0',
-    gap: '8px',
-    color: '#efede8',
-    backgroundColor: 'transparent',
-    border: 'none',
-    marginLeft: 'auto !important',
-    marginBottom: '36px',
+    const avatarFile = e.target.files[0];
+    changeAvatar(avatarFile);
   };
 
   return (
@@ -82,7 +67,9 @@ const UserCard = ({ userData, changeAvatar, selectedAvatar }) => {
       <Plates>
         <Plate>
           <div style={{ display: 'flex' }}>
-            <Ico src={spoonFork} alt={'spoon and fork'} />
+            <PlateSvg>
+              <use xlinkHref={`${SvgSprite}#icon-fork`} />
+            </PlateSvg>
             <DailyText>Daily calorie intake</DailyText>
           </div>
           <p>{dailyRateCalories || 2200}</p>
@@ -90,13 +77,18 @@ const UserCard = ({ userData, changeAvatar, selectedAvatar }) => {
 
         <Plate>
           <div style={{ display: 'flex' }}>
-            <Ico src={dumbbell} alt={'dumbbell'} />
+            <PlateSvg>
+              <use xlinkHref={`${SvgSprite}#icon-dumbbell `} />
+            </PlateSvg>
             <DailyText>Daily norm of sports</DailyText>
           </div>
           <p>{dailySportMin || 110} min</p>
         </Plate>
       </Plates>
       <WarningContainer>
+        <PlateSvg>
+          <use xlinkHref={`${SvgSprite}#icon-mark`} />
+        </PlateSvg>
         <img src={exclamationMark} alt={'exclamation mark'}></img>
         <WarningText>
           We understand that each individual is unique, so the entire approach
@@ -111,7 +103,7 @@ const UserCard = ({ userData, changeAvatar, selectedAvatar }) => {
 export default UserCard;
 
 UserCard.propTypes = {
-  userData: PropTypes.object.isRequired,
+  dataUser: PropTypes.object.isRequired,
   changeAvatar: PropTypes.func,
   selectedAvatar: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
 };

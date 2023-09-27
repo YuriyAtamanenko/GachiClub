@@ -2,35 +2,17 @@ import { Container, Title, UserContainer } from './ProfilePage.styled';
 import UserForm from '../../components/Profile/UserForm';
 import UserCard from '../../components/Profile/UserCard';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCurrentUser, selectToken } from '../../redux/Profile/selectors';
 import { useEffect, useState } from 'react';
-import {
-  currenntUserProfile,
-  updateUserProfile,
-} from '../../redux/Profile/operations';
+import { updateUserProfile } from '../../redux/Profile/operations';
 
 const ProfilePage = () => {
-  //отримуємо токен щоб зробити запит та мати данні для userCard та userFotm
-  const token = useSelector(selectToken);
-
-  const userData = useSelector(store => store.auth.user);
-
-  const { memo } = useSelector(selectCurrentUser);
-
-  const dataUser = memo === null ? userData : memo;
-
+  const userData = useSelector(store => store.auth.bodyData);
+  const [selectedAvatar, setSelectedAvatar] = useState(userData.avatarUrl);
   const dispatch = useDispatch();
 
-  //записуємо в стан поточний аватар користувача. він має окремий стан так як відокремлений від головної форми
-  const [selectedAvatar, setSelectedAvatar] = useState(dataUser.avatarUrl);
-
-  //робимо запит на сервер та записуємо поточну аватарку
   useEffect(() => {
-    if (memo === null) {
-      dispatch(currenntUserProfile(token));
-    }
-    setSelectedAvatar(dataUser.avatarUrl);
-  }, [dataUser.avatarUrl, dispatch, token, memo]);
+    setSelectedAvatar(userData.avatarUrl);
+  }, [userData.avatarUrl, dispatch]);
 
   const formatingBirthday = birthday =>
     `${birthday.getFullYear()}-${String(birthday.getMonth() + 1).padStart(
@@ -69,12 +51,12 @@ const ProfilePage = () => {
       <Title>Profile Settings</Title>
       <UserContainer>
         <UserCard
-          userData={dataUser}
+          dataUser={userData}
           selectedAvatar={selectedAvatar}
           changeAvatar={setSelectedAvatar}
         />
         <UserForm
-          dataUser={dataUser}
+          dataUser={userData}
           handleSubmit={handleSubmit}
           selectedAvatar={selectedAvatar}
         />
