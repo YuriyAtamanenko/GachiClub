@@ -1,12 +1,26 @@
 // import React from 'react';
 
 import { useState, useRef, forwardRef, useImperativeHandle } from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, ErrorMessage } from 'formik';
 import PropTypes from 'prop-types';
 import * as Yup from 'yup';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
+
+import {
+  Title,
+  Text,
+  Label,
+  StyledFormik,
+  InputField,
+  ButtonNext,
+  Container,
+  Next,
+} from './ParamsStepOne.styled.js';
+import sprite from '../../images/sprite.svg';
+
+import Statistics from '../../components/Statistics/Statistics.jsx';
 
 function ParamsStepOne(props) {
   //   const [isFormValid, setIsFormValid] = useState(false);
@@ -54,14 +68,15 @@ function ParamsStepOne(props) {
     props.next(newData);
   };
   return (
-    <div>
+    <Container>
       <div>
-        <h2>Get closer to your goals!</h2>
-        <p>
+        <Title>Get closer to your goals!</Title>
+        <Text>
           To ensure a personalized user experience and the proper functioning of
           our platform, we ask you to provide the following information about
           your weight, height and other relevant data:
-        </p>
+        </Text>
+        <Label>Height</Label>
       </div>
       <Formik
         initialValues={{ ...props.data, isValid: false }}
@@ -79,38 +94,47 @@ function ParamsStepOne(props) {
       >
         {/* {({ isValid }) => ( */}
         {({ isValid }) => (
-          <Form>
-            <Field name="height" placeholder="Height" />
-            <ErrorMessage name="height" component="div" className="error" />
+          <StyledFormik>
+            <div>
+              <InputField name="height" placeholder="Height" />
+              <ErrorMessage name="height" component="div" className="error" />
 
-            <Field name="currentWeight" placeholder="Current Weight" />
-            <ErrorMessage
-              name="currentWeight"
-              component="div"
-              className="error"
-            />
+              <InputField name="currentWeight" placeholder="Current Weight" />
+              <ErrorMessage
+                name="currentWeight"
+                component="div"
+                className="error"
+              />
+            </div>
+            <div>
+              <InputField name="desiredWeight" placeholder="Desired Weight" />
+              <ErrorMessage
+                name="desiredWeight"
+                component="div"
+                className="error"
+              />
 
-            <Field name="desiredWeight" placeholder="Desired Weight" />
-            <ErrorMessage
-              name="desiredWeight"
-              component="div"
-              className="error"
-            />
-
-            <Field name="birthday" placeholder="Birthday" autoComplete="off">
-              {({ field, form }) => (
-                <CustomDatePicker field={field} form={form} />
-              )}
-            </Field>
-            <ErrorMessage name="birthday" component="div" className="error" />
-
-            <button type="submit" disabled={!isValid}>
+              <InputField
+                name="birthday"
+                placeholder="Birthday"
+                autoComplete="off"
+              >
+                {({ field, form }) => (
+                  <CustomDatePicker field={field} form={form} />
+                )}
+              </InputField>
+              <ErrorMessage name="birthday" component="div" className="error" />
+            </div>
+            <ButtonNext type="submit" disabled={!isValid}>
               Next
-            </button>
-          </Form>
+            </ButtonNext>
+            <Next>
+              <use xlinkHref={`${sprite}#icon-next`}></use>
+            </Next>
+          </StyledFormik>
         )}
       </Formik>
-    </div>
+    </Container>
   );
 }
 
