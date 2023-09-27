@@ -24,13 +24,13 @@ function AddProductForm({ data, closeModal }) {
       console.log('Must be greater than 0');
       return;
     }
-    const product = {
-      name: data.title,
-      amount: quantity,
+    const req = {
+      productId: data._id,
       calories: caloriesAmount,
+      amount: quantity,
     };
-    console.log(product);
-    dispatch(addProductThunk({ product }));
+
+    dispatch(addProductThunk(req));
     closeModal();
     return caloriesAmount;
   };
