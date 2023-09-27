@@ -1,9 +1,21 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, ErrorMessage } from 'formik';
+// import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { object, string } from 'yup';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {
+  Container,
+  WrapperDesktop,
+  WrapperForm,
+  Title,
+  Text,
+  WrapperText,
+  StyledField,
+  StyledForm,
+  ButtonSubmit,
+} from './SignUpPage.styled';
 
 import { register } from '../../redux/Authorization/operations';
 
@@ -62,62 +74,71 @@ const SignUpPage = () => {
     password: '',
   };
 
-  const style = {
-    paddingTop: '200px',
-  };
-
   return (
-    <div style={style}>
-      <h2>Sign Up</h2>
+    <Container>
+      <WrapperDesktop></WrapperDesktop>
+      <WrapperForm>
+        <WrapperText>
+          <Title>Sign Up</Title>
 
-      <p>
-        Thank you for your interest in our platform. To complete the
-        registration process, please provide us with the following information.
-      </p>
+          <Text>
+            Thank you for your interest in our platform. To complete the
+            registration process, please provide us with the following
+            information.
+          </Text>
+        </WrapperText>
 
-      <Formik
-        initialValues={initialValues}
-        validationSchema={signUpSchema}
-        onSubmit={handleSubmit}
-      >
-        {({ errors, touched }) => (
-          <Form autoComplete="off">
-            <div>
-              <Field type="text" name="name" placeholder="Name" />
-              {errors.name && touched.name && (
-                <div className="error-message">Please input your name!</div>
-              )}
-            </div>
+        <div>
+          <Formik
+            initialValues={initialValues}
+            validationSchema={signUpSchema}
+            onSubmit={handleSubmit}
+          >
+            {({ errors, touched }) => (
+              <StyledForm autoComplete="off">
+                <div>
+                  <StyledField type="text" name="name" placeholder="Name" />
+                  {errors.name && touched.name && (
+                    <div className="error-message">Please input your name!</div>
+                  )}
+                </div>
 
-            <div>
-              <Field type="email" name="email" placeholder="Email" />
+                <div>
+                  <StyledField type="email" name="email" placeholder="Email" />
 
-              <ErrorMessage
-                name="email"
-                component="div"
-                className="error-message"
-              />
-            </div>
+                  <ErrorMessage
+                    name="email"
+                    component="div"
+                    className="error-message"
+                  />
+                </div>
 
-            <div>
-              <Field type="password" name="password" placeholder="Password" />
+                <div>
+                  <StyledField
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                  />
 
-              <ErrorMessage
-                name="password"
-                component="div"
-                className="error-message"
-                // style={{ color: 'red', fontSize: '14px' }}
-              />
-            </div>
+                  <ErrorMessage
+                    name="password"
+                    component="div"
+                    className="error-message"
+                    // style={{ color: 'red', fontSize: '14px' }}
+                  />
+                </div>
 
-            <button type="submit">Sign Up</button>
-            <p>
-              Already have account? <Link to="/signin">Sign In</Link>
-            </p>
-          </Form>
-        )}
-      </Formik>
-    </div>
+                <ButtonSubmit type="submit">Sign Up</ButtonSubmit>
+
+                <p>
+                  Already have account? <Link to="/signin">Sign In</Link>
+                </p>
+              </StyledForm>
+            )}
+          </Formik>
+        </div>
+      </WrapperForm>
+    </Container>
   );
 };
 
