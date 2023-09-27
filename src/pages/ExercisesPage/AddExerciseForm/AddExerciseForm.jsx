@@ -26,13 +26,14 @@ const AddExerciseForm = ({ data }) => {
   const { bodyPart, burnedCalories, equipment, gifUrl, name, target, time } =
     data;
   const calories = Math.floor((currentTime / 60) * (burnedCalories / time));
+  console.log(time);
   const addExerciseToDairy = () => {
     if (currentTime === 180) {
       console.log('Nothing to add');
       return;
     }
     const time = Math.round((180 - currentTime) / 6) / 10;
-    dispatch(addExerciseToDiary(data))
+    dispatch(addExerciseToDiary(Date.now(), { name, burnedCalories, time }))
       .then(() => dispatch(toggleSuccess()))
       .catch(err => console.log(err.message));
   };

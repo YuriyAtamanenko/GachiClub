@@ -10,6 +10,8 @@ const initialState = {
   muscules: [],
   allExercises: [],
   doneExercises: [],
+  burnedCalories: null,
+  time: null,
   title: null,
   category: null,
   exerciseIndex: null,
@@ -31,33 +33,18 @@ const exercisesSlice = createSlice({
   },
   extraReducers: {
     [getExercisesList.pending]: onPending,
-    [getExercisesList.fulfilled]: (state, { payload }) =>
-      void (state.allExercises = payload.getExercises.map(el => el)),
+    [getExercisesList.fulfilled]: (state, { payload }) => {
+      state.allExercises = payload.exercises;
+      state.isLoading = false;
+    },
+
     [getExercisesList.rejected]: onRejected,
 
     [getCategories.pending]: onPending,
     [getCategories.fulfilled]: (state, { payload }) => {
-      state.bodyparts = payload.bodyparts.getAllBodyParts.map(
-        ({ filter, name, imgURL }) => ({
-          filter,
-          name,
-          imgURL,
-        }),
-      );
-      state.muscules = payload.muscules.getMuscules.map(
-        ({ filter, name, imgURL }) => ({
-          filter,
-          name,
-          imgURL,
-        }),
-      );
-      state.equipments = payload.equipments.getEquipments.map(
-        ({ filter, name, imgURL }) => ({
-          filter,
-          name,
-          imgURL,
-        }),
-      );
+      state.bodyparts = payload.bodyparts.allBodyParts.map(el => el);
+      state.muscules = payload.muscules.muscules.map(el => el);
+      state.equipments = payload.equipments.equipments.map(el => el);
       state.isLoading = false;
     },
     [getCategories.rejected]: onRejected,
@@ -71,6 +58,9 @@ const exercisesSlice = createSlice({
         };
         state.doneExercises = [...state.doneExercises, newElement];
       }
+      state.burnedCalories = payload.calories;
+      state.time = payload.duration;
+      state.isLoading = false;
     },
     [addExerciseToDiary.rejected]: onRejected,
   },
