@@ -3,9 +3,9 @@ import sprite from '../../../images/sprite.svg';
 import { LogoIcon, Svg } from './Logo.styled';
 
 const Logo = () => {
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, isBodyData } = useAuth();
   return (
-    <LogoIcon to={isLoggedIn ? '/diary' : '/'}>
+    <LogoIcon to={isLoggedIn && isBodyData ? '/diary' : '/'}>
       <Svg>
         <use href={sprite + `#full-logo-color`}></use>
       </Svg>

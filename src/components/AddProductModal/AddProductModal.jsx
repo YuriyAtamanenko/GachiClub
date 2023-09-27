@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+// import { createPortal } from 'react-dom';
+// const rootModal = document.querySelector('#root-modal');
 
 import {
   Container,

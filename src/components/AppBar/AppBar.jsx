@@ -5,17 +5,17 @@ import Navigation from '../Header/Navigation/Navigation';
 import { Header } from './AppBar.styled';
 
 const AppBar = () => {
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, isBodyData } = useAuth();
 
   return (
     <Header isLoggedIn={isLoggedIn}>
       <Logo />
-      {isLoggedIn && (
+      {isLoggedIn && isBodyData && (
         <>
           <Navigation />
           <MobileMenu />
         </>
-      )} 
+      )}
     </Header>
   );
 };

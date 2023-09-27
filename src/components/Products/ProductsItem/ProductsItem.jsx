@@ -21,12 +21,17 @@ import AddProductForm from '../../AddProductModal/AddProductModal';
 import { selectGroupBlood } from '../../../redux/Authorization/selector';
 
 const ProductsItem = ({ info }) => {
-  const [isModalOpan, setModalOpan] = useState(false);
+  const [isAddModalOpan, setAddModalOpan] = useState(false);
+  // const [isSuccessModalOpan, SuccessModalOpan] = useState(false);
   const groupBlood = useSelector(selectGroupBlood);
 
-  const toggleModal = () => {
-    setModalOpan(isModalOpan => !isModalOpan);
+  const toggleAddModal = () => {
+    setAddModalOpan(isAddModalOpan => !isAddModalOpan);
   };
+
+  // const toggleSuccessModal = () => {
+  //   setSuccessModalOpan(isSuccessModalOpan => !isSuccessModalOpan);
+  // };
 
   return (
     <Card>
@@ -46,7 +51,7 @@ const ProductsItem = ({ info }) => {
             : 'Recommended'}
         </Recommended>
 
-        <AddButton type="button" onClick={toggleModal}>
+        <AddButton type="button" onClick={toggleAddModal}>
           Add
           <Arrow width={16} height={16}>
             <use href={Icons + '#icon-arrow-right'}></use>
@@ -80,7 +85,16 @@ const ProductsItem = ({ info }) => {
           Weight: <Value>{info.weight}</Value>
         </Additionally>
       </ThirdLine>
-      {isModalOpan && <AddProductForm closeModal={toggleModal} data={info} />}
+      {isAddModalOpan && (
+        <AddProductForm
+          closeAddModal={toggleAddModal}
+          // toggleSuccessModal={toggleSuccessModal}
+          data={info}
+        />
+      )}
+      {/* {isAddModalOpan && (
+        <AddProductForm toggleSuccessModal={toggleSuccessModal} />
+      )} */}
     </Card>
   );
 };
