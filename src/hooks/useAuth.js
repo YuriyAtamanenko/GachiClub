@@ -12,7 +12,8 @@ export const useAuth = () => {
   const user = useSelector(selectUser);
   const bodyData = useSelector(selectBodyData);
 
-  const isBodyData = Object.keys(bodyData).length !== 0;
+  const isBodyData = bodyData ? Object.keys(bodyData).length !== 0 : false;
+
   // const error = useSelector(selectError);
   return {
     isLoggedIn,
