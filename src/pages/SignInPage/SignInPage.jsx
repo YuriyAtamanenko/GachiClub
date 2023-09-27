@@ -111,9 +111,10 @@ const SignInPage = () => {
                 className="error-message"
               />
             </div>
+
+            <ButtonSubmit type="submit">Sign In</ButtonSubmit>
           </FormStyle>
         </FormikStyle>
-        <ButtonSubmit type="submit">Sign In</ButtonSubmit>
 
         <ReLink>
           Don’t have an account? <LinkStyle to="/signup">Sign Up</LinkStyle>
