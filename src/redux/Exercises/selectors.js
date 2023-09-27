@@ -9,3 +9,6 @@ export const getAllExercises = state => state.exercises.allExercises;
 export const selectBodyParts = state => state.exercises.bodyparts;
 export const selectMuscules = state => state.exercises.muscules;
 export const selectEquipments = state => state.exercises.equipments;
+export const selectCalories = state => state.exercises.burnedCalories;
+export const selectTime = state => state.exercises.time;
+export const selectDoneExercises = state => state.exercises.doneExercises;

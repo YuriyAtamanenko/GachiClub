@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 import sprite from '../../../images/sprite.svg';
 import like from '../../../images/like-1x.png';
 import {
@@ -16,7 +17,8 @@ import {
   LikeWraper,
   CloseButton,
 } from './AddExerciseSuccess.styled';
-const AddExerciseSuccess = () => {
+const AddExerciseSuccess = ({ data }) => {
+  const { time, burnedCalories } = data;
   const dispatch = useDispatch();
   return (
     <Modal>
@@ -38,11 +40,11 @@ const AddExerciseSuccess = () => {
       <ul>
         <StatItem>
           <StatName>Your time:</StatName>
-          <StatInfo>3 minutes</StatInfo>
+          <StatInfo>{time}minutes</StatInfo>
         </StatItem>
         <StatItem>
           <StatName>Burned calories:</StatName>
-          <StatInfo>150</StatInfo>
+          <StatInfo>{burnedCalories}</StatInfo>
         </StatItem>
       </ul>
       <Button
@@ -74,3 +76,6 @@ const AddExerciseSuccess = () => {
   );
 };
 export default AddExerciseSuccess;
+AddExerciseSuccess.propTypes = {
+  data: PropTypes.object,
+};

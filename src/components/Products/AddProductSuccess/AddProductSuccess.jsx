@@ -1,8 +1,7 @@
 import sprite from '../../../../src/images/sprite.svg';
 
 import avocado from '../../../../src/images/avocado-2x.png';
-
-
+import PropTypes from 'prop-types';
 import {
   SuccessModalWindow,
   SuccessModalWindowWrapper,
@@ -14,8 +13,9 @@ import {
   SuccessModalWindowButton,
   ArrowButton,
 } from './AddProductSuccess.styles';
+import { Link } from 'react-router-dom';
 
-const AddProductSuccess = () => {
+const AddProductSuccess = ({ closeSuccessModal, calories }) => {
   return (
     <SuccessModalWindow>
       <SuccessModalWindowWrapper>
@@ -23,11 +23,14 @@ const AddProductSuccess = () => {
           <SuccessModalWindowImg src={avocado} alt="avocado" />
           <SuccessModalWindowTitle>Well done</SuccessModalWindowTitle>
           <SuccessModalWindowText>
-            Calories: <SuccessModalWindowSpan>Calories</SuccessModalWindowSpan>
+            Calories:{' '}
+            <SuccessModalWindowSpan>{calories}</SuccessModalWindowSpan>
           </SuccessModalWindowText>
         </SuccessModalWindowWrapImg>
         <Link to="/products">
-          <SuccessModalWindowButton>Next product</SuccessModalWindowButton>
+          <SuccessModalWindowButton onClick={closeSuccessModal}>
+            Next product
+          </SuccessModalWindowButton>
         </Link>
         <Link to="/diary">
           <SuccessModalWindowText>
@@ -42,5 +45,9 @@ const AddProductSuccess = () => {
   );
 };
 
+AddProductSuccess.propTypes = {
+  closeSuccessModal: PropTypes.func,
+  calories: PropTypes.number,
+};
 
 export default AddProductSuccess;

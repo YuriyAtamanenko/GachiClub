@@ -43,7 +43,6 @@ const TimerBox = ({
   return (
     <SpinnerWrap>
       <TimeText>Time</TimeText>
-
       <CircleIcon viewBox="0 0 250 250">
         <InactiveCircle pathLength={fullTime * 60} cx={125} cy={125} r={125} />
         <ActiveCircle

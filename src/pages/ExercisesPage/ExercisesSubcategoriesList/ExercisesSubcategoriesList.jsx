@@ -7,10 +7,11 @@ import { getCategories } from '../../../redux/Exercises/operations';
 import { List, Container } from './ExercisesSubcategoriesList.styled';
 import { getExercises } from '../../../redux/Exercises/selectors';
 function Pagination({ itemsPerPage, category }) {
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1439.8 });
+  const [currentPage, setCurrentPage] = useState(1);
   const dispatch = useDispatch();
   const categories = useSelector(getExercises);
   const currentCategory = categories[category || 'bodyparts'];
-  const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(currentCategory.length / itemsPerPage);
   const handlePageChange = pageNumber => {
     setCurrentPage(pageNumber);
@@ -24,18 +25,19 @@ function Pagination({ itemsPerPage, category }) {
   return (
     <Container>
       <List>
-        {displayedData.map(({ filter, name, imgURL }, idx) => {
+        {displayedData.map(({ filter, name, imgURL, _id }) => {
           return (
             <ExercisesSubcategoriesItem
-              key={idx}
+              key={_id}
+              id={_id}
               imgURL={imgURL}
-              name={name.charAt(0).toUpperCase() + name.slice(1)}
+              name={name}
               filter={filter}
             />
           );
         })}
       </List>
-      {displayedData.length <= 10 || displayedData.length <= 9 ? (
+      {currentCategory.length > 10 || isTablet ? (
         <div
           style={{
             display: 'inline-flex',

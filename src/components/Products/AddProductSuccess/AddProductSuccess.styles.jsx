@@ -4,6 +4,7 @@ export const SuccessModalWindow = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 10;
 `;
 
 export const SuccessModalWindowWrapper = styled.div`
