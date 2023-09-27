@@ -14,7 +14,7 @@ import {
 } from './AddProductModal.styled';
 import { addProductThunk } from '../../redux/Diary/operations';
 
-function AddProductForm({ data, closeModal }) {
+function AddProductForm({ data, closeAddModal }) {
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(0);
   const caloriesAmount = Math.round((quantity * data.calories) / 100);
@@ -31,7 +31,7 @@ function AddProductForm({ data, closeModal }) {
     };
 
     dispatch(addProductThunk(req));
-    closeModal();
+    closeAddModal();
     return caloriesAmount;
   };
 
@@ -61,7 +61,7 @@ function AddProductForm({ data, closeModal }) {
           <AddBtn type="button" onClick={handleAddToDiary}>
             Add to diary
           </AddBtn>
-          <CloseBtn type="button" onClick={closeModal}>
+          <CloseBtn type="button" onClick={closeAddModal}>
             Cancel
           </CloseBtn>
         </BtnContainer>
@@ -72,7 +72,7 @@ function AddProductForm({ data, closeModal }) {
 
 AddProductForm.propTypes = {
   data: PropTypes.object,
-  closeModal: PropTypes.func,
+  closeAddModal: PropTypes.func,
   addProduct: PropTypes.func,
 };
 
