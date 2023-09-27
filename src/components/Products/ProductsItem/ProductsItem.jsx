@@ -29,17 +29,11 @@ const ProductsItem = ({ info }) => {
   const groupBlood = useSelector(selectGroupBlood);
 
   const toggleAddModal = () => {
-    setAddModalOpan(isAddModalOpan => !isAddModalOpan);
+    setAddModalOpan(isAddModalOpen => !isAddModalOpen);
   };
 
   const toggleSuccessModal = () => {
-    setSuccessModalOpan(isSuccessModalOpan => !isSuccessModalOpan);
-  };
-
-  const addProduct = data => {
-    setAmoutnCalories(data.calories);
-    console.log('Відправляємо продукт в базу данних', data);
-    toggleSuccessModal();
+    setSuccessModalOpan(isSuccessModalOpen => !isSuccessModalOpen);
   };
 
   return (
@@ -96,9 +90,9 @@ const ProductsItem = ({ info }) => {
       </ThirdLine>
       {isAddModalOpan && (
         <AddProductForm
-          addProduct={addProduct}
+          setAmoutnCalories={setAmoutnCalories}
           closeAddModal={toggleAddModal}
-          toggleSuccessModal={toggleSuccessModal}
+          openSuccessModal={toggleSuccessModal}
           data={info}
         />
       )}

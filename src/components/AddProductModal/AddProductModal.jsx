@@ -14,7 +14,12 @@ import {
 } from './AddProductModal.styled';
 import { addProductThunk } from '../../redux/Diary/operations';
 
-function AddProductForm({ data, closeAddModal }) {
+function AddProductForm({
+  data,
+  closeAddModal,
+  openSuccessModal,
+  setAmoutnCalories,
+}) {
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(0);
   const caloriesAmount = Math.round((quantity * data.calories) / 100);
@@ -31,7 +36,10 @@ function AddProductForm({ data, closeAddModal }) {
     };
 
     dispatch(addProductThunk(req));
+
+    setAmoutnCalories(caloriesAmount);
     closeAddModal();
+    openSuccessModal();
     return caloriesAmount;
   };
 
@@ -74,6 +82,7 @@ AddProductForm.propTypes = {
   data: PropTypes.object,
   closeAddModal: PropTypes.func,
   addProduct: PropTypes.func,
+  openSuccessModal: PropTypes.func,
+  setAmoutnCalories: PropTypes.func,
 };
-
 export default AddProductForm;
