@@ -1,11 +1,22 @@
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { object, string } from 'yup';
 import { loginization, checkUser } from '../../redux/Authorization/operations';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {
+  WrapperDesktop,
+  MainBlock,
+  TitleSignIn,
+  TextWelcome,
+  FormikStyle,
+  FormStyle,
+  FieldStyle,
+  ErrorMessageStyle,
+  ButtonSubmit,
+  ReLink,
+  LinkStyle,
+} from './SignInPage.styled';
 
 const SignInPage = () => {
   const dispatch = useDispatch();
@@ -62,50 +73,53 @@ const SignInPage = () => {
     password: '',
   };
 
-  const style = {
-    paddingTop: '200px',
-  };
-
   return (
-    <div style={style}>
-      <h2>Sign In</h2>
-      <ToastContainer />
+    <>
+      <WrapperDesktop></WrapperDesktop>
+      <MainBlock>
+        <TitleSignIn>Sign In</TitleSignIn>
+        <ToastContainer />
+        <TextWelcome>
+          Welcome! Please enter your credentials to login to the platform:
+        </TextWelcome>
+        <FormikStyle
+          initialValues={initialValues}
+          validationSchema={signUpSchema}
+          onSubmit={handleSubmit}
+        >
+          <FormStyle autoComplete="on">
+            <div>
+              <FieldStyle type="email" name="email" placeholder="Email" />
 
-      <p>Welcome! Please enter your credentials to login to the platform:</p>
+              <ErrorMessageStyle
+                name="email"
+                component="div"
+                className="error-message"
+              />
+            </div>
 
-      <Formik
-        initialValues={initialValues}
-        validationSchema={signUpSchema}
-        onSubmit={handleSubmit}
-      >
-        <Form autoComplete="on">
-          <div>
-            <Field type="email" name="email" placeholder="Email" />
+            <div>
+              <FieldStyle
+                type="password"
+                name="password"
+                placeholder="Password"
+              />
 
-            <ErrorMessage
-              name="email"
-              component="div"
-              className="error-message"
-            />
-          </div>
+              <ErrorMessageStyle
+                name="password"
+                component="div"
+                className="error-message"
+              />
+            </div>
+          </FormStyle>
+        </FormikStyle>
+        <ButtonSubmit type="submit">Sign In</ButtonSubmit>
 
-          <div>
-            <Field type="password" name="password" placeholder="Password" />
-
-            <ErrorMessage
-              name="password"
-              component="div"
-              className="error-message"
-            />
-          </div>
-
-          <button type="submit">Sign In</button>
-          <p>
-            Don’t have an account? <Link to="/signup">Sign Up</Link>
-          </p>
-        </Form>
-      </Formik>
-    </div>
+        <ReLink>
+          Don’t have an account? <LinkStyle to="/signup">Sign Up</LinkStyle>
+        </ReLink>
+      </MainBlock>
+    </>
   );
 };
 
