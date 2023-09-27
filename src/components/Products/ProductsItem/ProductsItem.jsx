@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import {
   Card,
@@ -18,29 +18,27 @@ import {
 
 import Icons from './../../../images/sprite.svg';
 import AddProductForm from '../../AddProductModal/AddProductModal';
-
-import { selectGroupBlood } from '../../../redux/Authorization/selector';
 import AddProductSuccess from '../AddProductSuccess/AddProductSuccess';
 
+// import { selectGroupBlood } from '../../../redux/Authorization/selector';
+
+const groupBlood = '2';
+
 const ProductsItem = ({ info }) => {
-  const [amoutnCalories, setAmoutnCalories] = useState(0);
-  const [isAddModalOpan, setAddModalOpan] = useState(false);
-  const [isSuccessModalOpan, setSuccessModalOpan] = useState(false);
-  const groupBlood = useSelector(selectGroupBlood);
+  const [isModalOpan, setModalOpan] = useState(false);
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
 
-  const toggleAddModal = () => {
-    setAddModalOpan(isAddModalOpan => !isAddModalOpan);
+  const toggleModal = () => {
+    setModalOpan(isModalOpan => !isModalOpan);
+    setIsSuccessModalOpen(true);
   };
 
-  const toggleSuccessModal = () => {
-    setSuccessModalOpan(isSuccessModalOpan => !isSuccessModalOpan);
+  const closeSuccessModal = () => {
+    setIsSuccessModalOpen(false);
   };
+  // const groupBlood = useSelector(selectGroupBlood);
 
-  const addProduct = data => {
-    setAmoutnCalories(data.calories);
-    console.log('Відправляємо продукт в базу данних', data);
-    toggleSuccessModal();
-  };
+  // console.log(groupBlood)
 
   return (
     <Card>
@@ -60,7 +58,7 @@ const ProductsItem = ({ info }) => {
             : 'Recommended'}
         </Recommended>
 
-        <AddButton type="button" onClick={toggleAddModal}>
+        <AddButton type="button" onClick={toggleModal}>
           Add
           <Arrow width={16} height={16}>
             <use href={Icons + '#icon-arrow-right'}></use>
@@ -94,19 +92,9 @@ const ProductsItem = ({ info }) => {
           Weight: <Value>{info.weight}</Value>
         </Additionally>
       </ThirdLine>
-      {isAddModalOpan && (
-        <AddProductForm
-          addProduct={addProduct}
-          closeAddModal={toggleAddModal}
-          toggleSuccessModal={toggleSuccessModal}
-          data={info}
-        />
-      )}
-      {isSuccessModalOpan && (
-        <AddProductSuccess
-          closeSuccessModal={toggleSuccessModal}
-          calories={amoutnCalories}
-        />
+      {isModalOpan && <AddProductForm closeModal={toggleModal} data={info} />}
+      {isSuccessModalOpen && (
+        <AddProductSuccess closeModal={closeSuccessModal} data={info} />
       )}
     </Card>
   );

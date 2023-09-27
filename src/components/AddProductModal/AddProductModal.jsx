@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-// import { createPortal } from 'react-dom';
-// const rootModal = document.querySelector('#root-modal');
-
+import { useDispatch } from 'react-redux';
 import {
   Container,
   InputContainer,
@@ -14,29 +12,28 @@ import {
   Calories,
   TitleCalories,
 } from './AddProductModal.styled';
+import { addProductThunk } from '../../redux/Diary/operations';
 
-const formatDate = date => {
-  const dateObject = date;
-  let day = dateObject.getDate();
-  let month = dateObject.getMonth() + 1;
-  const year = dateObject.getFullYear();
-
-  if (day < 10) {
-    day = '0' + day;
-  }
-  if (month < 10) {
-    month = '0' + month;
-  }
-
-  const formatted_date = day + '-' + month + '-' + year;
-  return formatted_date;
-};
-
-function AddProductForm({ data, closeAddModal, addProduct }) {
+function AddProductForm({ data, closeModal }) {
+  const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(0);
+  const caloriesAmount = Math.round((quantity * data.calories) / 100);
 
-  const amount = Math.round((quantity * data.calories) / 100);
-  const date = formatDate(new Date());
+  const handleAddToDiary = () => {
+    if (!caloriesAmount) {
+      console.log('Must be greater than 0');
+      return;
+    }
+    const req = {
+      productId: data._id,
+      calories: caloriesAmount,
+      amount: quantity,
+    };
+
+    dispatch(addProductThunk(req));
+    closeModal();
+    return caloriesAmount;
+  };
 
   return (
     <Container>
@@ -57,25 +54,14 @@ function AddProductForm({ data, closeAddModal, addProduct }) {
         </InputContainer>
 
         <Calories>
-          <TitleCalories>Calories:</TitleCalories> {amount}
+          <TitleCalories>Calories:</TitleCalories> {caloriesAmount}
         </Calories>
 
         <BtnContainer>
-          <AddBtn
-            type="button"
-            onClick={() => {
-              addProduct({
-                id: data._id,
-                date,
-                amount: quantity,
-                calories: amount,
-              });
-              closeAddModal();
-            }}
-          >
+          <AddBtn type="button" onClick={handleAddToDiary}>
             Add to diary
           </AddBtn>
-          <CloseBtn type="button" onClick={closeAddModal}>
+          <CloseBtn type="button" onClick={closeModal}>
             Cancel
           </CloseBtn>
         </BtnContainer>
@@ -86,7 +72,7 @@ function AddProductForm({ data, closeAddModal, addProduct }) {
 
 AddProductForm.propTypes = {
   data: PropTypes.object,
-  closeAddModal: PropTypes.func,
+  closeModal: PropTypes.func,
   addProduct: PropTypes.func,
 };
 
