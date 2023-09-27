@@ -11,7 +11,6 @@ export const addProductThunk = createAsyncThunk(
       calories,
       amount,
     });
-    console.log(data);
     return { data };
   },
 );
