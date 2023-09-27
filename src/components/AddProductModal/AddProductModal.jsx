@@ -32,7 +32,7 @@ const formatDate = date => {
   return formatted_date;
 };
 
-function AddProductForm({ data, closeModal, addProduct }) {
+function AddProductForm({ data, closeAddModal, addProduct }) {
   const [quantity, setQuantity] = useState(0);
 
   const amount = Math.round((quantity * data.calories) / 100);
@@ -63,18 +63,19 @@ function AddProductForm({ data, closeModal, addProduct }) {
         <BtnContainer>
           <AddBtn
             type="button"
-            onClick={() =>
+            onClick={() => {
               addProduct({
-                id: data.id,
+                id: data._id,
                 date,
                 amount: quantity,
                 calories: amount,
-              })
-            }
+              });
+              closeAddModal();
+            }}
           >
             Add to diary
           </AddBtn>
-          <CloseBtn type="button" onClick={closeModal}>
+          <CloseBtn type="button" onClick={closeAddModal}>
             Cancel
           </CloseBtn>
         </BtnContainer>
@@ -85,7 +86,7 @@ function AddProductForm({ data, closeModal, addProduct }) {
 
 AddProductForm.propTypes = {
   data: PropTypes.object,
-  closeModal: PropTypes.func,
+  closeAddModal: PropTypes.func,
   addProduct: PropTypes.func,
 };
 
