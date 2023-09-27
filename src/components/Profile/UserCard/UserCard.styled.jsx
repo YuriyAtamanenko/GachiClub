@@ -22,7 +22,6 @@ export const UserAvatar = styled.div`
 `;
 export const ImgUser = styled.img`
   width: 100%;
-  height: 100%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -121,9 +120,6 @@ export const Plate = styled.div`
   }
 `;
 
-export const Ico = styled.img`
-  margin-right: 8px;
-`;
 export const DailyText = styled.p`
   color: rgba(239, 237, 232, 0.8);
   font-size: 12px;
@@ -176,4 +172,20 @@ export const NoSelectUserPhoto = styled.svg`
     width: 120px;
     height: 120px;
   }
+`;
+
+export const WarningSvg = styled.svg`
+  width: 24px;
+  height: 24px;
+`;
+
+export const SvgContainer = styled.div`
+  width: 24px;
+  height: 24px;
+`;
+
+export const PlateSvg = styled.svg`
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
 `;

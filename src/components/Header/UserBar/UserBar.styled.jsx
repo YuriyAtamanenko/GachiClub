@@ -34,14 +34,9 @@ export const Avatar = styled(NavLink)`
 `;
 
 export const Img = styled.img`
-  width: 37px;
-  height: 37px;
+  width: 100%;
   object-fit: cover;
   border-radius: 50%;
-  @media screen and (min-width: 768px) {
-    width: 46px;
-    height: 46px;
-  }
 `;
 
 export const Link = styled(NavLink)``;
