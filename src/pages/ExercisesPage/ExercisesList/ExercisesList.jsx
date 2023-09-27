@@ -17,9 +17,6 @@ const ExercisesList = () => {
   const exerciseIndex = useSelector(getIndex);
   const allExercises = useSelector(getAllExercises);
   const findedItem = allExercises[exerciseIndex];
-  useEffect(() => {
-    dispatch(getExercisesList());
-  }, [dispatch]);
   return (
     <Container>
       <List>
@@ -44,7 +41,7 @@ const ExercisesList = () => {
           {!isSuccess ? (
             <AddExerciseForm data={findedItem} />
           ) : (
-            <AddExerciseSuccess />
+            <AddExerciseSuccess data={findedItem} />
           )}
         </BasicModalWindow>
       )}

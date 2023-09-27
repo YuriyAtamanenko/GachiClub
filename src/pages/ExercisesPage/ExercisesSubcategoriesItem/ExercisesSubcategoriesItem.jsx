@@ -9,15 +9,40 @@ import {
   Subscription,
   Category,
 } from './ExercisesSubcategoriesItem.styled';
-const ExercisesSubcategoriesItem = ({ imgURL, name, filter }) => {
+import { getExercisesList } from '../../../redux/Exercises/operations';
+const ExercisesSubcategoriesItem = ({ imgURL, name, filter, id }) => {
   const dispatch = useDispatch();
+  const filterQuery = (filteredItem, name) => {
+    dispatch(changeTitle(name));
+    dispatch(toggleChoice());
+    if (filteredItem === 'Body parts') {
+      dispatch(
+        getExercisesList({
+          bodyPartTitle: name,
+          equipmentTitle: '',
+          targetTitle: '',
+        }),
+      );
+    } else if (filteredItem === 'Muscles') {
+      dispatch(
+        getExercisesList({
+          bodyPartTitle: '',
+          equipmentTitle: '',
+          targetTitle: name,
+        }),
+      );
+    } else if (filteredItem === 'Equipment') {
+      dispatch(
+        getExercisesList({
+          bodyPartTitle: '',
+          equipmentTitle: name,
+          targetTitle: '',
+        }),
+      );
+    }
+  };
   return (
-    <Card
-      onClick={() => {
-        dispatch(changeTitle(name));
-        dispatch(toggleChoice());
-      }}
-    >
+    <Card onClick={() => filterQuery(filter, name)}>
       <CardContent>
         <CardPicture src={imgURL} alt={name} />
         <CategoryBlock>

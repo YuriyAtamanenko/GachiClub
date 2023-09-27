@@ -4,9 +4,16 @@ import axios from 'axios';
 axios.defaults.baseURL = 'https://fitness-for-all-back-end.onrender.com';
 export const getExercisesList = createAsyncThunk(
   'exercises/list',
-  async (_, thunkAPI) => {
+  async ({ bodyPartTitle, equipmentTitle, targetTitle }, thunkAPI) => {
     try {
-      const { data } = await axios.get('/exercises/training');
+      const { data } = await axios.get('/exercises', {
+        params: {
+          bodyPart: bodyPartTitle,
+          equipment: equipmentTitle,
+          target: targetTitle,
+        },
+      });
+      console.log(data);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -31,17 +38,32 @@ export const getCategories = createAsyncThunk(
   },
 );
 export const addExerciseToDiary = createAsyncThunk(
-  'exercises/addExerciseToDiary',
-  async body => {
-    const { bodyPart, equipment, name, target, burnedCalories, time } = body;
-    const { data } = await axios.post('dairy/addExercise', {
-      bodyPart,
-      equipment,
-      name,
-      target,
-      burnedCalories,
-      time,
-    });
-    return { ...data, newExercise: body.data };
+  'diary/addExercise',
+  async (body, { rejectWithValue }) => {
+    try {
+      const {
+        _id,
+        bodyPart,
+        equipment,
+        gifUrl,
+        name,
+        target,
+        burnedCalories,
+        time,
+      } = body;
+      const { data } = await axios.post('/diary/addProduct', {
+        _id,
+        bodyPart,
+        equipment,
+        gifUrl,
+        name,
+        target,
+        burnedCalories,
+        time,
+      });
+      return { ...data, newExercise: body.data };
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
   },
 );
