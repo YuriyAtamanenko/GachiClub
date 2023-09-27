@@ -18,20 +18,29 @@ import {
 
 import Icons from './../../../images/sprite.svg';
 import AddProductForm from '../../AddProductModal/AddProductModal';
+
 import { selectGroupBlood } from '../../../redux/Authorization/selector';
+import AddProductSuccess from '../AddProductSuccess/AddProductSuccess';
 
 const ProductsItem = ({ info }) => {
+  const [amoutnCalories, setAmoutnCalories] = useState(0);
   const [isAddModalOpan, setAddModalOpan] = useState(false);
-  // const [isSuccessModalOpan, SuccessModalOpan] = useState(false);
+  const [isSuccessModalOpan, setSuccessModalOpan] = useState(false);
   const groupBlood = useSelector(selectGroupBlood);
 
   const toggleAddModal = () => {
     setAddModalOpan(isAddModalOpan => !isAddModalOpan);
   };
 
-  // const toggleSuccessModal = () => {
-  //   setSuccessModalOpan(isSuccessModalOpan => !isSuccessModalOpan);
-  // };
+  const toggleSuccessModal = () => {
+    setSuccessModalOpan(isSuccessModalOpan => !isSuccessModalOpan);
+  };
+
+  const addProduct = data => {
+    setAmoutnCalories(data.calories);
+    console.log('Відправляємо продукт в базу данних', data);
+    toggleSuccessModal();
+  };
 
   return (
     <Card>
@@ -87,14 +96,18 @@ const ProductsItem = ({ info }) => {
       </ThirdLine>
       {isAddModalOpan && (
         <AddProductForm
+          addProduct={addProduct}
           closeAddModal={toggleAddModal}
-          // toggleSuccessModal={toggleSuccessModal}
+          toggleSuccessModal={toggleSuccessModal}
           data={info}
         />
       )}
-      {/* {isAddModalOpan && (
-        <AddProductForm toggleSuccessModal={toggleSuccessModal} />
-      )} */}
+      {isSuccessModalOpan && (
+        <AddProductSuccess
+          closeSuccessModal={toggleSuccessModal}
+          calories={amoutnCalories}
+        />
+      )}
     </Card>
   );
 };
