@@ -1,4 +1,4 @@
-import{m as qt,d as p,E as Xt,o as Kt,s as Qt,p as C,_ as Zt,f as ue,q as F,h as Jt,u as Re,b as xe,t as en,j as b,I as oe,v as se,n as M,w as pt,x as tn,P as H,L as Ue,y as nn,z as rn}from"./index-7793bda3.js";import{s as U}from"./styled-components.browser.esm-cbf8ca84.js";import{_ as ft,f as on,a as an,b as un,c as sn,e as ln}from"./createClass-8ec1f53f.js";import{r as Ce}from"./react-responsive-8fc03e59.js";function cn(n,t){if(n==null)return{};var i={},r=Object.keys(n),e,a;for(a=0;a<r.length;a++)e=r[a],!(t.indexOf(e)>=0)&&(i[e]=n[e]);return i}var S=function(t,i){var r=arguments;if(i==null||!qt.call(i,"css"))return p.createElement.apply(void 0,r);var e=r.length,a=new Array(e);a[0]=Xt,a[1]=Kt(t,i);for(var u=2;u<e;u++)a[u]=r[u];return p.createElement.apply(null,a)};function Le(){for(var n=arguments.length,t=new Array(n),i=0;i<n;i++)t[i]=arguments[i];return Qt(t)}var dn=function(){var t=Le.apply(void 0,arguments),i="animation-"+t.name;return{name:i,styles:"@keyframes "+i+"{"+t.styles+"}",anim:1,toString:function(){return"_EMO_"+this.name+"_"+this.styles+"_EMO_"}}};const pn="/GachiClub/assets/products-desktop-1x-e8c375a5.jpg",fn="/GachiClub/assets/products-desktop-2x-85e8f868.jpg",hn=U.div`
+import{m as qt,d as p,E as Xt,o as Kt,s as Qt,p as C,_ as Zt,f as ue,q as F,h as Jt,u as Re,b as xe,t as en,j as b,I as oe,v as se,n as M,w as pt,x as tn,P as H,L as Ue,y as nn,z as rn}from"./index-9a45bddd.js";import{s as U}from"./styled-components.browser.esm-90d3b699.js";import{_ as ft,f as on,a as an,b as un,c as sn,e as ln}from"./createClass-634bfd5f.js";import{r as Ce}from"./react-responsive-7c2292f9.js";function cn(n,t){if(n==null)return{};var i={},r=Object.keys(n),e,a;for(a=0;a<r.length;a++)e=r[a],!(t.indexOf(e)>=0)&&(i[e]=n[e]);return i}var S=function(t,i){var r=arguments;if(i==null||!qt.call(i,"css"))return p.createElement.apply(void 0,r);var e=r.length,a=new Array(e);a[0]=Xt,a[1]=Kt(t,i);for(var u=2;u<e;u++)a[u]=r[u];return p.createElement.apply(null,a)};function Le(){for(var n=arguments.length,t=new Array(n),i=0;i<n;i++)t[i]=arguments[i];return Qt(t)}var dn=function(){var t=Le.apply(void 0,arguments),i="animation-"+t.name;return{name:i,styles:"@keyframes "+i+"{"+t.styles+"}",anim:1,toString:function(){return"_EMO_"+this.name+"_"+this.styles+"_EMO_"}}};const pn="/GachiClub/assets/products-desktop-1x-e8c375a5.jpg",fn="/GachiClub/assets/products-desktop-2x-85e8f868.jpg",hn=U.div`
   @media screen and (min-width: 375px) {
     padding-top: 40px;
     padding-bottom: 80px;
@@ -366,10 +366,16 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 `,So=M.div`
   background-color: #10100f;
   border-radius: 12px;
+  border: 1px solid rgba(239, 237, 232, 0.2);
   padding: 48px 24px;
   z-index: 10;
+  width: 335px;
+  height: 280px;
+
   @media screen and (min-width: 768px) {
     padding: 48px 32px;
+    width: 479px;
+    height: 286px;
   }
 `,yo=M.div`
   margin-bottom: 16px;
@@ -482,6 +488,9 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   flex-direction: column;
   align-items: center;
   z-index: 10;
+  background-color: #10100f;
+  border-radius: 12px;
+  border: 1px solid rgba(239, 237, 232, 0.2);
 `,Lo=M.div`
   padding: 48px 89px;
   display: flex;
@@ -497,7 +506,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 `,ko=M.img`
   width: 123px;
   height: 97px;
-  margin-bottom: 32px;
+  margin-bottom: 19px;
 `,Bo=M.p`
   color: #efede8;
   font-size: 24px;
@@ -523,7 +532,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 `,jo=M.button`
   border-radius: 12px;
   background: #e6533c;
-  padding: 14px 32px;
+  padding: 12px 40px;
   justify-content: center;
   align-items: center;
   margin-top: 24px;
@@ -534,7 +543,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   line-height: 24px;
 
   @media screen and (min-width: 768px) {
-    padding: 16px 32px;
+    padding: 14px 32px;
   }
 
   &:hover,
