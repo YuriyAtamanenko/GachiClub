@@ -28,15 +28,21 @@ export const Header = styled.div`
   top: 0;
   left: 0;
   position: ${props => (props.isLoggedIn ? 'relative' : 'absolute')};
-  border-bottom: ${props =>
-    props.isLoggedIn && props.isBodyData ? '1px solid rgba(239, 237, 232, 0.2)' : 'none'};
+  position: ${props => (props.isBodyData ? 'absolute' : 'initial')};
+
+  border-bottom: ${props => (props.isLoggedIn ? '1px solid rgba(239, 237, 232, 0.2)' : 'none')};
 
   padding: ${props => (props.isLoggedIn ? '12px 0' : '24px 20px')};
+  padding: ${props => (props.isBodyData ? 'initial' : '24px 0')};
+
   @media screen and (min-width: 768px) {
     padding: ${props => (props.isLoggedIn ? '19px 0' : '32px 32px')};
+    padding: ${props => (props.isBodyData ? 'initial' : '32px 0')};
   }
+
   @media screen and (min-width: 1440px) {
     padding: ${props => (props.isLoggedIn ? '19px 0' : '32px 96px')};
+    padding: ${props => (props.isBodyData ? 'initial' : '32px 0')};
   }
 `;
 
