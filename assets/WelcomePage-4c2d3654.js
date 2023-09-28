@@ -1,4 +1,4 @@
-import{j as e,n as i,I as t,N as n}from"./index-7ede5df1.js";import{S as o,E as p}from"./Elements-6e81788a.js";import{m as d,a as r,t as a,b as s,d as x,c}from"./default-mobile-2x-adbcb5a4.js";const l=()=>e.jsx(o,{children:e.jsx(p,{})}),m=i.h1`
+import{n as e,j as i,I as t,N as n}from"./index-4dd75cac.js";import{S as o}from"./Statistics-7e40b622.js";import{m as p,a as d,t as r,b as a,d as s,c as x}from"./default-mobile-2x-adbcb5a4.js";const c=e.h1`
   color: #efede8;
   font-size: 38px;
   font-weight: 500;
@@ -41,13 +41,13 @@ import{j as e,n as i,I as t,N as n}from"./index-7ede5df1.js";import{S as o,E as 
     letter-spacing: 0.7px;
     margin-bottom: 64px;
   }
-`;function g(){return e.jsxs(m,{children:["Transforming your ",e.jsxs("span",{children:["body",e.jsx("svg",{children:e.jsx("use",{href:t+"#icon-line"})})]})," shape with Power Pulse"]})}const h=i.ul`
+`;function l(){return i.jsxs(c,{children:["Transforming your ",i.jsxs("span",{children:["body",i.jsx("svg",{children:i.jsx("use",{href:t+"#icon-line"})})]})," shape with Power Pulse"]})}const m=e.ul`
   display: flex;
   gap: 14px;
   @media screen and (min-width: 768px) {
     gap: 20px;
   }
-`,u=i.div`
+`,g=e.div`
   padding-top: 127px;
   @media screen and (min-width: 768px) {
     padding-top: 189px;
@@ -55,7 +55,7 @@ import{j as e,n as i,I as t,N as n}from"./index-7ede5df1.js";import{S as o,E as 
   @media screen and (min-width: 1440px) {
     padding-top: 200px;
   }
-`,b=i.div`
+`,h=e.div`
   position: absolute;
   top: 50%;
   right: auto;
@@ -64,7 +64,7 @@ import{j as e,n as i,I as t,N as n}from"./index-7ede5df1.js";import{S as o,E as 
   pointer-events: none;
   z-index: -1;
 
-  background-image: url(${d});
+  background-image: url(${p});
   background-size: cover;
   background-repeat: no-repeat;
 
@@ -73,7 +73,7 @@ import{j as e,n as i,I as t,N as n}from"./index-7ede5df1.js";import{S as o,E as 
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
     & {
-      background-image: url(${r});
+      background-image: url(${d});
     }
   }
 
@@ -84,7 +84,7 @@ import{j as e,n as i,I as t,N as n}from"./index-7ede5df1.js";import{S as o,E as 
     width: 768px;
     pointer-events: none;
 
-    background-image: url(${a});
+    background-image: url(${r});
     background-size: cover;
     background-repeat: no-repeat;
 
@@ -93,7 +93,7 @@ import{j as e,n as i,I as t,N as n}from"./index-7ede5df1.js";import{S as o,E as 
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
       & {
-        background-image: url(${s});
+        background-image: url(${a});
       }
     }
   }
@@ -105,7 +105,7 @@ import{j as e,n as i,I as t,N as n}from"./index-7ede5df1.js";import{S as o,E as 
     height: 800px;
     pointer-events: none;
 
-    background-image: url(${x});
+    background-image: url(${s});
     background-size: 670px 800px;
     background-repeat: no-repeat;
 
@@ -114,11 +114,11 @@ import{j as e,n as i,I as t,N as n}from"./index-7ede5df1.js";import{S as o,E as 
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
       & {
-        background-image: url(${c});
+        background-image: url(${x});
       }
     }
   }
-`,w=i(n)`
+`,u=e(n)`
   color: #efede8;
   text-decoration: none;
   border-radius: 12px;
@@ -134,7 +134,7 @@ import{j as e,n as i,I as t,N as n}from"./index-7ede5df1.js";import{S as o,E as 
   &:focus {
     background: #ef8964;
   }
-`,k=i(n)`
+`,b=e(n)`
   color: #efede8;
   text-decoration: none;
   border-radius: 12px;
@@ -149,4 +149,4 @@ import{j as e,n as i,I as t,N as n}from"./index-7ede5df1.js";import{S as o,E as 
   &:focus {
     border: 1px solid #e6533c;
   }
-`,z=()=>e.jsxs(e.Fragment,{children:[e.jsx(b,{}),e.jsxs(u,{children:[e.jsx(g,{}),e.jsxs(h,{children:[e.jsx("li",{children:e.jsx(w,{to:"/signup",children:"Sign Up"})}),e.jsx("li",{children:e.jsx(k,{to:"/signin",children:"Sign In"})})]})]}),e.jsx(l,{})]});export{z as default};
+`,f=()=>i.jsxs(i.Fragment,{children:[i.jsx(h,{}),i.jsxs(g,{children:[i.jsx(l,{}),i.jsxs(m,{children:[i.jsx("li",{children:i.jsx(u,{to:"/signup",children:"Sign Up"})}),i.jsx("li",{children:i.jsx(b,{to:"/signin",children:"Sign In"})})]})]}),i.jsx(o,{})]});export{f as default};

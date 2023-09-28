@@ -1,4 +1,4 @@
-import{n as i,j as e,I as n}from"./index-7ede5df1.js";const m=i.div`
+import{n as i,j as e,I as t}from"./index-4dd75cac.js";const n=i.div`
   position: absolute;
   left: 35%;
   top: 185%;
@@ -10,7 +10,7 @@ import{n as i,j as e,I as n}from"./index-7ede5df1.js";const m=i.div`
     left: 53%;
     top: 75%;
   }
-`,t=i.div`
+`,d=i.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -28,7 +28,7 @@ import{n as i,j as e,I as n}from"./index-7ede5df1.js";const m=i.div`
     height: 96px;
     background: #303030;
   }
-`,d=i.div`
+`,s=i.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,7 +61,7 @@ import{n as i,j as e,I as n}from"./index-7ede5df1.js";const m=i.div`
     line-height: calc(24 / 24);
     margin-bottom: 8px;
   }
-`,p=i.p`
+`,r=i.p`
   color: rgba(239, 237, 232, 0.65);
   font-size: 12px;
   line-height: calc(16 / 12);
@@ -70,7 +70,7 @@ import{n as i,j as e,I as n}from"./index-7ede5df1.js";const m=i.div`
     font-size: 16px;
     line-height: calc(24 / 16);
   }
-`,s=i.div`
+`,p=i.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -98,7 +98,7 @@ import{n as i,j as e,I as n}from"./index-7ede5df1.js";const m=i.div`
     margin-top: 39px;
     margin-left: 458px;
   }
-`,r=i.div`
+`,o=i.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -110,7 +110,7 @@ import{n as i,j as e,I as n}from"./index-7ede5df1.js";const m=i.div`
     width: 24px;
     height: 24px;
   }
-`,o=i.svg`
+`,c=i.svg`
   fill: rgba(239, 237, 232, 1);
   width: 12px;
   height: 12px;
@@ -119,7 +119,7 @@ import{n as i,j as e,I as n}from"./index-7ede5df1.js";const m=i.div`
     width: 16px;
     height: 16px;
   }
-`,c=i.p`
+`,h=i.p`
   color: #efede8;
   font-size: 24px;
   font-weight: 700;
@@ -130,7 +130,7 @@ import{n as i,j as e,I as n}from"./index-7ede5df1.js";const m=i.div`
     line-height: calc(50 / 48);
     letter-spacing: -1px;
   }
-`,h=i.p`
+`,l=i.p`
   color: rgba(239, 237, 232, 0.65);
   font-size: 12px;
   font-weight: 700;
@@ -140,11 +140,11 @@ import{n as i,j as e,I as n}from"./index-7ede5df1.js";const m=i.div`
     font-size: 16px;
     line-height: 1.5;
   }
-`,l=i.div`
+`,g=i.div`
   gap: 8px;
   display: flex;
   align-items: flex-end;
   @media screen and (min-width: 768px) {
     gap: 11px;
   }
-`,f=()=>e.jsxs(e.Fragment,{children:[e.jsxs(t,{children:[e.jsx(d,{children:e.jsx(x,{children:e.jsx("use",{href:n+"#icon-play"})})}),e.jsxs("div",{children:[e.jsx(a,{children:"350+"}),e.jsx(p,{children:"Video tutorial"})]})]}),e.jsxs(s,{children:[e.jsx(r,{children:e.jsx(o,{children:e.jsx("use",{href:n+"#icon-run"})})}),e.jsxs(l,{children:[e.jsx(c,{children:"500"}),e.jsx(h,{children:"cal"})]})]})]});export{f as E,m as S};
+`,m=()=>e.jsxs(e.Fragment,{children:[e.jsxs(d,{children:[e.jsx(s,{children:e.jsx(x,{children:e.jsx("use",{href:t+"#icon-play"})})}),e.jsxs("div",{children:[e.jsx(a,{children:"350+"}),e.jsx(r,{children:"Video tutorial"})]})]}),e.jsxs(p,{children:[e.jsx(o,{children:e.jsx(c,{children:e.jsx("use",{href:t+"#icon-run"})})}),e.jsxs(g,{children:[e.jsx(h,{children:"500"}),e.jsx(l,{children:"cal"})]})]})]}),w=()=>e.jsx(n,{children:e.jsx(m,{})});export{m as E,w as S};
