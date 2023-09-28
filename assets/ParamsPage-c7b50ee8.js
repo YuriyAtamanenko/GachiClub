@@ -1,4 +1,4 @@
-import{P as o,d as m,j as e,I as k,n as d,u as $,a as q,e as D}from"./index-4dd75cac.js";import{F as S,a as l,E as p,c as B,e as v,f as N,d as w,b as y}from"./index.esm-415733af.js";import{e as _}from"./index-e44325e8.js";import{s as n}from"./styled-components.browser.esm-8b548f73.js";import{S as A,E as G}from"./Statistics-7e40b622.js";import"./createClass-c186d7e9.js";const E="/GachiClub/assets/params01-mobile-1x-12d31870.jpg",F="/GachiClub/assets/params01-mobile-2x-c2b9cc40.jpg",V=n.div`
+import{P as o,d as m,j as e,I as k,n as d,u as $,a as q,e as D}from"./index-39a6dd03.js";import{F as S,a as l,E as p,c as B,e as v,f as N,d as w,b as y}from"./index.esm-7e487563.js";import{e as _}from"./index-015560cc.js";import{s as n}from"./styled-components.browser.esm-ff23c31d.js";import{S as A,E as G}from"./Statistics-8f6848d9.js";import"./createClass-8d8023e5.js";const E="/GachiClub/assets/params01-mobile-1x-12d31870.jpg",F="/GachiClub/assets/params01-mobile-2x-c2b9cc40.jpg",V=n.div`
   background-image: linear-gradient(89deg, #040404 0%, rgba(4, 4, 4, 0) 100%),
     url(${E});
   background-repeat: no-repeat;
@@ -178,9 +178,9 @@ import{P as o,d as m,j as e,I as k,n as d,u as $,a as q,e as D}from"./index-4dd7
 `,pe=d.div`
   display: inline-flex;
   gap: 16px;
-  margin-bottom: 420px;
+  margin-bottom: 530px;
   @media screen and (min-width: 768px) {
-    margin-bottom: 500px;
+    margin-bottom: 490px;
   }
   @media screen and (min-width: 1440px) {
     margin-bottom: 260px;
@@ -232,12 +232,12 @@ import{P as o,d as m,j as e,I as k,n as d,u as $,a as q,e as D}from"./index-4dd7
     line-height: 24px; /* 150% */
   }
 `,he=d.div`
-  padding-top: 127px;
+  margin-top: 90px;
   @media screen and (min-width: 768px) {
-    padding-top: 189px;
+    margin-top: 140px;
   }
   @media screen and (min-width: 1440px) {
-    padding-top: 200px;
+    margin-top: 150px;
   }
 `,me=d.div`
   position: absolute;

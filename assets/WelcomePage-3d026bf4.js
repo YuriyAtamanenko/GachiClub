@@ -1,4 +1,4 @@
-import{n as e,j as i,I as t,N as n}from"./index-4dd75cac.js";import{S as o}from"./Statistics-7e40b622.js";import{m as p,a as d,t as r,b as a,d as s,c as x}from"./default-mobile-2x-adbcb5a4.js";const c=e.h1`
+import{n as e,j as i,I as t,N as n}from"./index-39a6dd03.js";import{S as o}from"./Statistics-8f6848d9.js";import{m as p,a as d,t as r,b as a,d as s,c as x}from"./default-mobile-2x-adbcb5a4.js";const c=e.h1`
   color: #efede8;
   font-size: 38px;
   font-weight: 500;
