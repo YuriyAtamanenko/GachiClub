@@ -10,7 +10,7 @@ import {
   Category,
 } from './ExercisesSubcategoriesItem.styled';
 import { getExercisesList } from '../../../redux/Exercises/operations';
-const ExercisesSubcategoriesItem = ({ imgURL, name, filter, id }) => {
+const ExercisesSubcategoriesItem = ({ imgURL, name, filter }) => {
   const dispatch = useDispatch();
   const filterQuery = (filteredItem, name) => {
     dispatch(changeTitle(name));
@@ -18,7 +18,7 @@ const ExercisesSubcategoriesItem = ({ imgURL, name, filter, id }) => {
     if (filteredItem === 'Body parts') {
       dispatch(
         getExercisesList({
-          bodyPartTitle: name,
+          bodyPartTitle: name.toString().toLowerCase(),
           equipmentTitle: '',
           targetTitle: '',
         }),
@@ -28,14 +28,14 @@ const ExercisesSubcategoriesItem = ({ imgURL, name, filter, id }) => {
         getExercisesList({
           bodyPartTitle: '',
           equipmentTitle: '',
-          targetTitle: name,
+          targetTitle: name.toString().toLowerCase(),
         }),
       );
     } else if (filteredItem === 'Equipment') {
       dispatch(
         getExercisesList({
           bodyPartTitle: '',
-          equipmentTitle: name,
+          equipmentTitle: name.toString().toLowerCase(),
           targetTitle: '',
         }),
       );

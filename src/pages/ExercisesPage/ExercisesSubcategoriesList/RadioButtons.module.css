@@ -1,0 +1,34 @@
+.radiobutton {
+  width: 14px;
+  height: 14px;
+  border: 1px solid #e6533c;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.radiobutton > input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+.radiobutton > span {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.radiobutton > span::before {
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  content: '';
+  display: inline-block;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+.radiobutton > input:checked + span::before {
+  background-color: #e6533c;
+}
