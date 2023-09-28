@@ -6,12 +6,16 @@
   height: 4px; /* Установите желаемую высоту прогресс-бара */
   background-color: #303030; /* Цвет фона прогресс-бара */
   border-radius: 2px;
+  @media screen and (max-width: 767px) {
+    margin-bottom: 32px;
+  }
 }
 
 .progressBarTwo {
   display: flex;
   justify-content: space-between;
   margin-right: 14px;
+  margin-bottom: 20px;
   width: 80px; /* Установите желаемую ширину прогресс-бара */
   height: 4px; /* Установите желаемую высоту прогресс-бара */
   background-color: #303030; /* Цвет фона прогресс-бара */

@@ -1,7 +1,7 @@
 // import React from 'react';
 
 import { useState, useRef, forwardRef, useImperativeHandle } from 'react';
-import { Formik, ErrorMessage } from 'formik';
+import { Formik } from 'formik';
 import PropTypes from 'prop-types';
 import * as Yup from 'yup';
 import DatePicker from 'react-datepicker';
@@ -15,13 +15,13 @@ import {
   StyledFormik,
   InputField,
   ButtonNext,
-  Container,
   Next,
   ContainerInside,
   Message,
   MessageWeight,
   MessageDesired,
   MessageBirthday,
+  WrapperDesktop,
 } from './ParamsStepOne.styled.js';
 import sprite from '../../images/sprite.svg';
 
@@ -73,16 +73,17 @@ function ParamsStepOne(props) {
     props.next(newData);
   };
   return (
-    <Container>
-      <div>
-        <Title>Get closer to your goals!</Title>
-        <Text>
-          To ensure a personalized user experience and the proper functioning of
-          our platform, we ask you to provide the following information about
-          your weight, height and other relevant data:
-        </Text>
-        <Label>Height</Label>
-      </div>
+    <>
+      <WrapperDesktop></WrapperDesktop>
+
+      <Title>Get closer to your goals!</Title>
+      <Text>
+        To ensure a personalized user experience and the proper functioning of
+        our platform, we ask you to provide the following information about your
+        weight, height and other relevant data:
+      </Text>
+      <Label>Height</Label>
+
       <Formik
         initialValues={{ ...props.data, isValid: false }}
         onSubmit={handleSubmit}
@@ -146,7 +147,7 @@ function ParamsStepOne(props) {
       <ContainerInside>
         <Statistics />
       </ContainerInside>
-    </Container>
+    </>
   );
 }
 
