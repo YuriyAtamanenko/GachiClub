@@ -59,7 +59,7 @@ function App() {
           <Route
             path="/params"
             element={
-              <PrivateRoute component={ParamsPage} redirectTo="/diary" />
+              <RestrictedRoute component={ParamsPage} redirectTo="/diary" />
             }
           />
 

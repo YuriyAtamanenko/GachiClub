@@ -33,6 +33,7 @@ export const loginization = createAsyncThunk(
     try {
       const response = await axios.post('/users/login', user);
       setAuthHeader(response.data.token);
+
       if (response.data.token) {
         await thunkAPI.dispatch(refreshUser());
       }
@@ -40,10 +41,6 @@ export const loginization = createAsyncThunk(
       console.log('Текущий user1 в loginization', response);
       // console.log('Текущий user в loginization', response.data);
       // console.log('Текущий status в loginization', response.status);
-
-  
-     
-
 
       return response.data;
     } catch (e) {
