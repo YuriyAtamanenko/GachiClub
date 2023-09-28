@@ -16,6 +16,7 @@ import {
   TitleForm,
 } from './UserForm.style';
 import { useState } from 'react';
+
 import 'react-calendar/dist/Calendar.css';
 import sprite from '../../../images/sprite.svg';
 import { useSelector } from 'react-redux';
@@ -131,6 +132,7 @@ const UserForm = ({ handleSubmit, dataUser, selectedAvatar }) => {
                   className="error"
                 />
               </LabelStyled>
+
               <LabelStyled onClick={toglerCalendar}>
                 <TitleForm id="calendarTitle">Calendar</TitleForm>
                 <CalendarIco>
@@ -146,6 +148,7 @@ const UserForm = ({ handleSubmit, dataUser, selectedAvatar }) => {
                   name="birthday"
                 />
               </LabelStyled>
+
               <CalendarContainer
                 data-isopen={`${openCalendar ? 'open' : 'close'}`}
               >

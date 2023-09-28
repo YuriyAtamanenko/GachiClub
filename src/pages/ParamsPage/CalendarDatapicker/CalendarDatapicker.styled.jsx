@@ -1,8 +1,9 @@
 import { createGlobalStyle, styled } from 'styled-components';
+
 export const DataBtn = styled.div`
   padding: 6px 12px;
   color: #ffffff;
-  background: #3e85f3;
+  background: rgba(239, 137, 100, 1);
   border-radius: 8px;
   font-weight: 700;
   font-size: 14px;
@@ -32,24 +33,27 @@ export const CalendarGlobalStyles = createGlobalStyle`
     width: 327px;
     height: 354px;
     padding: 9px 18px;
-  background-color: #3e85f3;
+  background-color: rgba(239, 137, 100, 1);
+;
     font-family: Inter;
     border-radius: 16px;
   }
   .react-datepicker__month-container {
     float: inherit;
     box-sizing: border-box;
+     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   }
   .react-datepicker__header {
     position: relative;
-    background-color: #3e85f3;
+    background-color:rgba(239, 137, 100, 1);
+;
   }
   .react-datepicker__day-names {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 8px 8px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+   
   }
   .react-datepicker__header:not(.react-datepicker__header--has-time-select) {
     border-bottom: 0px;
@@ -130,22 +134,22 @@ export const CalendarGlobalStyles = createGlobalStyle`
     margin: 0;
   }
   .react-datepicker__day--selected {
-    background-color:white;
+    background-color:rgba(239, 137, 100, 1);
     color:#3e85f3;
     font-size: 14px;
   }
   .react-datepicker__day--selected:hover {
     border-radius: 50%;
-  background-color:white;
+  background-color:rgba(239, 137, 100, 1);
   }
   .react-datepicker__day:hover {
     border-radius: 50%;
-    background-color:white;
+    background-color:rgba(239, 137, 100, 1);
     color:#3e85f3;
   }
   .react-datepicker__day--keyboard-selected {
     border-radius: 50%;
-    background-color:white;
+    background-color:rgba(239, 137, 100, 1);
     color:#3e85f3;
   }
   .react-datepicker__day--weekend {
@@ -167,7 +171,7 @@ export const CalendarGlobalStyles = createGlobalStyle`
 export const TitleWrapper = styled.button`
   width: 195px;
   color: #ffffff;
-  background: #3e85f3;
+  background: rgba(239, 137, 100, 1);
   border-radius: 8px;
   font-weight: 700;
   line-height: 18px;
