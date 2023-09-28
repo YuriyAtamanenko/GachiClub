@@ -58,10 +58,10 @@ export const BtnContainer = styled.div`
   gap: 16px;
   margin-bottom: 530px;
   @media screen and (min-width: 768px) {
-    margin-bottom: 490px;
+    margin-bottom: 470px;
   }
   @media screen and (min-width: 1440px) {
-    margin-bottom: 260px;
+    margin-bottom: 240px;
   }
 `;
 
@@ -168,7 +168,7 @@ export const WrapperDesktop = styled.div`
     }
   }
   @media screen and (min-width: 1440px) {
-    position: relative;
+    position: absolute;
     top: 0;
     right: 0;
     width: 670px;

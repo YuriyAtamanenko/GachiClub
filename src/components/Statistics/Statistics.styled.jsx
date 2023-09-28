@@ -3,10 +3,10 @@ import styled from '@emotion/styled';
 export const StatisticsBox = styled.div`
   position: absolute;
   left: 35%;
-  top: 185%;
+  top: 180%;
   @media screen and (min-width: 768px) {
     left: 45%;
-    top: 175%;
+    top: 160%;
   }
   @media screen and (min-width: 1440px) {
     left: 53%;
