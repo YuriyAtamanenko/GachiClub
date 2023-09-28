@@ -15,7 +15,7 @@ const ProdactsList = () => {
     <ListContainer>
       {items.length > 0 ? (
         items
-          .slice(0, 25)
+          .slice(0, 20)
           .map(item => <ProductsItem key={item._id} info={item}></ProductsItem>)
       ) : (
         <DefaultTextWrapper>

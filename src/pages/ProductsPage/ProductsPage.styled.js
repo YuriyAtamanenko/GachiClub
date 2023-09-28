@@ -64,3 +64,10 @@ export const ContainerForm = styled.div`
     margin-right: -32px;
   }
 `;
+
+export const LoadContainer = styled.div`
+  padding-top: 100px;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 340px;
+`;
