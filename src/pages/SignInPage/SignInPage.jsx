@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { object, string } from 'yup';
 import { loginization, checkUser } from '../../redux/Authorization/operations';
@@ -17,14 +17,21 @@ import {
   ReLink,
   LinkStyle,
 } from './SignInPage.styled';
+import { useEffect } from 'react';
 
 const SignInPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleSubmit = async (values, action) => {
-    console.log(values);
+  const bodyData = useSelector(state => state.auth.bodyData);
 
+  useEffect(() => {
+    if (Object.keys(bodyData).length > 1) {
+      navigate('/params');
+    }
+  });
+
+  const handleSubmit = async (values, action) => {
     try {
       const user = await checkUser(values.email, values.password);
 
@@ -41,14 +48,11 @@ const SignInPage = () => {
         } else {
           action.resetForm();
 
-          if (
-            loginResult.payload.bodyData !== null &&
-            Object.keys(loginResult.payload.bodyData).length !== 0
-          ) {
-            navigate('/diary');
-          } else {
-            navigate('/params');
-          }
+          // if (loginResult.payload.bodyData.bodyData === undefined) {
+          //   navigate('/params');
+          // } else {
+          //   navigate('/diary');
+          // }
         }
       } else {
         toast.error('Invalid data');

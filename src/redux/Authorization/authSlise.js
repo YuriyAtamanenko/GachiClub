@@ -30,13 +30,13 @@ const handleRejected = (state, action) => {
 };
 
 const initialState = {
-  user: { email: null, password: null },
+  user: { email: null, name: null },
   token: null,
   isLoaggedIn: false,
   isRefreshing: false,
   error: null,
   isLoading: false,
-  bodyData: {},
+  bodyData: { bodyData: null },
 };
 
 const authSlise = createSlice({
@@ -47,35 +47,32 @@ const authSlise = createSlice({
     builder
       .addCase(register.pending, handlePending)
       .addCase(register.fulfilled, (state, action) => {
-        state.token = action.payload.token;
         state.user = action.payload.user;
-        state.isLoaggedIn = true;
-        state.bodyData = {};
+        state.isLoaggedIn = false;
+        state.token = action.payload.token;
       })
       .addCase(register.rejected, handleRejected)
 
       .addCase(loginization.pending, handlePending)
       .addCase(loginization.fulfilled, (state, action) => {
-        state.user = {
-          ...state.user,
-          ...action.payload.user,
-        };
-
         state.token = action.payload.token;
-
-        state.isLoaggedIn = true;
-        state.bodyData = action.payload.bodyData;
-
-        // state.name = action.payload.name;
-        // state.password = action.payload.password;
+        state.bodyData = { ...state.bodyData, ...action.payload };
+        if (state.bodyData.bodyData === null) {
+          state.isLoaggedIn = false;
+        } else {
+          state.isLoaggedIn = true;
+        }
       })
+
       .addCase(loginization.rejected, handleRejected)
 
       .addCase(logOut.pending, handlePending)
       .addCase(logOut.fulfilled, state => {
-        state.user = { email: null, password: null };
+        state.user = { email: null, name: null };
         state.token = null;
         state.isLoaggedIn = false;
+        state.bodyData = {};
+        state.bodyData.bodyData = null;
       })
       .addCase(logOut.rejected, handleRejected)
 
@@ -83,8 +80,16 @@ const authSlise = createSlice({
         state.isRefreshing = true;
       })
       .addCase(refreshUser.fulfilled, (state, action) => {
-        state.user = action.payload;
-        state.isLoaggedIn = true;
+        console.log(action.payload);
+
+        if (Object.keys(action.payload.bodyData) === 0) {
+          state.bodyData = { ...action.payload, bodyData: null };
+        } else {
+          state.bodyData = action.payload;
+        }
+
+        if (action.payload.bodyData.bodyData !== null) state.isLoaggedIn = true;
+
         state.isRefreshing = false;
       })
       .addCase(refreshUser.rejected, state => {
@@ -94,15 +99,9 @@ const authSlise = createSlice({
         state.isRefreshing = true;
       })
       .addCase(updateUser.fulfilled, (state, action) => {
-        state.user = {
-          ...state.user,
-          ...action.payload,
-        };
-
-        state.bodyData = action.payload || {};
+        state.bodyData = action.payload;
         state.isLoaggedIn = true;
         state.isRefreshing = false;
-        // }
       })
       .addCase(updateUser.rejected, state => {
         state.isRefreshing = false;
