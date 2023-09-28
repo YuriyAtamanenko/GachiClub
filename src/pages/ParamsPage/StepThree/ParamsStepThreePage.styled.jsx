@@ -56,9 +56,9 @@ export const Text = styled.p`
 export const BtnContainer = styled.div`
   display: inline-flex;
   gap: 16px;
-  margin-bottom: 420px;
+  margin-bottom: 530px;
   @media screen and (min-width: 768px) {
-    margin-bottom: 500px;
+    margin-bottom: 490px;
   }
   @media screen and (min-width: 1440px) {
     margin-bottom: 260px;
@@ -116,12 +116,12 @@ export const BtnBack = styled.button`
 `;
 
 export const Wrapper = styled.div`
-  padding-top: 127px;
+  margin-top: 90px;
   @media screen and (min-width: 768px) {
-    padding-top: 189px;
+    margin-top: 140px;
   }
   @media screen and (min-width: 1440px) {
-    padding-top: 200px;
+    margin-top: 150px;
   }
 `;
 
