@@ -14,13 +14,7 @@ import {
   IconWraper,
 } from './ExercisesListItem.styled';
 
-const ExercisesListItem = ({
-  name,
-  burnedCalories,
-  bodyPart,
-  target,
-  index,
-}) => {
+const ExercisesListItem = ({ name, burnedCalories, bodyPart, target, id }) => {
   const dispatch = useDispatch();
   return (
     <ListItem>
@@ -55,7 +49,7 @@ const ExercisesListItem = ({
       <Button
         type="button"
         onClick={() => {
-          dispatch(setIndex(index));
+          dispatch(setIndex(id));
           dispatch(setModalToggle());
         }}
       >
@@ -78,4 +72,5 @@ ExercisesListItem.propTypes = {
   bodyPart: PropTypes.string,
   target: PropTypes.string,
   index: PropTypes.number,
+  id: PropTypes.string,
 };

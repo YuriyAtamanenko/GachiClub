@@ -51,6 +51,7 @@ export const Subscription = styled.h3`
   color: #efede8;
   font-family: 'Roboto';
   font-size: 20px;
+  text-align: center;
   line-height: calc(24px / 20px);
   @media screen and (min-width: 768px) {
     font-size: 24px;
@@ -64,5 +65,6 @@ export const Category = styled.p`
   color: rgba(239, 237, 232, 0.4);
   font-family: 'Roboto';
   font-size: 12px;
+  text-align: center;
   line-height: 'calc(18px / 12px)';
 `;

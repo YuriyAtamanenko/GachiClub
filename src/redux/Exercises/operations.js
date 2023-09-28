@@ -13,7 +13,6 @@ export const getExercisesList = createAsyncThunk(
           target: targetTitle,
         },
       });
-      console.log(data);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -39,29 +38,16 @@ export const getCategories = createAsyncThunk(
 );
 export const addExerciseToDiary = createAsyncThunk(
   'diary/addExercise',
-  async (body, { rejectWithValue }) => {
+  async ({ exerciseId, duration, calories }, { rejectWithValue }) => {
     try {
-      const {
-        _id,
-        bodyPart,
-        equipment,
-        gifUrl,
-        name,
-        target,
-        burnedCalories,
-        time,
-      } = body;
-      const { data } = await axios.post('/diary/addProduct', {
-        _id,
-        bodyPart,
-        equipment,
-        gifUrl,
-        name,
-        target,
-        burnedCalories,
-        time,
+      console.log(exerciseId, duration, calories);
+      const { data } = await axios.post('/diary/addExercise', {
+        exerciseId,
+        duration,
+        calories,
       });
-      return { ...data, newExercise: body.data };
+      console.log(data);
+      return { ...data, newExercise: { exerciseId, duration, calories } };
     } catch (error) {
       return rejectWithValue(error.message);
     }
