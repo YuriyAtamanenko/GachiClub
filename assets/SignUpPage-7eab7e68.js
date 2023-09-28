@@ -1,4 +1,4 @@
-import{u as g,a as u,b as w,j as e,L as b,r as f,Q as p}from"./index-39a6dd03.js";import{F as v,a as j,c as k,b as a,d as y,E as m}from"./index.esm-7e487563.js";/* empty css                      */import{s as i}from"./styled-components.browser.esm-ff23c31d.js";import{m as S,a as z,t as $,b as E,d as F,c as P}from"./default-mobile-2x-adbcb5a4.js";const N=i.div`
+import{u as g,a as u,b as w,j as e,L as b,r as f,Q as p}from"./index-b2c1d9b1.js";import{F as v,a as j,c as y,b as n,d as k,E as m}from"./index.esm-aa87e15a.js";/* empty css                      */import{s as i}from"./styled-components.browser.esm-ce4f008e.js";import{m as S,a as z,t as $,b as E,d as F,c as P}from"./default-mobile-2x-adbcb5a4.js";const D=i.div`
   min-width: 320px;
   max-width: 374px; /* Максимальная ширина для отзывчивости (320px - 375px) */
   padding: 127px 20px 40px;
@@ -20,7 +20,7 @@ import{u as g,a as u,b as w,j as e,L as b,r as f,Q as p}from"./index-39a6dd03.js
     max-width: 1440px; /* Максимальная ширина */
     width: 100%; /* Занимать всю доступную ширину */
   }
-`,T=i.div`
+`,N=i.div`
   position: absolute;
   top: 50%;
   right: auto;
@@ -83,7 +83,7 @@ import{u as g,a as u,b as w,j as e,L as b,r as f,Q as p}from"./index-39a6dd03.js
       }
     }
   }
-`,A=i.div`
+`,T=i.div`
   padding-top: 127px;
   @media screen and (min-width: 768px) {
     padding-top: 189px;
@@ -91,7 +91,7 @@ import{u as g,a as u,b as w,j as e,L as b,r as f,Q as p}from"./index-39a6dd03.js
   @media screen and (min-width: 1440px) {
     padding-top: 200px;
   }
-`,D=i.div`
+`,A=i.div`
   margin-bottom: 28px;
   @media screen and (min-width: 768px) {
     width: 496px;
@@ -178,4 +178,4 @@ import{u as g,a as u,b as w,j as e,L as b,r as f,Q as p}from"./index-39a6dd03.js
   @media screen and (min-width: 1440px) {
     margin-bottom: 44px;
   }
-`,M=()=>{const x=g(),o=u(),s=w(t=>t.auth.bodyData),l=async(t,n)=>{console.log(t);try{(await x(f({name:t.name,email:t.email,password:t.password}))).error?p.error("Email already exists. Please use a different email"):(n.resetForm(),s===null||Object.keys(s).length===0?o("/params"):o("/diary"))}catch(d){console.error("Server error:",d),p.error("Server Error: Something went wrong")}},c=k({name:a().required(),email:a().matches(/^\w+@[a-zA-Z_]+?.[a-zA-Z]{2,3}$/,"Invalid E-mail format").required("Please input your E-mail!"),password:a().matches(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{7,}/,"Password must contain at least 6 letters and 1 number").required("Please input your password")}),h={name:"",email:"",password:""};return e.jsxs(N,{children:[e.jsx(T,{}),e.jsxs(A,{children:[e.jsxs(D,{children:[e.jsx(U,{children:"Sign Up"}),e.jsx(q,{children:"Thank you for your interest in our platform. To complete the registration process, please provide us with the following information."})]}),e.jsx("div",{children:e.jsx(y,{initialValues:h,validationSchema:c,onSubmit:l,children:({errors:t,touched:n})=>e.jsxs(W,{autoComplete:"off",children:[e.jsxs("div",{children:[e.jsx(r,{type:"text",name:"name",placeholder:"Name"}),t.name&&n.name&&e.jsx("div",{className:"error-message",children:"Please input your name!"})]}),e.jsxs("div",{children:[e.jsx(r,{type:"email",name:"email",placeholder:"Email"}),e.jsx(m,{name:"email",component:"div",className:"error-message"})]}),e.jsxs("div",{children:[e.jsx(r,{type:"password",name:"password",placeholder:"Password"}),e.jsx(m,{name:"password",component:"div",className:"error-message"})]}),e.jsx(Z,{type:"submit",children:"Sign Up"}),e.jsxs("p",{children:["Already have account? ",e.jsx(b,{to:"/signin",children:"Sign In"})]})]})})})]})]})};export{M as default};
+`,M=()=>{const x=g(),o=u(),s=w(t=>t.auth.bodyData),l=async(t,a)=>{console.log(t);try{(await x(f({name:t.name,email:t.email,password:t.password}))).error?p.error("Email already exists. Please use a different email"):(a.resetForm(),s.bodyData===null||Object.keys(s.bodyData).length===0?o("/params"):o("/diary"))}catch(d){console.error("Server error:",d),p.error("Server Error: Something went wrong")}},c=y({name:n().required(),email:n().matches(/^\w+@[a-zA-Z_]+?.[a-zA-Z]{2,3}$/,"Invalid E-mail format").required("Please input your E-mail!"),password:n().matches(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{7,}/,"Password must contain at least 6 letters and 1 number").required("Please input your password")}),h={name:"",email:"",password:""};return e.jsxs(D,{children:[e.jsx(N,{}),e.jsxs(T,{children:[e.jsxs(A,{children:[e.jsx(U,{children:"Sign Up"}),e.jsx(q,{children:"Thank you for your interest in our platform. To complete the registration process, please provide us with the following information."})]}),e.jsx("div",{children:e.jsx(k,{initialValues:h,validationSchema:c,onSubmit:l,children:({errors:t,touched:a})=>e.jsxs(W,{autoComplete:"off",children:[e.jsxs("div",{children:[e.jsx(r,{type:"text",name:"name",placeholder:"Name"}),t.name&&a.name&&e.jsx("div",{className:"error-message",children:"Please input your name!"})]}),e.jsxs("div",{children:[e.jsx(r,{type:"email",name:"email",placeholder:"Email"}),e.jsx(m,{name:"email",component:"div",className:"error-message"})]}),e.jsxs("div",{children:[e.jsx(r,{type:"password",name:"password",placeholder:"Password"}),e.jsx(m,{name:"password",component:"div",className:"error-message"})]}),e.jsx(Z,{type:"submit",children:"Sign Up"}),e.jsxs("p",{children:["Already have account? ",e.jsx(b,{to:"/signin",children:"Sign In"})]})]})})})]})]})};export{M as default};
