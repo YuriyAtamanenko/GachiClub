@@ -168,7 +168,7 @@ export const WrapperDesktop = styled.div`
     }
   }
   @media screen and (min-width: 1440px) {
-    position: absolute;
+    position: relative;
     top: 0;
     right: 0;
     width: 670px;
@@ -210,5 +210,12 @@ export const StatisticsBox = styled.div`
   @media screen and (min-width: 1440px) {
     left: 53%;
     top: 50%;
+  }
+`;
+export const ContainerContant = styled.div`
+  @media screen and (min-width: 1440px) {
+    position: absolute;
+    top: -100%;
+    left: 0;
   }
 `;
