@@ -2,13 +2,9 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import ParamsStepOne from './ParamsStepOnePage';
 import ParamsStepTwo from './ParamsStepTwoPage';
-import ParamsStepThree from './ParamsStepThreePage';
+import ParamsStepThree from './StepThree/ParamsStepThreePage';
 
-import {
-  ProgressBarStep1,
-  ProgressBarStep2,
-  ProgressBarStep3,
-} from './ProgressBar';
+import { ProgressBarStep1, ProgressBarStep2, ProgressBarStep3 } from './ProgressBar';
 
 const progressBarStyles = {
   display: 'flex',
@@ -59,19 +55,9 @@ const ParamsPage = () => {
   const steps = [
     <ParamsStepOne key="step1" next={handleNextStep} data={data} />,
 
-    <ParamsStepTwo
-      key="step2"
-      next={handleNextStep}
-      prev={handlePrevStep}
-      data={data}
-    />,
+    <ParamsStepTwo key="step2" next={handleNextStep} prev={handlePrevStep} data={data} />,
 
-    <ParamsStepThree
-      key="step3"
-      next={handleNextStep}
-      prev={handlePrevStep}
-      data={data}
-    />,
+    <ParamsStepThree key="step3" next={handleNextStep} prev={handlePrevStep} data={data} />,
   ];
 
   // console.log('data', data);

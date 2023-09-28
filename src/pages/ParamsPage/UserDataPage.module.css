@@ -1,27 +1,39 @@
 .progressBarOne {
   display: flex;
   justify-content: space-between;
-  margin-right: 10px;
-  width: 300px; /* Установите желаемую ширину прогресс-бара */
-  height: 10px; /* Установите желаемую высоту прогресс-бара */
-  background-color: #ccc; /* Цвет фона прогресс-бара */
+  margin-right: 14px;
+  width: 80px; /* Установите желаемую ширину прогресс-бара */
+  height: 4px; /* Установите желаемую высоту прогресс-бара */
+  background-color: #303030; /* Цвет фона прогресс-бара */
+  border-radius: 2px;
 }
 
 .progressBarTwo {
   display: flex;
   justify-content: space-between;
-  margin-right: 10px;
-  width: 300px; /* Установите желаемую ширину прогресс-бара */
-  height: 10px; /* Установите желаемую высоту прогресс-бара */
-  background-color: #ccc; /* Цвет фона прогресс-бара */
+  margin-right: 14px;
+  width: 80px; /* Установите желаемую ширину прогресс-бара */
+  height: 4px; /* Установите желаемую высоту прогресс-бара */
+  background-color: #303030; /* Цвет фона прогресс-бара */
+  border-radius: 2px;
 }
 
 .progressBarThree {
   display: flex;
   justify-content: space-between;
-  width: 300px; /* Установите желаемую ширину прогресс-бара */
-  height: 10px; /* Установите желаемую высоту прогресс-бара */
-  background-color: #ccc; /* Цвет фона прогресс-бара */
+  width: 80px; /* Установите желаемую ширину прогресс-бара */
+  height: 4px; /* Установите желаемую высоту прогресс-бара */
+  background-color: #303030; /* Цвет фона прогресс-бара */
+  border-radius: 2px;
+}
+
+@media screen and (max-width: 767px) {
+  .progressBarOne,
+  .progressBarTwo,
+  .progressBarThree {
+    width: 50px;
+    height: 4px;
+  }
 }
 
 .progressBarPart {
@@ -30,11 +42,10 @@
 }
 
 .completed {
-  background-color: #4caf50; /* Цвет завершенной части прогресс-бара */
+  background-color: #ef8964; /* Цвет завершенной части прогресс-бара */
+  border-radius: 2px;
 }
 
 .wrap {
-  font-size:;
   display: flex;
-  margin-top: 20px;
 }
