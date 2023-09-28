@@ -1,4 +1,4 @@
-import{u as g,a as u,b as w,j as e,L as b,r as f,Q as p}from"./index-2ebe739d.js";import{F as v,a as j,c as y,b as n,d as k,E as m}from"./index.esm-14611d02.js";/* empty css                      */import{s as i}from"./styled-components.browser.esm-e7a8c2a7.js";import{m as S,a as z,t as $,b as E,d as F,c as P}from"./default-mobile-2x-adbcb5a4.js";const D=i.div`
+import{u as g,a as u,b as w,j as e,L as b,r as f,Q as p}from"./index-7a5a72aa.js";import{F as v,a as j,c as y,b as n,d as k,E as m}from"./index.esm-3a1fbdda.js";/* empty css                      */import{s as i}from"./styled-components.browser.esm-da15cfa4.js";import{m as S,a as z,t as $,b as E,d as F,c as P}from"./default-mobile-2x-adbcb5a4.js";const D=i.div`
   min-width: 320px;
   max-width: 374px; /* Максимальная ширина для отзывчивости (320px - 375px) */
   padding: 127px 20px 40px;

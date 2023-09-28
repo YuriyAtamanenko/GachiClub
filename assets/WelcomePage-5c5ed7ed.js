@@ -1,4 +1,4 @@
-import{n as e,j as i,I as t,N as n}from"./index-2ebe739d.js";import{S as o}from"./Statistics-6ab88b79.js";import{m as p,a as d,t as r,b as a,d as s,c as x}from"./default-mobile-2x-adbcb5a4.js";const c=e.h1`
+import{n as e,j as i,I as t,N as n}from"./index-7a5a72aa.js";import{S as o}from"./Statistics-aa5eda1c.js";import{m as r,a as p,t as a,b as d,d as s,c as x}from"./default-mobile-2x-adbcb5a4.js";const c=e.h1`
   color: #efede8;
   font-size: 38px;
   font-weight: 500;
@@ -48,12 +48,12 @@ import{n as e,j as i,I as t,N as n}from"./index-2ebe739d.js";import{S as o}from"
     gap: 20px;
   }
 `,g=e.div`
-  padding-top: 127px;
+  margin-top: 90px;
   @media screen and (min-width: 768px) {
-    padding-top: 189px;
+    margin-top: 140px;
   }
   @media screen and (min-width: 1440px) {
-    padding-top: 200px;
+    margin-top: 150px;
   }
 `,h=e.div`
   position: absolute;
@@ -64,7 +64,7 @@ import{n as e,j as i,I as t,N as n}from"./index-2ebe739d.js";import{S as o}from"
   pointer-events: none;
   z-index: -1;
 
-  background-image: url(${p});
+  background-image: url(${r});
   background-size: cover;
   background-repeat: no-repeat;
 
@@ -73,7 +73,7 @@ import{n as e,j as i,I as t,N as n}from"./index-2ebe739d.js";import{S as o}from"
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
     & {
-      background-image: url(${d});
+      background-image: url(${p});
     }
   }
 
@@ -84,7 +84,7 @@ import{n as e,j as i,I as t,N as n}from"./index-2ebe739d.js";import{S as o}from"
     width: 768px;
     pointer-events: none;
 
-    background-image: url(${r});
+    background-image: url(${a});
     background-size: cover;
     background-repeat: no-repeat;
 
@@ -93,7 +93,7 @@ import{n as e,j as i,I as t,N as n}from"./index-2ebe739d.js";import{S as o}from"
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
       & {
-        background-image: url(${a});
+        background-image: url(${d});
       }
     }
   }

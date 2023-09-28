@@ -1,4 +1,4 @@
-import{P as r,c as h,j as e,I as k,n as p,u as $,a as D,e as q}from"./index-2ebe739d.js";import{F as z,a as d,E as l,c as S,e as j,f as N,d as y,b as w}from"./index.esm-14611d02.js";import{e as _}from"./index-d5014f82.js";import{s as o}from"./styled-components.browser.esm-e7a8c2a7.js";import{S as G,E as A}from"./Statistics-6ab88b79.js";import"./createClass-661c1b4a.js";const E="/GachiClub/assets/params01-mobile-1x-12d31870.jpg",F="/GachiClub/assets/params01-mobile-2x-c2b9cc40.jpg",V="/GachiClub/assets/params01-tablet-1x-3b221efb.jpg",I="/GachiClub/assets/params01-tablet-2x-28bc3a47.jpg",M="/GachiClub/assets/params01-desktop-1x-656ed98c.jpg",O="/GachiClub/assets/params01-desktop-2x-4cea8eb4.jpg",H=o.h2`
+import{P as r,c as h,j as e,I as k,n as p,u as $,a as D,e as q}from"./index-7a5a72aa.js";import{F as z,a as d,E as l,c as S,e as j,f as N,d as y,b as w}from"./index.esm-3a1fbdda.js";import{e as _}from"./index-6bca2745.js";import{s as o}from"./styled-components.browser.esm-da15cfa4.js";import{S as G,E as A}from"./Statistics-aa5eda1c.js";import"./createClass-11c5da99.js";const E="/GachiClub/assets/params01-mobile-1x-12d31870.jpg",F="/GachiClub/assets/params01-mobile-2x-c2b9cc40.jpg",V="/GachiClub/assets/params01-tablet-1x-3b221efb.jpg",I="/GachiClub/assets/params01-tablet-2x-28bc3a47.jpg",M="/GachiClub/assets/params01-desktop-1x-656ed98c.jpg",O="/GachiClub/assets/params01-desktop-2x-4cea8eb4.jpg",H=o.h2`
   margin-top: 90px;
   margin-bottom: 14px;
 
@@ -342,10 +342,10 @@ import{P as r,c as h,j as e,I as k,n as p,u as $,a as D,e as q}from"./index-2ebe
   gap: 16px;
   margin-bottom: 530px;
   @media screen and (min-width: 768px) {
-    margin-bottom: 490px;
+    margin-bottom: 470px;
   }
   @media screen and (min-width: 1440px) {
-    margin-bottom: 260px;
+    margin-bottom: 240px;
   }
 `,ge=p.button`
   display: inline-flex;
@@ -444,7 +444,7 @@ import{P as r,c as h,j as e,I as k,n as p,u as $,a as D,e as q}from"./index-2ebe
     }
   }
   @media screen and (min-width: 1440px) {
-    position: relative;
+    position: absolute;
     top: 0;
     right: 0;
     width: 670px;
