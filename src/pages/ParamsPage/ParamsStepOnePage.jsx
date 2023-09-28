@@ -17,6 +17,11 @@ import {
   ButtonNext,
   Container,
   Next,
+  ContainerInside,
+  Message,
+  MessageWeight,
+  MessageDesired,
+  MessageBirthday,
 } from './ParamsStepOne.styled.js';
 import sprite from '../../images/sprite.svg';
 
@@ -97,10 +102,10 @@ function ParamsStepOne(props) {
           <StyledFormik>
             <div>
               <InputField name="height" placeholder="Height" />
-              <ErrorMessage name="height" component="div" className="error" />
+              <Message name="height" component="div" className="error" />
 
               <InputField name="currentWeight" placeholder="Current Weight" />
-              <ErrorMessage
+              <MessageWeight
                 name="currentWeight"
                 component="div"
                 className="error"
@@ -108,7 +113,7 @@ function ParamsStepOne(props) {
             </div>
             <div>
               <InputField name="desiredWeight" placeholder="Desired Weight" />
-              <ErrorMessage
+              <MessageDesired
                 name="desiredWeight"
                 component="div"
                 className="error"
@@ -123,17 +128,24 @@ function ParamsStepOne(props) {
                   <CustomDatePicker field={field} form={form} />
                 )}
               </InputField>
-              <ErrorMessage name="birthday" component="div" className="error" />
+              <MessageBirthday
+                name="birthday"
+                component="div"
+                className="error"
+              />
             </div>
             <ButtonNext type="submit" disabled={!isValid}>
               Next
             </ButtonNext>
             <Next>
-              <use xlinkHref={`${sprite}#icon-next`}></use>
+              <use xlinkHref={`${sprite}#icon-arrow`}></use>
             </Next>
           </StyledFormik>
         )}
       </Formik>
+      <ContainerInside>
+        <Statistics />
+      </ContainerInside>
     </Container>
   );
 }

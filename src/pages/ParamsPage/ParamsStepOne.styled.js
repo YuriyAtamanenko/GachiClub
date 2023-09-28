@@ -8,8 +8,8 @@ export const Container = styled.div`
   background-image: linear-gradient(89deg, #040404 0%, rgba(4, 4, 4, 0) 100%),
     url(${params1xmobile});
   background-repeat: no-repeat;
-  background-position: 100% 100%;
-  background-size: 289px 571px;
+  background-position: 100% 150%;
+  background-size: 300px 580px;
   margin-right: -2em;
 
   @media (min-device-pixel-ratio: 2),
@@ -32,6 +32,7 @@ export const Title = styled.h2`
 
 export const Text = styled.p`
   margin-bottom: 50px;
+  width: 335px;
 
   font-family: Roboto;
   font-size: 14px;
@@ -93,22 +94,13 @@ export const InputField = styled(Field)`
     width: 159px;
     height: 46px;
   }
-  &[name='birthday'] {
-    color: rgba(239, 237, 232, 0.6);
-    font-family: Roboto;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 18px;
-    padding-left: 14px;
-    width: 159px;
-    height: 46px;
-  }
   &:hover {
     border: 1px solid rgba(230, 83, 60, 1);
   }
 `;
 
 export const ButtonNext = styled.button`
+  margin-top: 28px;
   margin-bottom: 343px;
   background-color: transparent;
   outline: none;
@@ -124,4 +116,48 @@ export const Next = styled.button`
   fill: rgba(230, 83, 60, 1);
   width: 10px;
   height: 8.33px;
+`;
+export const ContainerInside = styled.div`
+  position: relative;
+  top: -210px;
+  right: 28px;
+`;
+
+export const Message = styled(ErrorMessage)`
+  position: absolute;
+  color: rgba(216, 0, 39, 1);
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  top: 41%;
+`;
+export const MessageWeight = styled(ErrorMessage)`
+  position: absolute;
+  color: rgba(216, 0, 39, 1);
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  top: 41%;
+  left: 190px;
+`;
+export const MessageDesired = styled(ErrorMessage)`
+  position: absolute;
+  color: rgba(216, 0, 39, 1);
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  top: -23%;
+`;
+export const MessageBirthday = styled(ErrorMessage)`
+  position: absolute;
+  color: rgba(216, 0, 39, 1);
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  left: 190px;
+  top: -23%;
 `;
