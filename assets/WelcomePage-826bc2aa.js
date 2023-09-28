@@ -1,4 +1,4 @@
-import{j as e,I as n,n as i,N as o}from"./index-9a45bddd.js";import{S as t,V as s,a as r,b as a,c as d,d as p,C as x,e as c,R as l,f as h,g as m,h as g}from"./Statistics.styled-220ffc78.js";import{m as u,a as b,t as j,b as k,d as w,c as f}from"./default-mobile-2x-adbcb5a4.js";const v=()=>e.jsxs(t,{children:[e.jsxs(s,{children:[e.jsx(r,{children:e.jsx(a,{children:e.jsx("use",{href:n+"#icon-play"})})}),e.jsxs("div",{children:[e.jsx(d,{children:"350+"}),e.jsx(p,{children:"Video tutorial"})]})]}),e.jsxs(x,{children:[e.jsx(c,{children:e.jsx(l,{children:e.jsx("use",{href:n+"#icon-run"})})}),e.jsxs(h,{children:[e.jsx(m,{children:"500"}),e.jsx(g,{children:"cal"})]})]})]}),T=i.h1`
+import{j as e,n as i,I as t,N as n}from"./index-7ede5df1.js";import{S as o,E as p}from"./Elements-6e81788a.js";import{m as d,a as r,t as a,b as s,d as x,c}from"./default-mobile-2x-adbcb5a4.js";const l=()=>e.jsx(o,{children:e.jsx(p,{})}),m=i.h1`
   color: #efede8;
   font-size: 38px;
   font-weight: 500;
@@ -41,13 +41,13 @@ import{j as e,I as n,n as i,N as o}from"./index-9a45bddd.js";import{S as t,V as 
     letter-spacing: 0.7px;
     margin-bottom: 64px;
   }
-`;function z(){return e.jsxs(T,{children:["Transforming your ",e.jsxs("span",{children:["body",e.jsx("svg",{children:e.jsx("use",{href:n+"#icon-line"})})]})," shape with Power Pulse"]})}const S=i.ul`
+`;function g(){return e.jsxs(m,{children:["Transforming your ",e.jsxs("span",{children:["body",e.jsx("svg",{children:e.jsx("use",{href:t+"#icon-line"})})]})," shape with Power Pulse"]})}const h=i.ul`
   display: flex;
   gap: 14px;
   @media screen and (min-width: 768px) {
     gap: 20px;
   }
-`,C=i.div`
+`,u=i.div`
   padding-top: 127px;
   @media screen and (min-width: 768px) {
     padding-top: 189px;
@@ -55,7 +55,7 @@ import{j as e,I as n,n as i,N as o}from"./index-9a45bddd.js";import{S as t,V as 
   @media screen and (min-width: 1440px) {
     padding-top: 200px;
   }
-`,V=i.div`
+`,b=i.div`
   position: absolute;
   top: 50%;
   right: auto;
@@ -64,7 +64,7 @@ import{j as e,I as n,n as i,N as o}from"./index-9a45bddd.js";import{S as t,V as 
   pointer-events: none;
   z-index: -1;
 
-  background-image: url(${u});
+  background-image: url(${d});
   background-size: cover;
   background-repeat: no-repeat;
 
@@ -73,7 +73,7 @@ import{j as e,I as n,n as i,N as o}from"./index-9a45bddd.js";import{S as t,V as 
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
     & {
-      background-image: url(${b});
+      background-image: url(${r});
     }
   }
 
@@ -84,7 +84,7 @@ import{j as e,I as n,n as i,N as o}from"./index-9a45bddd.js";import{S as t,V as 
     width: 768px;
     pointer-events: none;
 
-    background-image: url(${j});
+    background-image: url(${a});
     background-size: cover;
     background-repeat: no-repeat;
 
@@ -93,7 +93,7 @@ import{j as e,I as n,n as i,N as o}from"./index-9a45bddd.js";import{S as t,V as 
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
       & {
-        background-image: url(${k});
+        background-image: url(${s});
       }
     }
   }
@@ -105,7 +105,7 @@ import{j as e,I as n,n as i,N as o}from"./index-9a45bddd.js";import{S as t,V as 
     height: 800px;
     pointer-events: none;
 
-    background-image: url(${w});
+    background-image: url(${x});
     background-size: 670px 800px;
     background-repeat: no-repeat;
 
@@ -114,11 +114,11 @@ import{j as e,I as n,n as i,N as o}from"./index-9a45bddd.js";import{S as t,V as 
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
       & {
-        background-image: url(${f});
+        background-image: url(${c});
       }
     }
   }
-`,y=i(o)`
+`,w=i(n)`
   color: #efede8;
   text-decoration: none;
   border-radius: 12px;
@@ -134,7 +134,7 @@ import{j as e,I as n,n as i,N as o}from"./index-9a45bddd.js";import{S as t,V as 
   &:focus {
     background: #ef8964;
   }
-`,I=i(o)`
+`,k=i(n)`
   color: #efede8;
   text-decoration: none;
   border-radius: 12px;
@@ -149,4 +149,4 @@ import{j as e,I as n,n as i,N as o}from"./index-9a45bddd.js";import{S as t,V as 
   &:focus {
     border: 1px solid #e6533c;
   }
-`,P=()=>e.jsxs(e.Fragment,{children:[e.jsx(V,{}),e.jsxs(C,{children:[e.jsx(z,{}),e.jsxs(S,{children:[e.jsx("li",{children:e.jsx(y,{to:"/signup",children:"Sign Up"})}),e.jsx("li",{children:e.jsx(I,{to:"/signin",children:"Sign In"})})]})]}),e.jsx(v,{})]});export{P as default};
+`,z=()=>e.jsxs(e.Fragment,{children:[e.jsx(b,{}),e.jsxs(u,{children:[e.jsx(g,{}),e.jsxs(h,{children:[e.jsx("li",{children:e.jsx(w,{to:"/signup",children:"Sign Up"})}),e.jsx("li",{children:e.jsx(k,{to:"/signin",children:"Sign In"})})]})]}),e.jsx(l,{})]});export{z as default};
