@@ -57,6 +57,7 @@ const authSlise = createSlice({
       .addCase(loginization.fulfilled, (state, action) => {
         state.token = action.payload.token;
         state.bodyData = { ...state.bodyData, ...action.payload };
+
         if (state.bodyData.bodyData === null) {
           state.isLoaggedIn = false;
         } else {
@@ -80,15 +81,17 @@ const authSlise = createSlice({
         state.isRefreshing = true;
       })
       .addCase(refreshUser.fulfilled, (state, action) => {
-        console.log(action.payload);
-
-        if (Object.keys(action.payload.bodyData) === 0) {
+        if (Object.keys(action.payload.bodyData).length === 0) {
           state.bodyData = { ...action.payload, bodyData: null };
         } else {
           state.bodyData = action.payload;
         }
 
-        if (action.payload.bodyData.bodyData !== null) state.isLoaggedIn = true;
+        if (state.bodyData.bodyData !== null) {
+          state.isLoaggedIn = true;
+        } else {
+          state.isLoaggedIn = false;
+        }
 
         state.isRefreshing = false;
       })
