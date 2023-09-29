@@ -43,7 +43,7 @@ export const Background = styled.div`
   }
 
   @media screen and (min-width: 1440px) {
-    width: 1440px;
+    width: 1248px;
     background-image: url(${desktop1x});
 
     @media (min-device-pixel-ratio: 2),
