@@ -1,4 +1,4 @@
-import{n as e,L as t,j as i,I as n}from"./index-3a4ad489.js";import{m as o,a,t as r,b as d,d as p,c as s}from"./default-mobile-2x-adbcb5a4.js";const x=e.div`
+import{n as e,L as t,j as i,I as n}from"./index-dd9fde7e.js";import{m as o,a,t as r,b as d,d as p,c as s}from"./default-mobile-2x-adbcb5a4.js";const x=e.div`
   width: 100%;
   margin: 0 auto;
   height: 100vh;
