@@ -1,4 +1,4 @@
-import{r as v,u as y,g as R,j as e,I as o,L as k,b as j,f as T,h as B}from"./index-78129006.js";import{s as i}from"./styled-components.browser.esm-b3b0b2d6.js";import{e as D}from"./index-3e05dac2.js";import"./createClass-d3927fcb.js";const E=i.div`
+import{r as v,u as y,g as R,j as e,I as o,L as k,b as j,f as T,h as B}from"./index-7b6467c8.js";import{s as i}from"./styled-components.browser.esm-dd31404f.js";import{e as D}from"./index-29b63089.js";import"./createClass-d4d804cd.js";const E=i.div`
   @media screen and (min-width: 375px) {
     padding-top: 40px;
     padding-bottom: 80px;
@@ -678,6 +678,7 @@ import{r as v,u as y,g as R,j as e,I as o,L as k,b as j,f as T,h as B}from"./ind
       left: 459px;
     }
     &.title-exe-4 {
+      overflow: inherit;
       top: 56px;
       left: 573px;
     }
