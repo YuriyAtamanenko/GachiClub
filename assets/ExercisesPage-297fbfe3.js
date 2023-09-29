@@ -1,4 +1,4 @@
-import{P as a,j as e,u,F as R,G as q,H as L,r as g,b as m,J as Q,K as _,I as b,M as $,O as y,S as ee,T as C,L as te}from"./index-2984d62f.js";import{s as t}from"./styled-components.browser.esm-9a6b4779.js";import{r as D}from"./react-responsive-cb23adda.js";const ie=i=>i.exercises.title,ne=i=>i.exercises.category,oe=i=>i.exercises.isToggled,re=i=>i.exercises.exerciseIndex,se=i=>i.exercises.isSuccess,ae=i=>i.exercises.modalIsOpen,ce=i=>i.exercises,le=i=>i.exercises.allExercises,de=t.h1`
+import{P as a,j as e,u,F as R,G as q,H as L,r as g,b as m,J as Q,K as _,I as b,M as $,O as y,S as ee,T as C,L as te}from"./index-9c614d74.js";import{s as t}from"./styled-components.browser.esm-c806d5bf.js";import{r as D}from"./react-responsive-95e4c938.js";const ie=i=>i.exercises.title,ne=i=>i.exercises.category,oe=i=>i.exercises.isToggled,re=i=>i.exercises.exerciseIndex,se=i=>i.exercises.isSuccess,ae=i=>i.exercises.modalIsOpen,ce=i=>i.exercises,le=i=>i.exercises.allExercises,de=t.h1`
   margin-bottom: 20px;
   color: #efede8;
   font-family: Roboto;
