@@ -54,12 +54,7 @@ const ExeBlock = () => {
             <div>
               <ListExercise>
                 {exercises.map(
-                  ({
-                    amount,
-                    calories,
-                    _id,
-                    productId: { category, title },
-                  }) => (
+                  ({ amount, calories, _id, exerciseId: { title } }) => (
                     <ItemExercise key={_id}>
                       <ContentExercises className="title">
                         <LabelExercises className="labTitle">
@@ -71,7 +66,7 @@ const ExeBlock = () => {
                         <LabelExercises className="labCategory">
                           Category
                         </LabelExercises>
-                        <TitleExercises>{category}</TitleExercises>
+                        <TitleExercises>{calories}</TitleExercises>
                       </ContentExercises>
                       <ContentExercises className="calories">
                         <LabelExercises className="labCalories">
