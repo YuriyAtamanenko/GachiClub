@@ -43,6 +43,13 @@ export const ItemStats = styled.li`
     &:nth-child(6) {
       height: 108px;
     }
+
+    &.dailyCalor {
+      background-color: #e6533c;
+    }
+    &.dailyNorm {
+      background-color: #e6533c;
+    }
   }
 
   @media screen and (min-width: 768px) {
@@ -99,6 +106,12 @@ export const TextContent = styled.p`
 
     &.last-text {
       line-height: 150%;
+    }
+    &.textColories {
+      color: rgba(239, 237, 232, 0.8);
+    }
+    &.textNorm {
+      color: rgba(239, 237, 232, 0.8);
     }
   }
 

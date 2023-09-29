@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import sprite from '../../../images/sprite.svg';
 import {
   ListStats,
@@ -11,12 +12,25 @@ import {
 } from './StatisticsBlock.styled';
 
 const StatisticsBlock = () => {
+  const products = useSelector(store => store.diary.products);
+  const exercises = useSelector(store => store.diary.exercises);
+
+  const totalCaloriesConsumed = products.reduce(
+    (total, product) => total + product.calories,
+    0,
+  );
+
+  const totalCaloriesBurned = exercises.reduce(
+    (total, exercise) => total + exercise.calories,
+    0,
+  );
+
   return (
     <>
       <ListStats>
-        <ItemStats>
+        <ItemStats className="dailyCalor">
           <ItemContent>
-            <TextContent>
+            <TextContent className="textColories">
               <svg style={{ width: '20', height: '20', marginRight: '8' }}>
                 <use xlinkHref={`${sprite}#icon-food`} />
               </svg>
@@ -25,9 +39,9 @@ const StatisticsBlock = () => {
             <TotalContent>2200</TotalContent>
           </ItemContent>
         </ItemStats>
-        <ItemStats>
+        <ItemStats className="dailyNorm">
           <ItemContent>
-            <TextContent>
+            <TextContent className="textNorm">
               <svg style={{ width: '20', height: '20', marginRight: '8' }}>
                 <use xlinkHref={`${sprite}#icon-dumbbell`} />
               </svg>
@@ -44,7 +58,7 @@ const StatisticsBlock = () => {
               </svg>
               Сalories consumed
             </TextContent>
-            <TotalContent>0</TotalContent>
+            <TotalContent>{totalCaloriesConsumed}</TotalContent>
           </ItemContent>
         </ItemStats>
         <ItemStats>
@@ -55,7 +69,7 @@ const StatisticsBlock = () => {
               </svg>
               Сalories burned
             </TextContent>
-            <TotalContent>0</TotalContent>
+            <TotalContent>{totalCaloriesBurned}</TotalContent>
           </ItemContent>
         </ItemStats>
         <ItemStats>
@@ -72,7 +86,14 @@ const StatisticsBlock = () => {
         <ItemStats>
           <ItemContent className="last-item">
             <TextContent className="last-text">
-              <svg style={{ width: '20', height: '20', marginRight: '8' }}>
+              <svg
+                style={{
+                  width: '20',
+                  height: '20',
+                  marginRight: '8',
+                  fill: '#EF8964',
+                }}
+              >
                 <use xlinkHref={`${sprite}#icon-running`} />
               </svg>
               The rest of sports
