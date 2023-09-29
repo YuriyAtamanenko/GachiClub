@@ -19,9 +19,7 @@ import {
   toggleSuccess,
 } from '../../../redux/Exercises/reducer';
 import TimerBox from '../TimerBox/TimerBox';
-import { useState } from 'react';
-const AddExerciseForm = ({ data }) => {
-  const [currentTime, setCurrentTime] = useState(180);
+const AddExerciseForm = ({ data, currentTime, setCurrentTime }) => {
   const dispatch = useDispatch();
   const {
     bodyPart,
@@ -52,7 +50,12 @@ const AddExerciseForm = ({ data }) => {
   };
   return (
     <Modal>
-      <CloseButton onClick={() => dispatch(setModalToggle())}>
+      <CloseButton
+        onClick={() => {
+          dispatch(setModalToggle());
+          setCurrentTime(180);
+        }}
+      >
         <svg stroke="#EFEDE8" width={26} height={26}>
           <use href={sprite + '#icon-close'} />
         </svg>
@@ -114,4 +117,6 @@ const AddExerciseForm = ({ data }) => {
 export default AddExerciseForm;
 AddExerciseForm.propTypes = {
   data: PropTypes.object,
+  currentTime: PropTypes.number,
+  setCurrentTime: PropTypes.func,
 };

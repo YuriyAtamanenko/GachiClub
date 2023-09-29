@@ -17,7 +17,7 @@ import {
   LikeWraper,
   CloseButton,
 } from './AddExerciseSuccess.styled';
-const AddExerciseSuccess = ({ data }) => {
+const AddExerciseSuccess = ({ data, setCurrentTime }) => {
   const { time, burnedCalories } = data;
   const dispatch = useDispatch();
   return (
@@ -26,6 +26,7 @@ const AddExerciseSuccess = ({ data }) => {
         onClick={() => {
           dispatch(setModalToggle());
           dispatch(toggleSuccess());
+          setCurrentTime(180);
         }}
       >
         <svg stroke="#EFEDE8" width={26} height={26}>
@@ -78,4 +79,5 @@ const AddExerciseSuccess = ({ data }) => {
 export default AddExerciseSuccess;
 AddExerciseSuccess.propTypes = {
   data: PropTypes.object,
+  setCurrentTime: PropTypes.func,
 };

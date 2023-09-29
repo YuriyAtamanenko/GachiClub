@@ -54,37 +54,52 @@ const ExeBlock = () => {
             <div>
               <ListExercise>
                 {exercises.map(
-                  ({ amount, calories, _id, exerciseId: { title } }) => (
+
+                  ({
+                    duration,
+                    calories,
+                    _id,
+                    exerciseId: { bodyPart, equipment, name, target },
+                  }) => (
+
                     <ItemExercise key={_id}>
                       <ContentExercises className="title">
                         <LabelExercises className="labTitle">
-                          Title
+                          Body part
                         </LabelExercises>
-                        <TitleExercises>{title}</TitleExercises>
+                        <TitleExercises>{bodyPart}</TitleExercises>
                       </ContentExercises>
                       <ContentExercises className="category">
                         <LabelExercises className="labCategory">
-                          Category
+                          Equipment
                         </LabelExercises>
-                        <TitleExercises>{calories}</TitleExercises>
+
+                        <TitleExercises>{equipment}</TitleExercises>
+
                       </ContentExercises>
                       <ContentExercises className="calories">
                         <LabelExercises className="labCalories">
-                          Calories
+                          Name
                         </LabelExercises>
-                        <TitleExercises>{calories}</TitleExercises>
+                        <TitleExercises>{name}</TitleExercises>
                       </ContentExercises>
                       <ContentExercises className="amount">
                         <LabelExercises className="labWeight">
-                          Weight
+                          Target
                         </LabelExercises>
-                        <TitleExercises>{amount}</TitleExercises>
+                        <TitleExercises>{target}</TitleExercises>
                       </ContentExercises>
                       <ContentExercises className="recommend">
                         <LabelExercises className="labRecommend">
-                          Recommend
+                          Burned Calories
                         </LabelExercises>
-                        <TitleExercises>REC</TitleExercises>
+                        <TitleExercises>{calories}</TitleExercises>
+                      </ContentExercises>
+                      <ContentExercises className="recommend">
+                        <LabelExercises className="labRecommend">
+                          Time
+                        </LabelExercises>
+                        <TitleExercises>{duration}</TitleExercises>
                       </ContentExercises>
                       <ButtonDelExe>
                         <SvgIconDel>
