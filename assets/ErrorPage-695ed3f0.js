@@ -1,4 +1,4 @@
-import{n as e,L as t,j as i,I as n}from"./index-10ae6ddb.js";import{m as o,a,t as r,b as d,d as p,c as s}from"./default-mobile-2x-adbcb5a4.js";const x=e.div`
+import{n as e,L as t,j as i,I as n}from"./index-c58269e0.js";import{m as o,a,t as r,b as d,d as p,c as s}from"./default-mobile-2x-adbcb5a4.js";const x=e.div`
   width: 100%;
   margin: 0 auto;
   height: 100vh;
@@ -34,7 +34,7 @@ import{n as e,L as t,j as i,I as n}from"./index-10ae6ddb.js";import{m as o,a,t a
   }
 
   @media screen and (min-width: 1440px) {
-    width: 1440px;
+    width: 1248px;
     background-image: url(${p});
 
     @media (min-device-pixel-ratio: 2),
