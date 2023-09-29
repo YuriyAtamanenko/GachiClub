@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
+// import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import {
   Card,
@@ -17,24 +17,30 @@ import {
 } from './ProductsItem.styled';
 
 import Icons from './../../../images/sprite.svg';
-import AddProductForm from '../../AddProductModal/AddProductModal';
+// import AddProductForm from '../../AddProductModal/AddProductModal';
 
 import { selectGroupBlood } from '../../../redux/Authorization/selector';
-import AddProductSuccess from '../AddProductSuccess/AddProductSuccess';
+import {
+  addModalReducer,
+  infoReducer,
+} from '../../../redux/Products/productsSlice';
+// import AddProductSuccess from '../AddProductSuccess/AddProductSuccess';
 
 const ProductsItem = ({ info }) => {
-  const [amoutnCalories, setAmoutnCalories] = useState(0);
-  const [isAddModalOpan, setAddModalOpan] = useState(false);
-  const [isSuccessModalOpan, setSuccessModalOpan] = useState(false);
+  const dispatch = useDispatch();
+  // const [amoutnCalories, setAmoutnCalories] = useState(0);
+  // const [isAddModalOpen, setAddModalOpen] = useState(false);
+  // const [isSuccessModalOpan, setSuccessModalOpan] = useState(false);
   const groupBlood = useSelector(selectGroupBlood);
-
   const toggleAddModal = () => {
-    setAddModalOpan(isAddModalOpen => !isAddModalOpen);
+    // setAddModalOpen(isAddModalOpen => !isAddModalOpen);
+    dispatch(addModalReducer());
+    dispatch(infoReducer(info));
   };
 
-  const toggleSuccessModal = () => {
-    setSuccessModalOpan(isSuccessModalOpen => !isSuccessModalOpen);
-  };
+  // const toggleSuccessModal = () => {
+  //   setSuccessModalOpan(isSuccessModalOpen => !isSuccessModalOpen);
+  // };
 
   return (
     <Card>
@@ -88,7 +94,7 @@ const ProductsItem = ({ info }) => {
           Weight: <Value>{info.weight}</Value>
         </Additionally>
       </ThirdLine>
-      {isAddModalOpan && (
+      {/* {isAddModalOpan && (
         <AddProductForm
           setAmoutnCalories={setAmoutnCalories}
           closeAddModal={toggleAddModal}
@@ -101,7 +107,7 @@ const ProductsItem = ({ info }) => {
           closeSuccessModal={toggleSuccessModal}
           calories={amoutnCalories}
         />
-      )}
+      )} */}
     </Card>
   );
 };

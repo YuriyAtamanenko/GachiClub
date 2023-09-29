@@ -37,7 +37,7 @@ const ExercisesPage = () => {
       )}
       <TitlesWraper>
         <TitlePage title={title} />
-        <ExercisesCategories />
+        <ExercisesCategories titleName={title || 'Exercises'} />
       </TitlesWraper>
       {!isSelected ? (
         <ExercisesSubcategoriesList page={category} />

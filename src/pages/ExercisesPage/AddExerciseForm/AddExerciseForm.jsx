@@ -34,7 +34,6 @@ const AddExerciseForm = ({ data }) => {
     _id,
   } = data;
   const calories = Math.floor((currentTime / 60) * (burnedCalories / time));
-  console.log(currentTime);
   const addExerciseToDairy = () => {
     if (currentTime === 180) {
       console.log('Nothing to add');
