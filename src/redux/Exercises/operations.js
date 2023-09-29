@@ -40,13 +40,11 @@ export const addExerciseToDiary = createAsyncThunk(
   'diary/addExercise',
   async ({ exerciseId, duration, calories }, { rejectWithValue }) => {
     try {
-      console.log(exerciseId, duration, calories);
       const { data } = await axios.post('/diary/addExercise', {
         exerciseId,
         duration,
         calories,
       });
-      console.log(data);
       return { ...data, newExercise: { exerciseId, duration, calories } };
     } catch (error) {
       return rejectWithValue(error.message);

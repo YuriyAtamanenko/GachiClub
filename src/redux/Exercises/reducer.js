@@ -53,7 +53,7 @@ const exercisesSlice = createSlice({
       const { newExercise } = payload;
       if (newExercise) {
         const newElement = {
-          ...payload.doneExercises.pop(),
+          ...payload.doneExercises,
           exercise: payload.newExercise,
         };
         state.doneExercises = [...state.doneExercises, newElement];

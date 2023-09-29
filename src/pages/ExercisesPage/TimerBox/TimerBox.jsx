@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
   TimeLeft,
@@ -18,13 +18,19 @@ const TimerBox = ({
   currentTime,
   setCurrentTime,
 }) => {
+  const [isOpen, setIsOpen] = useState(false);
   const timer = useRef(null);
-  useEffect(
-    () => () => {
+  const minutes = Math.floor(currentTime / 60);
+  const seconds = currentTime % 60;
+  const formattedTime = `${minutes.toString().padStart(2, '0')}:${seconds
+    .toString()
+    .padStart(2, '0')}`;
+  useEffect(() => {
+    setCurrentTime(180);
+    return () => {
       timer.current && clearInterval(timer.current);
-    },
-    [],
-  );
+    };
+  }, []);
   const toggleTimer = () => {
     if (timer.current) {
       clearInterval(timer.current);
@@ -35,11 +41,7 @@ const TimerBox = ({
       }, 1000);
     }
   };
-  const minutes = Math.floor(currentTime / 60);
-  const seconds = currentTime % 60;
-  const formattedTime = `${minutes.toString().padStart(2, '0')}:${seconds
-    .toString()
-    .padStart(2, '0')}`;
+
   return (
     <SpinnerWrap>
       <TimeText>Time</TimeText>

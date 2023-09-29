@@ -2,6 +2,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import {
+  Backdrop,
   Container,
   InputContainer,
   InputTitle,
@@ -11,7 +12,9 @@ import {
   BtnContainer,
   Calories,
   TitleCalories,
+  ButtonIcon,
 } from './AddProductModal.styled';
+import sprite from '../../images/sprite.svg';
 import { addProductThunk } from '../../redux/Diary/operations';
 
 function AddProductForm({
@@ -44,37 +47,44 @@ function AddProductForm({
   };
 
   return (
-    <Container>
-      <form>
-        <InputContainer>
-          <label>
-            <InputTitle type="text" value={data.title} disabled />
-          </label>
+    <Backdrop>
+      <Container>
+        <ButtonIcon type="button">
+          <svg width="22" height="22" stroke="#EFEDE8">
+            <use href={sprite + '#icon-close'} />
+          </svg>
+        </ButtonIcon>
+        <form>
+          <InputContainer>
+            <label>
+              <InputTitle type="text" value={data.title} disabled />
+            </label>
 
-          <label>
-            <InputQuantity
-              placeholder="grams"
-              type="number"
-              value={quantity}
-              onChange={e => setQuantity(e.target.value)}
-            />
-          </label>
-        </InputContainer>
+            <label>
+              <InputQuantity
+                placeholder="grams"
+                type="number"
+                value={quantity}
+                onChange={e => setQuantity(e.target.value)}
+              />
+            </label>
+          </InputContainer>
 
-        <Calories>
-          <TitleCalories>Calories:</TitleCalories> {caloriesAmount}
-        </Calories>
+          <Calories>
+            <TitleCalories>Calories:</TitleCalories> {caloriesAmount}
+          </Calories>
 
-        <BtnContainer>
-          <AddBtn type="button" onClick={handleAddToDiary}>
-            Add to diary
-          </AddBtn>
-          <CloseBtn type="button" onClick={closeAddModal}>
-            Cancel
-          </CloseBtn>
-        </BtnContainer>
-      </form>
-    </Container>
+          <BtnContainer>
+            <AddBtn type="button" onClick={handleAddToDiary}>
+              Add to diary
+            </AddBtn>
+            <CloseBtn type="button" onClick={closeAddModal}>
+              Cancel
+            </CloseBtn>
+          </BtnContainer>
+        </form>
+      </Container>
+    </Backdrop>
   );
 }
 

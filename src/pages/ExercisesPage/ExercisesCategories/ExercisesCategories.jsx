@@ -4,6 +4,7 @@
 //   Container,
 //   CategoryItem,
 // } from './ExercisesCategories.styled';
+import PropTypes from 'prop-types';
 import css from './ExerciseCategories.module.css';
 import { useDispatch } from 'react-redux';
 import { changeCategory } from '../../../redux/Exercises/reducer';
@@ -13,7 +14,7 @@ const pages = [
   { title: 'Muscules', route: 'muscules' },
   { title: 'Equipments', route: 'equipments' },
 ];
-const ExercisesCategories = () => {
+const ExercisesCategories = ({ titleName }) => {
   const [idx, setIdx] = useState(0);
   const dispatch = useDispatch();
   return (
@@ -22,11 +23,16 @@ const ExercisesCategories = () => {
         {pages.map(({ title, route }, index) => (
           <li className={css.categoryitem} key={index}>
             <button
-              className={`${index === idx ? css.activecategory : css.category}`}
+              className={`${
+                index === idx && titleName === 'Exercises'
+                  ? css.activecategory
+                  : css.category
+              }`}
               onClick={() => {
                 dispatch(changeCategory(route));
                 setIdx(index);
               }}
+              disabled={titleName !== 'Exercises'}
             >
               {title}
             </button>
@@ -37,3 +43,6 @@ const ExercisesCategories = () => {
   );
 };
 export default ExercisesCategories;
+ExercisesCategories.propTypes = {
+  titleName: PropTypes.string,
+};

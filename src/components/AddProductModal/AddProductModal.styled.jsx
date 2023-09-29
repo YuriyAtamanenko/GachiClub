@@ -1,6 +1,38 @@
 import styled from '@emotion/styled';
-
+export const Backdrop = styled.div`
+  position: fixed;
+  background-color: rgba(4, 4, 4, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  opacity: 1;
+  transform: scale(100);
+  transform: rotate(0deg);
+  visibility: visible;
+  transition:
+    opacity 1000ms linear,
+    transform 500ms linear;
+`;
+export const ModalHidden = styled.div`
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0);
+  transform: rotate(360deg);
+`;
+export const ButtonIcon = styled.button`
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  top: 14px;
+  right: 14px;
+`;
 export const Container = styled.div`
+  position: relative;
   background-color: #10100f;
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.2);
@@ -97,8 +129,9 @@ export const BtnContainer = styled.div`
 `;
 
 export const AddBtn = styled.button`
+  min-width: 151px;
+  height: 42px;
   display: flex;
-  padding: 12px 32px;
   justify-content: center;
   align-items: center;
   font-family: inherit;
@@ -117,6 +150,8 @@ export const AddBtn = styled.button`
   }
   @media screen and (min-width: 768px) {
     margin-right: 16px;
+    height: 52px;
+    line-height: calc(24 / 16);
   }
 `;
 
@@ -135,5 +170,7 @@ export const CloseBtn = styled.button`
   line-height: calc(18 / 16);
   @media screen and (min-width: 768px) {
     padding: 12px 40px;
+    font-size: 20px;
+    line-height: calc(24 / 20);
   }
 `;
