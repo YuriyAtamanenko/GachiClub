@@ -1,7 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Container, Title, ContainerForm } from './ProductsPage.styled';
+import {
+  Container,
+  Title,
+  ContainerForm,
+  LoadContainer,
+} from './ProductsPage.styled';
 import ProductsFilter from '../../components/Products/ProductsFilter/ProductsFilter';
 import ProdactsList from '../../components/Products/ProductsList/ProductsList';
 import { getAllProducts } from '../../redux/Products/operations';
@@ -17,6 +22,7 @@ import {
 } from '../../redux/Products/productsSlice';
 import AddProductForm from '../../components/AddProductModal/AddProductModal';
 import AddProductSuccess from '../../components/Products/AddProductSuccess/AddProductSuccess';
+import Loader from '../../components/Loader/Loader';
 const ProductsPage = () => {
   const [amoutnCalories, setAmoutnCalories] = useState(0);
   const dispatch = useDispatch();
@@ -24,9 +30,14 @@ const ProductsPage = () => {
   const isAddModalOpen = useSelector(selectAddModal);
   const isSuccessModalOpen = useSelector(selectSuccessModal);
   const info = useSelector(selectInfo);
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
-    dispatch(getAllProducts(params));
+    dispatch(getAllProducts(params)).then(() => {
+      setIsLoading(false);
+    });
   }, [dispatch, params]);
+
   const toggleAddModal = () => {
     dispatch(addModalReducer());
   };
@@ -39,7 +50,13 @@ const ProductsPage = () => {
         <Title>Products</Title>
         <ProductsFilter />
       </ContainerForm>
-      <ProdactsList />
+      {isLoading ? (
+        <LoadContainer>
+          <Loader />
+        </LoadContainer>
+      ) : (
+        <ProdactsList />
+      )}
       {isAddModalOpen && (
         <AddProductForm
           setAmoutnCalories={setAmoutnCalories}
