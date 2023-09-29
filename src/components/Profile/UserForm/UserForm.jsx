@@ -16,31 +16,19 @@ import {
   TitleForm,
 } from './UserForm.style';
 import { useState } from 'react';
+
 import 'react-calendar/dist/Calendar.css';
 import sprite from '../../../images/sprite.svg';
 import { useSelector } from 'react-redux';
 import { selectCurrentUser } from '../../../redux/Profile/selectors';
-import * as Yup from 'yup';
+import { validationSchema } from '../utils/validationForm';
+import { shortDaysName } from '../utils/shortDaysName';
 
 const UserForm = ({ handleSubmit, dataUser, selectedAvatar }) => {
-  const validationSchema = Yup.object().shape({
-    name: Yup.string()
-      .required('Введіть імя користувача')
-      .min(2, "Ім'я повинно містити принаймні 2 символи"),
-    height: Yup.number().required('Введіть висоту користувача'),
-    currentWeight: Yup.number().required('Введіть поточну вагу користувача'),
-    desiredWeight: Yup.number().required('Введіть бажану вагу користувача'),
-    birthday: Yup.date().required('Введіть дату народження користувача'),
-    blood: Yup.number().required('Виберіть групу крові користувача'),
-    sex: Yup.string().required('Виберіть стать користувача'),
-    levelActivity: Yup.number().required(
-      'Виберіть рівень активності користувача',
-    ),
-  });
-
   //створюємо стан відкриття та закриття календаря its maim
   const [openCalendar, setOpenCalendar] = useState(false);
 
+  //стан відправки данних на сервер
   const { isLoadingUpdate } = useSelector(selectCurrentUser);
 
   //делегуємо для зручності
@@ -75,14 +63,9 @@ const UserForm = ({ handleSubmit, dataUser, selectedAvatar }) => {
     initialValues.avatarUrl !== null &&
     typeof initialValues.avatarUrl !== 'string';
 
+  //при виклику змінює стан відкриття календаря
   const toglerCalendar = () => {
     setOpenCalendar(!openCalendar);
-  };
-
-  //ф-ція для короткого запису днів тижня
-  const formatDate = date => {
-    const days = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
-    return days[date.getDay()];
   };
 
   return (
@@ -149,6 +132,7 @@ const UserForm = ({ handleSubmit, dataUser, selectedAvatar }) => {
                   className="error"
                 />
               </LabelStyled>
+
               <LabelStyled onClick={toglerCalendar}>
                 <TitleForm id="calendarTitle">Calendar</TitleForm>
                 <CalendarIco>
@@ -164,6 +148,7 @@ const UserForm = ({ handleSubmit, dataUser, selectedAvatar }) => {
                   name="birthday"
                 />
               </LabelStyled>
+
               <CalendarContainer
                 data-isopen={`${openCalendar ? 'open' : 'close'}`}
               >
@@ -173,7 +158,7 @@ const UserForm = ({ handleSubmit, dataUser, selectedAvatar }) => {
                       locale="en-US"
                       onChange={date => setFieldValue('birthday', date)}
                       value={values.birthday}
-                      formatShortWeekday={(_, date) => formatDate(date)}
+                      formatShortWeekday={(_, date) => shortDaysName(date)}
                       onClickDay={toglerCalendar}
                     />
                   )}

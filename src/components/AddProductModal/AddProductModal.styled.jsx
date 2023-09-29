@@ -3,10 +3,16 @@ import styled from '@emotion/styled';
 export const Container = styled.div`
   background-color: #10100f;
   border-radius: 12px;
+  border: 1px solid rgba(239, 237, 232, 0.2);
   padding: 48px 24px;
   z-index: 10;
+  width: 335px;
+  height: 280px;
+
   @media screen and (min-width: 768px) {
     padding: 48px 32px;
+    width: 479px;
+    height: 286px;
   }
 `;
 

@@ -64,6 +64,10 @@ export const StatisticsItem = styled.li`
   width: 147px;
   height: 62px;
   border-radius: 12px;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
   border: 1px solid rgba(239, 237, 232, 0.2);
   background-color: rgba(239, 237, 232, 0.05);
   display: flex;

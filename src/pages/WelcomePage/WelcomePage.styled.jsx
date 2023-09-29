@@ -16,12 +16,12 @@ export const LinkList = styled.ul`
 `;
 
 export const Wrapper = styled.div`
-  padding-top: 127px;
+  margin-top: 90px;
   @media screen and (min-width: 768px) {
-    padding-top: 189px;
+    margin-top: 140px;
   }
   @media screen and (min-width: 1440px) {
-    padding-top: 200px;
+    margin-top: 150px;
   }
 `;
 

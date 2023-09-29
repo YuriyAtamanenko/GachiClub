@@ -23,16 +23,31 @@ import { useState } from 'react';
 const AddExerciseForm = ({ data }) => {
   const [currentTime, setCurrentTime] = useState(180);
   const dispatch = useDispatch();
-  const { bodyPart, burnedCalories, equipment, gifUrl, name, target, time } =
-    data;
+  const {
+    bodyPart,
+    burnedCalories,
+    equipment,
+    gifUrl,
+    name,
+    target,
+    time,
+    _id,
+  } = data;
   const calories = Math.floor((currentTime / 60) * (burnedCalories / time));
+  console.log(currentTime);
   const addExerciseToDairy = () => {
     if (currentTime === 180) {
       console.log('Nothing to add');
       return;
     }
-    const time = Math.round((180 - currentTime) / 6) / 10;
-    dispatch(addExerciseToDiary(data))
+    const time = Math.round(180 - currentTime);
+    dispatch(
+      addExerciseToDiary({
+        exerciseId: _id,
+        duration: time,
+        calories,
+      }),
+    )
       .then(() => dispatch(toggleSuccess()))
       .catch(err => console.log(err.message));
   };

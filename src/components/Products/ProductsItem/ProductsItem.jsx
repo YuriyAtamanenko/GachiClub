@@ -18,14 +18,22 @@ import {
 
 import Icons from './../../../images/sprite.svg';
 import AddProductForm from '../../AddProductModal/AddProductModal';
+
 import { selectGroupBlood } from '../../../redux/Authorization/selector';
+import AddProductSuccess from '../AddProductSuccess/AddProductSuccess';
 
 const ProductsItem = ({ info }) => {
-  const [isModalOpan, setModalOpan] = useState(false);
+  const [amoutnCalories, setAmoutnCalories] = useState(0);
+  const [isAddModalOpan, setAddModalOpan] = useState(false);
+  const [isSuccessModalOpan, setSuccessModalOpan] = useState(false);
   const groupBlood = useSelector(selectGroupBlood);
 
-  const toggleModal = () => {
-    setModalOpan(isModalOpan => !isModalOpan);
+  const toggleAddModal = () => {
+    setAddModalOpan(isAddModalOpen => !isAddModalOpen);
+  };
+
+  const toggleSuccessModal = () => {
+    setSuccessModalOpan(isSuccessModalOpen => !isSuccessModalOpen);
   };
 
   return (
@@ -46,7 +54,7 @@ const ProductsItem = ({ info }) => {
             : 'Recommended'}
         </Recommended>
 
-        <AddButton type="button" onClick={toggleModal}>
+        <AddButton type="button" onClick={toggleAddModal}>
           Add
           <Arrow width={16} height={16}>
             <use href={Icons + '#icon-arrow-right'}></use>
@@ -80,7 +88,20 @@ const ProductsItem = ({ info }) => {
           Weight: <Value>{info.weight}</Value>
         </Additionally>
       </ThirdLine>
-      {isModalOpan && <AddProductForm closeModal={toggleModal} data={info} />}
+      {isAddModalOpan && (
+        <AddProductForm
+          setAmoutnCalories={setAmoutnCalories}
+          closeAddModal={toggleAddModal}
+          openSuccessModal={toggleSuccessModal}
+          data={info}
+        />
+      )}
+      {isSuccessModalOpan && (
+        <AddProductSuccess
+          closeSuccessModal={toggleSuccessModal}
+          calories={amoutnCalories}
+        />
+      )}
     </Card>
   );
 };
