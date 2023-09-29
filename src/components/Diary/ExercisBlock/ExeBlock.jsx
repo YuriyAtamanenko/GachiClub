@@ -58,7 +58,7 @@ const ExeBlock = () => {
                     amount,
                     calories,
                     _id,
-                    productId: { category, title },
+                    exerciseId: { category, title },
                   }) => (
                     <ItemExercise key={_id}>
                       <ContentExercises className="title">

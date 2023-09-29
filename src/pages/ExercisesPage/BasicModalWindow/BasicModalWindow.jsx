@@ -1,18 +1,28 @@
-import { useEffect } from 'react';
-// import { Overlay } from './BasicModalWindow.styled';
+import { useEffect, useState } from 'react';
 import css from './BasicModalWindow.module.css';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-import { selectModal } from '../../../redux/Exercises/selectors';
-import { setModalToggle } from '../../../redux/Exercises/reducer';
-const BasicModalWindow = ({ children }) => {
+import AddExerciseForm from '../AddExerciseForm/AddExerciseForm';
+import AddExerciseSuccess from '../AddExerciseSuccess/AddExerciseSuccess';
+import { getIsSuccess, selectModal } from '../../../redux/Exercises/selectors';
+import {
+  setModalToggle,
+  toggleSuccess,
+} from '../../../redux/Exercises/reducer';
+const BasicModalWindow = ({ data }) => {
+  const [currentTime, setCurrentTime] = useState(180);
+  const isSuccess = useSelector(getIsSuccess);
   const isModalOpen = useSelector(selectModal);
   const dispatch = useDispatch();
   useEffect(() => {
     const closeByEsc = evt => {
       if (evt.code === 'Escape') {
         dispatch(setModalToggle());
+        setCurrentTime(180);
+        if (isSuccess) {
+          dispatch(toggleSuccess());
+        }
       }
     };
     document.addEventListener('keydown', closeByEsc);
@@ -23,18 +33,34 @@ const BasicModalWindow = ({ children }) => {
   const backgroundCloseModal = evt => {
     if (evt.target === evt.currentTarget) {
       dispatch(setModalToggle());
+      setCurrentTime(180);
+      if (isSuccess) {
+        dispatch(toggleSuccess());
+      }
     }
   };
   return (
     <div
-      className={`${isModalOpen ? css.overlayhidden : css.overlay}`}
+      className={`${isModalOpen && data ? css.overlayhidden : css.overlay}`}
       onClick={backgroundCloseModal}
     >
-      {children}
+      {!isSuccess ? (
+        <AddExerciseForm
+          data={data}
+          currentTime={currentTime}
+          setCurrentTime={setCurrentTime}
+        />
+      ) : (
+        <AddExerciseSuccess
+          data={data}
+          currentTime={currentTime}
+          setCurrentTime={setCurrentTime}
+        />
+      )}
     </div>
   );
 };
 export default BasicModalWindow;
 BasicModalWindow.propTypes = {
-  children: PropTypes.object,
+  data: PropTypes.object,
 };
