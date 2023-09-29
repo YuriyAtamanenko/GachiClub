@@ -1,35 +1,27 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import sprite from '../../../images/sprite.svg';
 import {
   ProductsContainer,
   BlockTxtBtn,
   ProductsExercisesText,
   ProductsBtn,
+  ContainerProduct,
+  BlockNotFoundProd,
   BlockProdLabel768,
   TitleProdLabel768,
-  BlockNotFoundProd,
-  ContainerProductInput,
-  BlockProductInput,
-  LabelProduct,
-  InputProduct,
+  ListProducts,
+  ItemProducts,
+  ContentProducts,
+  TitleProducts,
+  LabelProducts,
   ButtonDelProd,
   SvgIconDel,
-  InputText,
 } from './ProdBlock.styled';
 
 const ProdBlock = () => {
-  const [productBlocks, setProductBlocks] = useState([]);
-  const [isBlockProdVisible, setBlockProdVisibility] = useState(false);
-
-  const removeProductBlock = blockIndex => {
-    const updatedBlocks = [...productBlocks];
-    updatedBlocks.splice(blockIndex, 1);
-    setProductBlocks(updatedBlocks);
-
-    if (updatedBlocks.length === 0) {
-      setBlockProdVisibility(false);
-    }
-  };
+  const products = useSelector(store => store.diary.products);
+  console.log(products);
 
   return (
     <>
@@ -43,44 +35,73 @@ const ProdBlock = () => {
             </svg>
           </ProductsBtn>
         </BlockTxtBtn>
-        {isBlockProdVisible && (
-          <BlockProdLabel768>
-            {['Title', 'Category', 'Calories', 'Weight', 'Recommend'].map(
-              (label, index) => (
-                <TitleProdLabel768
-                  key={index}
-                  className={`title-prod-${index}`}
-                >
-                  {label}
-                </TitleProdLabel768>
-              ),
-            )}
-          </BlockProdLabel768>
-        )}
-        {productBlocks.length === 0 ? (
+        {products.length === 0 ? (
           <BlockNotFoundProd>Not found products</BlockNotFoundProd>
         ) : (
-          productBlocks.map((block, blockIndex) => (
-            <ContainerProductInput key={block.id}>
-              <BlockProductInput>
-                {block.inputs.map((label, inputIndex) => (
-                  <div key={inputIndex}>
-                    <LabelProduct className={`label-prod-${inputIndex}`}>
-                      {label}
-                    </LabelProduct>
-                    <InputProduct className={`input-prod-${inputIndex}`}>
-                      <InputText></InputText>
-                    </InputProduct>
-                  </div>
-                ))}
-                <ButtonDelProd onClick={() => removeProductBlock(blockIndex)}>
-                  <SvgIconDel>
-                    <use xlinkHref={`${sprite}#icon-trash`} />
-                  </SvgIconDel>
-                </ButtonDelProd>
-              </BlockProductInput>
-            </ContainerProductInput>
-          ))
+          <ContainerProduct>
+            <BlockProdLabel768>
+              {['Title', 'Category', 'Calories', 'Weight', 'Recommend'].map(
+                (label, index) => (
+                  <TitleProdLabel768
+                    key={index}
+                    className={`title-prod-${index}`}
+                  >
+                    {label}
+                  </TitleProdLabel768>
+                ),
+              )}
+            </BlockProdLabel768>
+            <div>
+              <ListProducts>
+                {products.map(
+                  ({
+                    amount,
+                    calories,
+                    _id,
+                    productId: { category, title },
+                  }) => (
+                    <ItemProducts key={_id}>
+                      <ContentProducts className="title">
+                        <LabelProducts className="labTitle">
+                          Title
+                        </LabelProducts>
+                        <TitleProducts>{title}</TitleProducts>
+                      </ContentProducts>
+                      <ContentProducts className="category">
+                        <LabelProducts className="labCategory">
+                          Category
+                        </LabelProducts>
+                        <TitleProducts>{category}</TitleProducts>
+                      </ContentProducts>
+                      <ContentProducts className="calories">
+                        <LabelProducts className="labCalories">
+                          Calories
+                        </LabelProducts>
+                        <TitleProducts>{calories}</TitleProducts>
+                      </ContentProducts>
+                      <ContentProducts className="amount">
+                        <LabelProducts className="labWeight">
+                          Weight
+                        </LabelProducts>
+                        <TitleProducts>{amount}</TitleProducts>
+                      </ContentProducts>
+                      <ContentProducts className="recommend">
+                        <LabelProducts className="labRecommend">
+                          Recommend
+                        </LabelProducts>
+                        <TitleProducts>REC</TitleProducts>
+                      </ContentProducts>
+                      <ButtonDelProd>
+                        <SvgIconDel>
+                          <use xlinkHref={`${sprite}#icon-trash`} />
+                        </SvgIconDel>
+                      </ButtonDelProd>
+                    </ItemProducts>
+                  ),
+                )}
+              </ListProducts>
+            </div>
+          </ContainerProduct>
         )}
       </ProductsContainer>
     </>

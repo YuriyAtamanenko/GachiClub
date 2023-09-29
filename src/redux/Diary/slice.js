@@ -1,10 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { addProductThunk } from './operations';
+import { addProductThunk, getDiaryThunk } from './operations';
+
+const getActivities = (state, action) => {
+  state.products = action.payload.data.products;
+  console.log(action.payload.data.exercises);
+  state.exercises = action.payload.data.exercises;
+};
 
 export const diarySlice = createSlice({
   name: 'diary',
   initialState: {
+    products: [],
+    exercises: [],
     burnedCalories: null,
     consumedCalories: null,
     consumedProducts: [],
@@ -18,6 +26,8 @@ export const diarySlice = createSlice({
   extraReducers: builder =>
     builder
 
+      .addCase(getDiaryThunk.fulfilled, getActivities)
+
       .addCase(addProductThunk.pending, pending)
       .addCase(addProductThunk.fulfilled, addDiaryFulfilled)
       .addCase(addProductThunk.rejected, rejected),
@@ -29,6 +39,7 @@ function pending(state) {
 function rejected(state) {
   state.isLoading = false;
 }
+
 function addDiaryFulfilled(state, { payload }) {
   const { newProduct } = payload;
 
