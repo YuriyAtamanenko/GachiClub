@@ -179,6 +179,7 @@ export const TitleExeLabel768 = styled.p`
       left: 459px;
     }
     &.title-exe-4 {
+      overflow: inherit;
       top: 56px;
       left: 573px;
     }
