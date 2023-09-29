@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import desktop1x from '../../../images/default-desktop-1x.jpg';
+import desktop2x from '../../../images/default-desktop-2x.jpg';
 export const Container = styled.div`
   display: flex;
   @media screen and (min-width: 1440px) {
@@ -56,7 +58,7 @@ export const BackgroundImage = styled.div`
         #040404 -2.45%,
         rgba(4, 4, 4, 0) 68.17%
       ),
-      url('src/images/exercises-desktop-1x.jpg');
+      url(${desktop1x});
     background-repeat: no-repeat;
     background-position: 100% 0;
     @media (min-device-pixel-ratio: 2) {
@@ -67,7 +69,7 @@ export const BackgroundImage = styled.div`
             #040404 -2.45%,
             rgba(4, 4, 4, 0) 68.17%
           ),
-          url('src/images/exercises-desktop-2x.jpg');
+          url(${desktop2x});
       }
     }
   }
