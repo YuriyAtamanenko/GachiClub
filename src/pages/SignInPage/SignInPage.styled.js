@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Form, Field, ErrorMessage } from 'formik';
 import { Link } from 'react-router-dom';
 
 import desktop1x from './../../images/default-desktop-1x.jpg';
@@ -9,17 +9,44 @@ import tablet2x from './../../images/default-tablet-2x.jpg';
 import mobile1x from './../../images/default-mobile-1x.jpg';
 import mobile2x from './../../images/default-mobile-2x.jpg';
 
+export const Container = styled.div`
+  position: relative;
+  margin: 0;
+  min-width: 320px;
+  max-width: 374px; /* Максимальная ширина для отзывчивости (320px - 375px) */
+  margin: 0 auto;
+  width: 100%; /* Занимать всю доступную ширину на экранах меньше 375px */
+
+  @media screen and (min-width: 375px) {
+    /* Ширина для экранов от 376px до 767px */
+    width: 375px; /* Адаптивная ширина */
+  }
+
+  @media screen and (min-width: 768px) {
+    /* Ширина для экранов от 768px до 1439px */
+    margin: 0;
+    width: 768px; /* Адаптивная ширина */
+  }
+
+  @media screen and (min-width: 1440px) {
+    /* Ширина для экранов 1440px и более */
+    max-width: 1440px; /* Максимальная ширина */
+    width: 100%; /* Занимать всю доступную ширину */
+  }
+`;
+
 export const WrapperDesktop = styled.div`
   position: absolute;
-  top: 241px;
-  right: -148px;
-  width: 375px;
-  height: 812px;
+  top: 50%;
+  left: 77px;
+  width: 446px;
+  height: 669px;
+
   pointer-events: none;
   z-index: -1;
 
   background-image: url(${mobile1x});
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
 
   @media (min-device-pixel-ratio: 2),
@@ -33,15 +60,15 @@ export const WrapperDesktop = styled.div`
 
   @media screen and (min-width: 768px) {
     position: absolute;
+
+    height: 1000px;
+    width: 670px;
+    left: 331px;
     top: 131px;
-    right: -233px;
-    width: 768px;
-    height: 1024px;
+
     pointer-events: none;
 
     background-image: url(${tablet1x});
-    background-size: cover;
-    background-repeat: no-repeat;
 
     @media (min-device-pixel-ratio: 2),
       (-webkit-min-device-pixel-ratio: 2),
@@ -56,8 +83,9 @@ export const WrapperDesktop = styled.div`
     position: absolute;
     top: 0;
     right: 0;
+    left: 770px;
     width: 670px;
-    height: 800px;
+    height: 1005px;
     pointer-events: none;
 
     background-image: url(${desktop1x});
@@ -75,7 +103,7 @@ export const WrapperDesktop = styled.div`
   }
 `;
 
-export const MainBlock = styled.div`
+export const WrapperForm = styled.div`
   padding-top: 127px;
 
   @media screen and (min-width: 768px) {
@@ -86,7 +114,17 @@ export const MainBlock = styled.div`
   }
 `;
 
-export const TitleSignIn = styled.h2`
+export const WrapperText = styled.div`
+  width: 335px;
+  margin-bottom: 28px;
+  @media screen and (min-width: 768px) {
+    width: 496px;
+
+    margin-bottom: 32px;
+  }
+`;
+
+export const Title = styled.h2`
   margin-bottom: 14px;
 
   font-family: Roboto;
@@ -105,7 +143,7 @@ export const TitleSignIn = styled.h2`
   }
 `;
 
-export const TextWelcome = styled.p`
+export const Text = styled.p`
   margin-bottom: 28px;
 
   font-family: Roboto;
@@ -124,8 +162,17 @@ export const TextWelcome = styled.p`
   }
 `;
 
-export const FormikStyle = styled(Formik)``;
+export const StyledForm = styled(Form)`
+  width: 364px;
+  height: 196px;
 
+  @media screen and (min-width: 768px) {
+    width: 364px;
+    height: 196px;
+  }
+`;
+
+// ==================================
 export const FormStyle = styled(Form)`
   display: flex;
   flex-direction: column;
@@ -140,10 +187,28 @@ export const FormStyle = styled(Form)`
     margin-bottom: 64px;
   }
 `;
+// =================================
+
+export const WrapperInput = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 28px;
+
+  @media screen and (min-width: 768px) {
+    gap: 20px;
+    margin-bottom: 64px;
+  }
+`;
 
 export const FieldStyle = styled(Field)`
   display: flex;
   align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 335px;
+  height: 46px;
   padding: 14px;
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.3);
@@ -157,12 +222,24 @@ export const FieldStyle = styled(Field)`
 
   color: rgba(239, 237, 232, 0.6);
 
-  &:focus {
-    outline: none;
+  &:default-input {
+    /* Добавьте стили для фокуса, например, оранжевый ховер */
+    border-color: orange;
+  }
+
+  /* Добавьте стили для ховера при успешном вводе (зеленый) */
+  &.success-input {
+    border-color: green;
+  }
+
+  /* Добавьте стили для ховера при ошибке (красный) */
+  &.error-hover {
+    border-color: #d80027;
   }
 
   @media screen and (min-width: 768px) {
     width: 364px;
+    height: 52px;
 
     font-size: 16px;
     line-height: 150%;
@@ -237,4 +314,82 @@ export const LinkStyle = styled(Link)`
   text-decoration-line: underline;
 
   color: var(--primary-text-color);
+`;
+
+export const MessageStyleError = styled.div`
+  display: flex;
+  gap: 4px;
+
+  margin-top: 5px;
+  font-feature-settings:
+    'clig' off,
+    'liga' off;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.12px;
+
+  color: #d80027;
+`;
+
+export const MessageStyleSuccess = styled.div`
+  display: flex;
+  gap: 4px;
+
+  margin-top: 5px;
+  font-feature-settings:
+    'clig' off,
+    'liga' off;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.12px;
+
+  color: #3cbf61;
+`;
+
+export const PasswordField = styled(Field)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 335px;
+  height: 46px;
+  padding: 14px;
+  border-radius: 12px;
+  background-color: transparent;
+  border: 1px solid rgba(239, 237, 232, 0.3);
+  padding-right: 30px;
+
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 128.571%;
+
+  color: rgba(239, 237, 232, 0.6);
+
+  &:focus {
+    outline: none;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 364px;
+    height: 52px;
+    font-size: 16px;
+    line-height: 150%;
+  }
+`;
+
+export const WrapperPassword = styled.div`
+  position: relative;
+  width: 100%;
+`;
+
+export const WrapperMessange = styled.div`
+  position: relative;
 `;

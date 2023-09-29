@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
 import ParamsStepOne from './ParamsStepOnePage';
 import ParamsStepTwo from './ParamsStepTwoPage';
 import ParamsStepThree from './ParamsStepThreePage';

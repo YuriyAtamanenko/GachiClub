@@ -1,24 +1,44 @@
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { Formik, useFormik } from 'formik';
 import { object, string } from 'yup';
 import { loginization, checkUser } from '../../redux/Authorization/operations';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import StatisticsSignIn from '../SignInPage/StatisticsSignIn/StatisticsSignIn';
+import sprite from '../../images/sprite.svg';
+import ButtonInput from '../../components/ButtonInput/ButtonInput';
+
 import {
   WrapperDesktop,
-  MainBlock,
-  TitleSignIn,
-  TextWelcome,
-  FormikStyle,
-  FormStyle,
   FieldStyle,
-  ErrorMessageStyle,
   ButtonSubmit,
   ReLink,
   LinkStyle,
+  Container,
+  WrapperForm,
+  Title,
+  Text,
+  WrapperText,
+  StyledForm,
+  WrapperInput,
+  MessageStyleError,
+  MessageStyleSuccess,
+  WrapperPassword,
+  PasswordField,
+  WrapperMessange,
 } from './SignInPage.styled';
+import { useState } from 'react';
+
+const initialValues = {
+  name: '',
+  email: '',
+  password: '',
+};
 
 const SignInPage = () => {
+  const [isPassword, setIsPassword] = useState(false);
+  const [passwordInput, setPasswordInput] = useState('password');
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -67,60 +87,159 @@ const SignInPage = () => {
     password: string().min(6).max(16).required(),
   });
 
-  const initialValues = {
-    name: '',
-    email: '',
-    password: '',
+  const formik = useFormik({
+    initialValues: initialValues,
+    validationSchema: signUpSchema,
+    onSubmit: handleSubmit,
+  });
+
+  const toglePassword = () => {
+    setIsPassword(prevstate => {
+      return !prevstate;
+    });
+    setPasswordInput(prevstate => {
+      if (prevstate === 'password') {
+        return 'text';
+      }
+      if (prevstate === 'text') {
+        return 'password';
+      }
+    });
   };
 
   return (
-    <>
-      <WrapperDesktop></WrapperDesktop>
-      <MainBlock>
-        <TitleSignIn>Sign In</TitleSignIn>
-        <ToastContainer />
-        <TextWelcome>
-          Welcome! Please enter your credentials to login to the platform:
-        </TextWelcome>
-        <FormikStyle
-          initialValues={initialValues}
-          validationSchema={signUpSchema}
-          onSubmit={handleSubmit}
-        >
-          <FormStyle autoComplete="on">
-            <div>
-              <FieldStyle type="email" name="email" placeholder="Email" />
+    <Container className="Container">
+      <WrapperDesktop className="Photo"></WrapperDesktop>
+      <WrapperForm className="section">
+        <WrapperText className="text-conteiner">
+          <Title>Sign In</Title>
+          <ToastContainer />
+          <Text className="text-p">
+            Welcome! Please enter your credentials to login to the platform:
+          </Text>
+        </WrapperText>
+        <div>
+          <Formik
+            initialValues={initialValues}
+            validationSchema={signUpSchema}
+            onSubmit={handleSubmit}
+          >
+            {({ handleBlur, touched, errors }) => (
+              <StyledForm autoComplete="on" className="StyledForm">
+                <WrapperInput>
+                  <div>
+                    <FieldStyle
+                      type="email"
+                      name="email"
+                      placeholder="Email"
+                      onChange={e => {
+                        formik.handleChange(e);
+                      }}
+                      onBlur={formik.handleBlur}
+                      value={formik.values.email}
+                      className="FieldStyle"
+                    />
 
-              <ErrorMessageStyle
-                name="email"
-                component="div"
-                className="error-message"
-              />
-            </div>
+                    <div>
+                      {formik.touched.email ? (
+                        formik.errors.email ? (
+                          <MessageStyleError>
+                            <svg width="16" height="16" fill="currentColor">
+                              <use href={sprite + `#icon-checkbox-error`} />
+                            </svg>{' '}
+                            {formik.errors.email}
+                          </MessageStyleError>
+                        ) : (
+                          <MessageStyleSuccess>
+                            <svg width="16" height="16" fill="currentColor">
+                              <use href={sprite + `#icon-checkbox-success`} />
+                            </svg>{' '}
+                            Success name
+                          </MessageStyleSuccess>
+                        )
+                      ) : null}
+                    </div>
 
-            <div>
-              <FieldStyle
-                type="password"
-                name="password"
-                placeholder="Password"
-              />
+                    </div>
 
-              <ErrorMessageStyle
-                name="password"
-                component="div"
-                className="error-message"
-              />
-            </div>
+                  <WrapperPassword>
+                    <PasswordField
+                      id="password"
+                      type={passwordInput}
+                      placeholder="Password"
+                      name="password"
+                      className={
+                        formik.touched.password && formik.errors.password
+                          ? 'error-input'
+                          : formik.touched.password
+                          ? 'success-input'
+                          : 'default-input'
+                      }
+                      onChange={e => {
+                        formik.handleChange(e);
+                        
+                      }}
+                      value={formik.values.password}
+                      
+                      onBlur={e => {
+                        handleBlur(e);
+                        formik.handleBlur(e);
+                      }}
+                      data-touch={touched.password && !errors.password}
+                    />
 
-            <ButtonSubmit type="submit">Sign In</ButtonSubmit>
-          </FormStyle>
-        </FormikStyle>
+                    <ButtonInput
+                      type="button"
+                      right="16px"
+                      onClick={toglePassword}
+                    >
+                      <svg width="20" height="20">
+                        <use
+                          href={
+                            sprite +
+                            `${isPassword ? `#icon-eye-off` : `#icon-eye`}`
+                          }
+                        ></use>
+                      </svg>
+                    </ButtonInput>
 
-        <ReLink>
-          Don’t have an account? <LinkStyle to="/signup">Sign Up</LinkStyle>
-        </ReLink>
-      </MainBlock>
-    </>
+                    <WrapperMessange className="messege">
+                      {formik.touched.password ? (
+                        formik.errors.password ? (
+                          <MessageStyleError className="error-icon">
+                            <svg width="16" height="16" fill="currentColor">
+                              <use href={sprite + `#icon-checkbox-error`} />
+                            </svg>{' '}
+                            {formik.errors.password}
+                          </MessageStyleError>
+                        ) : (
+                          <MessageStyleSuccess>
+                            <svg width="16" height="16" fill="currentColor">
+                              <use href={sprite + `#icon-checkbox-success`} />
+                            </svg>{' '}
+                            Success password
+                          </MessageStyleSuccess>
+                        )
+                      ) : null}
+                    </WrapperMessange>
+
+                    
+                  </WrapperPassword>
+                </WrapperInput>
+
+                <ButtonSubmit type="submit">Sign In</ButtonSubmit>
+
+                <ReLink>
+                  Don’t have an account?{' '}
+                  <LinkStyle to="/signup">Sign Up</LinkStyle>
+                </ReLink>
+              </StyledForm>
+            )}
+          </Formik>
+        </div>
+      </WrapperForm>
+      <StatisticsSignIn />
+    </Container>
   );
 };
 
