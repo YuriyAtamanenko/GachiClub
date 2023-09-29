@@ -3,14 +3,14 @@ import styled from '@emotion/styled';
 export const StatisticsBox = styled.div`
   position: absolute;
   left: 25%;
-  top: 142%;
+  top: 250%;
   @media screen and (min-width: 768px) {
     left: 35%;
-    top: 142%;
+    top: 110%;
   }
   @media screen and (min-width: 1440px) {
     left: 45%;
-    top: 70%;
+    top: 65%;
   }
 `;
 

@@ -12,6 +12,7 @@ import mobile2x from './../../images/default-mobile-2x.jpg';
 export const Container = styled.div`
   position: relative;
   overflow-x: hidden;
+  height: 100vh;
   &::-webkit-scrollbar {
     display: none;
   }

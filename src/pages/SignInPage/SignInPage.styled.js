@@ -10,6 +10,7 @@ import mobile1x from './../../images/default-mobile-1x.jpg';
 import mobile2x from './../../images/default-mobile-2x.jpg';
 
 export const Container = styled.div`
+  height: 100vh;
   overflow-x: hidden;
   position: relative;
   margin: 0;
