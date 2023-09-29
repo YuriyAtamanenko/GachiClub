@@ -1,8 +1,8 @@
-import{n as e,L as t,j as i,I as n}from"./index-10710d21.js";import{m as o,a,t as r,b as d,d as p,c as s}from"./default-mobile-2x-adbcb5a4.js";const x=e.div`
+import{n as e,L as t,j as i,I as n}from"./index-333f8bb2.js";import{d as o,a}from"./default-desktop-2x-90147dc9.js";import{m as r,a as d,t as p,b as s}from"./default-mobile-2x-a3b76961.js";const x=e.div`
   width: 100%;
   margin: 0 auto;
   height: 100vh;
-  background-image: url(${o});
+  background-image: url(${r});
 
   background-repeat: no-repeat;
   background-position: bottom 0 right -30px;
@@ -11,7 +11,7 @@ import{n as e,L as t,j as i,I as n}from"./index-10710d21.js";import{m as o,a,t a
     (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-    background-image: url(${a});
+    background-image: url(${d});
     background-size: contain;
   }
 
@@ -21,7 +21,7 @@ import{n as e,L as t,j as i,I as n}from"./index-10710d21.js";import{m as o,a,t a
 
   @media screen and (min-width: 768px) {
     width: 768px;
-    background-image: url(${r});
+    background-image: url(${p});
     background-size: contain;
     background-position: bottom 0 right 0px;
 
@@ -29,19 +29,19 @@ import{n as e,L as t,j as i,I as n}from"./index-10710d21.js";import{m as o,a,t a
       (-webkit-min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
-      background-image: url(${d});
+      background-image: url(${s});
     }
   }
 
   @media screen and (min-width: 1440px) {
     width: 1248px;
-    background-image: url(${p});
+    background-image: url(${o});
 
     @media (min-device-pixel-ratio: 2),
       (-webkit-min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
-      background-image: url(${s});
+      background-image: url(${a});
     }
   }
 `,c=e.div`
@@ -81,7 +81,7 @@ import{n as e,L as t,j as i,I as n}from"./index-10710d21.js";import{m as o,a,t a
     top: 32px;
     left: 96px;
   }
-`,l=e.svg`
+`,m=e.svg`
   width: 126px;
   height: 13px;
 
@@ -89,7 +89,7 @@ import{n as e,L as t,j as i,I as n}from"./index-10710d21.js";import{m as o,a,t a
     width: 152px;
     height: 17px;
   }
-`,m=e.div`
+`,l=e.div`
   margin-top: auto;
   margin-bottom: auto;
 `,g=e.h1`
@@ -148,4 +148,4 @@ import{n as e,L as t,j as i,I as n}from"./index-10710d21.js";import{m as o,a,t a
     width: 204px;
     height: 56px;
   }
-`,k=()=>i.jsx(x,{children:i.jsxs(c,{children:[i.jsx(h,{to:"/",children:i.jsx(l,{children:i.jsx("use",{href:n+"#full-logo"})})}),i.jsxs(m,{children:[i.jsx(g,{children:"404"}),i.jsx(u,{children:"Sorry, you have reached a page that we could not find. It seems that you are lost among the numbers and letters of our virtual space. Perhaps this page went on vacation or decided to disappear into another dimension. We apologize for this inconvenience."}),i.jsx(w,{to:"/",children:"Go Home"})]})]})});export{k as default};
+`,v=()=>i.jsx(x,{children:i.jsxs(c,{children:[i.jsx(h,{to:"/",children:i.jsx(m,{children:i.jsx("use",{href:n+"#full-logo"})})}),i.jsxs(l,{children:[i.jsx(g,{children:"404"}),i.jsx(u,{children:"Sorry, you have reached a page that we could not find. It seems that you are lost among the numbers and letters of our virtual space. Perhaps this page went on vacation or decided to disappear into another dimension. We apologize for this inconvenience."}),i.jsx(w,{to:"/",children:"Go Home"})]})]})});export{v as default};

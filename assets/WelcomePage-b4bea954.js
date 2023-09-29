@@ -1,4 +1,4 @@
-import{n as e,j as i,I as t,N as n}from"./index-10710d21.js";import{S as o}from"./Statistics-353c958a.js";import{m as r,a as p,t as a,b as d,d as s,c as x}from"./default-mobile-2x-adbcb5a4.js";const c=e.h1`
+import{n as e,j as i,I as t,N as n}from"./index-333f8bb2.js";import{S as o}from"./Statistics-803bbb54.js";import{d as r,a as p}from"./default-desktop-2x-90147dc9.js";import{m as a,a as d,t as s,b as x}from"./default-mobile-2x-a3b76961.js";const l=e.h1`
   color: #efede8;
   font-size: 38px;
   font-weight: 500;
@@ -41,7 +41,7 @@ import{n as e,j as i,I as t,N as n}from"./index-10710d21.js";import{S as o}from"
     letter-spacing: 0.7px;
     margin-bottom: 64px;
   }
-`;function l(){return i.jsxs(c,{children:["Transforming your ",i.jsxs("span",{children:["body",i.jsx("svg",{children:i.jsx("use",{href:t+"#icon-line"})})]})," shape with Power Pulse"]})}const m=e.ul`
+`;function c(){return i.jsxs(l,{children:["Transforming your ",i.jsxs("span",{children:["body",i.jsx("svg",{children:i.jsx("use",{href:t+"#icon-line"})})]})," shape with Power Pulse"]})}const m=e.ul`
   display: flex;
   gap: 14px;
   @media screen and (min-width: 768px) {
@@ -64,7 +64,7 @@ import{n as e,j as i,I as t,N as n}from"./index-10710d21.js";import{S as o}from"
   pointer-events: none;
   z-index: -1;
 
-  background-image: url(${r});
+  background-image: url(${a});
   background-size: cover;
   background-repeat: no-repeat;
 
@@ -73,7 +73,7 @@ import{n as e,j as i,I as t,N as n}from"./index-10710d21.js";import{S as o}from"
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
     & {
-      background-image: url(${p});
+      background-image: url(${d});
     }
   }
 
@@ -84,7 +84,7 @@ import{n as e,j as i,I as t,N as n}from"./index-10710d21.js";import{S as o}from"
     width: 768px;
     pointer-events: none;
 
-    background-image: url(${a});
+    background-image: url(${s});
     background-size: cover;
     background-repeat: no-repeat;
 
@@ -93,7 +93,7 @@ import{n as e,j as i,I as t,N as n}from"./index-10710d21.js";import{S as o}from"
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
       & {
-        background-image: url(${d});
+        background-image: url(${x});
       }
     }
   }
@@ -105,7 +105,7 @@ import{n as e,j as i,I as t,N as n}from"./index-10710d21.js";import{S as o}from"
     height: 800px;
     pointer-events: none;
 
-    background-image: url(${s});
+    background-image: url(${r});
     background-size: 670px 800px;
     background-repeat: no-repeat;
 
@@ -114,7 +114,7 @@ import{n as e,j as i,I as t,N as n}from"./index-10710d21.js";import{S as o}from"
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
       & {
-        background-image: url(${x});
+        background-image: url(${p});
       }
     }
   }
@@ -149,4 +149,4 @@ import{n as e,j as i,I as t,N as n}from"./index-10710d21.js";import{S as o}from"
   &:focus {
     border: 1px solid #e6533c;
   }
-`,f=()=>i.jsxs(i.Fragment,{children:[i.jsx(h,{}),i.jsxs(g,{children:[i.jsx(l,{}),i.jsxs(m,{children:[i.jsx("li",{children:i.jsx(u,{to:"/signup",children:"Sign Up"})}),i.jsx("li",{children:i.jsx(b,{to:"/signin",children:"Sign In"})})]})]}),i.jsx(o,{})]});export{f as default};
+`,j=()=>i.jsxs(i.Fragment,{children:[i.jsx(h,{}),i.jsxs(g,{children:[i.jsx(c,{}),i.jsxs(m,{children:[i.jsx("li",{children:i.jsx(u,{to:"/signup",children:"Sign Up"})}),i.jsx("li",{children:i.jsx(b,{to:"/signin",children:"Sign In"})})]})]}),i.jsx(o,{})]});export{j as default};
