@@ -16,12 +16,32 @@ import {
   ButtonIcon,
 } from './AddProductSuccess.styles';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const AddProductSuccess = ({ closeSuccessModal, calories }) => {
+  useEffect(() => {
+    const handleKeyDown = event => {
+      if (event.code === 'Escape') {
+        closeSuccessModal();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [closeSuccessModal]);
+
+  const handleBackdropClick = event => {
+    if (event.currentTarget === event.target) {
+      closeSuccessModal();
+    }
+  };
+
   return (
-    <Backdrop>
+    <Backdrop onClick={handleBackdropClick}>
       <SuccessModalWindow>
-        <ButtonIcon type="button">
+        <ButtonIcon type="button" onClick={closeSuccessModal}>
           <svg width="22" height="22" stroke="#EFEDE8">
             <use href={sprite + '#icon-close'} />
           </svg>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import {
@@ -46,10 +46,31 @@ function AddProductForm({
     return caloriesAmount;
   };
 
+  //закриття модалки
+
+  useEffect(() => {
+    const handleKeyDown = event => {
+      if (event.code === 'Escape') {
+        closeAddModal();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [closeAddModal]);
+
+  const handleBackdropClick = event => {
+    if (event.currentTarget === event.target) {
+      closeAddModal();
+    }
+  };
+
   return (
-    <Backdrop>
+    <Backdrop onClick={handleBackdropClick}>
       <Container>
-        <ButtonIcon type="button">
+        <ButtonIcon type="button" onClick={closeAddModal}>
           <svg width="22" height="22" stroke="#EFEDE8">
             <use href={sprite + '#icon-close'} />
           </svg>
