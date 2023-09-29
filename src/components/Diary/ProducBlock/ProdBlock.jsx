@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import sprite from '../../../images/sprite.svg';
 import {
   ProductsContainer,
@@ -18,8 +18,10 @@ import {
   ButtonDelProd,
   SvgIconDel,
 } from './ProdBlock.styled';
+import { removeProductThunk } from '../../../redux/Diary/operations';
 
 const ProdBlock = () => {
+  const dispatch = useDispatch();
   const products = useSelector(store => store.diary.products);
   console.log(products);
 
@@ -91,7 +93,16 @@ const ProdBlock = () => {
                         </LabelProducts>
                         <TitleProducts>REC</TitleProducts>
                       </ContentProducts>
-                      <ButtonDelProd>
+                      <ButtonDelProd
+                        onClick={() =>
+                          dispatch(
+                            removeProductThunk({
+                              date: '29-09-2023',
+                              productToRemove: _id,
+                            }),
+                          )
+                        }
+                      >
                         <SvgIconDel>
                           <use xlinkHref={`${sprite}#icon-trash`} />
                         </SvgIconDel>

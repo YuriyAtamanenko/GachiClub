@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import sprite from '../../../images/sprite.svg';
 import {
   ExercisesContainer,
@@ -18,8 +18,10 @@ import {
   LabelExercises,
   TitleExercises,
 } from './ExeBlock.styled';
+import { removeExerciseThunk } from '../../../redux/Diary/operations';
 
 const ExeBlock = () => {
+  const dispatch = useDispatch();
   const exercises = useSelector(store => store.diary.exercises);
   console.log(exercises);
 
@@ -40,28 +42,28 @@ const ExeBlock = () => {
         ) : (
           <ContainerExecrcises>
             <BlockExeLabel768>
-              {['Title', 'Category', 'Calories', 'Weight', 'Recommend'].map(
-                (label, index) => (
-                  <TitleExeLabel768
-                    key={index}
-                    className={`title-exe-${index}`}
-                  >
-                    {label}
-                  </TitleExeLabel768>
-                ),
-              )}
+              {[
+                'Body Part',
+                'Equipment',
+                'Name',
+                'Target',
+                'Burned Calories',
+                'Time',
+              ].map((label, index) => (
+                <TitleExeLabel768 key={index} className={`title-exe-${index}`}>
+                  {label}
+                </TitleExeLabel768>
+              ))}
             </BlockExeLabel768>
             <div>
               <ListExercise>
                 {exercises.map(
-
                   ({
                     duration,
                     calories,
                     _id,
                     exerciseId: { bodyPart, equipment, name, target },
                   }) => (
-
                     <ItemExercise key={_id}>
                       <ContentExercises className="title">
                         <LabelExercises className="labTitle">
@@ -75,7 +77,6 @@ const ExeBlock = () => {
                         </LabelExercises>
 
                         <TitleExercises>{equipment}</TitleExercises>
-
                       </ContentExercises>
                       <ContentExercises className="calories">
                         <LabelExercises className="labCalories">
@@ -102,7 +103,16 @@ const ExeBlock = () => {
                         <TitleExercises>{duration}</TitleExercises>
                       </ContentExercises>
                       <ButtonDelExe>
-                        <SvgIconDel>
+                        <SvgIconDel
+                          onClick={() =>
+                            dispatch(
+                              removeExerciseThunk({
+                                date: '29-09-2023',
+                                exerciseToRemove: _id,
+                              }),
+                            )
+                          }
+                        >
                           <use xlinkHref={`${sprite}#icon-trash`} />
                         </SvgIconDel>
                       </ButtonDelExe>

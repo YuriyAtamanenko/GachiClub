@@ -15,7 +15,7 @@ export const getDiaryThunk = createAsyncThunk(
 );
 
 export const addProductThunk = createAsyncThunk(
-  'dairy/addProduct',
+  'diary/addProduct',
   async body => {
     const { productId, calories, amount } = body;
     const { data } = await axios.post('diary/addProduct', {
@@ -24,5 +24,32 @@ export const addProductThunk = createAsyncThunk(
       amount,
     });
     return { data };
+  },
+);
+export const removeProductThunk = createAsyncThunk(
+  'diary/deleteProduct',
+  async ({ date, productToRemove }, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.delete(`diary/removeProduct`, {
+        data: { date, productToRemove },
+      });
+      return { productToRemove: productToRemove, data };
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  },
+);
+export const removeExerciseThunk = createAsyncThunk(
+  'diary/deleteExercise',
+  async ({ date, exerciseToRemove }, { rejectWithValue }) => {
+    console.log(exerciseToRemove);
+    try {
+      const { data } = await axios.delete(`diary/removeExercise`, {
+        data: { date, exerciseToRemove },
+      });
+      return { exerciseToRemove: exerciseToRemove, data };
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
   },
 );
