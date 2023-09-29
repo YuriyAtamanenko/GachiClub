@@ -1,5 +1,3 @@
-// import React from 'react';
-
 import { useState, useRef, forwardRef, useImperativeHandle } from 'react';
 import { Formik } from 'formik';
 import PropTypes from 'prop-types';
@@ -90,15 +88,7 @@ function ParamsStepOne(props) {
         autoComplete="off"
         validationSchema={stepOneValidationSchema}
         enableReinitialize={true}
-        // validateOnChange={false} // Disable automatic form validation on change
-        // validateOnBlur={false} // Disable automatic form validation on blur
-        // validate={values => {
-        //   stepOneValidationSchema.isValid(values).then(isValid => {
-        //     setIsFormValid(isValid); // Update the state to reflect form validity
-        //   });
-        // }}
       >
-        {/* {({ isValid }) => ( */}
         {({ isValid }) => (
           <StyledFormik>
             <div>
