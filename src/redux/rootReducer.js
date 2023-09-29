@@ -20,6 +20,7 @@ import {
 } from 'redux-persist';
 import { profileReducer } from './Profile/currentUserSlice';
 import { productsReducer } from './Products/productsSlice';
+import { diaryReducer } from './Diary/slice';
 
 const persistConfig = {
   key: 'auth',
@@ -39,6 +40,7 @@ export const reducer = combineReducers({
   exercises: exercisesReducer,
   profile: profileReducer,
   products: productsReducer,
+  diary: diaryReducer,
   // filter: filterReducer,
   // contacts: contactsReduser,
 });

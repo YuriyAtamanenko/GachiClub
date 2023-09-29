@@ -1,34 +1,27 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import sprite from '../../../images/sprite.svg';
 import {
   ExercisesContainer,
   BlockTxtBtn,
   ProductsExercisesText,
   ExercisesBtn,
+  ContainerExecrcises,
   BlockExeLabel768,
   TitleExeLabel768,
   BlockNotFoundExe,
-  ContainerExecrcisesInput,
-  BlockExecrcisesInput,
-  LabelExecrcises,
-  InputExecrcises,
   ButtonDelExe,
   SvgIconDel,
+  ListExercise,
+  ItemExercise,
+  ContentExercises,
+  LabelExercises,
+  TitleExercises,
 } from './ExeBlock.styled';
 
 const ExeBlock = () => {
-  const [execrcisesBlocks, setExecrcisesBlocks] = useState([]);
-  const [isBlockExeVisible, setBlockExeVisibility] = useState(false);
-
-  const removeExecrcisesBlocks = blockIndex => {
-    const updatedBlocks = [...execrcisesBlocks];
-    updatedBlocks.splice(blockIndex, 1);
-    setExecrcisesBlocks(updatedBlocks);
-
-    if (updatedBlocks.length === 0) {
-      setBlockExeVisibility(false);
-    }
-  };
+  const exercises = useSelector(store => store.diary.exercises);
+  console.log(exercises);
 
   return (
     <>
@@ -42,48 +35,73 @@ const ExeBlock = () => {
             </svg>
           </ExercisesBtn>
         </BlockTxtBtn>
-        {isBlockExeVisible && (
-          <BlockExeLabel768>
-            {[
-              'Body Part',
-              'Equipment',
-              'Name',
-              'Target',
-              'Burned Calories',
-              'Time',
-            ].map((label, index) => (
-              <TitleExeLabel768 key={index} className={`title-exe-${index}`}>
-                {label}
-              </TitleExeLabel768>
-            ))}
-          </BlockExeLabel768>
-        )}
-        {execrcisesBlocks.length === 0 ? (
-          <BlockNotFoundExe>Not found exercises</BlockNotFoundExe>
+        {exercises.length === 0 ? (
+          <BlockNotFoundExe>Not found products</BlockNotFoundExe>
         ) : (
-          execrcisesBlocks.map((block, blockIndex) => (
-            <ContainerExecrcisesInput key={block.id}>
-              <BlockExecrcisesInput>
-                {block.inputs.map((label, inputIndex) => (
-                  <div key={inputIndex}>
-                    <LabelExecrcises className={`label-exe-${inputIndex}`}>
-                      {label}
-                    </LabelExecrcises>
-                    <InputExecrcises className={`input-exe-${inputIndex}`}>
-                      <InputText></InputText>
-                    </InputExecrcises>
-                  </div>
-                ))}
-                <ButtonDelExe
-                  onClick={() => removeExecrcisesBlocks(blockIndex)}
-                >
-                  <SvgIconDel>
-                    <use xlinkHref={`${sprite}#icon-trash`} />
-                  </SvgIconDel>
-                </ButtonDelExe>
-              </BlockExecrcisesInput>
-            </ContainerExecrcisesInput>
-          ))
+          <ContainerExecrcises>
+            <BlockExeLabel768>
+              {['Title', 'Category', 'Calories', 'Weight', 'Recommend'].map(
+                (label, index) => (
+                  <TitleExeLabel768
+                    key={index}
+                    className={`title-exe-${index}`}
+                  >
+                    {label}
+                  </TitleExeLabel768>
+                ),
+              )}
+            </BlockExeLabel768>
+            <div>
+              <ListExercise>
+                {exercises.map(
+                  ({
+                    amount,
+                    calories,
+                    _id,
+                    productId: { category, title },
+                  }) => (
+                    <ItemExercise key={_id}>
+                      <ContentExercises className="title">
+                        <LabelExercises className="labTitle">
+                          Title
+                        </LabelExercises>
+                        <TitleExercises>{title}</TitleExercises>
+                      </ContentExercises>
+                      <ContentExercises className="category">
+                        <LabelExercises className="labCategory">
+                          Category
+                        </LabelExercises>
+                        <TitleExercises>{category}</TitleExercises>
+                      </ContentExercises>
+                      <ContentExercises className="calories">
+                        <LabelExercises className="labCalories">
+                          Calories
+                        </LabelExercises>
+                        <TitleExercises>{calories}</TitleExercises>
+                      </ContentExercises>
+                      <ContentExercises className="amount">
+                        <LabelExercises className="labWeight">
+                          Weight
+                        </LabelExercises>
+                        <TitleExercises>{amount}</TitleExercises>
+                      </ContentExercises>
+                      <ContentExercises className="recommend">
+                        <LabelExercises className="labRecommend">
+                          Recommend
+                        </LabelExercises>
+                        <TitleExercises>REC</TitleExercises>
+                      </ContentExercises>
+                      <ButtonDelExe>
+                        <SvgIconDel>
+                          <use xlinkHref={`${sprite}#icon-trash`} />
+                        </SvgIconDel>
+                      </ButtonDelExe>
+                    </ItemExercise>
+                  ),
+                )}
+              </ListExercise>
+            </div>
+          </ContainerExecrcises>
         )}
       </ExercisesContainer>
     </>

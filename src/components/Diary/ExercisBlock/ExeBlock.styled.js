@@ -102,6 +102,11 @@ export const ExercisesBtn = styled(Link).attrs({
     line-height: 150%;
   }
 `;
+export const ContainerExecrcises = styled.div`
+  @media screen and (min-width: 1440px) {
+    margin-left: 16px;
+  }
+`;
 export const BlockExeLabel768 = styled.div`
   @media screen and (min-width: 375px) {
     display: none;
@@ -200,175 +205,6 @@ export const BlockNotFoundExe = styled.p`
     line-height: 150%;
   }
 `;
-export const ContainerExecrcisesInput = styled.div`
-  @media screen and (min-width: 1440px) {
-    margin-left: 16px;
-  }
-`;
-export const BlockExecrcisesInput = styled.div`
-  @media screen and (min-width: 375px) {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-
-    margin-bottom: 40px;
-  }
-
-  @media screen and (min-width: 768px) {
-    margin-bottom: 8px;
-  }
-`;
-export const LabelExecrcises = styled.label`
-  @media screen and (min-width: 375px) {
-    display: block;
-    margin-bottom: 8px;
-
-    font-family: Roboto;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%;
-
-    color: var(--light-accent-color);
-
-    &.label-exe-4 {
-      width: 80px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-  }
-
-  @media screen and (min-width: 768px) {
-    &.label-exe-0,
-    &.label-exe-1,
-    &.label-exe-2,
-    &.label-exe-3,
-    &.label-exe-4,
-    &.label-exe-5 {
-      display: none;
-    }
-  }
-`;
-export const InputExecrcises = styled.div`
-  @media screen and (min-width: 375px) {
-    display: flex;
-    padding: 10px 14px;
-    height: 38px;
-
-    background-color: transparent;
-    border-radius: 12px;
-    border: 1px solid var(--secondary-text-color);
-
-    &:focus {
-      outline: none;
-    }
-
-    &.input-exe-0 {
-      width: 297px;
-      margin-bottom: 16px;
-    }
-
-    &.input-exe-1 {
-      width: 297px;
-      margin-bottom: 16px;
-    }
-
-    &.input-exe-2 {
-      width: 297px;
-      margin-bottom: 16px;
-    }
-
-    &.input-exe-3 {
-      width: 81px;
-      margin-right: 16px;
-    }
-
-    &.input-exe-4 {
-      width: 80px;
-      margin-right: 16px;
-    }
-
-    &.input-exe-5 {
-      width: 76px;
-    }
-  }
-
-  @media screen and (min-width: 768px) {
-    height: 40px;
-    padding: 8px 14px;
-
-    font-size: 16px;
-    line-height: 150%;
-
-    &.input-exe-0 {
-      width: 90px;
-      margin-right: 8px;
-      margin-bottom: 0;
-    }
-
-    &.input-exe-1 {
-      width: 132px;
-      margin-right: 8px;
-      margin-bottom: 0;
-    }
-
-    &.input-exe-2 {
-      width: 128px;
-      margin-right: 8px;
-      margin-bottom: 0;
-    }
-
-    &.input-exe-3 {
-      width: 84px;
-      margin-right: 8px;
-    }
-
-    &.input-exe-4 {
-      width: 78px;
-      margin-right: 8px;
-    }
-
-    &.input-exe-5 {
-      width: 72px;
-    }
-  }
-  @media screen and (min-width: 1440px) {
-    &.input-exe-0 {
-      width: 115px;
-    }
-
-    &.input-exe-1 {
-      width: 157px;
-    }
-
-    &.input-exe-2 {
-      width: 131px;
-    }
-
-    &.input-exe-3 {
-      width: 106px;
-    }
-
-    &.input-exe-4 {
-      width: 91px;
-    }
-
-    &.input-exe-5 {
-      width: 82px;
-    }
-  }
-`;
-export const InputText = styled.p`
-  font-family: Roboto;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 128.571%;
-
-  color: var(--primary-text-color);
-`;
-
 export const ButtonDelExe = styled.button`
   @media screen and (min-width: 375px) {
     position: absolute;
@@ -395,5 +231,151 @@ export const SvgIconDel = styled.svg`
   @media screen and (min-width: 375px) {
     width: 20px;
     height: 20px;
+  }
+`;
+
+// *****************************************
+
+export const ListExercise = styled.ul`
+  @media screen and (min-width: 375px) {
+    margin-top: 48px;
+  }
+  @media screen and (min-width: 768px) {
+    margin-top: 42px;
+  }
+`;
+
+export const ItemExercise = styled.li`
+  @media screen and (min-width: 375px) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 66px;
+  }
+  @media screen and (min-width: 768px) {
+    margin-bottom: 8px;
+  }
+`;
+
+export const ContentExercises = styled.div`
+  @media screen and (min-width: 375px) {
+    display: flex;
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(239, 237, 232, 0.3);
+
+    &.title {
+      width: 297px;
+      margin-bottom: 42px;
+    }
+    &.category {
+      width: 297px;
+      margin-bottom: 42px;
+    }
+    &.calories {
+      width: 81px;
+      margin-right: 16px;
+    }
+    &.amount {
+      width: 80px;
+      margin-right: 16px;
+    }
+    &.recommend {
+      width: 76px;
+      margin-right: 8px;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    &.title {
+      width: 204px;
+      padding: 8px 42px 8px 14px;
+      margin-bottom: 0;
+      margin-right: 8px;
+    }
+    &.category {
+      width: 128px;
+      margin-bottom: 0;
+      margin-right: 8px;
+    }
+    &.calories {
+      width: 90px;
+      margin-right: 8px;
+    }
+    &.amount {
+      width: 90px;
+      margin-right: 8px;
+    }
+    &.recommend {
+      width: 80px;
+      margin-right: 12px;
+    }
+  }
+  @media screen and (min-width: 1440px) {
+    &.title {
+      padding: 8px 50px 8px 14px;
+      width: 212px;
+    }
+    &.category {
+      width: 166px;
+    }
+    &.calories {
+      width: 105px;
+    }
+    &.amount {
+      width: 105px;
+    }
+    &.recommend {
+      width: 110px;
+    }
+  }
+`;
+
+export const LabelExercises = styled.label`
+  @media screen and (min-width: 375px) {
+    position: absolute;
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+
+    color: var(--light-accent-color);
+
+    &.labTitle {
+      top: 56px;
+      left: 16px;
+    }
+    &.labCategory {
+      top: 136px;
+      left: 16px;
+    }
+    &.labCalories {
+      top: 216px;
+      left: 16px;
+    }
+    &.labWeight {
+      top: 216px;
+      left: 113px;
+    }
+    &.labRecommend {
+      top: 216px;
+      left: 209px;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+`;
+
+export const TitleExercises = styled.p`
+  @media screen and (min-width: 375px) {
+  }
+  @media screen and (min-width: 768px) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  @media screen and (min-width: 1440px) {
   }
 `;
