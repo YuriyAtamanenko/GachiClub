@@ -42,7 +42,6 @@ export const removeProductThunk = createAsyncThunk(
 export const removeExerciseThunk = createAsyncThunk(
   'diary/deleteExercise',
   async ({ date, exerciseToRemove }, { rejectWithValue }) => {
-    console.log(exerciseToRemove);
     try {
       const { data } = await axios.delete(`diary/removeExercise`, {
         data: { date, exerciseToRemove },
