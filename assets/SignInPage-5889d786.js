@@ -1,13 +1,13 @@
-import{n,j as e,I as r,L as v,r as o,u as k,a as z,b as S,k as I,d as R,l as P,Q as a}from"./index-fdeecc62.js";import{F as l,a as x,E as C,c as F,b as p,d as $}from"./index.esm-5030eabc.js";import{B as T}from"./ButtonInput-df302595.js";import{s as i}from"./styled-components.browser.esm-5210bbc5.js";import{m as B,a as E,t as N,b as V,d as W,c as D}from"./default-mobile-2x-adbcb5a4.js";const L=n.div`
+import{n,j as e,I as r,L as v,r as o,u as k,a as z,b as S,k as I,d as R,l as P,Q as a}from"./index-10710d21.js";import{F as l,a as x,E as C,c as F,b as p,d as $}from"./index.esm-a5733eb2.js";import{B as T}from"./ButtonInput-3bf8e76e.js";import{s as i}from"./styled-components.browser.esm-5ea02b6c.js";import{m as B,a as E,t as N,b as V,d as W,c as D}from"./default-mobile-2x-adbcb5a4.js";const L=n.div`
   position: absolute;
-  left: 40%;
-  top: 139%;
+  left: 30%;
+  top: 150%;
   @media screen and (min-width: 768px) {
-    left: 100%;
-    top: 160%;
+    left: 40%;
+    top: 180%;
   }
   @media screen and (min-width: 1440px) {
-    left: 62%;
+    left: 45%;
     top: 75%;
   }
 `,U=n.div`
@@ -148,13 +148,16 @@ import{n,j as e,I as r,L as v,r as o,u as k,a as z,b as S,k as I,d as R,l as P,Q
     gap: 11px;
   }
 `,K=()=>e.jsxs(L,{children:[e.jsxs(U,{children:[e.jsx(q,{children:e.jsx(A,{children:e.jsx("use",{href:r+"#icon-play"})})}),e.jsxs("div",{children:[e.jsx(M,{children:"350+"}),e.jsx(Z,{children:"Video tutorial"})]})]}),e.jsxs(O,{children:[e.jsx(Q,{children:e.jsx(_,{children:e.jsx("use",{href:r+"#icon-run"})})}),e.jsxs(J,{children:[e.jsx(G,{children:"500"}),e.jsx(H,{children:"cal"})]})]})]}),X=i.div`
+  overflow-x: hidden;
   position: relative;
   margin: 0;
   min-width: 320px;
   max-width: 374px; /* Максимальная ширина для отзывчивости (320px - 375px) */
   margin: 0 auto;
   width: 100%; /* Занимать всю доступную ширину на экранах меньше 375px */
-
+  &::-webkit-scrollbar {
+    display: none;
+  }
   @media screen and (min-width: 375px) {
     /* Ширина для экранов от 376px до 767px */
     width: 375px; /* Адаптивная ширина */
@@ -163,7 +166,7 @@ import{n,j as e,I as r,L as v,r as o,u as k,a as z,b as S,k as I,d as R,l as P,Q
   @media screen and (min-width: 768px) {
     /* Ширина для экранов от 768px до 1439px */
     margin: 0;
-    width: 768px; /* Адаптивная ширина */
+    min-width: 704px; /* Адаптивная ширина */
   }
 
   @media screen and (min-width: 1440px) {
@@ -174,7 +177,7 @@ import{n,j as e,I as r,L as v,r as o,u as k,a as z,b as S,k as I,d as R,l as P,Q
 `,Y=i.div`
   position: absolute;
   top: 50%;
-  left: 77px;
+  left: 25px;
   width: 446px;
   height: 669px;
 
@@ -199,8 +202,8 @@ import{n,j as e,I as r,L as v,r as o,u as k,a as z,b as S,k as I,d as R,l as P,Q
 
     height: 1000px;
     width: 670px;
-    left: 331px;
-    top: 131px;
+    left: 215px;
+    top: 100px;
 
     pointer-events: none;
 
@@ -219,9 +222,9 @@ import{n,j as e,I as r,L as v,r as o,u as k,a as z,b as S,k as I,d as R,l as P,Q
     position: absolute;
     top: 0;
     right: 0;
-    left: 770px;
+    left: 580px;
     width: 670px;
-    height: 1005px;
+    height: 800px;
     pointer-events: none;
 
     background-image: url(${W});
@@ -238,13 +241,14 @@ import{n,j as e,I as r,L as v,r as o,u as k,a as z,b as S,k as I,d as R,l as P,Q
     }
   }
 `,ee=i.div`
-  padding-top: 127px;
+  padding-top: 90.5px;
 
   @media screen and (min-width: 768px) {
-    padding-top: 189px;
+    width: 496px;
+    padding-top: 140px;
   }
   @media screen and (min-width: 1440px) {
-    padding-top: 200px;
+    padding-top: 150px;
   }
 `,ie=i.div`
   width: 335px;
