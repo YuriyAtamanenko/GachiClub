@@ -1,7 +1,10 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { Formik, useFormik } from 'formik';
+import {
+  Formik,
+  // useFormik
+} from 'formik';
 import { object, string } from 'yup';
 import { loginization, checkUser } from '../../redux/Authorization/operations';
 import { ToastContainer, toast } from 'react-toastify';
@@ -23,8 +26,8 @@ import {
   WrapperText,
   StyledForm,
   WrapperInput,
-  MessageStyleError,
-  MessageStyleSuccess,
+  // MessageStyleError,
+  // MessageStyleSuccess,
   WrapperPassword,
   PasswordField,
   WrapperMessange,
@@ -36,8 +39,6 @@ const initialValues = {
   email: '',
   password: '',
 };
-
-
 
 const SignInPage = () => {
   const [isPassword, setIsPassword] = useState(false);
@@ -54,6 +55,7 @@ const SignInPage = () => {
   });
 
   const handleSubmit = async (values, action) => {
+    console.log('handleSubmit', values, action);
     try {
       const user = await checkUser(values.email, values.password);
 
@@ -93,11 +95,11 @@ const SignInPage = () => {
     password: string().min(6).max(16).required(),
   });
 
-  const formik = useFormik({
-    initialValues: initialValues,
-    validationSchema: signUpSchema,
-    onSubmit: handleSubmit,
-  });
+  // const formik = useFormik({
+  //   initialValues: initialValues,
+  //   validationSchema: signUpSchema,
+  //   onSubmit: handleSubmit,
+  // });
 
   const toglePassword = () => {
     setIsPassword(prevstate => {
@@ -114,7 +116,6 @@ const SignInPage = () => {
   };
 
   return (
-
     <Container className="Container">
       <WrapperDesktop className="Photo"></WrapperDesktop>
       <WrapperForm className="section">
@@ -131,23 +132,23 @@ const SignInPage = () => {
             validationSchema={signUpSchema}
             onSubmit={handleSubmit}
           >
-            {({ handleBlur, touched, errors }) => (
-              <StyledForm autoComplete="on" className="StyledForm">
-                <WrapperInput>
-                  <div>
-                    <FieldStyle
-                      type="email"
-                      name="email"
-                      placeholder="Email"
-                      onChange={e => {
-                        formik.handleChange(e);
-                      }}
-                      onBlur={formik.handleBlur}
-                      value={formik.values.email}
-                      className="FieldStyle"
-                    />
+            {/* {({ handleBlur, touched, errors }) => ( */}
+            <StyledForm autoComplete="on" className="StyledForm">
+              <WrapperInput>
+                <div>
+                  <FieldStyle
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    // onChange={e => {
+                    //   formik.handleChange(e);
+                    // }}
+                    // onBlur={formik.handleBlur}
+                    // value={formik.values.email}
+                    // className="FieldStyle"
+                  />
 
-                    <div>
+                  {/* <div>
                       {formik.touched.email ? (
                         formik.errors.email ? (
                           <MessageStyleError>
@@ -165,53 +166,50 @@ const SignInPage = () => {
                           </MessageStyleSuccess>
                         )
                       ) : null}
-                    </div>
+                    </div> */}
+                </div>
 
-                    </div>
+                <WrapperPassword>
+                  <PasswordField
+                    id="password"
+                    type={passwordInput}
+                    placeholder="Password"
+                    name="password"
+                    // className={
+                    //   formik.touched.password && formik.errors.password
+                    //     ? 'error-input'
+                    //     : formik.touched.password
+                    //     ? 'success-input'
+                    //     : 'default-input'
+                    // }
+                    // onChange={e => {
+                    //   formik.handleChange(e);
+                    // }}
+                    // value={formik.values.password}
+                    // onBlur={e => {
+                    //   handleBlur(e);
+                    //   formik.handleBlur(e);
+                    // }}
+                    // data-touch={touched.password && !errors.password}
+                  />
 
-                  <WrapperPassword>
-                    <PasswordField
-                      id="password"
-                      type={passwordInput}
-                      placeholder="Password"
-                      name="password"
-                      className={
-                        formik.touched.password && formik.errors.password
-                          ? 'error-input'
-                          : formik.touched.password
-                          ? 'success-input'
-                          : 'default-input'
-                      }
-                      onChange={e => {
-                        formik.handleChange(e);
-                        
-                      }}
-                      value={formik.values.password}
-                      
-                      onBlur={e => {
-                        handleBlur(e);
-                        formik.handleBlur(e);
-                      }}
-                      data-touch={touched.password && !errors.password}
-                    />
+                  <ButtonInput
+                    type="button"
+                    right="16px"
+                    onClick={toglePassword}
+                  >
+                    <svg width="20" height="20">
+                      <use
+                        href={
+                          sprite +
+                          `${isPassword ? `#icon-eye-off` : `#icon-eye`}`
+                        }
+                      ></use>
+                    </svg>
+                  </ButtonInput>
 
-                    <ButtonInput
-                      type="button"
-                      right="16px"
-                      onClick={toglePassword}
-                    >
-                      <svg width="20" height="20">
-                        <use
-                          href={
-                            sprite +
-                            `${isPassword ? `#icon-eye-off` : `#icon-eye`}`
-                          }
-                        ></use>
-                      </svg>
-                    </ButtonInput>
-
-                    <WrapperMessange className="messege">
-                      {formik.touched.password ? (
+                  <WrapperMessange className="messege">
+                    {/* {formik.touched.password ? (
                         formik.errors.password ? (
                           <MessageStyleError className="error-icon">
                             <svg width="16" height="16" fill="currentColor">
@@ -227,28 +225,24 @@ const SignInPage = () => {
                             Success password
                           </MessageStyleSuccess>
                         )
-                      ) : null}
-                    </WrapperMessange>
+                      ) : null} */}
+                  </WrapperMessange>
+                </WrapperPassword>
+              </WrapperInput>
 
-                    
-                  </WrapperPassword>
-                </WrapperInput>
+              <ButtonSubmit type="submit">Sign In</ButtonSubmit>
 
-                <ButtonSubmit type="submit">Sign In</ButtonSubmit>
-
-                <ReLink>
-                  Don’t have an account?{' '}
-                  <LinkStyle to="/signup">Sign Up</LinkStyle>
-                </ReLink>
-              </StyledForm>
-            )}
+              <ReLink>
+                Don’t have an account?{' '}
+                <LinkStyle to="/signup">Sign Up</LinkStyle>
+              </ReLink>
+            </StyledForm>
+            {/* )} */}
           </Formik>
         </div>
       </WrapperForm>
       <StatisticsSignIn />
     </Container>
-
-   
   );
 };
 
