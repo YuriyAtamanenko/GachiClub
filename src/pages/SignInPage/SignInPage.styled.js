@@ -10,13 +10,16 @@ import mobile1x from './../../images/default-mobile-1x.jpg';
 import mobile2x from './../../images/default-mobile-2x.jpg';
 
 export const Container = styled.div`
+  overflow-x: hidden;
   position: relative;
   margin: 0;
   min-width: 320px;
   max-width: 374px; /* Максимальная ширина для отзывчивости (320px - 375px) */
   margin: 0 auto;
   width: 100%; /* Занимать всю доступную ширину на экранах меньше 375px */
-
+  &::-webkit-scrollbar {
+    display: none;
+  }
   @media screen and (min-width: 375px) {
     /* Ширина для экранов от 376px до 767px */
     width: 375px; /* Адаптивная ширина */
@@ -25,7 +28,7 @@ export const Container = styled.div`
   @media screen and (min-width: 768px) {
     /* Ширина для экранов от 768px до 1439px */
     margin: 0;
-    width: 768px; /* Адаптивная ширина */
+    min-width: 704px; /* Адаптивная ширина */
   }
 
   @media screen and (min-width: 1440px) {
@@ -38,7 +41,7 @@ export const Container = styled.div`
 export const WrapperDesktop = styled.div`
   position: absolute;
   top: 50%;
-  left: 77px;
+  left: 25px;
   width: 446px;
   height: 669px;
 
@@ -63,8 +66,8 @@ export const WrapperDesktop = styled.div`
 
     height: 1000px;
     width: 670px;
-    left: 331px;
-    top: 131px;
+    left: 215px;
+    top: 100px;
 
     pointer-events: none;
 
@@ -83,9 +86,9 @@ export const WrapperDesktop = styled.div`
     position: absolute;
     top: 0;
     right: 0;
-    left: 770px;
+    left: 580px;
     width: 670px;
-    height: 1005px;
+    height: 800px;
     pointer-events: none;
 
     background-image: url(${desktop1x});
@@ -104,13 +107,14 @@ export const WrapperDesktop = styled.div`
 `;
 
 export const WrapperForm = styled.div`
-  padding-top: 127px;
+  padding-top: 90.5px;
 
   @media screen and (min-width: 768px) {
-    padding-top: 189px;
+    width: 496px;
+    padding-top: 140px;
   }
   @media screen and (min-width: 1440px) {
-    padding-top: 200px;
+    padding-top: 150px;
   }
 `;
 
