@@ -38,8 +38,8 @@ export const BlockTxtBtn = styled.div`
   @media screen and (min-width: 375px) {
     display: flex;
     align-items: center;
-    gap: 145px;
-    margin-bottom: 48px;
+    /* gap: 145px; */
+    /* margin-bottom: 48px; */
 
     &.block-ex {
       gap: 131px;
@@ -47,8 +47,8 @@ export const BlockTxtBtn = styled.div`
   }
 
   @media screen and (min-width: 768px) {
-    gap: 503px;
-    margin-bottom: 42px;
+    /* gap: 503px; */
+    /* margin-bottom: 42px; */
 
     &.block-ex {
       gap: 495px;
@@ -57,11 +57,11 @@ export const BlockTxtBtn = styled.div`
 
   @media screen and (min-width: 1440px) {
     justify-content: center;
-    gap: 624px;
-    margin-bottom: 42px;
+    /* gap: 624px;
+    margin-bottom: 42px; */
 
     &.block-ex {
-      gap: 615px;
+      gap: 608px;
     }
   }
 `;
@@ -109,19 +109,19 @@ export const ContainerExecrcises = styled.div`
 `;
 export const BlockExeLabel768 = styled.div`
   @media screen and (min-width: 375px) {
+  }
+
+  @media screen and (min-width: 768px) {
+  }
+`;
+export const TitleExeLabel768 = styled.p`
+  @media screen and (min-width: 375px) {
     display: none;
   }
 
   @media screen and (min-width: 768px) {
     display: block;
-  }
-`;
-export const TitleExeLabel768 = styled.p`
-  @media screen and (min-width: 768px) {
-    display: block;
     position: absolute;
-    top: 56px;
-    left: 0;
 
     font-family: Roboto;
     font-size: 12px;
@@ -132,47 +132,58 @@ export const TitleExeLabel768 = styled.p`
     color: var(--light-accent-color);
 
     &.title-exe-0 {
-      left: 13px;
+      top: 56px;
+      left: 16px;
     }
     &.title-exe-1 {
-      left: 111px;
+      top: 56px;
+      left: 114px;
     }
     &.title-exe-2 {
-      left: 251px;
+      top: 56px;
+      left: 254px;
     }
     &.title-exe-3 {
-      left: 388px;
+      top: 56px;
+      left: 390px;
     }
     &.title-exe-4 {
       width: 78px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      left: 479px;
+      top: 56px;
+      left: 482px;
     }
     &.title-exe-5 {
-      left: 565px;
+      top: 56px;
+      left: 568px;
     }
   }
 
   @media screen and (min-width: 1440px) {
     &.title-exe-0 {
+      top: 56px;
       left: 32px;
     }
     &.title-exe-1 {
+      top: 56px;
       left: 155px;
     }
     &.title-exe-2 {
+      top: 56px;
       left: 320px;
     }
     &.title-exe-3 {
+      top: 56px;
       left: 459px;
     }
     &.title-exe-4 {
-      width: 85px;
+      top: 56px;
       left: 573px;
     }
     &.title-exe-5 {
+      top: 56px;
       left: 672px;
     }
   }
@@ -207,24 +218,13 @@ export const BlockNotFoundExe = styled.p`
 `;
 export const ButtonDelExe = styled.button`
   @media screen and (min-width: 375px) {
-    position: absolute;
-    right: 0;
-    bottom: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0;
 
     background-color: transparent;
     border: none;
-  }
-
-  @media screen and (min-width: 768px) {
-    right: -35px;
-    bottom: 10px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    right: -45px;
   }
 `;
 export const SvgIconDel = styled.svg`
@@ -241,7 +241,7 @@ export const ListExercise = styled.ul`
     margin-top: 48px;
   }
   @media screen and (min-width: 768px) {
-    margin-top: 42px;
+    /* margin-top: 42px; */
   }
 `;
 
@@ -259,73 +259,85 @@ export const ItemExercise = styled.li`
 
 export const ContentExercises = styled.div`
   @media screen and (min-width: 375px) {
+    position: relative;
     display: flex;
     padding: 10px 14px;
     border-radius: 12px;
     border: 1px solid rgba(239, 237, 232, 0.3);
 
-    &.title {
+    &.bodyPart {
       width: 297px;
       margin-bottom: 42px;
     }
-    &.category {
+    &.equipment {
       width: 297px;
       margin-bottom: 42px;
     }
-    &.calories {
+    &.name {
+      width: 297px;
+      margin-bottom: 42px;
+    }
+    &.target {
       width: 81px;
       margin-right: 16px;
     }
-    &.amount {
+    &.calories {
       width: 80px;
       margin-right: 16px;
     }
-    &.recommend {
+    &.duration {
       width: 76px;
       margin-right: 8px;
     }
   }
   @media screen and (min-width: 768px) {
-    &.title {
-      width: 204px;
-      padding: 8px 42px 8px 14px;
+    &.bodyPart {
+      width: 90px;
       margin-bottom: 0;
       margin-right: 8px;
     }
-    &.category {
+    &.equipment {
+      width: 132px;
+      margin-bottom: 0;
+      margin-right: 8px;
+    }
+    &.name {
       width: 128px;
       margin-bottom: 0;
       margin-right: 8px;
     }
+    &.target {
+      width: 84px;
+      margin-right: 8px;
+    }
     &.calories {
-      width: 90px;
+      width: 78px;
       margin-right: 8px;
     }
-    &.amount {
-      width: 90px;
-      margin-right: 8px;
-    }
-    &.recommend {
-      width: 80px;
+    &.duration {
+      width: 72px;
       margin-right: 12px;
     }
   }
   @media screen and (min-width: 1440px) {
-    &.title {
-      padding: 8px 50px 8px 14px;
-      width: 212px;
+    &.bodyPart {
+      width: 115px;
     }
-    &.category {
-      width: 166px;
+    &.equipment {
+      width: 157px;
+    }
+    &.name {
+      width: 131px;
+    }
+    &.target {
+      width: 106px;
     }
     &.calories {
-      width: 105px;
+      width: 91px;
     }
-    &.amount {
-      width: 105px;
-    }
-    &.recommend {
-      width: 110px;
+    &.duration {
+      width: 82px;
+      margin-right: 20px;
     }
   }
 `;
@@ -341,25 +353,33 @@ export const LabelExercises = styled.label`
 
     color: var(--light-accent-color);
 
-    &.labTitle {
-      top: 56px;
-      left: 16px;
+    &.labBodyPart {
+      top: -23px;
+      left: 0;
     }
-    &.labCategory {
-      top: 136px;
-      left: 16px;
+    &.labEquipment {
+      top: -23px;
+      left: 0;
     }
-    &.labCalories {
-      top: 216px;
-      left: 16px;
+    &.labName {
+      top: -23px;
+      left: 0;
     }
-    &.labWeight {
-      top: 216px;
-      left: 113px;
+    &.labTarget {
+      top: -23px;
+      left: 0;
     }
-    &.labRecommend {
-      top: 216px;
-      left: 209px;
+    &.labCalori {
+      width: 80px;
+      top: -23px;
+      left: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    &.labDuration {
+      top: -23px;
+      left: 0;
     }
   }
 
@@ -370,6 +390,9 @@ export const LabelExercises = styled.label`
 
 export const TitleExercises = styled.p`
   @media screen and (min-width: 375px) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   @media screen and (min-width: 768px) {
     white-space: nowrap;

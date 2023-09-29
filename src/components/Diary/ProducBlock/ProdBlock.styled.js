@@ -237,7 +237,7 @@ export const ListProducts = styled.ul`
     margin-top: 48px;
   }
   @media screen and (min-width: 768px) {
-    margin-top: 42px;
+    /* margin-top: 42px; */
   }
 `;
 
@@ -255,6 +255,7 @@ export const ItemProducts = styled.li`
 
 export const ContentProducts = styled.div`
   @media screen and (min-width: 375px) {
+    position: relative;
     display: flex;
     padding: 10px 14px;
     border-radius: 12px;
@@ -326,18 +327,6 @@ export const ContentProducts = styled.div`
   }
 `;
 
-export const TitleProducts = styled.p`
-  @media screen and (min-width: 375px) {
-  }
-  @media screen and (min-width: 768px) {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  @media screen and (min-width: 1440px) {
-  }
-`;
-
 export const LabelProducts = styled.label`
   @media screen and (min-width: 375px) {
     position: absolute;
@@ -350,28 +339,40 @@ export const LabelProducts = styled.label`
     color: var(--light-accent-color);
 
     &.labTitle {
-      top: 56px;
-      left: 16px;
+      top: -23px;
+      left: 0;
     }
     &.labCategory {
-      top: 136px;
-      left: 16px;
+      top: -23px;
+      left: 0;
     }
     &.labCalories {
-      top: 216px;
-      left: 16px;
+      top: -23px;
+      left: 0;
     }
     &.labWeight {
-      top: 216px;
-      left: 113px;
+      top: -23px;
+      left: 0;
     }
     &.labRecommend {
-      top: 216px;
-      left: 209px;
+      top: -23px;
+      left: 0;
     }
   }
 
   @media screen and (min-width: 768px) {
     display: none;
+  }
+`;
+
+export const TitleProducts = styled.p`
+  @media screen and (min-width: 375px) {
+  }
+  @media screen and (min-width: 768px) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  @media screen and (min-width: 1440px) {
   }
 `;

@@ -65,39 +65,38 @@ const ExeBlock = () => {
                     exerciseId: { bodyPart, equipment, name, target },
                   }) => (
                     <ItemExercise key={_id}>
-                      <ContentExercises className="title">
-                        <LabelExercises className="labTitle">
+                      <ContentExercises className="bodyPart">
+                        <LabelExercises className="labBodyPart">
                           Body part
                         </LabelExercises>
                         <TitleExercises>{bodyPart}</TitleExercises>
                       </ContentExercises>
-                      <ContentExercises className="category">
-                        <LabelExercises className="labCategory">
+                      <ContentExercises className="equipment">
+                        <LabelExercises className="labEquipment">
                           Equipment
                         </LabelExercises>
-
                         <TitleExercises>{equipment}</TitleExercises>
                       </ContentExercises>
-                      <ContentExercises className="calories">
-                        <LabelExercises className="labCalories">
+                      <ContentExercises className="name">
+                        <LabelExercises className="labName">
                           Name
                         </LabelExercises>
                         <TitleExercises>{name}</TitleExercises>
                       </ContentExercises>
-                      <ContentExercises className="amount">
-                        <LabelExercises className="labWeight">
+                      <ContentExercises className="target">
+                        <LabelExercises className="labTarget">
                           Target
                         </LabelExercises>
                         <TitleExercises>{target}</TitleExercises>
                       </ContentExercises>
-                      <ContentExercises className="recommend">
-                        <LabelExercises className="labRecommend">
+                      <ContentExercises className="calories">
+                        <LabelExercises className="labCalori">
                           Burned Calories
                         </LabelExercises>
                         <TitleExercises>{calories}</TitleExercises>
                       </ContentExercises>
-                      <ContentExercises className="recommend">
-                        <LabelExercises className="labRecommend">
+                      <ContentExercises className="duration">
+                        <LabelExercises className="labDuration">
                           Time
                         </LabelExercises>
                         <TitleExercises>{duration}</TitleExercises>
