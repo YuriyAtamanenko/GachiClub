@@ -26,11 +26,10 @@ import {
   WrapperText,
   StyledForm,
   WrapperInput,
-  // MessageStyleError,
-  // MessageStyleSuccess,
+  MessageStyleError,
+  MessageStyleSuccess,
   WrapperPassword,
   PasswordField,
-  WrapperMessange,
 } from './SignInPage.styled';
 import { useState } from 'react';
 
@@ -72,11 +71,11 @@ const SignInPage = () => {
         } else {
           action.resetForm();
 
-          // if (loginResult.payload.bodyData.bodyData === undefined) {
-          //   navigate('/params');
-          // } else {
-          //   navigate('/diary');
-          // }
+          if (loginResult.payload.bodyData.bodyData === undefined) {
+            navigate('/params');
+          } else {
+            navigate('/diary');
+          }
         }
       } else {
         toast.error('Invalid data');
@@ -94,12 +93,6 @@ const SignInPage = () => {
       .required('Please input your E-mail!'),
     password: string().min(6).max(16).required(),
   });
-
-  // const formik = useFormik({
-  //   initialValues: initialValues,
-  //   validationSchema: signUpSchema,
-  //   onSubmit: handleSubmit,
-  // });
 
   const toglePassword = () => {
     setIsPassword(prevstate => {
@@ -132,30 +125,27 @@ const SignInPage = () => {
             validationSchema={signUpSchema}
             onSubmit={handleSubmit}
           >
-            {/* {({ handleBlur, touched, errors }) => ( */}
-            <StyledForm autoComplete="on" className="StyledForm">
-              <WrapperInput>
-                <div>
-                  <FieldStyle
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    // onChange={e => {
-                    //   formik.handleChange(e);
-                    // }}
-                    // onBlur={formik.handleBlur}
-                    // value={formik.values.email}
-                    // className="FieldStyle"
-                  />
+            {({ handleBlur, touched, errors }) => (
+              <StyledForm autoComplete="on" className="StyledForm">
+                <WrapperInput>
+                  <div>
+                    <div>
+                      <div>
+                        <FieldStyle
+                          type="email"
+                          name="email"
+                          placeholder="Email"
+                          onBlur={handleBlur}
+                        />
+                      </div>
 
-                  {/* <div>
-                      {formik.touched.email ? (
-                        formik.errors.email ? (
+                      {touched.email ? (
+                        errors.email ? (
                           <MessageStyleError>
                             <svg width="16" height="16" fill="currentColor">
                               <use href={sprite + `#icon-checkbox-error`} />
                             </svg>{' '}
-                            {formik.errors.email}
+                            {errors.email}
                           </MessageStyleError>
                         ) : (
                           <MessageStyleSuccess>
@@ -166,78 +156,65 @@ const SignInPage = () => {
                           </MessageStyleSuccess>
                         )
                       ) : null}
-                    </div> */}
-                </div>
+                    </div>
+                  </div>
 
-                <WrapperPassword>
-                  <PasswordField
-                    id="password"
-                    type={passwordInput}
-                    placeholder="Password"
-                    name="password"
-                    // className={
-                    //   formik.touched.password && formik.errors.password
-                    //     ? 'error-input'
-                    //     : formik.touched.password
-                    //     ? 'success-input'
-                    //     : 'default-input'
-                    // }
-                    // onChange={e => {
-                    //   formik.handleChange(e);
-                    // }}
-                    // value={formik.values.password}
-                    // onBlur={e => {
-                    //   handleBlur(e);
-                    //   formik.handleBlur(e);
-                    // }}
-                    // data-touch={touched.password && !errors.password}
-                  />
+                  <div>
+                    <WrapperPassword>
+                      <div>
+                        <PasswordField
+                          id="password"
+                          type={passwordInput}
+                          placeholder="Password"
+                          name="password"
+                          onBlur={handleBlur}
+                        />
 
-                  <ButtonInput
-                    type="button"
-                    right="16px"
-                    onClick={toglePassword}
-                  >
-                    <svg width="20" height="20">
-                      <use
-                        href={
-                          sprite +
-                          `${isPassword ? `#icon-eye-off` : `#icon-eye`}`
-                        }
-                      ></use>
-                    </svg>
-                  </ButtonInput>
+                        <ButtonInput
+                          type="button"
+                          right="16px"
+                          onClick={toglePassword}
+                        >
+                          <svg width="20" height="20">
+                            <use
+                              href={
+                                sprite +
+                                `${isPassword ? `#icon-eye-off` : `#icon-eye`}`
+                              }
+                            ></use>
+                          </svg>
+                        </ButtonInput>
+                      </div>
+                    </WrapperPassword>
 
-                  <WrapperMessange className="messege">
-                    {/* {formik.touched.password ? (
-                        formik.errors.password ? (
-                          <MessageStyleError className="error-icon">
-                            <svg width="16" height="16" fill="currentColor">
-                              <use href={sprite + `#icon-checkbox-error`} />
-                            </svg>{' '}
-                            {formik.errors.password}
-                          </MessageStyleError>
-                        ) : (
-                          <MessageStyleSuccess>
-                            <svg width="16" height="16" fill="currentColor">
-                              <use href={sprite + `#icon-checkbox-success`} />
-                            </svg>{' '}
-                            Success password
-                          </MessageStyleSuccess>
-                        )
-                      ) : null} */}
-                  </WrapperMessange>
-                </WrapperPassword>
-              </WrapperInput>
+                    {touched.password ? (
+                      errors.password ? (
+                        <MessageStyleError className="error-icon">
+                          <svg width="16" height="16" fill="currentColor">
+                            <use href={sprite + `#icon-checkbox-error`} />
+                          </svg>{' '}
+                          {errors.password}
+                        </MessageStyleError>
+                      ) : (
+                        <MessageStyleSuccess>
+                          <svg width="16" height="16" fill="currentColor">
+                            <use href={sprite + `#icon-checkbox-success`} />
+                          </svg>{' '}
+                          Success password
+                        </MessageStyleSuccess>
+                      )
+                    ) : null}
+                  </div>
+                </WrapperInput>
 
-              <ButtonSubmit type="submit">Sign In</ButtonSubmit>
+                <ButtonSubmit type="submit">Sign In</ButtonSubmit>
 
-              <ReLink>
-                Don’t have an account?{' '}
-                <LinkStyle to="/signup">Sign Up</LinkStyle>
-              </ReLink>
-            </StyledForm>
-            {/* )} */}
+                <ReLink>
+                  Don’t have an account?{' '}
+                  <LinkStyle to="/signup">Sign Up</LinkStyle>
+                </ReLink>
+              </StyledForm>
+            )}
           </Formik>
         </div>
       </WrapperForm>

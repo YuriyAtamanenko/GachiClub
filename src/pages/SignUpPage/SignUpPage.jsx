@@ -4,13 +4,14 @@ import { useNavigate } from 'react-router-dom';
 import {
   Formik,
   // useFormik
-} from 'formik'; // Добавьте useFormik
-import { object, string } from 'yup';
+} from 'formik';
+// import { object, string } from 'yup';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import StatisticsSignUp from './StatisticsSignUp/StatisticsSignUp';
 import sprite from '../../images/sprite.svg';
 import ButtonInput from '../../components/ButtonInput/ButtonInput';
+import * as Yup from 'yup';
 
 import {
   Container,
@@ -25,11 +26,11 @@ import {
   WrapperInput,
   ReLink,
   LinkStyle,
-  // MessageStyleError,
-  // MessageStyleSuccess,
+  MessageStyleError,
+  MessageStyleSuccess,
   PasswordField,
   WrapperPassword,
-  WrapperMessange,
+  // WrapperMessange,
 } from './SignUpPage.styled';
 
 import { register } from '../../redux/Authorization/operations';
@@ -79,24 +80,18 @@ const SignUpPage = () => {
     }
   };
 
-  const signUpSchema = object({
-    name: string().required('Please input your name!'),
-    email: string()
+  const signUpSchema = Yup.object().shape({
+    name: Yup.string().required('Please input your name!'),
+    email: Yup.string()
       .matches(/^\w+@[a-zA-Z_]+?.[a-zA-Z]{2,3}$/, 'Invalid E-mail format')
       .required('Please input your E-mail!'),
-    password: string()
+    password: Yup.string()
       .matches(
         /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{7,}/,
         'Password must contain at least 6 letters and 1 number',
       )
       .required('Please input your password'),
   });
-
-  // const formik = useFormik({
-  //   initialValues: initialValues,
-  //   validationSchema: signUpSchema,
-  //   onSubmit: handleSubmit,
-  // });
 
   const toglePassword = () => {
     setIsPassword(prevstate => {
@@ -132,152 +127,115 @@ const SignUpPage = () => {
             validationSchema={signUpSchema}
             onSubmit={handleSubmit}
           >
-            {/* {({ handleBlur, touched, errors }) => ( */}
-            <StyledForm autoComplete="off">
-              <WrapperInput>
-                <div>
-                  <StyledField
-                    type="text"
-                    name="name"
-                    placeholder="Name"
-                    // onChange={e => {
-                    //   formik.handleChange(e);
-                    //   // handleInputChange(e);
-                    // }}
-                    // onBlur={formik.handleBlur}
-                    // value={formik.values.name}
-                  />
+            {({ handleBlur, touched, errors }) => (
+              <StyledForm autoComplete="off">
+                <WrapperInput>
+                  <div>
+                    <div>
+                      <StyledField
+                        type="text"
+                        name="name"
+                        placeholder="Name"
+                        onBlur={handleBlur}
+                      />
+                    </div>
 
-                  {/* <div>
-                    {formik.touched.name ? (
-                      formik.errors.name ? (
-                        <MessageStyleError>
-                          <svg width="16" height="16" fill="currentColor">
-                            <use href={sprite + `#icon-checkbox-error`} />
-                          </svg>{' '}
-                          {formik.errors.name}
-                        </MessageStyleError>
-                      ) : (
-                        <MessageStyleSuccess>
-                          <svg width="16" height="16" fill="currentColor">
-                            <use href={sprite + `#icon-checkbox-success`} />
-                          </svg>{' '}
-                          Success name
-                        </MessageStyleSuccess>
-                      )
-                    ) : null}
-                  </div> */}
-                </div>
-
-                <div>
-                  <StyledField
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    // className={
-                    //   formik.touched.email && formik.errors.email
-                    //     ? 'error-input'
-                    //     : formik.touched.email
-                    //     ? 'success-input'
-                    //     : 'default-input'
-                    // }
-                    // onChange={e => {
-                    //   formik.handleChange(e);
-                    //   // handleInputChange(e);
-                    // }}
-                    // onBlur={formik.handleBlur}
-                    // value={formik.values.email}
-                    // className={setHoverColorState}
-                  />
-
-                  {/* {formik.touched.email ? (
-                    formik.errors.email ? (
+                    {touched.name && errors.name ? (
                       <MessageStyleError>
                         <svg width="16" height="16" fill="currentColor">
                           <use href={sprite + `#icon-checkbox-error`} />
-                        </svg>{' '}
-                        {formik.errors.email}
+                        </svg>
+                        {errors.name}
                       </MessageStyleError>
-                    ) : (
+                    ) : touched.name ? (
                       <MessageStyleSuccess>
                         <svg width="16" height="16" fill="currentColor">
                           <use href={sprite + `#icon-checkbox-success`} />
-                        </svg>{' '}
+                        </svg>
+                        Success name
+                      </MessageStyleSuccess>
+                    ) : null}
+                  </div>
+
+                  <div>
+                    <div>
+                      <StyledField
+                        type="email"
+                        name="email"
+                        placeholder="Email"
+                        onBlur={handleBlur}
+                      />
+                    </div>
+
+                    {touched.email && errors.email ? (
+                      <MessageStyleError>
+                        <svg width="16" height="16" fill="currentColor">
+                          <use href={sprite + `#icon-checkbox-error`} />
+                        </svg>
+                        {errors.email}
+                      </MessageStyleError>
+                    ) : touched.email ? (
+                      <MessageStyleSuccess>
+                        <svg width="16" height="16" fill="currentColor">
+                          <use href={sprite + `#icon-checkbox-success`} />
+                        </svg>
                         Success email
                       </MessageStyleSuccess>
-                    )
-                  ) : null} */}
-                </div>
+                    ) : null}
+                  </div>
 
-                <WrapperPassword>
-                  <PasswordField
-                    id="password"
-                    type={passwordInput}
-                    placeholder="Password"
-                    name="password"
-                    //   className={
-                    //     formik.touched.password && formik.errors.password
-                    //       ? 'error-input'
-                    //       : formik.touched.password
-                    //       ? 'success-input'
-                    //       : 'default-input'
-                    //   }
-                    //   onChange={e => {
-                    //     formik.handleChange(e);
-                    //   }}
-                    //   value={formik.values.password}
-                    //   onBlur={e => {
-                    //     handleBlur(e);
-                    //     formik.handleBlur(e);
-                    //   }}
-                    //   data-touch={touched.password && !errors.password}
-                  />
+                  <div>
+                    <WrapperPassword>
+                      <PasswordField
+                        id="password"
+                        type={passwordInput}
+                        placeholder="Password"
+                        name="password"
+                        onBlur={handleBlur}
+                      />
 
-                  <ButtonInput
-                    type="button"
-                    right="16px"
-                    onClick={toglePassword}
-                  >
-                    <svg width="20" height="20">
-                      <use
-                        href={
-                          sprite +
-                          `${isPassword ? `#icon-eye-off` : `#icon-eye`}`
-                        }
-                      ></use>
-                    </svg>
-                  </ButtonInput>
+                      <ButtonInput
+                        type="button"
+                        right="16px"
+                        onClick={toglePassword}
+                      >
+                        <svg width="20" height="20">
+                          <use
+                            href={
+                              sprite +
+                              `${isPassword ? `#icon-eye-off` : `#icon-eye`}`
+                            }
+                          ></use>
+                        </svg>
+                      </ButtonInput>
+                    </WrapperPassword>
 
-                  <WrapperMessange className="messege">
-                    {/* {formik.touched.password ? (
-                      formik.errors.password ? (
-                        <MessageStyleError className="error-icon">
-                          <svg width="16" height="16" fill="currentColor">
-                            <use href={sprite + `#icon-checkbox-error`} />
-                          </svg>{' '}
-                          {formik.errors.password}
-                        </MessageStyleError>
-                      ) : (
-                        <MessageStyleSuccess>
-                          <svg width="16" height="16" fill="currentColor">
-                            <use href={sprite + `#icon-checkbox-success`} />
-                          </svg>{' '}
-                          Success password
-                        </MessageStyleSuccess>
-                      )
-                    ) : null} */}
-                  </WrapperMessange>
-                </WrapperPassword>
-              </WrapperInput>
+                    {touched.password && errors.password ? (
+                      <MessageStyleError>
+                        <svg width="16" height="16" fill="currentColor">
+                          <use href={sprite + `#icon-checkbox-error`} />
+                        </svg>
+                        {errors.password}
+                      </MessageStyleError>
+                    ) : touched.password ? (
+                      <MessageStyleSuccess>
+                        <svg width="16" height="16" fill="currentColor">
+                          <use href={sprite + `#icon-checkbox-success`} />
+                        </svg>
+                        Success password
+                      </MessageStyleSuccess>
+                    ) : null}
+                  </div>
+                </WrapperInput>
 
-              <ButtonSubmit type="submit">Sign Up</ButtonSubmit>
+                <ButtonSubmit type="submit">Sign Up</ButtonSubmit>
 
-              <ReLink>
-                Already have an account?{' '}
-                <LinkStyle to="/signin">Sign In</LinkStyle>
-              </ReLink>
-            </StyledForm>
-            {/* )} */}
+                <ReLink>
+                  Already have an account?{' '}
+                  <LinkStyle to="/signin">Sign In</LinkStyle>
+                </ReLink>
+              </StyledForm>
+            )}
           </Formik>
         </div>
       </WrapperForm>

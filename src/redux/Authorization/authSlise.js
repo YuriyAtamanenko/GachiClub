@@ -37,6 +37,7 @@ const initialState = {
   error: null,
   isLoading: false,
   bodyData: { bodyData: null },
+  isRegistered: false,
 };
 
 const authSlise = createSlice({
@@ -57,6 +58,7 @@ const authSlise = createSlice({
       .addCase(loginization.fulfilled, (state, action) => {
         state.token = action.payload.token;
         state.bodyData = { ...state.bodyData, ...action.payload };
+        state.isRegistered = true;
 
         if (state.bodyData.bodyData === null) {
           state.isLoaggedIn = false;
