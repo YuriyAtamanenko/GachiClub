@@ -35,6 +35,16 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
+          {/* <Route
+            index
+            element={
+              <RestrictedRoute
+                redirectTo={isRegistered ? '/diary' : '/params'}
+                component={WelcomePage}
+              />
+            }
+          /> */}
+
           <Route
             index
             element={
