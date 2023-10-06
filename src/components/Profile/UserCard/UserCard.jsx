@@ -20,7 +20,7 @@ import SvgSprite from '../../../images/sprite.svg';
 import { customButtonStyle } from './customLogoutStyle';
 
 const UserCard = ({ dataUser, changeAvatar, selectedAvatar }) => {
-  const { name, dailyRateCalories, dailySportMin, avatarUrl } = dataUser;
+  const { name, dailyRateCalories, dailySportMin } = dataUser;
 
   const handleAvatarChange = e => {
     const avatarFile = e.target.files[0];
@@ -39,7 +39,7 @@ const UserCard = ({ dataUser, changeAvatar, selectedAvatar }) => {
             <ImgUser
               src={
                 typeof selectedAvatar !== 'object'
-                  ? avatarUrl
+                  ? selectedAvatar
                   : URL.createObjectURL(selectedAvatar)
               }
               alt="scelet user"

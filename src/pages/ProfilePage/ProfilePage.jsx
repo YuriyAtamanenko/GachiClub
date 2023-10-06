@@ -4,15 +4,19 @@ import UserCard from '../../components/Profile/UserCard';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { updateUserProfile } from '../../redux/Profile/operations';
+import { selectUser } from '../../redux/Authorization/selector';
 
 const ProfilePage = () => {
-  const userData = useSelector(store => store.auth.bodyData);
-  const [selectedAvatar, setSelectedAvatar] = useState(userData.avatarUrl);
+  const userData = useSelector(selectUser);
+  const { memo } = useSelector(state => state.profile);
+  const [selectedAvatar, setSelectedAvatar] = useState(
+    memo === null ? userData.avatarUrl : memo.avatarUrl,
+  );
+
+  console.log('memo', memo);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    setSelectedAvatar(userData.avatarUrl);
-  }, [userData.avatarUrl, dispatch]);
+  useEffect(() => {}, [dispatch]);
 
   const formatingBirthday = birthday =>
     `${birthday.getFullYear()}-${String(birthday.getMonth() + 1).padStart(
@@ -40,8 +44,6 @@ const ProfilePage = () => {
     }
 
     formData.birthday = formatingBirthday(new Date(data.birthday));
-
-    data.avatarUrl = null;
 
     dispatch(updateUserProfile(formData));
   };
