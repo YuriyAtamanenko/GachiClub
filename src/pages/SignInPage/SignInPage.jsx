@@ -1,43 +1,33 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import {
-  Formik,
-  // useFormik
-} from 'formik';
-import { object, string } from 'yup';
 import { loginization, checkUser } from '../../redux/Authorization/operations';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import StatisticsSignIn from '../SignInPage/StatisticsSignIn/StatisticsSignIn';
-import sprite from '../../images/sprite.svg';
-import ButtonInput from '../../components/ButtonInput/ButtonInput';
+import AuthForm from '../../components/AuthForm/AuthForm';
+import AuthFormButton from '../../components/AuthFormButtons/AuthFormButtons';
+import AuthFormLink from '../../components/AuthFormLink/AuthFormLink';
 
 import {
   WrapperDesktop,
-  FieldStyle,
-  ButtonSubmit,
-  ReLink,
-  LinkStyle,
+  // FieldStyle,
+  // ButtonSubmit,
+  // ReLink,
+  // LinkStyle,
   Container,
   WrapperForm,
   Title,
   Text,
   WrapperText,
-  StyledForm,
-  WrapperInput,
-  MessageStyleError,
-  MessageStyleSuccess,
-  WrapperPassword,
-  PasswordField,
+  // StyledForm,
+  // WrapperInput,
+  // MessageStyleError,
+  // MessageStyleSuccess,
+  // WrapperPassword,
+  // PasswordField,
 } from './SignInPage.styled';
 import { useState } from 'react';
-
-const initialValues = {
-  name: '',
-  email: '',
-  password: '',
-};
 
 const SignInPage = () => {
   const [isPassword, setIsPassword] = useState(false);
@@ -87,13 +77,6 @@ const SignInPage = () => {
     }
   };
 
-  const signUpSchema = object({
-    email: string()
-      .matches(/^\w+@[a-zA-Z_]+?.[a-zA-Z]{2,3}$/, 'Invalid E-mail format')
-      .required('Please input your E-mail!'),
-    password: string().min(6).max(16).required(),
-  });
-
   const toglePassword = () => {
     setIsPassword(prevstate => {
       return !prevstate;
@@ -120,102 +103,20 @@ const SignInPage = () => {
           </Text>
         </WrapperText>
         <div>
-          <Formik
-            initialValues={initialValues}
-            validationSchema={signUpSchema}
-            onSubmit={handleSubmit}
+          <AuthForm
+            nameIsShown={false}
+            handleSubmit={handleSubmit}
+            toglePassword={toglePassword}
+            passwordInput={passwordInput}
+            isPassword={isPassword}
           >
-            {({ handleBlur, touched, errors }) => (
-              <StyledForm autoComplete="on" className="StyledForm">
-                <WrapperInput>
-                  <div>
-                    <div>
-                      <div>
-                        <FieldStyle
-                          type="email"
-                          name="email"
-                          placeholder="Email"
-                          onBlur={handleBlur}
-                        />
-                      </div>
-
-                      {touched.email ? (
-                        errors.email ? (
-                          <MessageStyleError>
-                            <svg width="16" height="16" fill="currentColor">
-                              <use href={sprite + `#icon-checkbox-error`} />
-                            </svg>{' '}
-                            {errors.email}
-                          </MessageStyleError>
-                        ) : (
-                          <MessageStyleSuccess>
-                            <svg width="16" height="16" fill="currentColor">
-                              <use href={sprite + `#icon-checkbox-success`} />
-                            </svg>{' '}
-                            Success name
-                          </MessageStyleSuccess>
-                        )
-                      ) : null}
-                    </div>
-                  </div>
-
-                  <div>
-                    <WrapperPassword>
-                      <div>
-                        <PasswordField
-                          id="password"
-                          type={passwordInput}
-                          placeholder="Password"
-                          name="password"
-                          onBlur={handleBlur}
-                        />
-
-                        <ButtonInput
-                          type="button"
-                          right="16px"
-                          onClick={toglePassword}
-                        >
-                          <svg width="20" height="20">
-                            <use
-                              href={
-                                sprite +
-                                `${isPassword ? `#icon-eye-off` : `#icon-eye`}`
-                              }
-                            ></use>
-                          </svg>
-                        </ButtonInput>
-                      </div>
-                    </WrapperPassword>
-
-                    {touched.password ? (
-                      errors.password ? (
-                        <MessageStyleError className="error-icon">
-                          <svg width="16" height="16" fill="currentColor">
-                            <use href={sprite + `#icon-checkbox-error`} />
-                          </svg>{' '}
-                          {errors.password}
-                        </MessageStyleError>
-                      ) : (
-                        <MessageStyleSuccess>
-                          <svg width="16" height="16" fill="currentColor">
-                            <use href={sprite + `#icon-checkbox-success`} />
-                          </svg>{' '}
-                          Success password
-                        </MessageStyleSuccess>
-                      )
-                    ) : null}
-                  </div>
-                </WrapperInput>
-
-                <ButtonSubmit type="submit">Sign In</ButtonSubmit>
-
-                <ReLink>
-                  Don’t have an account?{' '}
-                  <LinkStyle to="/signup">Sign Up</LinkStyle>
-                </ReLink>
-              </StyledForm>
-            )}
-          </Formik>
+            <AuthFormButton text="Sign In" type="submit" />
+            <AuthFormLink
+              text="Don’t have an account?"
+              textLink="Sign Up"
+              to="/signup"
+            />
+          </AuthForm>
         </div>
       </WrapperForm>
       <StatisticsSignIn />

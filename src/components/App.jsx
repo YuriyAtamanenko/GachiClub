@@ -66,12 +66,14 @@ function App() {
             }
           />
 
-          <Route
+          <Route path="/params" element={<ParamsPage />} />
+
+          {/* <Route
             path="/params"
             element={
               <RestrictedRoute component={ParamsPage} redirectTo="/diary" />
             }
-          />
+          /> */}
 
           <Route
             path="/diary"
@@ -91,6 +93,9 @@ function App() {
               <PrivateRoute component={ExercisesPage} redirectTo="/signin" />
             }
           />
+
+          {/* <Route path="/profile" element={<ProfilePage />} /> */}
+
           <Route
             path="/profile"
             element={

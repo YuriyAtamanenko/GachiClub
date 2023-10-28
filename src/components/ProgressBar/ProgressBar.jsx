@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import css from './UserDataPage.module.css';
+import css from './ProgressBar.module.css';
 
 export const ProgressBarStep1 = ({ currentStep }) => {
   const isCompleted = currentStep >= 0;

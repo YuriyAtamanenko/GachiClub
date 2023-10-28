@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Formik } from 'formik';
 import PropTypes from 'prop-types';
-import { updateUser } from '../../../redux/Authorization/operations';
+import { updateUser } from '../../redux/Authorization/operations';
 import {
   BtnBack,
   BtnContainer,
@@ -15,8 +15,8 @@ import {
   Wrapper,
   WrapperDesktop,
 } from './ParamsStepThreePage.styled';
-import sprite from '../../../images/sprite.svg';
-import Elements from '../../../components/Statistics/Elements';
+import sprite from '../../images/sprite.svg';
+import Elements from '../../components/Statistics/Elements';
 
 const ParamsStepThree = props => {
   const dispatch = useDispatch();
@@ -34,11 +34,11 @@ const ParamsStepThree = props => {
           height: props.data.height,
           currentWeight: props.data.currentWeight,
           desiredWeight: props.data.desiredWeight,
-          birthday: '2005-06-17T07:27:41.902Z',
+          birthday: props.data.birthday,
           blood: props.data.blood,
           sex: props.data.sex,
           levelActivity: props.data.levelActivity,
-        })
+        }),
       );
 
       navigate('/diary');
@@ -56,9 +56,10 @@ const ParamsStepThree = props => {
         <Container>
           <Title>Dear user</Title>
           <Text>
-            Thank you for filling in all the required data. We greatly appreciate your cooperation
-            and commitment to a healthy lifestyle. The collected information will allow us to
-            provide you with a more individual and personalized approach.
+            Thank you for filling in all the required data. We greatly
+            appreciate your cooperation and commitment to a healthy lifestyle.
+            The collected information will allow us to provide you with a more
+            individual and personalized approach.
           </Text>
         </Container>
         <Formik initialValues={props.data} onSubmit={handleSubmit}>
