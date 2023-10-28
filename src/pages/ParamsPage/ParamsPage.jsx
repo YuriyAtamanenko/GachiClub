@@ -1,9 +1,13 @@
 import { useState } from 'react';
-import ParamsStepOne from './ParamsStepOnePage';
-import ParamsStepTwo from './ParamsStepTwoPage';
-import ParamsStepThree from './StepThree/ParamsStepThreePage';
+import ParamsStepOne from '../../components/ParamsStepOne/ParamsStepOnePage';
+import ParamsStepTwo from '../../components/ParamsStepTwo/ParamsStepTwoPage';
+import ParamsStepThree from '../../components/ParamsStepThree/ParamsStepThreePage';
 
-import { ProgressBarStep1, ProgressBarStep2, ProgressBarStep3 } from './ProgressBar';
+import {
+  ProgressBarStep1,
+  ProgressBarStep2,
+  ProgressBarStep3,
+} from '../../components/ProgressBar/ProgressBar';
 
 const progressBarStyles = {
   display: 'flex',
@@ -20,7 +24,7 @@ const ParamsPage = () => {
     height: '',
     currentWeight: '',
     desiredWeight: '',
-    birthday: '',
+    birthday: null,
     blood: '',
     sex: '',
     levelActivity: '',
@@ -54,9 +58,19 @@ const ParamsPage = () => {
   const steps = [
     <ParamsStepOne key="step1" next={handleNextStep} data={data} />,
 
-    <ParamsStepTwo key="step2" next={handleNextStep} prev={handlePrevStep} data={data} />,
+    <ParamsStepTwo
+      key="step2"
+      next={handleNextStep}
+      prev={handlePrevStep}
+      data={data}
+    />,
 
-    <ParamsStepThree key="step3" next={handleNextStep} prev={handlePrevStep} data={data} />,
+    <ParamsStepThree
+      key="step3"
+      next={handleNextStep}
+      prev={handlePrevStep}
+      data={data}
+    />,
   ];
 
   // console.log('data', data);

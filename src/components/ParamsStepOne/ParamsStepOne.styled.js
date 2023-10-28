@@ -46,14 +46,16 @@ export const Text = styled.p`
   }
 `;
 
-export const Label = styled.p`
-  margin-bottom: 4px;
-  color: rgba(239, 237, 232, 0.6);
-  font-family: Roboto;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 18px;
+export const WrapperInput = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+
+  @media screen and (min-width: 768px) {
+    width: 527px;
+  }
 `;
+
 
 export const StyledFormik = styled(Form)`
   gap: 7px;
@@ -64,46 +66,35 @@ export const InputField = styled(Field)`
   background-color: transparent;
   width: 155px;
   height: 46px;
+
   outline: none;
   border-radius: 12px;
   border: 1px solid var(--secondary-text-color);
-  color: var(--primary-text-color);
+  color: rgba(239, 237, 232, 0.6);
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  padding-left: 14px;
 
-  &[name='height'] {
-    margin-right: 14px;
-    margin-bottom: 14px;
 
-    color: rgba(239, 237, 232, 0.6);
-    font-family: Roboto;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 18px;
-    padding-left: 14px;
-  }
-  &[name='desiredWeight'] {
-    color: rgba(239, 237, 232, 0.6);
-    font-family: Roboto;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 18px;
-    padding-left: 14px;
-  }
   &[name='currentWeight'] {
-    color: rgba(239, 237, 232, 0.6);
-    font-family: Roboto;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 18px;
-    padding-left: 14px;
     width: 159px;
     height: 46px;
   }
-  &:hover {
+
+  &:hover,
+  &:focus {
     border: 1px solid rgba(230, 83, 60, 1);
   }
+
+  transition: 0.5s;
+
   @media screen and (min-width: 768px) {
     width: 153px;
     height: 52px;
+    font-size: 16px;
+    line-height: 24px;
     &[name='currentWeight'] {
       width: 172px;
       height: 52px;
@@ -111,32 +102,6 @@ export const InputField = styled(Field)`
     &[name='desiredWeight'] {
       width: 174px;
       height: 52px;
-    }
-    @media screen and (min-width: 1440px) {
-      &[name='height'] {
-        font-family: Roboto;
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 24px;
-        letter-spacing: 0em;
-        text-align: left;
-      }
-      &[name='currentWeight'] {
-        font-family: Roboto;
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 24px;
-        letter-spacing: 0em;
-        text-align: left;
-      }
-      &[name='desiredWeight'] {
-        font-family: Roboto;
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 24px;
-        letter-spacing: 0em;
-        text-align: left;
-      }
     }
   }
 `;
@@ -152,6 +117,7 @@ export const ButtonNext = styled.button`
   font-weight: 400;
   line-height: 18px;
   padding-left: 14px;
+
   @media screen and (min-width: 768px) {
     margin-bottom: 439px;
     margin-top: 32px;
@@ -162,11 +128,13 @@ export const ButtonNext = styled.button`
     margin-bottom: 204px;
   }
 `;
+
 export const Next = styled.svg`
   color: rgba(230, 83, 60, 1);
   width: 10px;
   height: 9px;
 `;
+
 export const ContainerInside = styled.div`
   position: relative;
   top: -200px;
@@ -192,6 +160,7 @@ export const Message = styled(ErrorMessage)`
     top: 48%;
   }
 `;
+
 export const MessageWeight = styled(ErrorMessage)`
   position: absolute;
   color: rgba(216, 0, 39, 1);
@@ -206,6 +175,7 @@ export const MessageWeight = styled(ErrorMessage)`
     left: 270px;
   }
 `;
+
 export const MessageDesired = styled(ErrorMessage)`
   position: absolute;
   color: rgba(216, 0, 39, 1);
@@ -218,6 +188,7 @@ export const MessageDesired = styled(ErrorMessage)`
     top: 56%;
   }
 `;
+
 export const MessageBirthday = styled(ErrorMessage)`
   position: absolute;
   color: rgba(216, 0, 39, 1);
@@ -232,6 +203,7 @@ export const MessageBirthday = styled(ErrorMessage)`
     left: 290px;
   }
 `;
+
 export const WrapperDesktop = styled.div`
   position: absolute;
   top: 130px;
@@ -295,6 +267,7 @@ export const WrapperDesktop = styled.div`
       }
     }
   }
+
   @media screen and (min-width: 1440px) {
     top: 0;
     left: 800px;
@@ -324,4 +297,43 @@ export const WrapperDesktop = styled.div`
       }
     }
   }
+`;
+
+export const MessageStyleError = styled.div`
+  display: flex;
+  gap: 4px;
+  /* position: absolute; */
+  width: 153px;
+  margin-top: 5px;
+  color: rgba(216, 0, 39, 1);
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  top: 42%;
+
+  @media screen and (min-width: 1440px) {
+    top: 56%;
+  }
+`;
+
+export const MessageStyleSuccess = styled.div`
+  /* position: absolute; */
+  width: 153px;
+
+  display: flex;
+  gap: 4px;
+
+  margin-top: 5px;
+  font-feature-settings:
+    'clig' off,
+    'liga' off;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.12px;
+
+  color: #3cbf61;
 `;

@@ -1,10 +1,10 @@
 import styled from '@emotion/styled';
-import desktop1x from './../../../images/params03-desktop-1x.jpg';
-import desktop2x from './../../../images/params03-desktop-2x.jpg';
-import tablet1x from './../../../images/params03-tablet-1x.jpg';
-import tablet2x from './../../../images/params03-tablet-2x.jpg';
-import mobile1x from './../../../images/params03-mobile-1x.jpg';
-import mobile2x from './../../../images/params03-mobile-2x.jpg';
+import desktop1x from './../../images/params03-desktop-1x.jpg';
+import desktop2x from './../../images/params03-desktop-2x.jpg';
+import tablet1x from './../../images/params03-tablet-1x.jpg';
+import tablet2x from './../../images/params03-tablet-2x.jpg';
+import mobile1x from './../../images/params03-mobile-1x.jpg';
+import mobile2x from './../../images/params03-mobile-2x.jpg';
 
 export const Container = styled.div`
   margin-bottom: 40px;

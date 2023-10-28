@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Field, ErrorMessage } from 'formik';
 
 import params1xmobile from '../../images/params02-mobile-1x.jpg';
 import params2xmobile from '../../images/params02-mobile-2x.jpg';
@@ -6,7 +7,7 @@ import params1xtablet from '../../images/params02-tablet-1x.jpg';
 import params2xtablet from '../../images/params02-tablet-2x.jpg';
 import params1xdesktop from '../../images/params02-desktop-1x.jpg';
 import params2xdesktop from '../../images/params02-desktop-2x.jpg';
-import { setLocale } from 'yup';
+// import { setLocale } from 'yup';
 
 export const Title = styled.h2`
   color: #efede8;
@@ -127,52 +128,119 @@ export const WrapperDesktop = styled.div`
 export const Container = styled.div`
   padding: 20px;
 `;
-export const ContainerBlood = styled.div`
+
+export const BloodSexTitle = styled.p`
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 18px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 24px;
+  }
+`;
+
+export const RadioBoxBlood = styled.div`
+  margin-right: 64px;
+
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+
+  text-align: left;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 24px;
+  }
+`;
+export const RadioBoxSex = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-right: 64px;
+  /* gap: 8px; */
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 24px;
+  }
+`;
+export const ContainerBloodSex = styled.div`
+  display: flex;
   margin-bottom: 28px;
 
-  font-family: Roboto;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 32px;
+  }
+`;
+
+export const ContainerActivity = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
 
-  text-align: left;
+  @media screen and (min-width: 768px) {
+    gap: 16px;
+    font-size: 16px;
+    line-height: 24px;
+  }
 `;
-export const ContainerSex = styled.div`
+
+export const TitleActivity = styled.p``;
+export const RadioBoxList = styled.ul`
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  font-family: Roboto;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 18px;
-`;
-export const ContainerFirst = styled.div`
-  display: flex;
-`;
-export const Title2 = styled.p`
-  font-family: Roboto;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 18px;
-  letter-spacing: 0px;
-  text-align: left;
-  margin-bottom: 14px;
-`;
-export const ContainerInfo = styled.div`
   width: 334px;
-  height: 196px;
   gap: 8px;
-  font-family: Roboto;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 18px;
-  letter-spacing: 0em;
-  text-align: left;
+
+  @media screen and (min-width: 768px) {
+    width: 523px;
+  }
 `;
+
+export const BloodBoxList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  width: 40px;
+  gap: 8px;
+
+  @media screen and (min-width: 768px) {
+    width: 46px;
+  }
+`;
+
+export const SexBoxList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  width: 74px;
+  gap: 8px;
+
+  @media screen and (min-width: 768px) {
+    width: 85px;
+  }
+`;
+
+export const RadioBoxItem = styled.li`
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  font-family: Roboto;
+  text-align: left;
+
+  @media screen and (min-width: 768px) {
+    gap: 8px;
+  }
+`;
+
 export const ButtonNext = styled.button`
   margin-top: 28px;
   margin-bottom: 343px;
@@ -184,6 +252,7 @@ export const ButtonNext = styled.button`
   font-weight: 400;
   line-height: 18px;
   padding-left: 14px;
+
   @media screen and (min-width: 768px) {
     margin-bottom: 439px;
     margin-top: 32px;
@@ -215,4 +284,75 @@ export const Back = styled.svg`
   fill: rgba(230, 83, 60, 1);
   width: 10px;
   height: 9px;
+`;
+
+export const LabelStyled = styled.label`
+  cursor: pointer;
+
+  float: left;
+  -webkit-user-select: none;
+  user-select: none;
+
+  @media screen and (max-width: 480px) {
+    float: none;
+  }
+`;
+
+export const StyledSvg = styled.svg`
+  fill: none;
+  vertical-align: middle;
+  margin-right: 8px;
+`;
+
+export const StyledCircle = styled.circle`
+  stroke-width: 2;
+  stroke: #c8ccd4;
+`;
+
+export const StyledPath = styled.path`
+  /* stroke: #008fff; */
+  stroke: #e6533c;
+
+  &.inner {
+    stroke-width: 6;
+    stroke-dasharray: 19;
+    stroke-dashoffset: 19;
+  }
+
+  &.outer {
+    stroke-width: 2;
+    stroke-dasharray: 57;
+    stroke-dashoffset: 57;
+  }
+`;
+
+export const StyledField = styled(Field)`
+  display: none;
+
+  &:checked + svg {
+    path {
+      transition: all 0.4s ease;
+
+      &.inner {
+        stroke-dashoffset: 38;
+        transition-delay: 0.3s;
+      }
+
+      &.outer {
+        stroke-dashoffset: 0;
+      }
+    }
+  }
+`;
+
+export const StyledText = styled.p`
+  display: inline-block;
+  vertical-align: middle;
+
+  font-size: 16px;
+  line-height: 24px;
+`;
+
+export const StyledErrorMessage = styled(ErrorMessage)`
+  color: red;
 `;

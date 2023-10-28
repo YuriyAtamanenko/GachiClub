@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-import { Form, Field } from 'formik';
-import { Link } from 'react-router-dom';
 
 import desktop1x from './../../images/default-desktop-1x.jpg';
 import desktop2x from './../../images/default-desktop-2x.jpg';
@@ -169,188 +167,188 @@ export const Text = styled.p`
   }
 `;
 
-export const StyledForm = styled(Form)`
-  width: 364px;
-  height: 196px;
+// export const StyledForm = styled(Form)`
+//   width: 364px;
+//   height: 196px;
 
-  @media screen and (min-width: 768px) {
-    width: 364px;
-    height: 196px;
-  }
-`;
+//   @media screen and (min-width: 768px) {
+//     width: 364px;
+//     height: 196px;
+//   }
+// `;
 
-export const WrapperInput = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  margin-bottom: 28px;
+// export const WrapperInput = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   gap: 18px;
+//   margin-bottom: 28px;
 
-  @media screen and (min-width: 768px) {
-    gap: 20px;
-    margin-bottom: 64px;
-  }
-`;
+//   @media screen and (min-width: 768px) {
+//     gap: 20px;
+//     margin-bottom: 64px;
+//   }
+// `;
 
-export const StyledField = styled(Field)`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 335px;
-  height: 46px;
-  padding: 14px;
-  border-radius: 12px;
-  background-color: transparent;
-  border: 1px solid rgba(239, 237, 232, 0.3);
+// export const StyledField = styled(Field)`
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   width: 335px;
+//   height: 46px;
+//   padding: 14px;
+//   border-radius: 12px;
+//   background-color: transparent;
+//   border: 1px solid rgba(239, 237, 232, 0.3);
 
-  font-family: Roboto;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 128.571%;
+//   font-family: Roboto;
+//   font-size: 14px;
+//   font-style: normal;
+//   font-weight: 400;
+//   line-height: 128.571%;
 
-  color: rgba(239, 237, 232, 0.6);
+//   color: rgba(239, 237, 232, 0.6);
 
-  &:focus {
-    outline: none;
-  }
+//   &:focus {
+//     outline: none;
+//   }
 
-  @media screen and (min-width: 768px) {
-    width: 364px;
-    height: 52px;
-    font-size: 16px;
-    line-height: 150%;
-  }
-`;
+//   @media screen and (min-width: 768px) {
+//     width: 364px;
+//     height: 52px;
+//     font-size: 16px;
+//     line-height: 150%;
+//   }
+// `;
 
-export const ButtonSubmit = styled.button`
-  padding: 14px 40px 14px 40px;
-  border-radius: 12px;
-  background: var(--orange, #e6533c);
-  display: flex;
-  padding: 12px 40px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  border: none;
-  color: white;
-  font-family: Roboto;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 18px;
-  margin-bottom: 12px;
+// export const ButtonSubmit = styled.button`
+//   padding: 14px 40px 14px 40px;
+//   border-radius: 12px;
+//   background: var(--orange, #e6533c);
+//   display: flex;
+//   padding: 12px 40px;
+//   justify-content: center;
+//   align-items: center;
+//   gap: 10px;
+//   border: none;
+//   color: white;
+//   font-family: Roboto;
+//   font-size: 16px;
+//   font-style: normal;
+//   font-weight: 500;
+//   line-height: 18px;
+//   margin-bottom: 12px;
 
-  &:disabled {
-    color: rgba(239, 237, 232, 0.6);
-  }
-  &:hover {
-    background-color: var(--light-accent-color);
-  }
+//   &:disabled {
+//     color: rgba(239, 237, 232, 0.6);
+//   }
+//   &:hover {
+//     background-color: var(--light-accent-color);
+//   }
 
-  @media screen and (min-width: 768px) {
-    margin-bottom: 12px;
-  }
-  @media screen and (min-width: 1440px) {
-    margin-bottom: 12px;
-  }
-`;
+//   @media screen and (min-width: 768px) {
+//     margin-bottom: 12px;
+//   }
+//   @media screen and (min-width: 1440px) {
+//     margin-bottom: 12px;
+//   }
+// `;
 
-export const ReLink = styled.p`
-  font-feature-settings:
-    'clig' off,
-    'liga' off;
-  font-family: Roboto;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
+// export const ReLink = styled.p`
+//   font-feature-settings:
+//     'clig' off,
+//     'liga' off;
+//   font-family: Roboto;
+//   font-size: 12px;
+//   font-style: normal;
+//   font-weight: 400;
+//   line-height: 150%;
 
-  color: rgba(239, 237, 232, 0.6);
-`;
+//   color: rgba(239, 237, 232, 0.6);
+// `;
 
-export const LinkStyle = styled(Link)`
-  font-feature-settings:
-    'clig' off,
-    'liga' off;
-  font-family: Roboto;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-  text-decoration-line: underline;
+// export const LinkStyle = styled(Link)`
+//   font-feature-settings:
+//     'clig' off,
+//     'liga' off;
+//   font-family: Roboto;
+//   font-size: 12px;
+//   font-style: normal;
+//   font-weight: 400;
+//   line-height: 150%;
+//   text-decoration-line: underline;
 
-  color: var(--primary-text-color);
-`;
+//   color: var(--primary-text-color);
+// `;
 
-export const MessageStyleError = styled.div`
-  display: flex;
-  gap: 4px;
+// export const MessageStyleError = styled.div`
+//   display: flex;
+//   gap: 4px;
 
-  margin-top: 5px;
-  font-feature-settings:
-    'clig' off,
-    'liga' off;
-  font-family: Roboto;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-  letter-spacing: 0.12px;
+//   margin-top: 5px;
+//   font-feature-settings:
+//     'clig' off,
+//     'liga' off;
+//   font-family: Roboto;
+//   font-size: 12px;
+//   font-style: normal;
+//   font-weight: 400;
+//   line-height: 150%;
+//   letter-spacing: 0.12px;
 
-  color: #d80027;
-`;
+//   color: #d80027;
+// `;
 
-export const MessageStyleSuccess = styled.div`
-  display: flex;
-  gap: 4px;
+// export const MessageStyleSuccess = styled.div`
+//   display: flex;
+//   gap: 4px;
 
-  margin-top: 5px;
-  font-feature-settings:
-    'clig' off,
-    'liga' off;
-  font-family: Roboto;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-  letter-spacing: 0.12px;
+//   margin-top: 5px;
+//   font-feature-settings:
+//     'clig' off,
+//     'liga' off;
+//   font-family: Roboto;
+//   font-size: 12px;
+//   font-style: normal;
+//   font-weight: 400;
+//   line-height: 150%;
+//   letter-spacing: 0.12px;
 
-  color: #3cbf61;
-`;
+//   color: #3cbf61;
+// `;
 
-export const PasswordField = styled(Field)`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 335px;
-  height: 46px;
-  padding: 14px;
-  border-radius: 12px;
-  background-color: transparent;
-  border: 1px solid rgba(239, 237, 232, 0.3);
-  padding-right: 30px;
+// export const PasswordField = styled(Field)`
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   width: 335px;
+//   height: 46px;
+//   padding: 14px;
+//   border-radius: 12px;
+//   background-color: transparent;
+//   border: 1px solid rgba(239, 237, 232, 0.3);
+//   padding-right: 30px;
 
-  font-family: Roboto;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 128.571%;
+//   font-family: Roboto;
+//   font-size: 14px;
+//   font-style: normal;
+//   font-weight: 400;
+//   line-height: 128.571%;
 
-  color: rgba(239, 237, 232, 0.6);
+//   color: rgba(239, 237, 232, 0.6);
 
-  &:focus {
-    outline: none;
-  }
+//   &:focus {
+//     outline: none;
+//   }
 
-  @media screen and (min-width: 768px) {
-    width: 364px;
-    height: 52px;
-    font-size: 16px;
-    line-height: 150%;
-  }
-`;
+//   @media screen and (min-width: 768px) {
+//     width: 364px;
+//     height: 52px;
+//     font-size: 16px;
+//     line-height: 150%;
+//   }
+// `;
 
 // &::after {
 //     content: '';
