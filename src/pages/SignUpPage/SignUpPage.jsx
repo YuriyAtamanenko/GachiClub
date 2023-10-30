@@ -17,17 +17,7 @@ import {
   Title,
   Text,
   WrapperText,
-  // StyledField,
-  // StyledForm,
-  // ButtonSubmit,
-  // WrapperInput,
-  // ReLink,
-  // LinkStyle,
-  // MessageStyleError,
-  // MessageStyleSuccess,
-  // PasswordField,
-  // WrapperPassword,
-  // WrapperMessange,
+  StatisticsBox,
 } from './SignUpPage.styled';
 
 import { register } from '../../redux/Authorization/operations';
@@ -116,7 +106,9 @@ const SignUpPage = () => {
           </AuthForm>
         </div>
       </WrapperForm>
-      <StatisticsSignUp />
+      <StatisticsBox>
+        <StatisticsSignUp />
+      </StatisticsBox>
     </Container>
   );
 };
