@@ -1,4 +1,4 @@
-import{n as i,j as e,I as s,r as p,u as f,a as b,b as j,c as v,Q as d}from"./index-29e4f69b.js";import{F as k,A as y,a as z}from"./AuthFormLink-65206cd4.js";import{s as n}from"./styled-components.browser.esm-19f8ed86.js";import{d as S,a as T}from"./default-desktop-2x-90147dc9.js";import{m as I,a as C,t as B,b as D}from"./default-mobile-2x-a3b76961.js";import"./index.esm-970170b4.js";const F=i.div`
+import{n as i,j as e,I as s,r as d,u as f,a as b,b as j,c as v,Q as p}from"./index-d4634436.js";import{F as k,A as y,a as S}from"./AuthFormLink-0d56e8a4.js";import{s as n}from"./styled-components.browser.esm-9f6df699.js";import{d as z,a as T}from"./default-desktop-2x-90147dc9.js";import{m as I,a as C,t as B,b as $}from"./default-mobile-2x-a3b76961.js";import"./index.esm-aa0c78e7.js";const D=i.div`
   position: absolute;
   left: 25%;
   top: 250%;
@@ -10,7 +10,7 @@ import{n as i,j as e,I as s,r as p,u as f,a as b,b as j,c as v,Q as d}from"./ind
     left: 45%;
     top: 65%;
   }
-`,P=i.div`
+`,F=i.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -28,7 +28,7 @@ import{n as i,j as e,I as s,r as p,u as f,a as b,b as j,c as v,Q as d}from"./ind
     height: 96px;
     background: #303030;
   }
-`,V=i.div`
+`,P=i.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,7 +41,7 @@ import{n as i,j as e,I as s,r as p,u as f,a as b,b as j,c as v,Q as d}from"./ind
     width: 40px;
     height: 40px;
   }
-`,$=i.svg`
+`,V=i.svg`
   width: 12px;
   height: 12px;
 
@@ -147,27 +147,19 @@ import{n as i,j as e,I as s,r as p,u as f,a as b,b as j,c as v,Q as d}from"./ind
   @media screen and (min-width: 768px) {
     gap: 11px;
   }
-`,Q=()=>e.jsxs(F,{children:[e.jsxs(P,{children:[e.jsx(V,{children:e.jsx($,{children:e.jsx("use",{href:s+"#icon-play"})})}),e.jsxs("div",{children:[e.jsx(A,{children:"350+"}),e.jsx(E,{children:"Video tutorial"})]})]}),e.jsxs(N,{className:"box1177",children:[e.jsx(U,{children:e.jsx(W,{children:e.jsx("use",{href:s+"#icon-run"})})}),e.jsxs(O,{children:[e.jsx(L,{children:"500"}),e.jsx(R,{children:"cal"})]})]})]}),q=n.div`
-  position: relative;
+`,Q=()=>e.jsxs(D,{children:[e.jsxs(F,{children:[e.jsx(P,{children:e.jsx(V,{children:e.jsx("use",{href:s+"#icon-play"})})}),e.jsxs("div",{children:[e.jsx(A,{children:"350+"}),e.jsx(E,{children:"Video tutorial"})]})]}),e.jsxs(N,{className:"box1177",children:[e.jsx(U,{children:e.jsx(W,{children:e.jsx("use",{href:s+"#icon-run"})})}),e.jsxs(O,{children:[e.jsx(L,{children:"500"}),e.jsx(R,{children:"cal"})]})]})]}),q=n.div`
   overflow-x: hidden;
   height: 100vh;
   &::-webkit-scrollbar {
     display: none;
   }
-  margin: 0;
-  min-width: 320px;
+
   max-width: 374px; /* Максимальная ширина для отзывчивости (320px - 375px) */
   margin: 0 auto;
-  width: 100%; /* Занимать всю доступную ширину на экранах меньше 375px */
-
-  @media screen and (min-width: 375px) {
-    /* Ширина для экранов от 376px до 767px */
-    width: 375px; /* Адаптивная ширина */
-  }
+  width: 100%;
 
   @media screen and (min-width: 768px) {
     /* Ширина для экранов от 768px до 1439px */
-    margin: 0;
     min-width: 704px; /* Адаптивная ширина */
   }
 
@@ -178,10 +170,10 @@ import{n as i,j as e,I as s,r as p,u as f,a as b,b as j,c as v,Q as d}from"./ind
   }
 `,G=n.div`
   position: absolute;
-  top: 50%;
-  width: 446px;
-  left: 10%;
-  height: 669px;
+  right: -26px;
+  top: 43%;
+  width: 375px;
+  height: 812px;
 
   pointer-events: none;
   z-index: -1;
@@ -195,18 +187,24 @@ import{n as i,j as e,I as s,r as p,u as f,a as b,b as j,c as v,Q as d}from"./ind
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
     & {
-      background-image: url(${C});
+      background-image: linear-gradient(
+          168.14deg,
+          #040404 14.75%,
+          rgba(4, 4, 4, 0) 52.97%
+        ),
+        linear-gradient(73.21deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
+        url(${C});
     }
   }
 
   @media screen and (min-width: 768px) {
     position: absolute;
+    height: 900px;
+    width: 700px;
+    left: 12%;
+    top: 96px;
 
-    height: 1000px;
-    width: 670px;
-    left: 215px;
-    top: 125px;
-
+    background-position: 100% 100%;
     pointer-events: none;
 
     background-image: url(${B});
@@ -216,21 +214,23 @@ import{n as i,j as e,I as s,r as p,u as f,a as b,b as j,c as v,Q as d}from"./ind
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
       & {
-        background-image: url(${D});
+        background-image: url(${$});
       }
     }
   }
   @media screen and (min-width: 1440px) {
     position: absolute;
+    margin-top: 0;
+
     top: 0;
     right: 0;
-    left: 575px;
+    left: 770px;
     width: 670px;
     height: 800px;
-    pointer-events: none;
 
-    background-image: url(${S});
     background-size: 670px 800px;
+
+    background-image: url(${z});
     background-repeat: no-repeat;
 
     @media (min-device-pixel-ratio: 2),
@@ -291,4 +291,16 @@ import{n as i,j as e,I as s,r as p,u as f,a as b,b as j,c as v,Q as d}from"./ind
     line-height: 24px;
     letter-spacing: 0.6px;
   }
-`,te=()=>{const[x,c]=p.useState(!1),[l,h]=p.useState("password"),m=f(),o=b(),a=j(t=>t.auth.bodyData),g=async(t,u)=>{console.log(t);try{(await m(v({name:t.name,email:t.email,password:t.password}))).error?d.error("Email already exists. Please use a different email"):(u.resetForm(),a.bodyData===null||Object.keys(a.bodyData).length===0?o("/params"):o("/diary"))}catch(r){console.error("Server error:",r),d.error("Server Error: Something went wrong")}},w=()=>{c(t=>!t),h(t=>{if(t==="password")return"text";if(t==="text")return"password"})};return e.jsxs(q,{children:[e.jsx(G,{}),e.jsxs(H,{children:[e.jsxs(J,{children:[e.jsx(K,{className:"title",children:"Sign Up"}),e.jsx(M,{children:"Thank you for your interest in our platform. To complete the registration process, please provide us with the following information."})]}),e.jsx("div",{children:e.jsxs(k,{nameIsShown:!0,handleSubmit:g,toglePassword:w,passwordInput:l,isPassword:x,children:[e.jsx(y,{text:"Sign Up",type:"submit"}),e.jsx(z,{text:"Already have an account?",textLink:"Sign In",to:"/signin"})]})})]}),e.jsx(Q,{})]})};export{te as default};
+`,X=n.div`
+  position: absolute;
+  left: 36%;
+  top: 108%;
+  @media screen and (min-width: 768px) {
+    left: 45%;
+    top: 106%;
+  }
+  @media screen and (min-width: 1440px) {
+    left: 52%;
+    top: 62%;
+  }
+`,ne=()=>{const[x,c]=d.useState(!1),[l,h]=d.useState("password"),m=f(),o=b(),a=j(t=>t.auth.bodyData),g=async(t,w)=>{console.log(t);try{(await m(v({name:t.name,email:t.email,password:t.password}))).error?p.error("Email already exists. Please use a different email"):(w.resetForm(),a.bodyData===null||Object.keys(a.bodyData).length===0?o("/params"):o("/diary"))}catch(r){console.error("Server error:",r),p.error("Server Error: Something went wrong")}},u=()=>{c(t=>!t),h(t=>{if(t==="password")return"text";if(t==="text")return"password"})};return e.jsxs(q,{children:[e.jsx(G,{}),e.jsxs(H,{children:[e.jsxs(J,{children:[e.jsx(K,{className:"title",children:"Sign Up"}),e.jsx(M,{children:"Thank you for your interest in our platform. To complete the registration process, please provide us with the following information."})]}),e.jsx("div",{children:e.jsxs(k,{nameIsShown:!0,handleSubmit:g,toglePassword:u,passwordInput:l,isPassword:x,children:[e.jsx(y,{text:"Sign Up",type:"submit"}),e.jsx(S,{text:"Already have an account?",textLink:"Sign In",to:"/signin"})]})})]}),e.jsx(X,{children:e.jsx(Q,{})})]})};export{ne as default};
