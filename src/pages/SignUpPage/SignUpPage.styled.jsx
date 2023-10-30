@@ -8,26 +8,18 @@ import mobile1x from './../../images/default-mobile-1x.jpg';
 import mobile2x from './../../images/default-mobile-2x.jpg';
 
 export const Container = styled.div`
-  position: relative;
   overflow-x: hidden;
   height: 100vh;
   &::-webkit-scrollbar {
     display: none;
   }
-  margin: 0;
-  min-width: 320px;
+
   max-width: 374px; /* Максимальная ширина для отзывчивости (320px - 375px) */
   margin: 0 auto;
-  width: 100%; /* Занимать всю доступную ширину на экранах меньше 375px */
-
-  @media screen and (min-width: 375px) {
-    /* Ширина для экранов от 376px до 767px */
-    width: 375px; /* Адаптивная ширина */
-  }
+  width: 100%;
 
   @media screen and (min-width: 768px) {
     /* Ширина для экранов от 768px до 1439px */
-    margin: 0;
     min-width: 704px; /* Адаптивная ширина */
   }
 
@@ -40,10 +32,10 @@ export const Container = styled.div`
 
 export const WrapperDesktop = styled.div`
   position: absolute;
-  top: 50%;
-  width: 446px;
-  left: 10%;
-  height: 669px;
+  right: -26px;
+  top: 43%;
+  width: 375px;
+  height: 812px;
 
   pointer-events: none;
   z-index: -1;
@@ -57,18 +49,24 @@ export const WrapperDesktop = styled.div`
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
     & {
-      background-image: url(${mobile2x});
+      background-image: linear-gradient(
+          168.14deg,
+          #040404 14.75%,
+          rgba(4, 4, 4, 0) 52.97%
+        ),
+        linear-gradient(73.21deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
+        url(${mobile2x});
     }
   }
 
   @media screen and (min-width: 768px) {
     position: absolute;
+    height: 900px;
+    width: 700px;
+    left: 12%;
+    top: 96px;
 
-    height: 1000px;
-    width: 670px;
-    left: 215px;
-    top: 125px;
-
+    background-position: 100% 100%;
     pointer-events: none;
 
     background-image: url(${tablet1x});
@@ -84,15 +82,17 @@ export const WrapperDesktop = styled.div`
   }
   @media screen and (min-width: 1440px) {
     position: absolute;
+    margin-top: 0;
+
     top: 0;
     right: 0;
-    left: 575px;
+    left: 770px;
     width: 670px;
     height: 800px;
-    pointer-events: none;
+
+    background-size: 670px 800px;
 
     background-image: url(${desktop1x});
-    background-size: 670px 800px;
     background-repeat: no-repeat;
 
     @media (min-device-pixel-ratio: 2),
@@ -166,223 +166,16 @@ export const Text = styled.p`
     letter-spacing: 0.6px;
   }
 `;
-
-// export const StyledForm = styled(Form)`
-//   width: 364px;
-//   height: 196px;
-
-//   @media screen and (min-width: 768px) {
-//     width: 364px;
-//     height: 196px;
-//   }
-// `;
-
-// export const WrapperInput = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   gap: 18px;
-//   margin-bottom: 28px;
-
-//   @media screen and (min-width: 768px) {
-//     gap: 20px;
-//     margin-bottom: 64px;
-//   }
-// `;
-
-// export const StyledField = styled(Field)`
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-//   width: 335px;
-//   height: 46px;
-//   padding: 14px;
-//   border-radius: 12px;
-//   background-color: transparent;
-//   border: 1px solid rgba(239, 237, 232, 0.3);
-
-//   font-family: Roboto;
-//   font-size: 14px;
-//   font-style: normal;
-//   font-weight: 400;
-//   line-height: 128.571%;
-
-//   color: rgba(239, 237, 232, 0.6);
-
-//   &:focus {
-//     outline: none;
-//   }
-
-//   @media screen and (min-width: 768px) {
-//     width: 364px;
-//     height: 52px;
-//     font-size: 16px;
-//     line-height: 150%;
-//   }
-// `;
-
-// export const ButtonSubmit = styled.button`
-//   padding: 14px 40px 14px 40px;
-//   border-radius: 12px;
-//   background: var(--orange, #e6533c);
-//   display: flex;
-//   padding: 12px 40px;
-//   justify-content: center;
-//   align-items: center;
-//   gap: 10px;
-//   border: none;
-//   color: white;
-//   font-family: Roboto;
-//   font-size: 16px;
-//   font-style: normal;
-//   font-weight: 500;
-//   line-height: 18px;
-//   margin-bottom: 12px;
-
-//   &:disabled {
-//     color: rgba(239, 237, 232, 0.6);
-//   }
-//   &:hover {
-//     background-color: var(--light-accent-color);
-//   }
-
-//   @media screen and (min-width: 768px) {
-//     margin-bottom: 12px;
-//   }
-//   @media screen and (min-width: 1440px) {
-//     margin-bottom: 12px;
-//   }
-// `;
-
-// export const ReLink = styled.p`
-//   font-feature-settings:
-//     'clig' off,
-//     'liga' off;
-//   font-family: Roboto;
-//   font-size: 12px;
-//   font-style: normal;
-//   font-weight: 400;
-//   line-height: 150%;
-
-//   color: rgba(239, 237, 232, 0.6);
-// `;
-
-// export const LinkStyle = styled(Link)`
-//   font-feature-settings:
-//     'clig' off,
-//     'liga' off;
-//   font-family: Roboto;
-//   font-size: 12px;
-//   font-style: normal;
-//   font-weight: 400;
-//   line-height: 150%;
-//   text-decoration-line: underline;
-
-//   color: var(--primary-text-color);
-// `;
-
-// export const MessageStyleError = styled.div`
-//   display: flex;
-//   gap: 4px;
-
-//   margin-top: 5px;
-//   font-feature-settings:
-//     'clig' off,
-//     'liga' off;
-//   font-family: Roboto;
-//   font-size: 12px;
-//   font-style: normal;
-//   font-weight: 400;
-//   line-height: 150%;
-//   letter-spacing: 0.12px;
-
-//   color: #d80027;
-// `;
-
-// export const MessageStyleSuccess = styled.div`
-//   display: flex;
-//   gap: 4px;
-
-//   margin-top: 5px;
-//   font-feature-settings:
-//     'clig' off,
-//     'liga' off;
-//   font-family: Roboto;
-//   font-size: 12px;
-//   font-style: normal;
-//   font-weight: 400;
-//   line-height: 150%;
-//   letter-spacing: 0.12px;
-
-//   color: #3cbf61;
-// `;
-
-// export const PasswordField = styled(Field)`
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-//   width: 335px;
-//   height: 46px;
-//   padding: 14px;
-//   border-radius: 12px;
-//   background-color: transparent;
-//   border: 1px solid rgba(239, 237, 232, 0.3);
-//   padding-right: 30px;
-
-//   font-family: Roboto;
-//   font-size: 14px;
-//   font-style: normal;
-//   font-weight: 400;
-//   line-height: 128.571%;
-
-//   color: rgba(239, 237, 232, 0.6);
-
-//   &:focus {
-//     outline: none;
-//   }
-
-//   @media screen and (min-width: 768px) {
-//     width: 364px;
-//     height: 52px;
-//     font-size: 16px;
-//     line-height: 150%;
-//   }
-// `;
-
-// &::after {
-//     content: '';
-//     position: absolute;
-//     right: 10px;
-//     top: 50%;
-//     transform: translateY(-50%);
-//     cursor: pointer;
-
-// const PasswordWrapper = styled.div`
-//   position: relative;
-// `;
-
-// const PasswordField = styled.input`
-//   width: 100%;
-//   padding-right: 30px; /* Учитывает место для иконки */
-// `;
-
-// const ShowPasswordIcon = styled.span`
-//   position: absolute;
-//   right: 0;
-//   top: 50%;
-//   transform: translateY(-50%);
-//   cursor: pointer;
-// // `;
-
-// const HidePasswordIcon = styled.span`
-//   position: absolute;
-//   right: 0;
-//   top: 50%;
-//   transform: translateY(-50%);
-//   cursor: pointer;
-// `;
-
-// export const StyledPasswordField = styled(ErrorMessage)``;
-
-// export const PasswordIcon = styled(ErrorMessage)``;
+export const StatisticsBox = styled.div`
+  position: absolute;
+  left: 36%;
+  top: 108%;
+  @media screen and (min-width: 768px) {
+    left: 45%;
+    top: 106%;
+  }
+  @media screen and (min-width: 1440px) {
+    left: 52%;
+    top: 62%;
+  }
+`;
