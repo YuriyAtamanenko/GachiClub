@@ -1,4 +1,4 @@
-import{n,j as e,I as l,L as v,r as a,u as j,a as k,b as z,k as S,d as I,l as R,Q as r}from"./index-d4634436.js";import{F as C,A as F,a as T}from"./AuthFormLink-0d56e8a4.js";import{s as i}from"./styled-components.browser.esm-9f6df699.js";import{F as x,a as c,E as D}from"./index.esm-aa0c78e7.js";import{d as P,a as B}from"./default-desktop-2x-90147dc9.js";import{m as N,a as V,t as $,b as E}from"./default-mobile-2x-a3b76961.js";const L=n.div`
+import{n,j as e,I as l,L as v,r as a,u as j,a as k,b as z,k as S,d as I,l as R,Q as r}from"./index-7714adef.js";import{F as C,A as F,a as T}from"./AuthFormLink-9fba60c3.js";import{s as i}from"./styled-components.browser.esm-1ba807f3.js";import{F as x,a as c,E as B}from"./index.esm-3b7e2ed6.js";import{d as D,a as P}from"./default-desktop-2x-90147dc9.js";import{m as $,a as N,t as V,b as E}from"./default-mobile-2x-a3b76961.js";const L=n.div`
   position: absolute;
   left: 30%;
   top: 200%;
@@ -150,8 +150,7 @@ import{n,j as e,I as l,L as v,r as a,u as j,a as k,b as z,k as S,d as I,l as R,Q
 `,X=()=>e.jsxs(L,{children:[e.jsxs(W,{children:[e.jsx(A,{children:e.jsx(U,{children:e.jsx("use",{href:l+"#icon-play"})})}),e.jsxs("div",{children:[e.jsx(M,{children:"350+"}),e.jsx(O,{children:"Video tutorial"})]})]}),e.jsxs(Q,{children:[e.jsx(q,{children:e.jsx(G,{children:e.jsx("use",{href:l+"#icon-run"})})}),e.jsxs(K,{children:[e.jsx(H,{children:"500"}),e.jsx(J,{children:"cal"})]})]})]}),Y=i.div`
   height: 100vh;
   overflow-x: hidden;
-  position: relative;
-  margin: 0;
+
   min-width: 320px;
   max-width: 374px; /* Максимальная ширина для отзывчивости (320px - 375px) */
   margin: 0 auto;
@@ -177,15 +176,22 @@ import{n,j as e,I as l,L as v,r as a,u as j,a as k,b as z,k as S,d as I,l as R,Q
   }
 `,Z=i.div`
   position: absolute;
-  top: 50%;
-  left: 25px;
-  width: 446px;
-  height: 669px;
+  right: -26px;
+  top: 43%;
+  width: 375px;
+  height: 812px;
 
   pointer-events: none;
   z-index: -1;
 
-  background-image: url(${N});
+  background-image: linear-gradient(
+      168.14deg,
+      #040404 14.75%,
+      rgba(4, 4, 4, 0) 52.97%
+    ),
+    linear-gradient(73.21deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
+    url(${$});
+  background-size: 670px 800px;
   background-size: contain;
   background-repeat: no-repeat;
 
@@ -194,21 +200,27 @@ import{n,j as e,I as l,L as v,r as a,u as j,a as k,b as z,k as S,d as I,l as R,Q
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
     & {
-      background-image: url(${V});
+      background-image: linear-gradient(
+          168.14deg,
+          #040404 14.75%,
+          rgba(4, 4, 4, 0) 52.97%
+        ),
+        linear-gradient(73.21deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
+        url(${N});
     }
   }
 
   @media screen and (min-width: 768px) {
     position: absolute;
 
-    height: 1000px;
-    width: 670px;
-    left: 215px;
-    top: 100px;
+    height: 900px;
+    width: 700px;
+    left: 12%;
+    top: 154px;
 
     pointer-events: none;
-
-    background-image: url(${$});
+    background-position: 100% 100%;
+    background-image: url(${V});
 
     @media (min-device-pixel-ratio: 2),
       (-webkit-min-device-pixel-ratio: 2),
@@ -221,14 +233,15 @@ import{n,j as e,I as l,L as v,r as a,u as j,a as k,b as z,k as S,d as I,l as R,Q
   }
   @media screen and (min-width: 1440px) {
     position: absolute;
-    top: 0;
+    margin-top: 0;
+    top: -20px;
     right: 0;
-    left: 580px;
+    left: 804px;
     width: 670px;
-    height: 800px;
+    height: 820px;
     pointer-events: none;
 
-    background-image: url(${P});
+    background-image: url(${D});
     background-size: 670px 800px;
     background-repeat: no-repeat;
 
@@ -237,12 +250,12 @@ import{n,j as e,I as l,L as v,r as a,u as j,a as k,b as z,k as S,d as I,l as R,Q
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
       & {
-        background-image: url(${B});
+        background-image: url(${P});
       }
     }
   }
 `,_=i.div`
-  padding-top: 90.5px;
+  padding-top: 90px;
 
   @media screen and (min-width: 768px) {
     width: 496px;
@@ -367,7 +380,7 @@ import{n,j as e,I as l,L as v,r as a,u as j,a as k,b as z,k as S,d as I,l as R,Q
     font-size: 16px;
     line-height: 150%;
   }
-`;i(D)`
+`;i(B)`
   font-feature-settings:
     'clig' off,
     'liga' off;
@@ -497,4 +510,16 @@ import{n,j as e,I as l,L as v,r as a,u as j,a as k,b as z,k as S,d as I,l as R,Q
   width: 100%;
 `;i.div`
   position: relative;
-`;const de=()=>{const[h,m]=a.useState(!1),[g,f]=a.useState("password"),u=j(),o=k(),w=z(t=>t.auth.bodyData);a.useEffect(()=>{Object.keys(w).length>1&&o("/params")});const b=async(t,s)=>{console.log("handleSubmit",t,s);try{if(await I(t.email,t.password)!==null){const d=await u(R({email:t.email,password:t.password}));d.error?r.error("Invalid email or password"):(s.resetForm(),d.payload.bodyData.bodyData===void 0?o("/params"):o("/diary"))}else r.error("Invalid data")}catch(p){p.message==="Server error"&&r.error("Server error")}},y=()=>{m(t=>!t),f(t=>{if(t==="password")return"text";if(t==="text")return"password"})};return e.jsxs(Y,{className:"Container",children:[e.jsx(Z,{className:"Photo"}),e.jsxs(_,{className:"section",children:[e.jsxs(ee,{className:"text-conteiner",children:[e.jsx(ie,{children:"Sign In"}),e.jsx(S,{}),e.jsx(te,{className:"text-p",children:"Welcome! Please enter your credentials to login to the platform:"})]}),e.jsx("div",{children:e.jsxs(C,{nameIsShown:!1,handleSubmit:b,toglePassword:y,passwordInput:g,isPassword:h,children:[e.jsx(F,{text:"Sign In",type:"submit"}),e.jsx(T,{text:"Don’t have an account?",textLink:"Sign Up",to:"/signup"})]})})]}),e.jsx(X,{})]})};export{de as default};
+`;const ne=i.div`
+  position: absolute;
+  left: 34%;
+  top: 109%;
+  @media screen and (min-width: 768px) {
+    left: 48%;
+    top: 116%;
+  }
+  @media screen and (min-width: 1440px) {
+    left: 56%;
+    top: 50%;
+  }
+`,le=()=>{const[h,m]=a.useState(!1),[g,f]=a.useState("password"),u=j(),o=k(),w=z(t=>t.auth.bodyData);a.useEffect(()=>{Object.keys(w).length>1&&o("/params")});const b=async(t,s)=>{console.log("handleSubmit",t,s);try{if(await I(t.email,t.password)!==null){const p=await u(R({email:t.email,password:t.password}));p.error?r.error("Invalid email or password"):(s.resetForm(),p.payload.bodyData.bodyData===void 0?o("/params"):o("/diary"))}else r.error("Invalid data")}catch(d){d.message==="Server error"&&r.error("Server error")}},y=()=>{m(t=>!t),f(t=>{if(t==="password")return"text";if(t==="text")return"password"})};return e.jsxs(Y,{className:"Container",children:[e.jsx(Z,{className:"Photo"}),e.jsxs(_,{className:"section",children:[e.jsxs(ee,{className:"text-conteiner",children:[e.jsx(ie,{children:"Sign In"}),e.jsx(S,{}),e.jsx(te,{className:"text-p",children:"Welcome! Please enter your credentials to login to the platform:"})]}),e.jsx("div",{children:e.jsxs(C,{nameIsShown:!1,handleSubmit:b,toglePassword:y,passwordInput:g,isPassword:h,children:[e.jsx(F,{text:"Sign In",type:"submit"}),e.jsx(T,{text:"Don’t have an account?",textLink:"Sign Up",to:"/signup"})]})})]}),e.jsx(ne,{children:e.jsx(X,{})})]})};export{le as default};

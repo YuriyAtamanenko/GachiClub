@@ -1,4 +1,4 @@
-import{n as i,j as e,I as s,r as d,u as f,a as b,b as j,c as v,Q as p}from"./index-d4634436.js";import{F as k,A as y,a as S}from"./AuthFormLink-0d56e8a4.js";import{s as n}from"./styled-components.browser.esm-9f6df699.js";import{d as z,a as T}from"./default-desktop-2x-90147dc9.js";import{m as I,a as C,t as B,b as $}from"./default-mobile-2x-a3b76961.js";import"./index.esm-aa0c78e7.js";const D=i.div`
+import{n as i,j as e,I as s,r as d,u as f,a as b,b as j,c as k,Q as p}from"./index-7714adef.js";import{F as v,A as y,a as z}from"./AuthFormLink-9fba60c3.js";import{s as n}from"./styled-components.browser.esm-1ba807f3.js";import{d as S,a as T}from"./default-desktop-2x-90147dc9.js";import{m as I,a as C,t as B,b as $}from"./default-mobile-2x-a3b76961.js";import"./index.esm-3b7e2ed6.js";const D=i.div`
   position: absolute;
   left: 25%;
   top: 250%;
@@ -179,6 +179,7 @@ import{n as i,j as e,I as s,r as d,u as f,a as b,b as j,c as v,Q as p}from"./ind
   z-index: -1;
 
   background-image: url(${I});
+  background-size: 670px 800px;
   background-size: contain;
   background-repeat: no-repeat;
 
@@ -221,16 +222,15 @@ import{n as i,j as e,I as s,r as d,u as f,a as b,b as j,c as v,Q as p}from"./ind
   @media screen and (min-width: 1440px) {
     position: absolute;
     margin-top: 0;
-
     top: 0;
     right: 0;
-    left: 770px;
+    left: 804px;
     width: 670px;
     height: 800px;
 
     background-size: 670px 800px;
 
-    background-image: url(${z});
+    background-image: url(${S});
     background-repeat: no-repeat;
 
     @media (min-device-pixel-ratio: 2),
@@ -243,7 +243,7 @@ import{n as i,j as e,I as s,r as d,u as f,a as b,b as j,c as v,Q as p}from"./ind
     }
   }
 `,H=n.div`
-  padding-top: 127px;
+  padding-top: 90px;
   @media screen and (min-width: 768px) {
     padding-top: 140px;
   }
@@ -293,14 +293,14 @@ import{n as i,j as e,I as s,r as d,u as f,a as b,b as j,c as v,Q as p}from"./ind
   }
 `,X=n.div`
   position: absolute;
-  left: 36%;
-  top: 108%;
+  left: 34%;
+  top: 109%;
   @media screen and (min-width: 768px) {
     left: 45%;
     top: 106%;
   }
   @media screen and (min-width: 1440px) {
-    left: 52%;
-    top: 62%;
+    left: 56%;
+    top: 50%;
   }
-`,ne=()=>{const[x,c]=d.useState(!1),[l,h]=d.useState("password"),m=f(),o=b(),a=j(t=>t.auth.bodyData),g=async(t,w)=>{console.log(t);try{(await m(v({name:t.name,email:t.email,password:t.password}))).error?p.error("Email already exists. Please use a different email"):(w.resetForm(),a.bodyData===null||Object.keys(a.bodyData).length===0?o("/params"):o("/diary"))}catch(r){console.error("Server error:",r),p.error("Server Error: Something went wrong")}},u=()=>{c(t=>!t),h(t=>{if(t==="password")return"text";if(t==="text")return"password"})};return e.jsxs(q,{children:[e.jsx(G,{}),e.jsxs(H,{children:[e.jsxs(J,{children:[e.jsx(K,{className:"title",children:"Sign Up"}),e.jsx(M,{children:"Thank you for your interest in our platform. To complete the registration process, please provide us with the following information."})]}),e.jsx("div",{children:e.jsxs(k,{nameIsShown:!0,handleSubmit:g,toglePassword:u,passwordInput:l,isPassword:x,children:[e.jsx(y,{text:"Sign Up",type:"submit"}),e.jsx(S,{text:"Already have an account?",textLink:"Sign In",to:"/signin"})]})})]}),e.jsx(X,{children:e.jsx(Q,{})})]})};export{ne as default};
+`,ne=()=>{const[x,c]=d.useState(!1),[l,h]=d.useState("password"),m=f(),o=b(),a=j(t=>t.auth.bodyData),g=async(t,w)=>{console.log(t);try{(await m(k({name:t.name,email:t.email,password:t.password}))).error?p.error("Email already exists. Please use a different email"):(w.resetForm(),a.bodyData===null||Object.keys(a.bodyData).length===0?o("/params"):o("/diary"))}catch(r){console.error("Server error:",r),p.error("Server Error: Something went wrong")}},u=()=>{c(t=>!t),h(t=>{if(t==="password")return"text";if(t==="text")return"password"})};return e.jsxs(q,{children:[e.jsx(G,{}),e.jsxs(H,{children:[e.jsxs(J,{children:[e.jsx(K,{className:"title",children:"Sign Up"}),e.jsx(M,{children:"Thank you for your interest in our platform. To complete the registration process, please provide us with the following information."})]}),e.jsx("div",{children:e.jsxs(v,{nameIsShown:!0,handleSubmit:g,toglePassword:u,passwordInput:l,isPassword:x,children:[e.jsx(y,{text:"Sign Up",type:"submit"}),e.jsx(z,{text:"Already have an account?",textLink:"Sign In",to:"/signin"})]})})]}),e.jsx(X,{children:e.jsx(Q,{})})]})};export{ne as default};
