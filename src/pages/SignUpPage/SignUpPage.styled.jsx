@@ -41,6 +41,7 @@ export const WrapperDesktop = styled.div`
   z-index: -1;
 
   background-image: url(${mobile1x});
+  background-size: 670px 800px;
   background-size: contain;
   background-repeat: no-repeat;
 
@@ -83,10 +84,9 @@ export const WrapperDesktop = styled.div`
   @media screen and (min-width: 1440px) {
     position: absolute;
     margin-top: 0;
-
     top: 0;
     right: 0;
-    left: 770px;
+    left: 804px;
     width: 670px;
     height: 800px;
 
@@ -107,7 +107,7 @@ export const WrapperDesktop = styled.div`
 `;
 
 export const WrapperForm = styled.div`
-  padding-top: 127px;
+  padding-top: 90px;
   @media screen and (min-width: 768px) {
     padding-top: 140px;
   }
@@ -168,14 +168,14 @@ export const Text = styled.p`
 `;
 export const StatisticsBox = styled.div`
   position: absolute;
-  left: 36%;
-  top: 108%;
+  left: 34%;
+  top: 109%;
   @media screen and (min-width: 768px) {
     left: 45%;
     top: 106%;
   }
   @media screen and (min-width: 1440px) {
-    left: 52%;
-    top: 62%;
+    left: 56%;
+    top: 50%;
   }
 `;

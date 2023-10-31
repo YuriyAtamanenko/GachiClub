@@ -12,8 +12,7 @@ import mobile2x from './../../images/default-mobile-2x.jpg';
 export const Container = styled.div`
   height: 100vh;
   overflow-x: hidden;
-  position: relative;
-  margin: 0;
+
   min-width: 320px;
   max-width: 374px; /* Максимальная ширина для отзывчивости (320px - 375px) */
   margin: 0 auto;
@@ -41,15 +40,22 @@ export const Container = styled.div`
 
 export const WrapperDesktop = styled.div`
   position: absolute;
-  top: 50%;
-  left: 25px;
-  width: 446px;
-  height: 669px;
+  right: -26px;
+  top: 43%;
+  width: 375px;
+  height: 812px;
 
   pointer-events: none;
   z-index: -1;
 
-  background-image: url(${mobile1x});
+  background-image: linear-gradient(
+      168.14deg,
+      #040404 14.75%,
+      rgba(4, 4, 4, 0) 52.97%
+    ),
+    linear-gradient(73.21deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
+    url(${mobile1x});
+  background-size: 670px 800px;
   background-size: contain;
   background-repeat: no-repeat;
 
@@ -58,20 +64,26 @@ export const WrapperDesktop = styled.div`
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
     & {
-      background-image: url(${mobile2x});
+      background-image: linear-gradient(
+          168.14deg,
+          #040404 14.75%,
+          rgba(4, 4, 4, 0) 52.97%
+        ),
+        linear-gradient(73.21deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
+        url(${mobile2x});
     }
   }
 
   @media screen and (min-width: 768px) {
     position: absolute;
 
-    height: 1000px;
-    width: 670px;
-    left: 215px;
-    top: 100px;
+    height: 900px;
+    width: 700px;
+    left: 12%;
+    top: 154px;
 
     pointer-events: none;
-
+    background-position: 100% 100%;
     background-image: url(${tablet1x});
 
     @media (min-device-pixel-ratio: 2),
@@ -85,11 +97,12 @@ export const WrapperDesktop = styled.div`
   }
   @media screen and (min-width: 1440px) {
     position: absolute;
-    top: 0;
+    margin-top: 0;
+    top: -20px;
     right: 0;
-    left: 580px;
+    left: 804px;
     width: 670px;
-    height: 800px;
+    height: 820px;
     pointer-events: none;
 
     background-image: url(${desktop1x});
@@ -108,7 +121,7 @@ export const WrapperDesktop = styled.div`
 `;
 
 export const WrapperForm = styled.div`
-  padding-top: 90.5px;
+  padding-top: 90px;
 
   @media screen and (min-width: 768px) {
     width: 496px;
@@ -397,4 +410,17 @@ export const WrapperPassword = styled.div`
 
 export const WrapperMessange = styled.div`
   position: relative;
+`;
+export const StatisticsBox = styled.div`
+  position: absolute;
+  left: 34%;
+  top: 109%;
+  @media screen and (min-width: 768px) {
+    left: 48%;
+    top: 116%;
+  }
+  @media screen and (min-width: 1440px) {
+    left: 56%;
+    top: 50%;
+  }
 `;
