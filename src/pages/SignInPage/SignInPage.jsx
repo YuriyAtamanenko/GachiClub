@@ -11,21 +11,12 @@ import AuthFormLink from '../../components/AuthFormLink/AuthFormLink';
 
 import {
   WrapperDesktop,
-  // FieldStyle,
-  // ButtonSubmit,
-  // ReLink,
-  // LinkStyle,
   Container,
   WrapperForm,
   Title,
   Text,
   WrapperText,
-  // StyledForm,
-  // WrapperInput,
-  // MessageStyleError,
-  // MessageStyleSuccess,
-  // WrapperPassword,
-  // PasswordField,
+  StatisticsBox,
 } from './SignInPage.styled';
 import { useState } from 'react';
 
@@ -119,7 +110,9 @@ const SignInPage = () => {
           </AuthForm>
         </div>
       </WrapperForm>
-      <StatisticsSignIn />
+      <StatisticsBox>
+        <StatisticsSignIn />
+      </StatisticsBox>
     </Container>
   );
 };
