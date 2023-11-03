@@ -119,7 +119,7 @@ const FormComponent = ({
                   onBlur={handleBlur}
                 />
 
-                <ButtonInput type="button" right="16px" onClick={toglePassword}>
+                <ButtonInput type="button" onClick={toglePassword}>
                   <svg width="20" height="20">
                     <use
                       href={

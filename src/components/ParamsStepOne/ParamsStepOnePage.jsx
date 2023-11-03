@@ -44,7 +44,6 @@ function ParamsStepOne(props) {
       <Formik
         initialValues={{ ...props.data, isValid: false }}
         onSubmit={handleSubmit}
-        autoComplete="off"
         validationSchema={stepOneValidationSchema}
         enableReinitialize={true}
       >
@@ -57,6 +56,7 @@ function ParamsStepOne(props) {
                     className="InputField"
                     name="height"
                     placeholder="Height"
+                    autoComplete="off"
                     onBlur={handleBlur}
                   />
                 </div>
@@ -84,6 +84,7 @@ function ParamsStepOne(props) {
                     className="InputField"
                     name="currentWeight"
                     placeholder="Current Weight"
+                    autoComplete="off"
                     onBlur={handleBlur}
                   />
                 </div>
@@ -111,6 +112,7 @@ function ParamsStepOne(props) {
                     className="InputField"
                     name="desiredWeight"
                     placeholder="Desired Weight"
+                    autoComplete="off"
                     onBlur={handleBlur}
                   />
                 </div>

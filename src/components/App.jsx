@@ -35,45 +35,33 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
-          {/* <Route
-            index
-            element={
-              <RestrictedRoute
-                redirectTo={isRegistered ? '/diary' : '/params'}
-                component={WelcomePage}
-              />
-            }
-          /> */}
-
           <Route
             index
             element={
-              <RestrictedRoute redirectTo="/params" component={WelcomePage} />
+              <RestrictedRoute component={WelcomePage} redirectTo="/params" />
             }
           />
 
           <Route
             path="/signup"
             element={
-              <RestrictedRoute redirectTo="/params" component={SignUpPage} />
+              <RestrictedRoute component={SignUpPage} redirectTo="/params" />
             }
           />
 
           <Route
             path="/signin"
             element={
-              <RestrictedRoute redirectTo="/params" component={SignInPage} />
+              <RestrictedRoute component={SignInPage} redirectTo="/params" />
             }
           />
 
-          <Route path="/params" element={<ParamsPage />} />
-
-          {/* <Route
+          <Route
             path="/params"
             element={
               <RestrictedRoute component={ParamsPage} redirectTo="/diary" />
             }
-          /> */}
+          />
 
           <Route
             path="/diary"
@@ -93,8 +81,6 @@ function App() {
               <PrivateRoute component={ExercisesPage} redirectTo="/signin" />
             }
           />
-
-          {/* <Route path="/profile" element={<ProfilePage />} /> */}
 
           <Route
             path="/profile"

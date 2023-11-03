@@ -3,7 +3,7 @@ import DatePicker from 'react-datepicker';
 import { getYear, getMonth } from 'date-fns';
 import PropTypes from 'prop-types';
 import CustomInput from '../CustomInput/CustomInput';
-import 'react-datepicker/dist/react-datepicker.css';
+// import 'react-datepicker/dist/react-datepicker.css';
 import { CalendarGlobalStyles } from './Calendar.styled';
 
 const Calendar = forwardRef(({ field, form }, ref) => {
