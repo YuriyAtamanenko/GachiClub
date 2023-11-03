@@ -8,8 +8,8 @@ import mobile1x from './../../images/default-mobile-1x.jpg';
 import mobile2x from './../../images/default-mobile-2x.jpg';
 
 export const Container = styled.div`
-  overflow-x: hidden;
-  height: 100vh;
+  height: 812px;
+  width: 375px;
   &::-webkit-scrollbar {
     display: none;
   }
@@ -20,27 +20,38 @@ export const Container = styled.div`
 
   @media screen and (min-width: 768px) {
     /* Ширина для экранов от 768px до 1439px */
-    min-width: 704px; /* Адаптивная ширина */
+    min-width: 768px; /* Адаптивная ширина */
+    min-height: 1024px;
   }
 
   @media screen and (min-width: 1440px) {
     /* Ширина для экранов 1440px и более */
     max-width: 1440px; /* Максимальная ширина */
-    width: 100%; /* Занимать всю доступную ширину */
+    min-height: 800px;
+    width: 100%;
+    /* Занимать всю доступную ширину */
   }
 `;
 
 export const WrapperDesktop = styled.div`
   position: absolute;
-  right: -26px;
-  top: 43%;
+  right: -50px;
+  top: 29%;
   width: 375px;
-  height: 812px;
+  height: 626px;
 
   pointer-events: none;
   z-index: -1;
 
-  background-image: url(${mobile1x});
+  background-image: linear-gradient(
+      168.14deg,
+      #040404 14.75%,
+
+      rgba(4, 4, 4, 0) 52.97%
+    ),
+    linear-gradient(73.21deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
+    url(${mobile1x});
+
   background-size: 670px 800px;
   background-size: contain;
   background-repeat: no-repeat;
@@ -62,10 +73,10 @@ export const WrapperDesktop = styled.div`
 
   @media screen and (min-width: 768px) {
     position: absolute;
-    height: 900px;
-    width: 700px;
-    left: 12%;
-    top: 96px;
+    height: 1005px;
+    width: 670px;
+    left: 13%;
+    top: 105px;
 
     background-position: 100% 100%;
     pointer-events: none;
@@ -84,11 +95,11 @@ export const WrapperDesktop = styled.div`
   @media screen and (min-width: 1440px) {
     position: absolute;
     margin-top: 0;
-    top: 0;
+    top: -108px;
     right: 0;
-    left: 804px;
+    left: 675px;
     width: 670px;
-    height: 800px;
+    height: 1005px;
 
     background-size: 670px 800px;
 
@@ -109,7 +120,7 @@ export const WrapperDesktop = styled.div`
 export const WrapperForm = styled.div`
   padding-top: 90px;
   @media screen and (min-width: 768px) {
-    padding-top: 140px;
+    /* padding-top: 140px; */
   }
   @media screen and (min-width: 1440px) {
     padding-top: 150px;
@@ -139,43 +150,48 @@ export const Title = styled.h2`
   margin-bottom: 14px;
   font-size: 24px;
   font-weight: 700;
-  line-height: 28px;
+  line-height: 116.667%;
   letter-spacing: 0.05px;
-  color: #efede8;
+  /* color: #efede8; */
+  color: var(--primary-text-color);
 
   @media screen and (min-width: 768px) {
     margin-bottom: 16px;
     font-size: 32px;
 
-    line-height: 44px;
+    line-height: 137.5%;
     letter-spacing: 0.05px;
   }
 `;
 
 export const Text = styled.p`
+  margin-bottom: 28px;
   font-size: 14px;
+  font-style: normal;
   font-weight: 400;
-  line-height: 18px;
+  line-height: 128.571%;
   letter-spacing: 0.77px;
-  color: #efede84d;
+  /* color: #efede84d; */
+  color: var(--secondary-text-color);
 
   @media screen and (min-width: 768px) {
-    font-size: 16px;
+    margin-bottom: 32px;
 
-    line-height: 24px;
+    font-size: 16px;
+    line-height: 150%;
     letter-spacing: 0.6px;
   }
 `;
-export const StatisticsBox = styled.div`
+export const StatisticsWrapper = styled.div`
   position: absolute;
-  left: 34%;
-  top: 109%;
+  left: 37%;
+  top: 70%;
   @media screen and (min-width: 768px) {
-    left: 45%;
-    top: 106%;
+    left: 40%;
+    top: 70%;
   }
   @media screen and (min-width: 1440px) {
-    left: 56%;
+    left: 45%;
     top: 50%;
   }
 `;

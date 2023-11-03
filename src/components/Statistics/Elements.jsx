@@ -27,7 +27,7 @@ export const Elements = () => {
           <VideoTutorialText>Video tutorial</VideoTutorialText>
         </div>
       </VideoBox>
-      <CaloriesBox>
+      <CaloriesBox className="calories-box">
         <CaloriesBack>
           <RunIcon>
             <use href={sprite + `#icon-run`}></use>

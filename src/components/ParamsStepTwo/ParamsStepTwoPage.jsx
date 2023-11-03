@@ -53,7 +53,7 @@ const ParamsStepTwo = props => {
                 <BloodSexTitle>Blood</BloodSexTitle>
                 <BloodBoxList>
                   <RadioBoxItem>
-                    <LabelStyled htmlFor="bl-1" className="btn-radio">
+                    <LabelStyled htmlFor="bl-1" >
                       <StyledField
                         type="radio"
                         id="bl-1"
@@ -78,7 +78,7 @@ const ParamsStepTwo = props => {
                   </RadioBoxItem>
 
                   <RadioBoxItem>
-                    <LabelStyled htmlFor="bl-2" className="btn-radio">
+                    <LabelStyled htmlFor="bl-2" >
                       <StyledField
                         type="radio"
                         id="bl-2"
@@ -102,7 +102,7 @@ const ParamsStepTwo = props => {
                   </RadioBoxItem>
 
                   <RadioBoxItem>
-                    <LabelStyled htmlFor="bl-3" className="btn-radio">
+                    <LabelStyled htmlFor="bl-3">
                       <StyledField
                         type="radio"
                         id="bl-3"

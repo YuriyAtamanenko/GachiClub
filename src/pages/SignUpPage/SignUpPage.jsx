@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import StatisticsSignUp from './StatisticsSignUp/StatisticsSignUp';
+
+import Statistics from '../../components/Statistics/Statistics';
 
 import AuthForm from '../../components/AuthForm/AuthForm';
 import AuthFormButton from '../../components/AuthFormButtons/AuthFormButtons';
@@ -17,7 +18,7 @@ import {
   Title,
   Text,
   WrapperText,
-  StatisticsBox,
+  StatisticsWrapper,
 } from './SignUpPage.styled';
 
 import { register } from '../../redux/Authorization/operations';
@@ -80,7 +81,7 @@ const SignUpPage = () => {
       <WrapperDesktop></WrapperDesktop>
       <WrapperForm>
         <WrapperText>
-          <Title className="title">Sign Up</Title>
+          <Title>Sign Up</Title>
 
           <Text>
             Thank you for your interest in our platform. To complete the
@@ -106,9 +107,10 @@ const SignUpPage = () => {
           </AuthForm>
         </div>
       </WrapperForm>
-      <StatisticsBox>
-        <StatisticsSignUp />
-      </StatisticsBox>
+      <StatisticsWrapper>
+        {/* <StatisticsSignUp /> */}
+        <Statistics />
+      </StatisticsWrapper>
     </Container>
   );
 };

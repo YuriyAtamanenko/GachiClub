@@ -1,10 +1,14 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { loginization, checkUser } from '../../redux/Authorization/operations';
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import StatisticsSignIn from '../SignInPage/StatisticsSignIn/StatisticsSignIn';
+
+import { loginization, checkUser } from '../../redux/Authorization/operations';
+
+import Statistics from '../../components/Statistics/Statistics';
+
 import AuthForm from '../../components/AuthForm/AuthForm';
 import AuthFormButton from '../../components/AuthFormButtons/AuthFormButtons';
 import AuthFormLink from '../../components/AuthFormLink/AuthFormLink';
@@ -16,9 +20,8 @@ import {
   Title,
   Text,
   WrapperText,
-  StatisticsBox,
-} from './SignInPage.styled';
-import { useState } from 'react';
+  StatisticsWrapper,
+} from '../SignUpPage/SignUpPage.styled';
 
 const SignInPage = () => {
   const [isPassword, setIsPassword] = useState(false);
@@ -83,13 +86,13 @@ const SignInPage = () => {
   };
 
   return (
-    <Container className="Container">
-      <WrapperDesktop className="Photo"></WrapperDesktop>
-      <WrapperForm className="section">
-        <WrapperText className="text-conteiner">
+    <Container>
+      <WrapperDesktop></WrapperDesktop>
+      <WrapperForm>
+        <WrapperText>
           <Title>Sign In</Title>
           <ToastContainer />
-          <Text className="text-p">
+          <Text>
             Welcome! Please enter your credentials to login to the platform:
           </Text>
         </WrapperText>
@@ -110,9 +113,9 @@ const SignInPage = () => {
           </AuthForm>
         </div>
       </WrapperForm>
-      <StatisticsBox>
-        <StatisticsSignIn />
-      </StatisticsBox>
+      <StatisticsWrapper>
+        <Statistics />
+      </StatisticsWrapper>
     </Container>
   );
 };
