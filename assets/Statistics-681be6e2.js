@@ -1,4 +1,4 @@
-import{n as i,j as e,I as t}from"./index-7714adef.js";const n=i.div`
+import{n as i,j as e,I as t}from"./index-71b98363.js";const n=i.div`
   position: absolute;
   left: 35%;
   top: 180%;
@@ -41,7 +41,7 @@ import{n as i,j as e,I as t}from"./index-7714adef.js";const n=i.div`
     width: 40px;
     height: 40px;
   }
-`,x=i.svg`
+`,a=i.svg`
   width: 12px;
   height: 12px;
 
@@ -49,7 +49,7 @@ import{n as i,j as e,I as t}from"./index-7714adef.js";const n=i.div`
     width: 20px;
     height: 20px;
   }
-`,a=i.p`
+`,x=i.p`
   color: #efede8;
   font-size: 16px;
   font-weight: 700;
@@ -70,7 +70,7 @@ import{n as i,j as e,I as t}from"./index-7714adef.js";const n=i.div`
     font-size: 16px;
     line-height: calc(24 / 16);
   }
-`,p=i.div`
+`,o=i.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -98,7 +98,7 @@ import{n as i,j as e,I as t}from"./index-7714adef.js";const n=i.div`
     margin-top: 39px;
     margin-left: 458px;
   }
-`,o=i.div`
+`,p=i.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -147,4 +147,4 @@ import{n as i,j as e,I as t}from"./index-7714adef.js";const n=i.div`
   @media screen and (min-width: 768px) {
     gap: 11px;
   }
-`,m=()=>e.jsxs(e.Fragment,{children:[e.jsxs(d,{children:[e.jsx(s,{children:e.jsx(x,{children:e.jsx("use",{href:t+"#icon-play"})})}),e.jsxs("div",{children:[e.jsx(a,{children:"350+"}),e.jsx(r,{children:"Video tutorial"})]})]}),e.jsxs(p,{children:[e.jsx(o,{children:e.jsx(c,{children:e.jsx("use",{href:t+"#icon-run"})})}),e.jsxs(g,{children:[e.jsx(h,{children:"500"}),e.jsx(l,{children:"cal"})]})]})]}),w=()=>e.jsx(n,{children:e.jsx(m,{})});export{m as E,w as S};
+`,m=()=>e.jsxs(e.Fragment,{children:[e.jsxs(d,{children:[e.jsx(s,{children:e.jsx(a,{children:e.jsx("use",{href:t+"#icon-play"})})}),e.jsxs("div",{children:[e.jsx(x,{children:"350+"}),e.jsx(r,{children:"Video tutorial"})]})]}),e.jsxs(o,{className:"calories-box",children:[e.jsx(p,{children:e.jsx(c,{children:e.jsx("use",{href:t+"#icon-run"})})}),e.jsxs(g,{children:[e.jsx(h,{children:"500"}),e.jsx(l,{children:"cal"})]})]})]}),w=()=>e.jsx(n,{children:e.jsx(m,{})});export{m as E,w as S};
