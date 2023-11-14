@@ -1,4 +1,4 @@
-import{n as e,j as i,I as t,N as n}from"./index-71b98363.js";import{S as o}from"./Statistics-681be6e2.js";import{d as r,a as p}from"./default-desktop-2x-90147dc9.js";import{m as a,a as d,t as s,b as x}from"./default-mobile-2x-a3b76961.js";const l=e.h1`
+import{n as e,j as i,I as t,N as n}from"./index-5c437c7c.js";import{S as o}from"./Statistics-e9ef838b.js";import{d as r,a as p}from"./default-desktop-2x-90147dc9.js";import{m as a,a as d,t as s,b as x}from"./default-mobile-2x-a3b76961.js";const l=e.h1`
   color: #efede8;
   font-size: 38px;
   font-weight: 500;
