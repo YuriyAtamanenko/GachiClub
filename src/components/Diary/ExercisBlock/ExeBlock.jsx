@@ -22,6 +22,7 @@ import { removeExerciseThunk } from '../../../redux/Diary/operations';
 const ExeBlock = () => {
   const dispatch = useDispatch();
   const exercises = useSelector(store => store.diary.exercises);
+  const currentDate = useSelector(store => store.diary.date);
 
   return (
     <>
@@ -104,7 +105,7 @@ const ExeBlock = () => {
                           onClick={() =>
                             dispatch(
                               removeExerciseThunk({
-                                date: '29-09-2023',
+                                date: currentDate,
                                 exerciseToRemove: _id,
                               }),
                             )
