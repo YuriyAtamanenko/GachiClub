@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import sprite from '../../../images/sprite.svg';
 import {
@@ -23,7 +22,7 @@ import { removeProductThunk } from '../../../redux/Diary/operations';
 const ProdBlock = () => {
   const dispatch = useDispatch();
   const products = useSelector(store => store.diary.products);
-  console.log(products);
+  const currentDate = useSelector(store => store.diary.date);
 
   return (
     <>
@@ -97,7 +96,7 @@ const ProdBlock = () => {
                         onClick={() =>
                           dispatch(
                             removeProductThunk({
-                              date: '29-09-2023',
+                              date: currentDate,
                               productToRemove: _id,
                             }),
                           )

@@ -9,7 +9,6 @@ import {
 
 const getActivities = (state, action) => {
   state.products = action.payload.data.products;
-  console.log(action.payload.data.exercises);
   state.exercises = action.payload.data.exercises;
 };
 export const diarySlice = createSlice({
@@ -28,6 +27,12 @@ export const diarySlice = createSlice({
     updatedAt: null,
     _id: null,
   },
+  reducers: {
+    changeDate(state, { payload }) {
+      state.date = payload;
+    },
+  },
+
   extraReducers: builder =>
     builder
       .addCase(getDiaryThunk.pending, pending)
@@ -81,4 +86,6 @@ function deleteElementFulfilled(state, { payload }) {
   state.sportDuration = data.time;
   state.isLoading = false;
 }
+
+export const { changeDate } = diarySlice.actions;
 export const diaryReducer = diarySlice.reducer;
