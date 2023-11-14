@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getDiaryThunk } from '../../../redux/Diary/operations';
+import { changeDate } from '../../../redux/Diary/slice';
 import sprite from '../../../images/sprite.svg';
 
 import {
@@ -28,6 +29,7 @@ const TitleCall = () => {
 
   useEffect(() => {
     dispatch(getDiaryThunk(formatingDate(startDate)));
+    dispatch(changeDate(formatingDate(startDate)));
   });
 
   const handleLeftButtonClick = () => {

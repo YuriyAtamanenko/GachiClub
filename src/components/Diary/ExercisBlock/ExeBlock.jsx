@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import sprite from '../../../images/sprite.svg';
 import {
@@ -23,7 +22,6 @@ import { removeExerciseThunk } from '../../../redux/Diary/operations';
 const ExeBlock = () => {
   const dispatch = useDispatch();
   const exercises = useSelector(store => store.diary.exercises);
-  console.log(exercises);
 
   return (
     <>
