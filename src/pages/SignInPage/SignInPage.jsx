@@ -38,7 +38,6 @@ const SignInPage = () => {
   });
 
   const handleSubmit = async (values, action) => {
-    console.log('handleSubmit', values, action);
     try {
       const user = await checkUser(values.email, values.password);
 
