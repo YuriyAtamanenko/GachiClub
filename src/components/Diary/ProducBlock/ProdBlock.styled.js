@@ -254,6 +254,9 @@ export const ItemProducts = styled.li`
 `;
 
 export const ContentProducts = styled.div`
+  display: flex;
+  align-items: center;
+
   @media screen and (min-width: 375px) {
     position: relative;
     display: flex;
@@ -375,4 +378,18 @@ export const TitleProducts = styled.p`
   }
   @media screen and (min-width: 1440px) {
   }
+`;
+
+export const Circle = styled.div`
+  width: 14px;
+  height: 14px;
+  border-radius: 10px;
+  margin-right: 5px;
+`;
+
+export const Recommended = styled.p`
+  color: #efede8;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
 `;

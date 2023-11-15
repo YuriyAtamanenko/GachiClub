@@ -16,6 +16,8 @@ import {
   LabelProducts,
   ButtonDelProd,
   SvgIconDel,
+  Circle,
+  Recommended,
 } from './ProdBlock.styled';
 import { removeProductThunk } from '../../../redux/Diary/operations';
 
@@ -23,6 +25,8 @@ const ProdBlock = () => {
   const dispatch = useDispatch();
   const products = useSelector(store => store.diary.products);
   const currentDate = useSelector(store => store.diary.date);
+  console.log(products);
+  const groupBlood = 2;
 
   return (
     <>
@@ -59,7 +63,8 @@ const ProdBlock = () => {
                     amount,
                     calories,
                     _id,
-                    productId: { category, title },
+
+                    productId: { category, title, groupBloodNotAllowed },
                   }) => (
                     <ItemProducts key={_id}>
                       <ContentProducts className="title">
@@ -90,7 +95,18 @@ const ProdBlock = () => {
                         <LabelProducts className="labRecommend">
                           Recommend
                         </LabelProducts>
-                        <TitleProducts>REC</TitleProducts>
+                        <Circle
+                          style={{
+                            backgroundColor: `${
+                              groupBloodNotAllowed[groupBlood]
+                                ? '#E9101D'
+                                : '#419B09'
+                            }`,
+                          }}
+                        ></Circle>
+                        <Recommended>
+                          {groupBloodNotAllowed[groupBlood] ? 'No' : 'Yes'}
+                        </Recommended>
                       </ContentProducts>
                       <ButtonDelProd
                         onClick={() =>
