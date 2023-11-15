@@ -1,4 +1,4 @@
-import{P as c,j as e,u as b,K as R,M as q,O as L,r as h,b as g,S as Q,T as _,I as m,U as $,V as f,W as ee,X as w,L as te}from"./index-b4bd3b51.js";import{s as t}from"./styled-components.browser.esm-6f10cb9a.js";import{r as D}from"./react-responsive-22e0c575.js";import{d as ie,a as ne}from"./default-desktop-2x-90147dc9.js";const oe=i=>i.exercises.title,re=i=>i.exercises.category,se=i=>i.exercises.isToggled,ae=i=>i.exercises.exerciseIndex,ce=i=>i.exercises.isSuccess,le=i=>i.exercises.modalIsOpen,de=i=>i.exercises,xe=i=>i.exercises.allExercises,pe=t.h1`
+import{P as c,j as e,u as b,K as R,M as q,O as L,r as h,b as g,S as Q,T as _,I as m,U as $,V as f,W as ee,X as w,L as te}from"./index-31e13ac7.js";import{s as t}from"./styled-components.browser.esm-adad23e6.js";import{r as D}from"./react-responsive-c522a725.js";import{d as ie,a as ne}from"./default-desktop-2x-90147dc9.js";const oe=i=>i.exercises.title,re=i=>i.exercises.category,se=i=>i.exercises.isToggled,ae=i=>i.exercises.exerciseIndex,ce=i=>i.exercises.isSuccess,le=i=>i.exercises.modalIsOpen,de=i=>i.exercises,xe=i=>i.exercises.allExercises,pe=t.h1`
   margin-bottom: 20px;
   color: #efede8;
   font-family: Roboto;

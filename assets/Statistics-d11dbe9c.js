@@ -1,4 +1,4 @@
-import{n as i,j as e,I as t}from"./index-b4bd3b51.js";const n=i.div`
+import{n as i,j as e,I as t}from"./index-31e13ac7.js";const n=i.div`
   position: absolute;
   left: 35%;
   top: 180%;
