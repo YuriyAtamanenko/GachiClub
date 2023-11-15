@@ -20,13 +20,13 @@ import {
   Recommended,
 } from './ProdBlock.styled';
 import { removeProductThunk } from '../../../redux/Diary/operations';
+import { selectGroupBlood } from '../../../redux/Authorization/selector';
 
 const ProdBlock = () => {
   const dispatch = useDispatch();
   const products = useSelector(store => store.diary.products);
   const currentDate = useSelector(store => store.diary.date);
-  console.log(products);
-  const groupBlood = 2;
+  const groupBlood = useSelector(selectGroupBlood);
 
   return (
     <>
